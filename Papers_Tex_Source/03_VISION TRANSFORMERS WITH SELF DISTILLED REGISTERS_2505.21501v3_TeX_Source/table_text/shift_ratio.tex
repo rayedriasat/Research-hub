@@ -1,0 +1,23 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\renewcommand{\arraystretch}{1.2}
+\begin{table*}[t]
+\centering
+\caption{\textbf{Effect of Shifting Ratio.} This table reports the impact of different shifting ratios used in the denoising process, as defined in \ref{teacher_method}. Throughout this experiment, we use \texttt{OpenAI CLIP ViT-B/16} as the backbone for the model and apply 10 augmentations in the denosing process.}
+\vspace{.1cm}
+\resizebox{0.85\columnwidth}{!}{%
+\small
+\begin{tabular}{l|ccccccccc}
+\hline
+Ratio & VOC21 & PC60 & Object & VOC20 & PC59 & Stuff & City & ADE & Avg.   \\ \hline
+0\%   & 58.88          & 32.20          & 33.15          & 79.70          & 35.16          & 23.30      & 35.48     & 17.42  & 39.41 \\
+10\%  & \textbf{60.49} & \textbf{32.91} & \textbf{33.73} & \textbf{80.47} & \textbf{35.94} & 23.86      & 36.60     & 17.94  & 40.24 \\
+15\%  & 60.47          & 32.89          & 33.61          & 80.36          & \textbf{35.94}          & \textbf{23.89}      & 36.87     & \textbf{18.10}  & \textbf{40.27} \\
+20\%  & 60.39          & 32.82          & 33.46          & 79.93          & 35.85          & 23.86      & 36.98     & 18.07  & 40.17 \\
+25\%  & 60.26          & 32.75          & 33.26          & 79.75          & 35.75          & 23.78      & 37.02     & 18.00  & 40.07 \\
+30\%  & 60.14          & 32.76          & 33.25          & 79.39          & 35.77          & 23.77      & \textbf{37.07}     & \textbf{18.10}  & 40.03 \\ \hline
+\end{tabular}%
+}
+\label{tab:shift-ratio}
+\vspace{-.2cm}
+\end{table*}

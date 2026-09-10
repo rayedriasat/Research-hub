@@ -1,0 +1,14 @@
+\usepackage{environ}
+
+\newif\ifsolution
+\solutiontrue
+\newcounter{solnequation}
+\newcounter{solneqtmp}
+\NewEnviron{soln}{
+    \setcounter{solneqtmp}{\value{equation}}
+    \setcounter{equation}{\value{solnequation}}
+    \renewcommand\theequation{S\arabic{equation}}
+    \ifsolution\color{red}\expandafter\textbf{Solution} \BODY\fi%
+    \setcounter{solnequation}{\value{equation}}
+    \setcounter{equation}{\value{solneqtmp}}
+    \renewcommand\theequation{\arabic{equation}}}

@@ -1,0 +1,25 @@
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=1\linewidth]{figs/dino_clip_artifact_masking.png}
+    \vspace{-2em}
+    \caption{Visualizations of sink (MA + Artifact) tokens masks applied to image features in the last two layers of CLIP~\cite{radford2021clip} and DINOv2~\cite{oquab2023dinov2}. Masks are constructed from our iterative detection method described in \ref{sec:iterative_masking}. Feature visualizations performed with NCut \cite{yang2024ncut} and L2 normalization show both the visual appearance of sink tokens and that masking can denoise features, emphasizing regions of interest with no additional training needed. More visualizations can be found in Appendix \ref{sec:appendix_zoo}.}
+    \label{fig:dino_clip_artifacts}
+\end{figure*}
+
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Massive and Artifact Tokens}
+
+Massive tokens in transformer models have been recognized as an important phenomenon that heavily influences model behavior. Previous research \cite{darcet2024vision} \cite{gu2024attnsink} \cite{sun2024massive} \cite{yu2024super} has identified these tokens as constituting a disproportionate amount of attention in the middle to late layers of large pretrained transformers, effectively acting as attention sinks. Notably, Sun et al. demonstrated that the presence of massive tokens is vital to overall model performance in language models~\cite{sun2024massive}. 
+
+Other studies \cite{darcet2024vision} \cite{yang2023emernerf} \cite{yang2024denoising} have noted the appearance of noisy artifacts in the intermediate and output features of self-supervised vision transformers such as CLIP \cite{radford2021clip} and DINOv2 \cite{oquab2023dinov2}. Specifically, Yang et al. proposed training a secondary denoising network to remove these artifacts, enjoying a performance gain on downstream tasks as a result ~\cite{yang2024denoising}. Darcet et al. \cite{darcet2024vision} observed that the quantity of massive tokens can be reduced by introducing register tokens in the training process; however, this does not fully resolve the emergence of artifacts \cite{yang2024denoising}. 
+
+Despite the clear importance of massive tokens for overall model performance, little work has been dedicated to analyzing the underlying mechanisms of their formation. Even fewer studies have examined the landscape of artifacts, leaving significant opportunity for further research in this area. 
+
+
+\subsection{Efficient Attention}
+The quadratic computational and memory requirements of the self-attention mechanism \cite{vaswani2017attention} in transformers have led to the development of various approaches to reduce its cost. Sparse attention techniques \cite{chen2023sparse} \cite{child2019sparseattn} \cite{ren2021combiner} limit the number of dot-product operations by only attending to a subset of tokens, while models such as the Linformer \cite{wang2020linformer} and Longformer \cite{beltagy2020longformer} employ structured sparse patterns (e.g., local windowed attention with task-specific global tokens) to achieve linear or near-linear complexity. These methods, along with others like Performer \cite{choromanski2020performer} that leverage random feature approximations, have shown promising improvements in scaling self-attention to longer sequences. 
+
+In particular, the Nystr\"om-based approach proposed by Xiong et al. \cite{xiong2021nystromformer} approximates the full attention matrix by sampling a subset of its columns and rows, thereby reducing the quadratic complexity to a function of the number of samples. However, many of these methods require additional training or finetuning to achieve state-of-the-art performance, highlighting an open challenge to develop training-free alternatives.

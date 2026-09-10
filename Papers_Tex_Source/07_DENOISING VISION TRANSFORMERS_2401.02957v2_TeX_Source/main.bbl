@@ -1,0 +1,144 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{brown2020language}
+Brown, T.B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D.M., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J., Berner, C., McCandlish, S., Radford, A., Sutskever, I., Amodei, D.: Language models are few-shot learners (2020)
+
+\bibitem{Carion_2020}
+Carion, N., Massa, F., Synnaeve, G., Usunier, N., Kirillov, A., Zagoruyko, S.: End-to-End Object Detection with Transformers, p. 213–229. Springer International Publishing (2020). \doi{10.1007/978-3-030-58452-8_13}, \url{http://dx.doi.org/10.1007/978-3-030-58452-8_13}
+
+\bibitem{caron2021emerging}
+Caron, M., Touvron, H., Misra, I., J{\'e}gou, H., Mairal, J., Bojanowski, P., Joulin, A.: Emerging properties in self-supervised vision transformers. In: Proceedings of the IEEE/CVF international conference on computer vision. pp. 9650--9660 (2021)
+
+\bibitem{Caron_2021}
+Caron, M., Touvron, H., Misra, I., Jegou, H., Mairal, J., Bojanowski, P., Joulin, A.: Emerging properties in self-supervised vision transformers. In: 2021 IEEE/CVF International Conference on Computer Vision (ICCV). IEEE (Oct 2021). \doi{10.1109/iccv48922.2021.00951}, \url{http://dx.doi.org/10.1109/ICCV48922.2021.00951}
+
+\bibitem{chen2021vision}
+Chen, X., Hsieh, C.J., Gong, B.: When vision transformers outperform resnets without pre-training or strong data augmentations. arXiv preprint arXiv:2106.01548  (2021)
+
+\bibitem{chowdhery2022palm}
+Chowdhery, A., Narang, S., Devlin, J., Bosma, M., Mishra, G., Roberts, A., Barham, P., Chung, H.W., Sutton, C., Gehrmann, S., Schuh, P., Shi, K., Tsvyashchenko, S., Maynez, J., Rao, A., Barnes, P., Tay, Y., Shazeer, N., Prabhakaran, V., Reif, E., Du, N., Hutchinson, B., Pope, R., Bradbury, J., Austin, J., Isard, M., Gur-Ari, G., Yin, P., Duke, T., Levskaya, A., Ghemawat, S., Dev, S., Michalewski, H., Garcia, X., Misra, V., Robinson, K., Fedus, L., Zhou, D., Ippolito, D., Luan, D., Lim, H., Zoph, B., Spiridonov, A., Sepassi, R., Dohan, D., Agrawal, S., Omernick, M., Dai, A.M., Pillai, T.S., Pellat, M., Lewkowycz, A., Moreira, E., Child, R., Polozov, O., Lee, K., Zhou, Z., Wang, X., Saeta, B., Diaz, M., Firat, O., Catasta, M., Wei, J., Meier-Hellstern, K., Eck, D., Dean, J., Petrov, S., Fiedel, N.: Palm: Scaling language modeling with pathways (2022)
+
+\bibitem{darcet2023vision}
+Darcet, T., Oquab, M., Mairal, J., Bojanowski, P.: Vision transformers need registers (2023)
+
+\bibitem{devlin2019bert}
+Devlin, J., Chang, M.W., Lee, K., Toutanova, K.: Bert: Pre-training of deep bidirectional transformers for language understanding (2019)
+
+\bibitem{dosovitskiy2021image}
+Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., Houlsby, N.: An image is worth 16x16 words: Transformers for image recognition at scale (2021)
+
+\bibitem{el2024scalable}
+El-Nouby, A., Klein, M., Zhai, S., Bautista, M.A., Toshev, A., Shankar, V., Susskind, J.M., Joulin, A.: Scalable pre-training of large autoregressive image models. arXiv preprint arXiv:2401.08541  (2024)
+
+\bibitem{pascal-voc-2007}
+Everingham, M., Van~Gool, L., Williams, C.K.I., Winn, J., Zisserman, A.: The {PASCAL} {V}isual {O}bject {C}lasses {C}hallenge 2007 {(VOC2007)} {R}esults. http://www.pascal-network.org/challenges/VOC/voc2007/workshop/index.html
+
+\bibitem{pascal-voc-2012}
+Everingham, M., Van~Gool, L., Williams, C.K.I., Winn, J., Zisserman, A.: The {PASCAL} {V}isual {O}bject {C}lasses {C}hallenge 2012 {(VOC2012)} {R}esults. http://www.pascal-network.org/challenges/VOC/voc2012/workshop/index.html
+
+\bibitem{fang2023eva}
+Fang, Y., Sun, Q., Wang, X., Huang, T., Wang, X., Cao, Y.: Eva-02: A visual representation for neon genesis. arXiv preprint arXiv:2303.11331  (2023)
+
+\bibitem{fang2022eva}
+Fang, Y., Wang, W., Xie, B., Sun, Q., Wu, L., Wang, X., Huang, T., Wang, X., Cao, Y.: Eva: Exploring the limits of masked visual representation learning at scale (2022)
+
+\bibitem{goyal2023think}
+Goyal, S., Ji, Z., Rawat, A.S., Menon, A.K., Kumar, S., Nagarajan, V.: Think before you speak: Training language models with pause tokens (2023)
+
+\bibitem{he2022masked}
+He, K., Chen, X., Xie, S., Li, Y., Doll{\'a}r, P., Girshick, R.: Masked autoencoders are scalable vision learners. In: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. pp. 16000--16009 (2022)
+
+\bibitem{kerr2023lerf}
+Kerr, J., Kim, C.M., Goldberg, K., Kanazawa, A., Tancik, M.: Lerf: Language embedded radiance fields (2023)
+
+\bibitem{kirillov2023segment}
+Kirillov, A., Mintun, E., Ravi, N., Mao, H., Rolland, C., Gustafson, L., Xiao, T., Whitehead, S., Berg, A.C., Lo, W.Y., Dollár, P., Girshick, R.: Segment anything (2023)
+
+\bibitem{kobayashi2022decomposing}
+Kobayashi, S., Matsumoto, E., Sitzmann, V.: Decomposing nerf for editing via feature field distillation (2022)
+
+\bibitem{li2018close}
+Li, N., Liu, S., Liu, Y., Zhao, S., Liu, M., Zhou, M.: Close to human quality tts with transformer. arXiv preprint arXiv:1809.08895  (2018)
+
+\bibitem{li2022exploring}
+Li, Y., Mao, H., Girshick, R., He, K.: Exploring plain vision transformer backbones for object detection. In: European Conference on Computer Vision. pp. 280--296. Springer (2022)
+
+\bibitem{lin2014microsoft}
+Lin, T.Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Doll{\'a}r, P., Zitnick, C.L.: Microsoft coco: Common objects in context. In: Computer Vision--ECCV 2014: 13th European Conference, Zurich, Switzerland, September 6-12, 2014, Proceedings, Part V 13. pp. 740--755. Springer (2014)
+
+\bibitem{muller2022instant}
+M{\"u}ller, T., Evans, A., Schied, C., Keller, A.: Instant neural graphics primitives with a multiresolution hash encoding. ACM Transactions on Graphics (ToG)  \textbf{41}(4),  1--15 (2022)
+
+\bibitem{Silberman_ECCV12}
+Nathan~Silberman, Derek~Hoiem, P.K., Fergus, R.: Indoor segmentation and support inference from rgbd images. In: ECCV (2012)
+
+\bibitem{oquab2023dinov2}
+Oquab, M., Darcet, T., Moutakanni, T., Vo, H., Szafraniec, M., Khalidov, V., Fernandez, P., Haziza, D., Massa, F., El-Nouby, A., et~al.: Dinov2: Learning robust visual features without supervision. arXiv preprint arXiv:2304.07193  (2023)
+
+\bibitem{press2022train}
+Press, O., Smith, N.A., Lewis, M.: Train short, test long: Attention with linear biases enables input length extrapolation (2022)
+
+\bibitem{radford2021learning}
+Radford, A., Kim, J.W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark, J., Krueger, G., Sutskever, I.: Learning transferable visual models from natural language supervision (2021)
+
+\bibitem{radford2018improving}
+Radford, A., Narasimhan, K., Salimans, T., Sutskever, I., et~al.: Improving language understanding by generative pre-training  (2018)
+
+\bibitem{radford2019language}
+Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., Sutskever, I., et~al.: Language models are unsupervised multitask learners. OpenAI blog  \textbf{1}(8), ~9 (2019)
+
+\bibitem{raffel2023exploring}
+Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W., Liu, P.J.: Exploring the limits of transfer learning with a unified text-to-text transformer (2023)
+
+\bibitem{ren2015faster}
+Ren, S., He, K., Girshick, R., Sun, J.: Faster r-cnn: Towards real-time object detection with region proposal networks. Advances in neural information processing systems  \textbf{28} (2015)
+
+\bibitem{shen2023distilled}
+Shen, W., Yang, G., Yu, A., Wong, J., Kaelbling, L.P., Isola, P.: Distilled feature fields enable few-shot language-guided manipulation. arXiv preprint arXiv:2308.07931  (2023)
+
+\bibitem{simeoni2021localizing}
+Sim{\'e}oni, O., Puy, G., Vo, H.V., Roburin, S., Gidaris, S., Bursuc, A., P{\'e}rez, P., Marlet, R., Ponce, J.: Localizing objects with self-supervised transformers and no labels. arXiv preprint arXiv:2109.14279  (2021)
+
+\bibitem{su2023roformer}
+Su, J., Lu, Y., Pan, S., Murtadha, A., Wen, B., Liu, Y.: Roformer: Enhanced transformer with rotary position embedding (2023)
+
+\bibitem{tancik2020fourfeat}
+Tancik, M., Srinivasan, P.P., Mildenhall, B., Fridovich-Keil, S., Raghavan, N., Singhal, U., Ramamoorthi, R., Barron, J.T., Ng, R.: Fourier features let networks learn high frequency functions in low dimensional domains. NeurIPS  (2020)
+
+\bibitem{touvron2022deit}
+Touvron, H., Cord, M., Jégou, H.: Deit iii: Revenge of the vit (2022)
+
+\bibitem{touvron2023llama}
+Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.A., Lacroix, T., Rozière, B., Goyal, N., Hambro, E., Azhar, F., Rodriguez, A., Joulin, A., Grave, E., Lample, G.: Llama: Open and efficient foundation language models (2023)
+
+\bibitem{vaswani2017attention}
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, {\L}., Polosukhin, I.: Attention is all you need. Advances in neural information processing systems  \textbf{30} (2017)
+
+\bibitem{vaswani2023attention}
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L., Polosukhin, I.: Attention is all you need (2023)
+
+\bibitem{voita2023neurons}
+Voita, E., Ferrando, J., Nalmpantis, C.: Neurons in large language models: Dead, n-gram, positional. arXiv preprint arXiv:2309.04827  (2023)
+
+\bibitem{Wang_2017}
+Wang, Y., Skerry-Ryan, R., Stanton, D., Wu, Y., Weiss, R.J., Jaitly, N., Yang, Z., Xiao, Y., Chen, Z., Bengio, S., Le, Q., Agiomyrgiannakis, Y., Clark, R., Saurous, R.A.: Tacotron: Towards end-to-end speech synthesis. In: Interspeech 2017. ISCA (2017). \doi{10.21437/interspeech.2017-1452}, \url{http://dx.doi.org/10.21437/Interspeech.2017-1452}
+
+\bibitem{rw2019timm}
+Wightman, R.: Pytorch image models. \url{https://github.com/rwightman/pytorch-image-models} (2019). \doi{10.5281/zenodo.4414861}
+
+\bibitem{xiao2023efficient}
+Xiao, G., Tian, Y., Chen, B., Han, S., Lewis, M.: Efficient streaming language models with attention sinks (2023)
+
+\bibitem{yang2023emernerf}
+Yang, J., Ivanovic, B., Litany, O., Weng, X., Kim, S.W., Li, B., Che, T., Xu, D., Fidler, S., Pavone, M., et~al.: Emernerf: Emergent spatial-temporal scene decomposition via self-supervision. In: The Twelfth International Conference on Learning Representations (2024)
+
+\bibitem{zhou2018semantic}
+Zhou, B., Zhao, H., Puig, X., Xiao, T., Fidler, S., Barriuso, A., Torralba, A.: Semantic understanding of scenes through the ade20k dataset (2018)
+
+\bibitem{zhou2021ibot}
+Zhou, J., Wei, C., Wang, H., Shen, W., Xie, C., Yuille, A., Kong, T.: ibot: Image bert pre-training with online tokenizer. arXiv preprint arXiv:2111.07832  (2021)
+
+\end{thebibliography}

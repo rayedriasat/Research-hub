@@ -1,0 +1,21 @@
+{
+  "downloaded_at_utc": "2026-07-15T16:17:40.869776+00:00",
+  "title": "Denoising Vision Transformers",
+  "arxiv_id": "2401.02957v2",
+  "requested_id": "2401.02957",
+  "authors": [
+    "Jiawei Yang",
+    "Katie Z Luo",
+    "Jiefeng Li",
+    "Congyue Deng",
+    "Leonidas Guibas",
+    "Dilip Krishnan",
+    "Kilian Q Weinberger",
+    "Yonglong Tian",
+    "Yue Wang"
+  ],
+  "abstract_url": "https://arxiv.org/abs/2401.02957v2",
+  "pdf_url": "https://arxiv.org/pdf/2401.02957v2.pdf",
+  "source_url": "https://arxiv.org/e-print/2401.02957v2",
+  "pdf_filename": "07_DENOISING VISION TRANSFORMERS_2401.02957v2.pdf"
+}

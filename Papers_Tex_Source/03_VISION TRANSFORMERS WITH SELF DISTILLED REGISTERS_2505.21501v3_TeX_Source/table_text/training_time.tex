@@ -1,0 +1,18 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\renewcommand{\arraystretch}{1.2}
+\begin{table*}[t]
+\centering
+\caption{\textbf{Training Time Efficiency Analysis.} We report the training time of our PH-Reg method compared to DVT. For fairness, we restrict all stages of our model to a single GPU and evaluate the same model (DINOv2 ViT-B).}
+\vspace{.1cm}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{l|cccc}
+\hline
+Method & Stage 1 Extraction & Stage 1 Distillation & Stage 2 Training & Total               \\ \hline
+DVT    & 2998 min           & 18340 min            & 570 min          & 21908 min (365.1 h) \\
+PH-Reg & -                  & -                    & -                & 9000 min (150 h)    \\ \hline
+\end{tabular}%
+}
+\label{tab:training}
+\vspace{-.2cm}
+\end{table*}

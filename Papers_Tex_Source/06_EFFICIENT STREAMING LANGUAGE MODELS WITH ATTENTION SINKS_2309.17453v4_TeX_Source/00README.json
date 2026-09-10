@@ -1,0 +1,17 @@
+{
+  "downloaded_at_utc": "2026-07-15T16:16:58.812775+00:00",
+  "title": "Efficient Streaming Language Models with Attention Sinks",
+  "arxiv_id": "2309.17453v4",
+  "requested_id": "2309.17453",
+  "authors": [
+    "Guangxuan Xiao",
+    "Yuandong Tian",
+    "Beidi Chen",
+    "Song Han",
+    "Mike Lewis"
+  ],
+  "abstract_url": "https://arxiv.org/abs/2309.17453v4",
+  "pdf_url": "https://arxiv.org/pdf/2309.17453v4.pdf",
+  "source_url": "https://arxiv.org/e-print/2309.17453v4",
+  "pdf_filename": "06_EFFICIENT STREAMING LANGUAGE MODELS WITH ATTENTION SINKS_2309.17453v4.pdf"
+}

@@ -1,0 +1,16 @@
+In this section, we provide a detailed efficiency analysis of PH-Reg compared to DVT, focusing on three aspects: training time, space usage, and inference cost.
+
+\input{table_text/training_time}
+\textbf{Training Time.} When evaluating training time, we utilize the official code provided in the DVT repository without any modification. The original DVT code specifies a single GPU for feature extraction and learning – for fairness we also limit all stages of our own model to a single GPU here. For DVT and PH-Reg, we evaluate the same model (DINOv2 ViT-B).
+Results are illustrated in Table~\ref{tab:training}. Our method has the advantage of not utilizing gradient-based neural field learning as done in DVT. Therefore, our method trains the student model in a single stage, saving over 58.9\% of the time compared to DVT.
+
+
+\textbf{Space Usage.} A further advantage is the space utilization during training. DVT requires saving 1.4 terabytes of intermediate neural fields in the form of serialized Instant-NGP files. Our method computes all distillation targets on the fly, and requires no additional space.
+
+\input{table_text/inference}
+\textbf{Inference Cost.} When evaluating testing cost for all models, we cast parameters to \emph{fp32} dtype, and use eager attention implementation for all models. For our method, we include the positional embeddings adapted for 448 resolution. For MaskCLIP and NACLIP, current official implementations have the same number of parameters as the original CLIP, although a small reduction can be achieve in MaskCLIP by discarding the last \emph{q, k} head.
+For DVT, we evaluate their stage 2 model, corresponding to the transformer block denoiser coupled to a original vision transformer.
+Results are illustrated in Table~\ref{tab:inference}. Our method utilizes approximately 10\% fewer FLOPs and 10\% fewer parameters during inference compared to DVT. 
+
+
+

@@ -1,0 +1,22 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\renewcommand{\arraystretch}{1.2}
+\begin{table*}[t]
+\centering
+\caption{\textbf{Inference Efficiency Analysis.} We report the inference cost results for all models, evaluating efficiency based on model size and GFLOPs.}
+\vspace{.1cm}
+\resizebox{0.6\columnwidth}{!}{
+\begin{tabular}{l|cc}
+\hline
+Method                                 & GFLOPs & Params (M) \\ \hline
+MaskCLIP                               & 62.89  & 86.19      \\
+NACLIP                                 & 64.76  & 86.19      \\
+NACLIP w/ denoising (10x) & 647.6  & 86.19      \\
+NACLIP + DVT                             & 70.32  & 94.07      \\
+CLIP + PH-Reg (Ours)                   & 64.16  & 86.66 \\
+\hline
+\end{tabular}
+}
+\label{tab:inference}
+\vspace{-.2cm}
+\end{table*}

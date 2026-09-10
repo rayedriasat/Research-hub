@@ -1,0 +1,180 @@
+\documentclass[runningheads]{llncs}
+\usepackage[mobile]{eccv}
+% \usepackage{eccv}
+\usepackage{eccvabbrv}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[accsupp]{axessibility}  %
+
+
+\usepackage{eccvabbrv}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+
+%\usepackage[pagenumbers]{cvpr} % To force page numbers, e.g. for an arXiv version
+\definecolor{linkcolor}{HTML}{ED1C24}
+\usepackage[pagebackref,breaklinks,colorlinks,citecolor=eccvblue]{hyperref}
+\usepackage{orcidlink}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{tabularx}
+\usepackage{color, colortbl}
+\usepackage{physics}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{footnote}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{tabularx,booktabs}
+\usepackage{etoolbox}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+
+\renewcommand{\ttdefault}{ptm}  % we re-define sffamily as Times Roman for tables
+
+\usepackage{amsmath, amssymb, caption, subcaption, multirow, overpic, textpos}
+
+
+\newcommand{\ours}{DVT\xspace}
+\newcommand{\ourslong}{Denoising Vision Transformers\xspace}
+
+
+\newlength\savewidth\newcommand\shline{\noalign{\global\savewidth\arrayrulewidth
+  \global\arrayrulewidth 1pt}\hline\noalign{\global\arrayrulewidth\savewidth}}
+\newcommand{\tablestyle}[2]{\ttfamily\setlength{\tabcolsep}{#1}\renewcommand{\arraystretch}{#2}\centering\scriptsize}
+\definecolor{baselinecolor}{gray}{.9}
+\newcommand{\baseline}[1]{\cellcolor{baselinecolor}{#1}}
+
+\newcolumntype{x}[1]{>{\centering\arraybackslash}p{#1pt}}
+\newcolumntype{y}[1]{>{\raggedright\arraybackslash}p{#1pt}}
+\newcolumntype{z}[1]{>{\raggedleft\arraybackslash}p{#1pt}}
+
+\usepackage[pagebackref,breaklinks,colorlinks,citecolor=eccvblue]{hyperref}
+\usepackage{hyperref}
+
+% Support for ORCID icon
+\usepackage{orcidlink}
+\usepackage{python}
+
+\definecolor{darkpastelgreen}{rgb}{0.01, 0.75, 0.24}
+\definecolor{darkgray}{rgb}{0.66, 0.66, 0.66}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{bleudefrance}{rgb}{0.19, 0.55, 0.91}
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+\newcommand\blfootnote[1]{\begingroup\renewcommand\thefootnote{}\footnote{#1}\addtocounter{footnote}{-1}\endgroup}
+\newcolumntype{x}[1]{>{\centering\arraybackslash}p{#1pt}}
+\newcolumntype{y}[1]{>{\raggedright\arraybackslash}p{#1pt}}
+\newcolumntype{z}[1]{>{\raggedleft\arraybackslash}p{#1pt}}
+\usepackage[capitalize]{cleveref}
+\newcommand{\app}{\raise.17ex\hbox{$\scriptstyle\sim$}}
+\newcommand{\mypm}[1]{\color{gray}{\tiny{$\pm$#1}}}
+\newcommand{\x}{{\times}}
+\definecolor{deemph}{gray}{0.7}
+\newcommand{\gc}[1]{\textcolor{gray}{#1}}
+\newcommand{\authorskip}{\hspace{2.5mm}}
+\newcommand{\increase}[1]{{\color{darkpastelgreen} #1}}
+\newcommand{\decrease}[1]{{\color{darkgray} #1}}
+
+
+\newcolumntype{x}[1]{>{\centering\arraybackslash}p{#1pt}}
+\newcolumntype{y}[1]{>{\raggedright\arraybackslash}p{#1pt}}
+\newcolumntype{z}[1]{>{\raggedleft\arraybackslash}p{#1pt}}
+
+\newenvironment{Itemize}%
+{
+\setlength{\leftmargini}{9pt}%
+\begin{itemize}%
+\setlength{\itemsep}{0pt}%
+\setlength{\topsep}{0pt}%
+\setlength{\partopsep}{0pt}%
+\setlength{\parskip}{0pt}}%
+{\end{itemize}}
+
+\renewcommand{\paragraph}[1]{\vspace{1.25mm}\noindent\textbf{#1}}
+
+\captionsetup[table]{labelfont=footnotesize,textfont=footnotesize}
+\captionsetup[figure]{labelfont=footnotesize,textfont=footnotesize}
+
+\graphicspath{{./figures/}}
+
+
+\newcommand{\kt}[1]{{\color{green} (Katie: #1)}\xspace}
+\definecolor{brandeisblue}{rgb}{0.0, 0.44, 1.0}
+\definecolor{burntorange}{rgb}{0.8, 0.33, 0.0}
+\newcommand{\jiawei}[1]{\textbf{\color{brandeisblue}\small [Jiawei: #1]}}
+\newcommand{\yue}[1]{\textbf{\color{red}\small [Yue: #1]}}
+\newcommand{\yonglong}[1]{\textbf{\color{burntorange}\small [Yonglong: #1]}}
+\newcommand{\dilip}[1]{\textcolor{green}\small{Dilip:#1}}
+
+
+\begin{document}
+
+% ---------------------------------------------------------------
+\title{\ourslong}
+\titlerunning{\ourslong}
+
+
+\author{
+    Jiawei Yang$^{*,\dagger,1,}$\thanks{Work partially completed while interning at Google Research} \hspace{2.5mm}
+    Katie Z Luo$^{*,2}$ \hspace{2.5mm}
+    Jiefeng Li$^3$ \hspace{2.5mm}
+    Congyue Deng$^4$ \\
+    Leonidas Guibas$^4$ \hspace{2.5mm}
+    Dilip Krishnan$^5$ \hspace{2.5mm}
+    Kilian Q Weinberger$^2$\\
+    Yonglong Tian$^5$ \hspace{2.5mm}
+    Yue Wang$^1$
+}
+\institute{
+    $^1$University of Southern California \hspace{2.5mm} $^2$Cornell University
+    \\ $^3$Shanghai Jiaotong University \hspace{2.5mm} $^4$Stanford University
+    \\
+    $^5$Google DeepMind \\
+    $^*$equal technical contribution \hspace{5mm} $^\dagger$project lead
+}
+\authorrunning{J.\ Yang, K.\ Luo et al.}
+
+
+\maketitle
+
+%##################################################################################################
+\begin{center}
+    \captionsetup{type=figure}
+    \includegraphics[width=0.99\linewidth]{figures/fig1_teaser.pdf}
+    \captionof{figure}{\textbf{\ourslong (\ours)} effectively suppresses noisy artifacts in the visual features of all Vision Transformers (ViTs) we have tested and improves performance on a broad spectrum of dense prediction tasks, including semantic segmentation, depth estimation, object detection, and object discovery.
+    Our evaluation encompasses a representative set of ViTs, including DINOv2 \cite{oquab2023dinov2}, DeiT-III \cite{touvron2022deit}, EVA-02 \cite{fang2023eva}, CLIP \cite{radford2021learning}, and DINOv2-reg \cite{darcet2023vision}.
+        We visualize the features before and after \ours{}, colored via principal component analysis (PCA). Best viewed in color. \textbf{Right}: We report the downstream dense prediction task performances, averaged over all models.}
+    \label{fig:teaser}
+\end{center}
+%##################################################################################################
+
+\input{sections/0_abstract}
+\input{sections/1_introduction}
+\input{sections/2_related}
+\input{sections/3_preliminary}
+\input{sections/4_methods}
+\input{sections/5_experiments}
+\input{sections/6_discussion}
+% \input{sections/S_supplementary}
+
+\section*{Acknowledgements}
+We are grateful to many friends,
+including Jiageng Mao, Junjie Ye, Justin Lovelace, Varsha Kishore, and Christian Belardi, for their fruitful discussions on this work and follow-ups. Katie Luo is supported by an Nvidia Graduate Fellowship. Leonidas Guibas acknowledges the support from a Vannevar Bush Faculty Fellowship. We also acknowledge an unrestricted gift from Google in support of this project.
+
+% \maketitlesupplementary
+
+\bibliographystyle{splncs04}
+\bibliography{main}
+
+\clearpage
+\input{sections/S_supplementary}
+
+
+\end{document}

@@ -1,0 +1,237 @@
+\begin{thebibliography}{45}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Aghajanyan et~al.(2021)Aghajanyan, Gupta, and Zettlemoyer]{aghajanyan2021intrinsic}
+Armen Aghajanyan, Sonal Gupta, and Luke Zettlemoyer.
+\newblock Intrinsic dimensionality explains the effectiveness of language model fine-tuning.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)}, pp.\  7319--7328, 2021.
+
+\bibitem[Azuma \& Matsui(2023)Azuma and Matsui]{azuma2023defense}
+Hiroki Azuma and Yusuke Matsui.
+\newblock Defense-prefix for preventing typographic attacks on clip.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on Computer Vision}, pp.\  3644--3653, 2023.
+
+\bibitem[Bau et~al.(2017)Bau, Zhou, Khosla, Oliva, and Torralba]{8099837}
+David Bau, Bolei Zhou, Aditya Khosla, Aude Oliva, and Antonio Torralba.
+\newblock Network dissection: Quantifying interpretability of deep visual representations.
+\newblock In \emph{2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, pp.\  3319--3327, 2017.
+\newblock \doi{10.1109/CVPR.2017.354}.
+
+\bibitem[Bondarenko et~al.(2023)Bondarenko, Nagel, and Blankevoort]{bondarenko2023quantizable}
+Yelysei Bondarenko, Markus Nagel, and Tijmen Blankevoort.
+\newblock Quantizable transformers: Removing outliers by helping attention heads do nothing.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36:\penalty0 75067--75096, 2023.
+
+\bibitem[Caron et~al.(2021)Caron, Touvron, Misra, J\'egou, Mairal, Bojanowski, and Joulin]{caron2021emerging}
+Mathilde Caron, Hugo Touvron, Ishan Misra, Herv\'e J\'egou, Julien Mairal, Piotr Bojanowski, and Armand Joulin.
+\newblock Emerging properties in self-supervised vision transformers.
+\newblock In \emph{Proceedings of the International Conference on Computer Vision (ICCV)}, 2021.
+
+\bibitem[Chefer et~al.(2021)Chefer, Gur, and Wolf]{Chefer_2021_CVPR}
+Hila Chefer, Shir Gur, and Lior Wolf.
+\newblock Transformer interpretability beyond attention visualization.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, pp.\  782--791, June 2021.
+
+\bibitem[Cherti et~al.(2023)Cherti, Beaumont, Wightman, Wortsman, Ilharco, Gordon, Schuhmann, Schmidt, and Jitsev]{openclip}
+Mehdi Cherti, Romain Beaumont, Ross Wightman, Mitchell Wortsman, Gabriel Ilharco, Cade Gordon, Christoph Schuhmann, Ludwig Schmidt, and Jenia Jitsev.
+\newblock Reproducible scaling laws for contrastive language-image learning.
+\newblock In \emph{Proceedings of the IEEE/CVF conference on computer vision and pattern recognition}, pp.\  2818--2829, 2023.
+
+\bibitem[Clark et~al.(2019)Clark, Khandelwal, Levy, and Manning]{clark2019does}
+Kevin Clark, Urvashi Khandelwal, Omer Levy, and Christopher~D Manning.
+\newblock What does bert look at? an analysis of bert’s attention.
+\newblock In \emph{Proceedings of the 2019 ACL Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP}, pp.\  276--286, 2019.
+
+\bibitem[Darcet et~al.(2024)Darcet, Oquab, Mairal, and Bojanowski]{darcet2024vision}
+Timoth{\'e}e Darcet, Maxime Oquab, Julien Mairal, and Piotr Bojanowski.
+\newblock Vision transformers need registers.
+\newblock In \emph{The Twelfth International Conference on Learning Representations}, 2024.
+
+\bibitem[Deng et~al.(2009)Deng, Dong, Socher, Li, Li, and Fei-Fei]{imagenet}
+Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Li~Fei-Fei.
+\newblock Imagenet: A large-scale hierarchical image database.
+\newblock In \emph{2009 IEEE Conference on Computer Vision and Pattern Recognition}, pp.\  248--255, 2009.
+\newblock \doi{10.1109/CVPR.2009.5206848}.
+
+\bibitem[Dettmers et~al.(2022)Dettmers, Lewis, Belkada, and Zettlemoyer]{dettmers2022gpt3}
+Tim Dettmers, Mike Lewis, Younes Belkada, and Luke Zettlemoyer.
+\newblock Gpt3. int8 (): 8-bit matrix multiplication for transformers at scale.
+\newblock \emph{Advances in neural information processing systems}, 35:\penalty0 30318--30332, 2022.
+
+\bibitem[Dosovitskiy et~al.(2021)Dosovitskiy, Beyer, Kolesnikov, Weissenborn, Zhai, Unterthiner, Dehghani, Minderer, Heigold, Gelly, Uszkoreit, and Houlsby]{dosovitskiy2020vit}
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby.
+\newblock An image is worth 16x16 words: Transformers for image recognition at scale.
+\newblock \emph{ICLR}, 2021.
+
+\bibitem[Dravid et~al.(2023)Dravid, Gandelsman, Efros, and Shocher]{dravid2023rosetta}
+Amil Dravid, Yossi Gandelsman, Alexei~A Efros, and Assaf Shocher.
+\newblock Rosetta neurons: Mining the common units in a model zoo.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on Computer Vision}, pp.\  1934--1943, 2023.
+
+\bibitem[Duan et~al.(2024)Duan, Yang, Qiao, Fang, Chen, Liu, Dong, Zang, Zhang, Wang, et~al.]{duan2024vlmevalkit}
+Haodong Duan, Junming Yang, Yuxuan Qiao, Xinyu Fang, Lin Chen, Yuan Liu, Xiaoyi Dong, Yuhang Zang, Pan Zhang, Jiaqi Wang, et~al.
+\newblock Vlmevalkit: An open-source toolkit for evaluating large multi-modality models.
+\newblock In \emph{Proceedings of the 32nd ACM international conference on multimedia}, pp.\  11198--11201, 2024.
+
+\bibitem[Everingham et~al.(2010)Everingham, Van~Gool, Williams, Winn, and Zisserman]{pascal}
+Mark Everingham, Luc Van~Gool, Christopher~KI Williams, John Winn, and Andrew Zisserman.
+\newblock The pascal visual object classes (voc) challenge.
+\newblock \emph{International journal of computer vision}, 88:\penalty0 303--338, 2010.
+
+\bibitem[Gandelsman et~al.(2025)Gandelsman, Efros, and Steinhardt]{gandelsman2024interpretingsecondordereffectsneurons}
+Yossi Gandelsman, Alexei~A Efros, and Jacob Steinhardt.
+\newblock Interpreting the second-order effects of neurons in {CLIP}.
+\newblock In \emph{The Thirteenth International Conference on Learning Representations}, 2025.
+
+\bibitem[Gu et~al.(2024)Gu, Pang, Du, Liu, Zhang, Du, Wang, and Lin]{guattention}
+Xiangming Gu, Tianyu Pang, Chao Du, Qian Liu, Fengzhuo Zhang, Cunxiao Du, Ye~Wang, and Min Lin.
+\newblock When attention sink emerges in language models: An empirical view.
+\newblock In \emph{The Thirteenth International Conference on Learning Representations}, 2024.
+
+\bibitem[Guillaumin et~al.(2014)Guillaumin, K\"{u}ttel, and Ferrari]{imagenetseg}
+Matthieu Guillaumin, Daniel K\"{u}ttel, and Vittorio Ferrari.
+\newblock Imagenet auto-annotation with segmentation propagation.
+\newblock \emph{Int. J. Comput. Vision}, 110\penalty0 (3):\penalty0 328–348, dec 2014.
+\newblock ISSN 0920-5691.
+\newblock \doi{10.1007/s11263-014-0713-9}.
+
+\bibitem[Hernandez et~al.(2021)Hernandez, Schwettmann, Bau, Bagashvili, Torralba, and Andreas]{hernandez2021natural}
+Evan Hernandez, Sarah Schwettmann, David Bau, Teona Bagashvili, Antonio Torralba, and Jacob Andreas.
+\newblock Natural language descriptions of deep visual features.
+\newblock In \emph{International Conference on Learning Representations}, 2021.
+
+\bibitem[Hooker et~al.(2019)Hooker, Erhan, Kindermans, and Kim]{NEURIPS2019_fe4b8556}
+Sara Hooker, Dumitru Erhan, Pieter-Jan Kindermans, and Been Kim.
+\newblock A benchmark for interpretability methods in deep neural networks.
+\newblock In H.~Wallach, H.~Larochelle, A.~Beygelzimer, F.~d\textquotesingle Alch\'{e}-Buc, E.~Fox, and R.~Garnett (eds.), \emph{Advances in Neural Information Processing Systems}, volume~32. Curran Associates, Inc., 2019.
+
+\bibitem[Hu et~al.(2022)Hu, Wallis, Allen-Zhu, Li, Wang, Wang, Chen, et~al.]{hulora}
+Edward~J Hu, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu~Wang, Weizhu Chen, et~al.
+\newblock Lora: Low-rank adaptation of large language models.
+\newblock In \emph{International Conference on Learning Representations}, 2022.
+
+\bibitem[Itti et~al.(2002)Itti, Koch, and Niebur]{itti2002model}
+Laurent Itti, Christof Koch, and Ernst Niebur.
+\newblock A model of saliency-based visual attention for rapid scene analysis.
+\newblock \emph{IEEE Transactions on pattern analysis and machine intelligence}, 20\penalty0 (11):\penalty0 1254--1259, 2002.
+
+\bibitem[Kobayashi et~al.(2020)Kobayashi, Kuribayashi, Yokoi, and Inui]{kobayashiattention}
+Goro Kobayashi, Tatsuki Kuribayashi, Sho Yokoi, and Kentaro Inui.
+\newblock Attention is not only a weight: Analyzing transformers with vector norms.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)}. Association for Computational Linguistics, 2020.
+
+\bibitem[Krizhevsky et~al.(2009)Krizhevsky, Hinton, et~al.]{krizhevsky2009learning}
+Alex Krizhevsky, Geoffrey Hinton, et~al.
+\newblock Learning multiple layers of features from tiny images.
+\newblock 2009.
+
+\bibitem[Li et~al.(2018)Li, Farkhoor, Liu, and Yosinski]{li2018measuring}
+Chunyuan Li, Heerad Farkhoor, Rosanne Liu, and Jason Yosinski.
+\newblock Measuring the intrinsic dimension of objective landscapes.
+\newblock In \emph{International Conference on Learning Representations}, 2018.
+
+\bibitem[Lin et~al.(2014)Lin, Maire, Belongie, Hays, Perona, Ramanan, Doll{\'a}r, and Zitnick]{coco}
+Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Doll{\'a}r, and C~Lawrence Zitnick.
+\newblock Microsoft coco: Common objects in context.
+\newblock In \emph{Computer vision--ECCV 2014: 13th European conference, zurich, Switzerland, September 6-12, 2014, proceedings, part v 13}, pp.\  740--755. Springer, 2014.
+
+\bibitem[Nakamura et~al.(2024)Nakamura, Nozawa, Lin, Nakata, and Ng]{nakamuraclustering}
+Kazumoto Nakamura, Yuji Nozawa, Yu-Chieh Lin, Kengo Nakata, and Youyang Ng.
+\newblock Improving image clustering with artifacts attenuation via inference-time attention engineering.
+\newblock In \emph{Proceedings of the Asian Conference on Computer Vision}, pp.\  3396--3413, 2024.
+
+\bibitem[Nathan~Silberman \& Fergus(2012)Nathan~Silberman and Fergus]{nyud}
+Pushmeet~Kohli Nathan~Silberman, Derek~Hoiem and Rob Fergus.
+\newblock Indoor segmentation and support inference from rgbd images.
+\newblock In \emph{ECCV}, 2012.
+
+\bibitem[Oquab et~al.(2024)Oquab, Darcet, Moutakanni, Vo, Szafraniec, Khalidov, Fernandez, Haziza, Massa, El-Nouby, et~al.]{dinov2}
+Maxime Oquab, Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, et~al.
+\newblock Dinov2: Learning robust visual features without supervision.
+\newblock \emph{Transactions on Machine Learning Research Journal}, pp.\  1--31, 2024.
+
+\bibitem[Radford et~al.(2021)Radford, Kim, Hallacy, Ramesh, Goh, Agarwal, Sastry, Askell, Mishkin, Clark, et~al.]{radford2021learning}
+Alec Radford, Jong~Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, et~al.
+\newblock Learning transferable visual models from natural language supervision.
+\newblock In \emph{International conference on machine learning}, pp.\  8748--8763. PmLR, 2021.
+
+\bibitem[Robinson et~al.(2024)Robinson, Drenkow, Conwell, and Bonner]{robinson2024sparse}
+Brian~S Robinson, Nathan Drenkow, Colin Conwell, and Michael Bonner.
+\newblock A sparse null code emerges in deep neural networks.
+\newblock In \emph{Proceedings of UniReps: the First Workshop on Unifying Representations in Neural Models}, pp.\  302--314. PMLR, 2024.
+
+\bibitem[Schuhmann et~al.(2022)Schuhmann, Beaumont, Vencu, Gordon, Wightman, Cherti, Coombes, Katta, Mullis, Wortsman, et~al.]{schuhmann2022laion}
+Christoph Schuhmann, Romain Beaumont, Richard Vencu, Cade Gordon, Ross Wightman, Mehdi Cherti, Theo Coombes, Aarush Katta, Clayton Mullis, Mitchell Wortsman, et~al.
+\newblock Laion-5b: An open large-scale dataset for training next generation image-text models.
+\newblock \emph{Advances in neural information processing systems}, 35:\penalty0 25278--25294, 2022.
+
+\bibitem[Schwettmann et~al.(2023)Schwettmann, Chowdhury, Klein, Bau, and Torralba]{schwettmann2023multimodal}
+Sarah Schwettmann, Neil Chowdhury, Samuel Klein, David Bau, and Antonio Torralba.
+\newblock Multimodal neurons in pretrained text-only transformers.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on Computer Vision}, pp.\  2862--2867, 2023.
+
+\bibitem[Shi et~al.(2023)Shi, Gai, Darrell, and Wang]{shi2023toasttransferlearningattention}
+Baifeng Shi, Siyu Gai, Trevor Darrell, and Xin Wang.
+\newblock Toast: Transfer learning via attention steering.
+\newblock \emph{arXiv preprint arXiv:2305.15542}, 2023.
+
+\bibitem[Sim{\'e}oni et~al.(2021)Sim{\'e}oni, Puy, Vo, Roburin, Gidaris, Bursuc, P{\'e}rez, Marlet, and Ponce]{lost}
+Oriane Sim{\'e}oni, Gilles Puy, Huy~V Vo, Simon Roburin, Spyros Gidaris, Andrei Bursuc, Patrick P{\'e}rez, Renaud Marlet, and Jean Ponce.
+\newblock Localizing objects with self-supervised transformers and no labels.
+\newblock \emph{arXiv preprint arXiv:2109.14279}, 2021.
+
+\bibitem[Sun et~al.(2024)Sun, Chen, Kolter, and Liu]{sunmassive}
+Mingjie Sun, Xinlei Chen, J~Zico Kolter, and Zhuang Liu.
+\newblock Massive activations in large language models.
+\newblock In \emph{First Conference on Language Modeling}, 2024.
+
+\bibitem[Vondrick et~al.(2013)Vondrick, Khosla, Malisiewicz, and Torralba]{vondrick2013hoggles}
+Carl Vondrick, Aditya Khosla, Tomasz Malisiewicz, and Antonio Torralba.
+\newblock Hoggles: Visualizing object detection features.
+\newblock In \emph{Proceedings of the IEEE International Conference on Computer Vision}, pp.\  1--8, 2013.
+
+\bibitem[Wang et~al.(2024)Wang, Zhang, and Salzmann]{wang2024sinder}
+Haoqi Wang, Tong Zhang, and Mathieu Salzmann.
+\newblock Sinder: Repairing the singular defects of dinov2.
+\newblock In \emph{European Conference on Computer Vision}, pp.\  20--35. Springer, 2024.
+
+\bibitem[Xiao et~al.(2023)Xiao, Lin, Seznec, Wu, Demouth, and Han]{xiao23c}
+Guangxuan Xiao, Ji~Lin, Mickael Seznec, Hao Wu, Julien Demouth, and Song Han.
+\newblock {S}mooth{Q}uant: Accurate and efficient post-training quantization for large language models.
+\newblock In \emph{Proceedings of the 40th International Conference on Machine Learning}, volume 202 of \emph{Proceedings of Machine Learning Research}, pp.\  38087--38099. PMLR, 23--29 Jul 2023.
+
+\bibitem[Xiao et~al.(2024)Xiao, Tian, Chen, Han, and Lewis]{xiaoefficient}
+Guangxuan Xiao, Yuandong Tian, Beidi Chen, Song Han, and Mike Lewis.
+\newblock Efficient streaming language models with attention sinks.
+\newblock In \emph{The Twelfth International Conference on Learning Representations}, 2024.
+
+\bibitem[Yang et~al.(2024)Yang, Luo, Li, Deng, Guibas, Krishnan, Weinberger, Tian, and Wang]{yang2024denoising}
+Jiawei Yang, Katie~Z Luo, Jiefeng Li, Congyue Deng, Leonidas Guibas, Dilip Krishnan, Kilian~Q Weinberger, Yonglong Tian, and Yue Wang.
+\newblock Denoising vision transformers.
+\newblock In \emph{European Conference on Computer Vision}, pp.\  453--469. Springer, 2024.
+
+\bibitem[Yona et~al.(2025)Yona, Shumailov, Hayes, and Gandelsman]{yona2025interpreting}
+Itay Yona, Ilia Shumailov, Jamie Hayes, and Yossi Gandelsman.
+\newblock Interpreting the repeated token phenomenon in large language models.
+\newblock In \emph{Forty-second International Conference on Machine Learning}, 2025.
+
+\bibitem[Zeiler \& Fergus(2014)Zeiler and Fergus]{zeiler2014visualizing}
+Matthew~D Zeiler and Rob Fergus.
+\newblock Visualizing and understanding convolutional networks.
+\newblock In \emph{Computer Vision--ECCV 2014: 13th European Conference, Zurich, Switzerland, September 6-12, 2014, Proceedings, Part I 13}, pp.\  818--833. Springer, 2014.
+
+\bibitem[Zhou et~al.(2017)Zhou, Zhao, Puig, Fidler, Barriuso, and Torralba]{ade20k}
+Bolei Zhou, Hang Zhao, Xavier Puig, Sanja Fidler, Adela Barriuso, and Antonio Torralba.
+\newblock Scene parsing through ade20k dataset.
+\newblock In \emph{Proceedings of the IEEE conference on computer vision and pattern recognition}, pp.\  633--641, 2017.
+
+\bibitem[Zhu et~al.(2025)Zhu, Wang, Chen, Liu, Ye, Gu, Tian, Duan, Su, Shao, et~al.]{zhu2025internvl3}
+Jinguo Zhu, Weiyun Wang, Zhe Chen, Zhaoyang Liu, Shenglong Ye, Lixin Gu, Hao Tian, Yuchen Duan, Weijie Su, Jie Shao, et~al.
+\newblock Internvl3: Exploring advanced training and test-time recipes for open-source multimodal models.
+\newblock \emph{arXiv preprint arXiv:2504.10479}, 2025.
+
+\end{thebibliography}

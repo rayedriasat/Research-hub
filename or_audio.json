@@ -1,0 +1,1451 @@
+{
+  "notes": [
+    {
+      "content": {
+        "summary": {
+          "value": "The authors introduce VocSegMRI, a deep learning framework that addresses the challenges of low-contrast articulatory segmentation in rtMRI by integrating synchronized audio and phonological features (voicing, place, and manner of articulation) with visual data. The architecture utilizes a ViT encoder for image features, a WavLM encoder for audio, and a Transformer decoder for cross-modal fusion, further supervised by a dual-level contrastive learning objective. Evaluated on the USC-75 dataset with zero-shot validation on the USC-TIMIT dataset, the model achieves a Dice score of 0.85, significantly outperforming unimodal models and previous multimodal state-of-the-art methods. This work is significant for its ability to leverage speech-related context to resolve visual ambiguities in medical imaging, particularly in challenging regions like the velum."
+        },
+        "review": {
+          "value": "The paper provides a high-quality approach to a specialized problem in medical imaging: the segmentation of vocal tract structures during continuous speech. The clarity of the methodology is excellent, particularly the description of the cross-attention fusion mechanism between the ViT-based visual encoder and the WavLM-based audio encoder. Originality is found in the specific integration of phonological embeddings—voicing, place, and manner of articulation—which reflect the underlying physical constraints of speech production.  The results are significant, showing that the model successfully addresses the low signal-to-noise ratio inherent in rtMRI by leveraging complementary acoustic context. The use of a contrastive loss term $L_{contrast}$ is well-justified for aligning visual and audio-phonological tokens in a shared latent space. The technical depth is appropriate for MIDL, though the model currently operates on a frame-by-frame basis"
+        },
+        "strengths": {
+          "value": "The main strength of VocSegMRI is its sophisticated integration of domain-specific knowledge—speech acoustics and phonological categories—into a computer vision task. By using a Transformer decoder for cross-attention, the model dynamically weighs the importance of audio cues relative to visual data. The inclusion of a contrastive learning head further ensures that the latent representations across modalities are well-aligned. The robust performance in zero-shot settings on the USC-TIMIT dataset is particularly impressive, suggesting the model captures fundamental articulatory-acoustic mappings."
+        },
+        "weaknesses": {
+          "value": "The paper's primary weakness is the absence of temporal context; speech is inherently a temporal process, and segmenting frame-by-frame ignores the continuity of movement. Additionally, the reliance on high-level phonological features (voicing, place, manner) suggests that the model's performance might degrade if the input speech is pathological or if the phoneme alignment is noisy. The sample size of the dataset is also a limitation, as it may not fully represent the diversity of human vocal tract anatomy or different speech rates and styles."
+        },
+        "confidence": { "value": 4 },
+        "rating": { "value": 4 },
+        "justification_of_rating": {
+          "value": "The paper is a solid contribution to the MIDL community, specifically for articulatory imaging. It shows a clear improvement over existing methods ($Dice = 0.85$ vs $0.80$ for the previous SOTA). The methodology is modern and the validation includes cross-dataset testing, which is a high standard for short papers. While it lacks temporal modeling, the performance gains from the proposed multimodal fusion and contrastive alignment are significant enough to warrant acceptance."
+        },
+        "title": { "value": "review for vocsegMRI" }
+      },
+      "parentInvitations": "MIDL.io/2026/Short_Papers/-/Official_Review",
+      "nonreaders": [],
+      "tmdate": 1778421291614,
+      "tcdate": 1777752096161,
+      "writers": [
+        "MIDL.io/2026/Short_Papers",
+        "MIDL.io/2026/Short_Papers/Submission14/Reviewer_PxE5"
+      ],
+      "signatures": ["MIDL.io/2026/Short_Papers/Submission14/Reviewer_PxE5"],
+      "forum": "lU2oFWVvef",
+      "number": 1,
+      "license": "CC BY 4.0",
+      "cdate": 1777752096161,
+      "readers": ["everyone"],
+      "invitations": [
+        "MIDL.io/2026/Short_Papers/Submission14/-/Official_Review",
+        "MIDL.io/2026/Short_Papers/-/Edit"
+      ],
+      "mdate": 1778421291614,
+      "domain": "MIDL.io/2026/Short_Papers",
+      "replyto": "lU2oFWVvef",
+      "id": "8ERnqrl0jF",
+      "forumContent": {},
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "The paper investigates the phenomenon of attention sink in LMs, where significant attention is allocated to the first token regardless of its semantic importance. Key findings include the correlation of the sink position with the loss function and data distribution, and the behavior of attention sink as key biases storing extra attention without contributing to value computation. The paper also shows that attention sinks do not emerge when softmax attention is replaced with other operations like sigmoid attention without normalization, up to 1B parameters."
+        },
+        "soundness": { "value": 4 },
+        "confidence": { "value": 4 },
+        "questions": {
+          "value": "- How to identify the token where attention-sink occurs? How to determine those locations?"
+        },
+        "rating": { "value": 6 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 3 },
+        "contribution": { "value": 3 },
+        "strengths": {
+          "value": "- The paper provides a thorough investigation into the attention sink phenomenon, covering various factors that influence its emergence in LMs.\n- The findings have practical applications in areas such as streaming/long context generation, KV cache optimization, and model quantization.\n- The study considers various model architectures, optimizers, and data distributions, offering a broad perspective on the attention sink phenomenon."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "- The study notes that attention sink disappears with less training data, suggesting that the models might be overfitting to certain aspects of the training data. It seems that these two factors cannot be decoupled, and it is impossible to explain whether it is over-fit or the amount of data that affects attention-sink.\n- The study claims that it focuses on the Language Models. However, this work pay more attention on auto-regressive LMs and may not capture the nuances of other types of encoder-like LMs or Jamba. Does those architecture can solve the attention-sink phenomenon?"
+        }
+      },
+      "nonreaders": [],
+      "tmdate": 1731428707775,
+      "tcdate": 1730730363465,
+      "writers": [
+        "ICLR.cc/2025/Conference",
+        "ICLR.cc/2025/Conference/Submission6630/Reviewer_5eYD"
+      ],
+      "signatures": ["ICLR.cc/2025/Conference/Submission6630/Reviewer_5eYD"],
+      "forum": "78Nn4QJTEN",
+      "number": 3,
+      "license": "CC BY 4.0",
+      "cdate": 1730730363465,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2025/Conference/Submission6630/-/Official_Review",
+        "ICLR.cc/2025/Conference/-/Edit"
+      ],
+      "mdate": 1731428707775,
+      "domain": "ICLR.cc/2025/Conference",
+      "replyto": "78Nn4QJTEN",
+      "id": "uFFuRvlKnP",
+      "forumContent": {
+        "venue": { "value": "ICLR 2025 Spotlight" },
+        "TLDR": {
+          "value": "We conduct extensive experiments to empirically understand when attention sink emerges in language models."
+        },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": {
+          "value": ["Attention Sink", "Language Models", "Empirical Study"]
+        },
+        "supplementary_material": {
+          "value": "/attachment/4da6745633eaf0b380e39d1da213c4991adea7f9.zip"
+        },
+        "primary_area": {
+          "value": "foundation or frontier models, including LLMs"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2025/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Auto-regressive language Models (LMs) assign significant attention to the first token, even if it is not semantically important, which is known as **attention sink**. This phenomenon has been widely adopted in applications such as streaming/long context generation, KV cache optimization, inference acceleration, model quantization, and others.  Despite its widespread use, a deep understanding of attention sink in LMs is still lacking. In this work, we first demonstrate that attention sinks exist universally in auto-regressive LMs with various inputs, even in small models. Furthermore, attention sink is observed to emerge during the LM pre-training, motivating us to investigate how *optimization*, *data distribution*, *loss function*, and *model architecture* in LM pre-training influence its emergence. We highlight that attention sink emerges after effective optimization on sufficient training data. The sink position is highly correlated with the loss function and data distribution. Most importantly, we find that attention sink acts more like key biases, *storing extra attention scores*, which could be non-informative and not contribute to the value computation. We also observe that this phenomenon (at least partially) stems from tokens' inner dependence on attention scores as a result of softmax normalization. After relaxing such dependence by replacing softmax attention with other attention operations, such as sigmoid attention without normalization, attention sinks do not emerge in LMs up to 1B parameters. The code is available at https://github.com/sail-sg/Attention-Sink."
+        },
+        "_bibtex": {
+          "value": "@inproceedings{\ngu2025when,\ntitle={When Attention Sink Emerges in Language Models: An Empirical View},\nauthor={Xiangming Gu and Tianyu Pang and Chao Du and Qian Liu and Fengzhuo Zhang and Cunxiao Du and Ye Wang and Min Lin},\nbooktitle={The Thirteenth International Conference on Learning Representations},\nyear={2025},\nurl={https://openreview.net/forum?id=78Nn4QJTEN}\n}"
+        },
+        "title": {
+          "value": "When Attention Sink Emerges in Language Models: An Empirical View"
+        },
+        "pdf": { "value": "/pdf/9aaa67673456a03600b010729b9555f2b0fe7fd4.pdf" },
+        "venueid": { "value": "ICLR.cc/2025/Conference" },
+        "paperhash": {
+          "value": "gu|when_attention_sink_emerges_in_language_models_an_empirical_view"
+        },
+        "authorids": {
+          "value": [
+            "~Xiangming_Gu1",
+            "~Tianyu_Pang1",
+            "~Chao_Du1",
+            "~Qian_Liu2",
+            "~Fengzhuo_Zhang1",
+            "~Cunxiao_Du3",
+            "~Ye_Wang3",
+            "~Min_Lin1"
+          ]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors’ identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": {
+          "value": [
+            "Xiangming Gu",
+            "Tianyu Pang",
+            "Chao Du",
+            "Qian Liu",
+            "Fengzhuo Zhang",
+            "Cunxiao Du",
+            "Ye Wang",
+            "Min Lin"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "The paper proposes RTFS-Net, a new time-frequency (TF) domain audio-visual speech separation method. It introduces three main innovations:\n\n* RTFS Blocks independently model time and frequency dimensions of audio\n* Cross-dimensional Attention Fusion Block efficiently fuses audio and visual data\n* Spectral Source Separation Block preserves phase/amplitude information\n\nExperiments show RTFS-Net matches or beats prior time domain methods on LRS2, LRS3, and VoxCeleb2 datasets, while using 10x fewer parameters and 3-6x fewer computations.\n\nRTFS-Net is the first TF model to surpass most contemporary time domain methods for audio-visual speech separation. It demonstrates TF domain methods can achieve good performance at lower computational cost through novel modeling of time-frequency spectrograms."
+        },
+        "presentation": { "value": "3 good" },
+        "contribution": { "value": "3 good" },
+        "soundness": { "value": "3 good" },
+        "strengths": {
+          "value": "* Achieves near state-of-the-art performance for audio-visual speech separation while being very parameter and computationally efficient\n* Outperforms all compared time domain methods, proving time-frequency domain modeling can achieve better performance if done effectively\n* Innovative modeling of time and frequency dimensions independently in RTFS Blocks\n* Attention-based fusion mechanism in CAF Block is very lightweight but fuses audio and visual data very effectively\n* Spectral Source Separation Block properly handles phase/amplitude to avoid losing audio information\n* Model code and weights will be released for full reproducibility"
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "* Testing is limited to only 2 speaker mixtures. Performance with more speakers is uncertain.\n* Missing PESQ evaluation in results which most other target speech extraction papers provide\n* Doesn't include latest SOTA model comparison: Dual-Path Cross-Modal Attention for Better Audio-Visual Speech Extraction, ICASSP 2023.\nhttps://arxiv.org/pdf/2207.04213.pdf. This gives superior performance for SI-SNRi and provides PESQ results as well. It does not provide MACs analysis."
+        },
+        "confidence": {
+          "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+        },
+        "questions": { "value": "None" },
+        "rating": { "value": "8: accept, good paper" },
+        "code_of_conduct": { "value": "Yes" }
+      },
+      "nonreaders": [],
+      "tmdate": 1700434630030,
+      "tcdate": 1698994464164,
+      "writers": [
+        "ICLR.cc/2024/Conference",
+        "ICLR.cc/2024/Conference/Submission891/Reviewer_siqV"
+      ],
+      "signatures": ["ICLR.cc/2024/Conference/Submission891/Reviewer_siqV"],
+      "forum": "PEuDO2EiDr",
+      "number": 3,
+      "license": "CC BY 4.0",
+      "cdate": 1698994464164,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2024/Conference/Submission891/-/Official_Review",
+        "ICLR.cc/2024/Conference/-/Edit"
+      ],
+      "mdate": 1700434630030,
+      "domain": "ICLR.cc/2024/Conference",
+      "replyto": "PEuDO2EiDr",
+      "id": "hNmXJUkMcS",
+      "forumContent": {
+        "venue": { "value": "ICLR 2024 poster" },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": {
+          "value": [
+            "Audio-Visual",
+            "Multi-Modal",
+            "Time-Frequency-Domain",
+            "Speech-Separation",
+            "Model-Compression"
+          ]
+        },
+        "supplementary_material": {
+          "value": "/attachment/bd50bfad0343759894c1e0c66b81753cf4231fba.zip"
+        },
+        "primary_area": {
+          "value": "general machine learning (i.e., none of the above)"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2024/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Audio-visual speech separation methods aim to integrate different modalities to generate high-quality separated speech, thereby enhancing the performance of downstream tasks such as speech recognition. Most existing state-of-the-art (SOTA) models operate in the time domain. However, their overly simplistic approach to modeling acoustic features often necessitates larger and more computationally intensive models in order to achieve SOTA performance. In this paper, we present a novel time-frequency domain audio-visual speech separation method: Recurrent Time-Frequency Separation Network (RTFS-Net), which applies its algorithms on the complex time-frequency bins yielded by the Short-Time Fourier Transform. We model and capture the time and frequency dimensions of the audio independently using a multi-layered RNN along each dimension. Furthermore, we introduce a unique attention-based fusion technique for the efficient integration of audio and visual information, and a new mask separation approach that takes advantage of the intrinsic spectral nature of the acoustic features for a clearer separation. RTFS-Net outperforms the prior SOTA method in both inference speed and separation quality while reducing the number of parameters by 90% and MACs by 83%. This is the first time-frequency domain audio-visual speech separation method to outperform all contemporary time-domain counterparts."
+        },
+        "_bibtex": {
+          "value": "@inproceedings{\npegg2024rtfsnet,\ntitle={{RTFS}-Net: Recurrent Time-Frequency Modelling for Efficient Audio-Visual Speech Separation},\nauthor={Samuel Pegg and Kai Li and Xiaolin Hu},\nbooktitle={The Twelfth International Conference on Learning Representations},\nyear={2024},\nurl={https://openreview.net/forum?id=PEuDO2EiDr}\n}"
+        },
+        "title": {
+          "value": "RTFS-Net: Recurrent Time-Frequency Modelling for Efficient Audio-Visual Speech Separation"
+        },
+        "pdf": { "value": "/pdf/f6052900d23a154787826855283aad483cc3cd81.pdf" },
+        "venueid": { "value": "ICLR.cc/2024/Conference" },
+        "paperhash": {
+          "value": "pegg|rtfsnet_recurrent_timefrequency_modelling_for_efficient_audiovisual_speech_separation"
+        },
+        "authorids": {
+          "value": ["~Samuel_Pegg1", "~Kai_Li15", "~Xiaolin_Hu1"]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors' identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": { "value": ["Samuel Pegg", "Kai Li", "Xiaolin Hu"] }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "This paper attempts to understand attention sink phenomenon from the gating perspective. Firstly, the authors analysed the behaviours of recent open-sourced LLMs and demonstrated that first token acts as an attention sink, which is due to the forced attention of softmax. Then, through the comparisons vanilla attention, sink attention used in GPT-OSS, and Gated attention, the authors derive that attention sink serves as implicit gating factor, which forces a native MoE. Based on this understanding, the authors assume that the attention sink head experiences expert collapse, and proposed an auxiliary land balancing loss for attention scores. This new loss seems to improve the LLM performance in the continuing fine-tuning setups."
+        },
+        "soundness": { "value": 3 },
+        "confidence": { "value": 4 },
+        "questions": {
+          "value": "Please see the weakness.\n\nI know it may not be feasible to consider the setup of pre-training. Do you think whether the MoE analogy of self-attention could benefit pre-training?"
+        },
+        "rating": { "value": 4 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 3 },
+        "contribution": { "value": 2 },
+        "strengths": {
+          "value": "The authors provide a new perspective to understand the phenomenon of attention sink: attention could also be regarded as MoE while attention sink serves an implicit gating factor. Through this understanding, one could introduce the techniques used in the MoE community to handle attention. This part to me is novel and interesting. Through a continuing fine-tuning setup, the authors show that employing auxiliary loss similar to MoE community could bring some performance gains."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "I think the most interesting part of this paper is to use an analogy of MoE to understand self-attention and employ MoE techniques to improve self-attention. However, the authors fail to explain this with more contents and empirical studies, especially considering some parts of this paper seem to be redundant.\n\nFrom Section 2, two main messages are: (1) first token acts as attention sink, and it emerges due to normalisation in softmax, or called \"forced\" attention in the paper. (2) attention sink functions through the cosine similarity of queries and keys.  However,  these two messages are already covered by [1]. Additionally, [1] seems to be an early attempt to mitigate attention sink by relaxing normalisation in softmax (using sigmoid attention without normalization). The authors only cite [1] in Appendix. This not only ignores the contributions of [1], but also makes section 2 redundant. Since MoE is the most important part in this paper, I think section 2 should be a motivated part with previous literature and understanding of recent models. Of course, this reduces the contribution of this paper. \n\nIn section 3, the authors convey the message that the first few layers of the model plays a significant role in generation. This is drawn from the visualisation of Figure 5. However, I believe this message is not new to the community, like also shown in [1-3]. But I appreciate the design of local/global metrics and hope to see more analysis on receptive field theory as mentioned in this paper. Again, metric in (5) was proposed in [1] without citation.\n\nWith the analogy of MoE,  I feel that the authors fail to conduct enough empirical analysis in this part. For example, the authors only one continuing fine-tuning experiment (with LoRA) to show the performance of auxiliary loss. What are the performance of full fine-tuning? Whether the results are sensitive to k and $\\alpha$ used in equation 9? The authors follow a style of mechanism understanding for storytelling. However, after fine-tuning LLMs with a new loss, they fail to conduct analysis on this new model to conclude whether the assumptions are valid. \n\n\nReferences:\\\n[1] Gu et al. When attention sink emerges in language models: An empirical view. ICLR 2025.\\\n[2] Xiao et al. Efficient Streaming Language Models with Attention Sinks. ICLR 2024.\\\n[3] Chen et al. An Image is Worth 1/2 Tokens After Layer 2: Plug-and-Play Inference Acceleration for Large Vision-Language Models. ECCV 2024."
+        }
+      },
+      "parentInvitations": "ICLR.cc/2026/Conference/-/Official_Review",
+      "nonreaders": [],
+      "tmdate": 1762923688920,
+      "tcdate": 1761812332435,
+      "writers": [
+        "ICLR.cc/2026/Conference",
+        "ICLR.cc/2026/Conference/Submission12918/Reviewer_W3GH"
+      ],
+      "signatures": ["ICLR.cc/2026/Conference/Submission12918/Reviewer_W3GH"],
+      "forum": "dLeMTxzlh4",
+      "number": 2,
+      "license": "CC BY 4.0",
+      "cdate": 1761812332435,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2026/Conference/Submission12918/-/Official_Review",
+        "ICLR.cc/2026/Conference/-/Edit"
+      ],
+      "mdate": 1762923688920,
+      "domain": "ICLR.cc/2026/Conference",
+      "replyto": "dLeMTxzlh4",
+      "id": "1wcVuXYy5N",
+      "forumContent": {
+        "venue": { "value": "ICLR 2026 Conference Withdrawn Submission" },
+        "keywords": {
+          "value": [
+            "Attention Sink",
+            "Gated Attention",
+            "Large Language Models"
+          ]
+        },
+        "primary_area": {
+          "value": "foundation or frontier models, including LLMs"
+        },
+        "abstract": {
+          "value": "Large Language Models (LLMs) often assign disproportionate attention to the first token, a phenomenon known as the attention sink. Several recent approaches aim to address this issue, including Sink Attention in GPT-OSS and Gated Attention in Qwen3-Next. However, a comprehensive analysis of attention sink is lacking, and the necessity of eliminating it remains unclear. In this work, we provide both theoretical and empirical evidence showing that attention sink emerges as a mechanism to resolve forced attention, yet it limits the model’s expressive capacity. By analyzing the connection between attention sink and Gated Attention, we demonstrate that attention sink implicitly constructs a native Mixture-of-Experts (MoE) within attention layers. This insight reveals why only a fixed subset of attention heads contributes to generation, which closely resembles the expert collapse problem encountered in MoE. To enhance the utilization balance of attention heads, we propose a sink-aware training algorithm with an auxiliary load balancing loss designed for attention layers. We hope this study offers a new practical perspective on attention sink and Gated Attention, and encourages further exploration of how to leverage the inherent MoE mechanisms within attention layers."
+        },
+        "_bibtex": {
+          "value": "@misc{\nfu2025attention,\ntitle={Attention is Not Always Needed: Attention Sink Forges a Native MoE in Attention Layers},\nauthor={Zizhuo Fu and Wenxuan Zeng and Runsheng Wang and Meng Li},\nyear={2025},\nurl={https://openreview.net/forum?id=dLeMTxzlh4}\n}"
+        },
+        "title": {
+          "value": "Attention is Not Always Needed: Attention Sink Forges a Native MoE in Attention Layers"
+        },
+        "pdf": { "value": "/pdf/0773202c9f6719ced2e849ee5930f740b61c91d1.pdf" },
+        "venueid": { "value": "ICLR.cc/2026/Conference/Withdrawn_Submission" },
+        "paperhash": {
+          "value": "fu|attention_is_not_always_needed_attention_sink_forges_a_native_moe_in_attention_layers"
+        },
+        "authorids": {
+          "value": [
+            "~Zizhuo_Fu1",
+            "~Wenxuan_Zeng1",
+            "~Runsheng_Wang3",
+            "~Meng_Li1"
+          ]
+        },
+        "authors": {
+          "value": ["Zizhuo Fu", "Wenxuan Zeng", "Runsheng Wang", "Meng Li"]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "The paper proposes a speech-text pretraining process for scaling speech-language model training without acquiring large amounts of speech audio data. The process mainly includes an ASR-based low-bitrate speech tokenizer and a text-to-speech-token model to produce large quantities of speech tokens for speech-text pertaining. The pre-trained model is fine-tuned on spoken dialog datasets and shows competitive performance compared to existing SOTA models."
+        },
+        "soundness": { "value": 3 },
+        "confidence": { "value": 2 },
+        "questions": {
+          "value": "See weaknesses.\nHow are the speech and text tokens interleaved to form training samples? What are the details of this data creation process?\nHow does the model benefit from interleaved speech and text modalities? \nHow do you deal with the different sampling rates and information granularities between speech and text tokens during the process?"
+        },
+        "rating": { "value": 6 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 2 },
+        "contribution": { "value": 3 },
+        "strengths": {
+          "value": "1. The ASR-based speech tokenizer achieves semantic information preservation and decent speech audio reproduction at the same time.\n2. The low-bitrate speech tokenizer and the text-to-token model effectively use the existing large amounts of text data to synthesize large amounts of speech tokens, which saves resources to collect large amounts of speech audio data and improves the language model's speech performance after pretraining."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "The weaknesses are mainly in terms of paper writing and presentation. \n1. The paper mentions \"we are first to use supervised semantic tokens for SpeechLMs\". However, one of the baselines, Mini-Omini also uses a whisper-based speech tokenizer. \n2. The details on how the speech and text modalities are interleaved are missing. \n3. As an important part of the process, the details of the text-to-token model are missing—for example, model architectures, training schemes, etc.\n4. The large amounts of speech tokens generated by the text-to-token model are still from existing datasets and speech-synthesized audio from text. How is this process different from generating speech tokens from synthesized speech audio using large amounts of text? For example, llama-omni also uses cosy-voice to synthesize speech audio to augment training data. What's the innovation here between text-to-speech-to-token and text-to-token?"
+        }
+      },
+      "nonreaders": [],
+      "tmdate": 1733291680722,
+      "tcdate": 1730661541828,
+      "writers": [
+        "ICLR.cc/2025/Conference",
+        "ICLR.cc/2025/Conference/Submission14059/Reviewer_9jmQ"
+      ],
+      "signatures": ["ICLR.cc/2025/Conference/Submission14059/Reviewer_9jmQ"],
+      "forum": "3tukjsVyrE",
+      "number": 5,
+      "license": "CC BY 4.0",
+      "cdate": 1730661541828,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2025/Conference/Submission14059/-/Official_Review",
+        "ICLR.cc/2025/Conference/-/Edit"
+      ],
+      "mdate": 1733291680722,
+      "domain": "ICLR.cc/2025/Conference",
+      "replyto": "3tukjsVyrE",
+      "id": "wVNV6TZYDY",
+      "forumContent": {
+        "venue": { "value": "ICLR 2025 Poster" },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": {
+          "value": [
+            "large language models; speech language model; spoken chatbots"
+          ]
+        },
+        "supplementary_material": {
+          "value": "/attachment/ba84358483686df1b025b73bf934dbd6a96912d2.zip"
+        },
+        "primary_area": {
+          "value": "foundation or frontier models, including LLMs"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2025/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Speech language models (SpeechLMs) accept speech input and produce speech output, allowing for more natural human-computer interaction compared to text-based large language models (LLMs).\nTraditional approaches for developing SpeechLMs are constrained by the limited availability of unsupervised speech data and parallel speech-text data, which are significantly less abundant compared to text pre-training data, thereby limiting their scalability as LLMs.\nWe propose a novel approach to scaling speech-text pre-training by leveraging large-scale synthetic interleaved data derived from text corpora, eliminating the need for parallel speech-text datasets.\nOur method efficiently constructs speech-text interleaved data by sampling text spans from existing text corpora and synthesizing corresponding speech spans using a text-to-token model, bypassing the need to generate actual speech.\nWe also employ a supervised speech tokenizer derived from an automatic speech recognition (ASR) model  by incorporating a vector-quantized bottleneck into the encoder. This supervised training approach results in discrete speech tokens with strong semantic preservation even at lower sampling rates (e.g. 12.5Hz), while still maintaining speech reconstruction quality.\nStarting from a pre-trained language model and scaling our pre-training to 1 trillion tokens (with 600B synthetic interleaved speech-text data), we achieve state-of-the-art performance in both speech language modeling and spoken question answering, improving performance on spoken questions tasks from the previous SOTA of 13\\% (Moshi) to 31\\%.\nWe further demonstrate that by fine-tuning the pre-trained model with speech dialogue data, we can develop an end-to-end spoken chatbot that achieves competitive performance comparable to existing baselines in both conversational abilities and speech quality, even operating exclusively in the speech domain."
+        },
+        "_bibtex": {
+          "value": "@inproceedings{\nzeng2025scaling,\ntitle={Scaling Speech-Text Pre-training with Synthetic Interleaved Data},\nauthor={Aohan Zeng and Zhengxiao Du and Mingdao Liu and Lei Zhang and shengmin jiang and Yuxiao Dong and Jie Tang},\nbooktitle={The Thirteenth International Conference on Learning Representations},\nyear={2025},\nurl={https://openreview.net/forum?id=3tukjsVyrE}\n}"
+        },
+        "title": {
+          "value": "Scaling Speech-Text Pre-training with Synthetic Interleaved Data"
+        },
+        "pdf": { "value": "/pdf/2bfb4c69dc2ba7cb7772f86bf3c3e979bffdc20c.pdf" },
+        "venueid": { "value": "ICLR.cc/2025/Conference" },
+        "paperhash": {
+          "value": "zeng|scaling_speechtext_pretraining_with_synthetic_interleaved_data"
+        },
+        "authorids": {
+          "value": [
+            "~Aohan_Zeng1",
+            "~Zhengxiao_Du1",
+            "~Mingdao_Liu1",
+            "~Lei_Zhang83",
+            "~shengmin_jiang2",
+            "~Yuxiao_Dong1",
+            "~Jie_Tang1"
+          ]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors’ identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": {
+          "value": [
+            "Aohan Zeng",
+            "Zhengxiao Du",
+            "Mingdao Liu",
+            "Lei Zhang",
+            "shengmin jiang",
+            "Yuxiao Dong",
+            "Jie Tang"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "This work introduces BIT, an end-to-end brain-to-text speech decoding framework that translates intracortical neural activity into text by combining a transformer-based, cross-task/cross-species pretrained neural encoder with an audio large language model (LLM) decoder. The authors design an architecture that supports both cascaded and end-to-end decoding by leveraging self-supervised masked modeling pretraining on extensive human and monkey datasets, phoneme-level finetuning, and contrastive learning for cross-modal neural-text alignment. The method is evaluated on the Brain-to-Text Benchmark '24 and '25 for both attempted and imagined speech."
+        },
+        "soundness": { "value": 2 },
+        "confidence": { "value": 4 },
+        "questions": { "value": "See concerns." },
+        "rating": { "value": 2 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 2 },
+        "contribution": { "value": 1 },
+        "strengths": {
+          "value": "1. The manuscript is well written and easy to follow. Numerous tables and figures provide detailed results, ablations, and interpretability analysis, helping readers understand model choices and results. The supplemental materials provide many clarifying details and results.\n\n2. Based on the well-tuned architecture in Time-Masked Transformer [7], MAE-based pre-training further improves `~0.5%` in two speech decoding datasets [2,8] in Table 1.\n\n3. Explore the effects of audio LLMs for end-to-end speech decoding, instead of LLMs used in [9]."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "1. The significant performance drop in the end-to-end model (Fig. 2A) casts doubt on the effectiveness of the proposed Audio-LLM Decoder (Fig. 1C). This finding is consistent with prior work [4].\n\n2. The pre-training approach lacks neuroscientific justification. It aggregates intracranial data from different brain regions (e.g., motor [1] vs. speech production [2]) and species, without explaining how such disparate neural computations can share a common latent representation. Perhaps applying more data augmentation (e.g., timing jittering) during pre-training and using a single subject’s data would be enough to compensate for the reported performance differences (Figure 2). Besides, the motivation for removing time masking during fine-tuning is unclear (Line 223), which is a core module in Time Masked Transformer [7].\n\n3. Using audio models for supervision is not novel [3], where the results indicate that audio latent guidance is less effective than sequential phoneme labels under phoneme error rate (PER) evaluation.\n\n4. The use of Masked Autoencoder (MAE) pre-training is a well-established technique and does not represent a significant methodological novelty [5,6].\n\n5. The proposed BIT model appears to have a significantly higher training cost than the Time-Masked Transformer baseline. To better contextualize this, the authors should include a runtime comparison, detailing the reported 260-hour pre-training time and the computational overhead of the Audio-LLM Decoder.\n\n**References**:\n\n[1] Willett F R, Avansino D T, Hochberg L R, et al. High-performance brain-to-text communication via handwriting[J]. Nature, 2021, 593(7858): 249-254.\n\n[2] Willett F R, Kunz E M, Fan C, et al. A high-performance speech neuroprosthesis[J]. Nature, 2023, 620(7976): 1031-1036.\n\n[3] Metzger S L, Littlejohn K T, Silva A B, et al. A high-performance neuroprosthesis for speech decoding and avatar control[J]. Nature, 2023, 620(7976): 1037-1046.\n\n[4] Jiang W B, Wang Y, Lu B L, et al. NeuroLM: A universal multi-task foundation model for bridging the gap between language and EEG signals[J]. arXiv preprint arXiv:2409.00101, 2024.\n\n[5] Ye J, Collinger J, Wehbe L, et al. Neural data transformer 2: multi-context pretraining for neural spiking activity[J]. Advances in Neural Information Processing Systems, 2023, 36: 80352-80374.\n\n[6] Kapoor J, Schulz A, Vetter J, et al. Latent diffusion for neural spiking data[J]. Advances in Neural Information Processing Systems, 2024, 37: 118119-118154.\n\n[7] Feghhi E, Kaasyap S, Hadidi N, et al. Time-Masked Transformers with Lightweight Test-Time Adaptation for Neural Speech Decoding[J]. arXiv preprint arXiv:2507.02800, 2025.\n\n[8] Card N S, Wairagkar M, Iacobacci C, et al. An accurate and rapidly calibrating speech neuroprosthesis[J]. New England Journal of Medicine, 2024, 391(7): 609-618.\n\n[9] Feng S, Liu H, Wang Y, et al. Towards an end-to-end framework for invasive brain signal decoding with large language models[J]. arXiv preprint arXiv:2406.11568, 2024."
+        }
+      },
+      "parentInvitations": "ICLR.cc/2026/Conference/-/Official_Review",
+      "nonreaders": [],
+      "tmdate": 1762925946030,
+      "tcdate": 1760698948371,
+      "writers": [
+        "ICLR.cc/2026/Conference",
+        "ICLR.cc/2026/Conference/Submission15695/Reviewer_6BdX"
+      ],
+      "signatures": ["ICLR.cc/2026/Conference/Submission15695/Reviewer_6BdX"],
+      "forum": "Lp1noMpMUG",
+      "number": 1,
+      "license": "CC BY 4.0",
+      "cdate": 1760698948371,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2026/Conference/Submission15695/-/Official_Review",
+        "ICLR.cc/2026/Conference/-/Edit"
+      ],
+      "mdate": 1762925946030,
+      "domain": "ICLR.cc/2026/Conference",
+      "replyto": "Lp1noMpMUG",
+      "id": "VmO7zd8L9b",
+      "forumContent": {},
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "This paper introduces MAVE (Mamba with Cross-Attention for Voice Editing and Synthesis), a novel autoregressive architecture for text-conditioned speech generation. The core innovation is a hybrid design combining a Mamba (SSM) backbone for efficient, long-sequence audio modeling with a cross-attention mechanism for robust text conditioning. This architecture is designed to effectively manage the significant length mismatch between text and audio modalities.\n\nThe authors evaluate the model on two primary tasks. For speech editing, MAVE achieves performance on the RealEdit benchmark that is **comparable** to the state-of-the-art VoiceCraft model, with results largely within the confidence intervals of the baseline. The model's strengths are more clearly demonstrated in zero-shot text-to-speech (TTS), where MAVE achieves **statistically significant improvements** over VoiceCraft in both MOS naturalness and intelligibility.\n\nA key contribution of this work is its computational efficiency; MAVE requires approximately **6x less inference memory** than the Transformer-based VoiceCraft. The strong zero-shot TTS performance is presented as a direct application of the model's ability to learn speaker characteristics from audio context, a mechanism that is learned during its training on the speech editing (in-filling) task."
+        },
+        "soundness": { "value": 3 },
+        "confidence": { "value": 2 },
+        "questions": {
+          "value": "*   Could the authors please clarify the \"not explicitly trained for zero-shot TTS\" claim? Section 3.2.3 implies that speaker context is learned from surrounding audio tokens during editing. How does this mechanism fundamentally differ from prepending a reference prompt for zero-shot TTS, which seems like a direct application of the same learned capability?\n*   The practical utility of the editing feature relies on manual segmentation of the \"before\" and \"after\" audio. Have the authors investigated a path to a fully automated system, for instance, by combining MAVE with a text-audio aligner that could automatically identify and propose mismatched spans for correction?\n*   Given the paper's focus on Mamba's efficiency, did the authors experiment with replacing the Transformer-based text encoder with a Mamba-based one? This could create a more architecturally homogenous model and potentially yield further efficiency gains.\n*   Section 3.2.3 mentions \"cross-speaker editing\" as a possibility. Was this capability evaluated? For example, how well can the model edit a phrase into a target speaker's voice using a reference prompt from a *different* speaker?"
+        },
+        "rating": { "value": 6 },
+        "details_of_ethics_concerns": {
+          "value": "The primary ethical concern is the dual-use nature of this technology, which falls under `potential harmful insights, method & application`. The MAVE model is a highly effective tool for generating audio deepfakes. Its zero-shot capability significantly lowers the barrier for misuse, requiring only a few seconds of a target's voice to generate new, arbitrary speech. The paper's own results show this synthetic speech is often indistinguishable from the original, making it a potent tool for misinformation, such as faking statements from public figures, or for fraud.\n\nThese risks directly impact `privacy, security, and safety`. The method enables severe violations of an individual's voice privacy by allowing non-consensual cloning. This, in turn, poses a security risk, as the technology could be used to bypass voice-based authentication systems. Such applications threaten personal and financial safety through impersonation scams, extortion, or targeted harassment.\n\nWhile the authors acknowledge these risks in their ethics statement, the mitigations they propose are societal suggestions rather than technical safeguards. Given the model's high performance, robustness, and potential for harm, this paper warrants a specialized review by the ethics committee to fully assess its societal impact."
+        },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 3 },
+        "contribution": { "value": 3 },
+        "strengths": {
+          "value": "*   **Originality:** The paper's primary original contribution is the MAVE architecture. It proposes a hybrid design that combines a Mamba backbone, chosen for its linear-time efficiency in modeling long audio sequences, with a separate cross-attention mechanism for text conditioning. This architecture is a well-motivated solution for applying SSMs to a cross-modal task, specifically addressing the significant length mismatch between text and audio sequences. This integration of a Mamba decoder with a flexible, length-agnostic cross-attention module is a novel approach in this domain.\n*   **Clarity:** The paper is clearly written. The core architectural idea is presented logically and is supported by Figure 1, which effectively visualizes the text/audio data flow and the detailed decoder block. The authors explain the token rearrangement strategy that unifies the speech editing and TTS tasks under a single autoregressive framework. The inclusion of a theoretical complexity analysis in the appendix (A.4) also adds to the clarity of the model's proposed benefits.\n*   **Quality:** The paper's claims are supported by a thorough evaluation. On the primary speech editing task (Table 1), the MOS scores for naturalness and intelligibility are comparable to the VoiceCraft baseline, with results largely falling within the reported confidence intervals. While this demonstrates competitive performance, the model's quantitative strengths are more clearly shown in the zero-shot TTS evaluation (Table 2). Here, the model achieves a statistically significant improvement over the baseline in both naturalness (3.48 vs. 3.22) and intelligibility (4.20 vs. 4.01). Furthermore, the ablation study (Table 5) is of high quality and provides a strong justification for the Mamba + Cross-Attention design, showing it outperforms both a \"Mamba-only\" (concat) approach and a \"Transformer + Cross-Attention\" model.\n*   **Significance:** The significance of this work is twofold. First, from a practical standpoint, the paper presents a model that achieves competitive-to-superior generative quality while being significantly more efficient. The reported \\~6x reduction in inference memory (Table 4) is a significant practical contribution, potentially making SOTA-level speech generation more accessible. Second, from a scientific standpoint, this work provides a viable blueprint for replacing the dominant Transformer backbone in complex, text-conditioned autoregressive audio models. It demonstrates that SSM-based hybrids can offer a favorable trade-off between performance and efficiency, which may encourage further research into similar architectures."
+        },
+        "flag_for_ethics_review": {
+          "value": [
+            "Yes, Privacy, security and safety",
+            "Yes, Potentially harmful insights, methodologies and applications"
+          ]
+        },
+        "weaknesses": {
+          "value": "The claim in the abstract that the model is \"not explicitly trained on the \\[zero-shot TTS] task\" is potentially misleading. Section 3.2.3 clarifies that the editing task uses surrounding audio for speaker context, while the TTS task uses a prepended prompt. The core mechanism—conditioning on audio tokens for speaker identity—appears to be a fundamental part of the training objective, not a purely emergent capability. A more precise framing would be that zero-shot TTS is a direct and successful *application* of the speaker context mechanism learned during in-filling. The authors are encouraged to clarify this framing in the final version.\n\nThe paper's claims about state-of-the-art *speech editing* performance are not strongly supported by the data in Table 1. The MOS scores for MAVE versus VoiceCraft on the RealEdit benchmark are very close, with overlapping confidence intervals, suggesting performance is, at best, on par. This SOTA claim is further weakened, as the authors note, by the evaluation being on an incomplete version of the RealEdit benchmark. In contrast, the model's superiority is much clearer in the zero-shot TTS task (Table 2) and its efficiency (Table 4). The paper would be stronger if it re-framed its primary contribution around these more significant and clearly demonstrated achievements: namely, achieving *comparable* editing quality and *superior* TTS quality with a *dramatically* more efficient architecture.\n\nA significant practical limitation of the \"speech editing\" framework is its reliance on manual segmentation. The model requires the user to explicitly define the \"before\" and \"after\" audio spans for an edit. It cannot, for example, take a full audio file and a corrected transcript and \"automatically find and fix\" the errors. This makes it a powerful *component* for an editing tool, but not a fully automatic \"corrector,\" which limits its immediate practical utility. This limitation should be discussed, and a constructive path for future work would be to investigate integrating this model with an automatic text-audio aligner to create a true, end-to-end \"find-and-fix\" system.\n\nThe zero-shot TTS evaluation, while showing strong results on LibriTTS, could be made more robust. First, the evaluation is on clean read-aloud speech, which does not directly test the model's main strength: its training on \"in-the-wild\" Gigaspeech audio. Second, Table 3 shows a clear trend of the performance gap to ground truth widening as the generated text gets longer. To strengthen the paper's claims, the authors could (1) add a TTS evaluation on an \"in-the-wild\" test set (e.g., held-out Gigaspeech samples) to validate its robustness, and (2) provide a brief analysis of *why* long-form quality degrades (e.g., is it speaker similarity or text alignment?) to better guide future work on Mamba's long-context state."
+        }
+      },
+      "parentInvitations": "ICLR.cc/2026/Conference/-/Official_Review",
+      "nonreaders": [],
+      "tmdate": 1762923385267,
+      "tcdate": 1761975461183,
+      "writers": [
+        "ICLR.cc/2026/Conference",
+        "ICLR.cc/2026/Conference/Submission12518/Reviewer_zZAj"
+      ],
+      "signatures": ["ICLR.cc/2026/Conference/Submission12518/Reviewer_zZAj"],
+      "forum": "yEKyIwJvvl",
+      "number": 3,
+      "license": "CC BY 4.0",
+      "cdate": 1761975461183,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2026/Conference/Submission12518/-/Official_Review",
+        "ICLR.cc/2026/Conference/-/Edit"
+      ],
+      "mdate": 1762923385267,
+      "domain": "ICLR.cc/2026/Conference",
+      "replyto": "yEKyIwJvvl",
+      "id": "nH0vt5N42y",
+      "forumContent": {
+        "TLDR": {
+          "value": "MAVE is a cross-attentive Mamba model for voice editing and zero-shot text-to-speech that produces more natural, high-fidelity speech while being faster and more memory-efficient than prior methods."
+        },
+        "venue": { "value": "Submitted to ICLR 2026" },
+        "keywords": {
+          "value": [
+            "Mamba",
+            "cross-attention",
+            "voice editing",
+            "zero-shot TTS",
+            "autoregressive model",
+            "structured state-space model",
+            "speech synthesis"
+          ]
+        },
+        "supplementary_material": {
+          "value": "/attachment/4d48284223f8b139bb3b786a23dbae41a4b9efce.zip"
+        },
+        "primary_area": { "value": "generative models" },
+        "abstract": {
+          "value": "We introduce $\\textbf{MAVE}$ ($\\textbf{M}$amba with Cross-$\\textbf{A}$ttention for $\\textbf{V}$oice $\\textbf{E}$diting and Synthesis), a novel autoregressive architecture for text-conditioned voice editing and high-fidelity text-to-speech (TTS) synthesis, built on a cross-attentive Mamba backbone. MAVE achieves state-of-the-art performance in speech editing and very competitive results in zero-shot TTS, while not being explicitly trained on the latter task, outperforming leading autoregressive and diffusion models on diverse, real-world audio. By integrating Mamba for efficient audio sequence modeling with cross-attention for precise text-acoustic alignment, MAVE enables context-aware voice editing with exceptional naturalness and speaker consistency. In pairwise human evaluations on a random 40-sample subset of the RealEdit benchmark (400 judgments), 57.2\\% of listeners rated MAVE-edited speech as perceptually equal to the original, while 24.8\\% prefered the original and 18.0\\% MAVE- demonstrating that in the majority of cases edits are indistinguishable from the source. MAVE compares favorably with VoiceCraft and FluentSpeech both on pairwise comparisons and standalone mean opinion score (MOS) evaluations. For zero-shot TTS, MAVE exceeds VoiceCraft in both speaker similarity and naturalness, without requiring multiple inference runs or post-processing. Remarkably, these quality gains come with a significantly lower memory cost and approximately the same latency: MAVE requires $\\sim6\\times$ less memory than VoiceCraft during inference on utterances from the RealEdit database (mean duration: 6.21s, A100, FP16, batch size 1). Our results demonstrate that MAVE establishes a new standard for flexible, high-fidelity voice editing and synthesis through the synergistic integration of structured state-space modeling and cross-modal attention."
+        },
+        "_bibtex": {
+          "value": "@misc{\nmohammad2026speak,\ntitle={Speak, Edit, Repeat: High-Fidelity Voice Editing and Zero-Shot {TTS} with Cross-Attentive Mamba},\nauthor={Baher Mohammad and Magauiya Zhussip and Stamatios Lefkimmiatis},\nyear={2026},\nurl={https://openreview.net/forum?id=yEKyIwJvvl}\n}"
+        },
+        "title": {
+          "value": "Speak, Edit, Repeat: High-Fidelity Voice Editing and Zero-Shot TTS with Cross-Attentive Mamba"
+        },
+        "pdf": { "value": "/pdf/f8c081b3d8aeb597edeb63bf7efb90df2bbd6909.pdf" },
+        "venueid": { "value": "ICLR.cc/2026/Conference/Rejected_Submission" },
+        "paperhash": {
+          "value": "mohammad|speak_edit_repeat_highfidelity_voice_editing_and_zeroshot_tts_with_crossattentive_mamba"
+        },
+        "authorids": {
+          "value": [
+            "~Baher_Mohammad2",
+            "~Magauiya_Zhussip1",
+            "~Stamatios_Lefkimmiatis1"
+          ]
+        },
+        "authors": {
+          "value": [
+            "Baher Mohammad",
+            "Magauiya Zhussip",
+            "Stamatios Lefkimmiatis"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "This paper proposed SALMONN, which is a single unified multimodal model to integrate speech and audio encoders with a pre-trained text LLM. The paper shows that SALMONN can achieve competitive performance on a variety of speech tasks used in training, including ASR, ST, emotion recognition, audio QA, speaker verification, audio and music captioning etc. The paper also studies the capabilities of SALMONN on zero-shot capabilities such as ST on untrained languages, SLU, SQA, audio-based story telling, speech-audio co-reasoning etc. The paper also explores a new few-shot activation tuning approach."
+        },
+        "presentation": { "value": "3 good" },
+        "contribution": { "value": "2 fair" },
+        "soundness": { "value": "3 good" },
+        "strengths": {
+          "value": "(1)\tValue to the community: The proposed SALMONN model unifies modeling a wide variety of speech, audio, and music perception and understanding tasks into a single framework, which is a useful step towards the research for AGI. \n\n(2)\tThe innovation of the paper is mostly in choosing and piecing together existing approaches for this unified framework, using and evaluating a diverse set of speech/audio/music tasks for pre-training/instruction-finetuning, studying emergent capabilities, analyzing task-overfitting issue and exploring cheap activation tuning to alleviate catastrophic forgetting to training tasks.  SALMONN reasonably adopts several existing approaches. For speech and non-speech audio encoding, SALMONN integrates a speech encoder from Whisper and a BEATS audio encoder. SALMONN uses a Q-Former to convert encoder output to audio tokens for the text LLM (Vicuna in this work). LoRA is applied to align the augmented input space with output space to improve cross-modal alignment for the text LLM.  Following other works, SALMONN used a diverse set of speech, audio, and music tasks in pre-training and instruction finetuning of Q-Former and LoRA.  Notably,  this paper analyzed the task overfitting issue and provided insights for activation tuning to alleviate catastrophic forgetting from instruction tuning. The paper also studies the capabilities of SALMONN on handling cross-modal emergent tasks.  \n\n(3)\tOverall, the paper is clearly written.\n\n(4)\tEmpirical evaluations are comprehensive. The three levels are helpful organizations, as  speech tasks used in instruction tuning, unseen speech-based NLP tasks which can effectively evaluate speech-text cross-modal alignments, and the proposed new audio-based story telling and speech audio co-reasoning tasks which require understanding mixture of speech and non-speech auditory information."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "(1)\tIn empirical validations, the choice of reference values (as shown in Table 2) needs to be clarified, and more importantly, these choices need to be justified. It is not clear which model size is used for Whisper when it is used as reference values. Also, the choice of simply cascading Whisper + Vicuna needs to be justified as the reference value for many tasks, since it may not be as competitive as other E2E models (e.g., recent speech LLMs), including SOTA. Without clear knowledge how strong these reference values are, it is not easy to judge how strong SALMONN performs as shown in Table 3.\n\n(2)\tSome key implementation details are missing.  The training data as shown in Table 1 are highly unevenly distributed. It is not clear methods such as data upsampling are used, or batches are designed for multi-task instruction fine-tuning.\n\n(3)\tThe paper focuses on general hearing capabilities of speech/audio/music. It would be useful to discuss how to extend the model to speech/audio/music generation tasks."
+        },
+        "confidence": {
+          "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+        },
+        "questions": {
+          "value": "Please check the comments and concerns raised under Weaknesses."
+        },
+        "rating": { "value": "6: marginally above the acceptance threshold" },
+        "code_of_conduct": { "value": "Yes" }
+      },
+      "nonreaders": [],
+      "tmdate": 1699636534490,
+      "tcdate": 1699056966334,
+      "writers": [
+        "ICLR.cc/2024/Conference",
+        "ICLR.cc/2024/Conference/Submission5325/Reviewer_KyXG"
+      ],
+      "signatures": ["ICLR.cc/2024/Conference/Submission5325/Reviewer_KyXG"],
+      "forum": "14rn7HpKVk",
+      "number": 3,
+      "license": "CC BY 4.0",
+      "cdate": 1699056966334,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2024/Conference/Submission5325/-/Official_Review",
+        "ICLR.cc/2024/Conference/-/Edit"
+      ],
+      "mdate": 1699636534490,
+      "domain": "ICLR.cc/2024/Conference",
+      "replyto": "14rn7HpKVk",
+      "id": "kYwKzroSmA",
+      "forumContent": {
+        "TLDR": {
+          "value": "SALMONN: Towards Generic Hearing Abilities for Large Language Models"
+        },
+        "venue": { "value": "ICLR 2024 poster" },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": {
+          "value": [
+            "Multimodal large language models",
+            "speech and audio processing",
+            "music processing"
+          ]
+        },
+        "primary_area": {
+          "value": "representation learning for computer vision, audio, language, and other modalities"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2024/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Hearing is arguably an essential ability of artificial intelligence (AI) agents in the physical world, which refers to the perception and understanding of general auditory information consisting of at least three types of sounds: speech, audio events, and music. In this paper, we propose SALMONN, a speech audio language music open neural network, built by integrating a pre-trained text-based large language model (LLM) with speech and audio encoders into a single multimodal model. SALMONN enables the LLM to directly process and understand general audio inputs and achieve competitive performances on a number of speech and audio tasks used in training, such as \nautomatic speech recognition and translation, auditory-information-based question answering, emotion recognition, speaker verification, and music and audio captioning etc. SALMONN also has a diverse set of emergent abilities unseen in the training, which includes but is not limited to speech translation to untrained languages, speech-based slot filling, spoken-query-based question answering, audio-based storytelling, and speech audio co-reasoning etc. The presence of cross-modal emergent abilities is studied, and a novel few-shot activation tuning approach is proposed to activate such abilities. To our knowledge, SALMONN is the first model of its type and can be regarded as a step towards AI with generic hearing abilities. The source code, model checkpoints and data are available at https://github.com/bytedance/SALMONN."
+        },
+        "_bibtex": {
+          "value": "@inproceedings{\ntang2024salmonn,\ntitle={{SALMONN}: Towards Generic Hearing Abilities for Large Language Models},\nauthor={Changli Tang and Wenyi Yu and Guangzhi Sun and Xianzhao Chen and Tian Tan and Wei Li and Lu Lu and Zejun MA and Chao Zhang},\nbooktitle={The Twelfth International Conference on Learning Representations},\nyear={2024},\nurl={https://openreview.net/forum?id=14rn7HpKVk}\n}"
+        },
+        "title": {
+          "value": "SALMONN: Towards Generic Hearing Abilities for Large Language Models"
+        },
+        "pdf": { "value": "/pdf/d5a232debec14724cfe9fcabdbebc192eb470ba3.pdf" },
+        "venueid": { "value": "ICLR.cc/2024/Conference" },
+        "paperhash": {
+          "value": "tang|salmonn_towards_generic_hearing_abilities_for_large_language_models"
+        },
+        "authorids": {
+          "value": [
+            "~Changli_Tang1",
+            "~Wenyi_Yu2",
+            "~Guangzhi_Sun1",
+            "~Xianzhao_Chen1",
+            "~Tian_Tan5",
+            "~Wei_Li78",
+            "~Lu_Lu6",
+            "~Zejun_MA1",
+            "~Chao_Zhang20"
+          ]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors' identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": {
+          "value": [
+            "Changli Tang",
+            "Wenyi Yu",
+            "Guangzhi Sun",
+            "Xianzhao Chen",
+            "Tian Tan",
+            "Wei Li",
+            "Lu Lu",
+            "Zejun MA",
+            "Chao Zhang"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "In this paper, the authors conduct a comprehensive study of the attention sink problem and present robust empirical results. They discuss and examine the attention sink problem from various perspectives, including optimization, data distribution, loss function, and model architecture. Although the paper does not provide in-depth theoretical analysis, it may inspire further research into the understanding of the attention mechanism, which could, in turn, contribute to the development of stronger generative models. Therefore, I believe this paper would serve as a valuable empirical reference on the attention sink problem for the community and worths of acceptance."
+        },
+        "soundness": { "value": 4 },
+        "confidence": { "value": 4 },
+        "questions": {
+          "value": "Q1: In Fig. 4 (left), could you provide a performance curve, such as the validation performance of each model against model size? It appears that as the model becomes stronger, attention sink becomes more prominent. Additionally, I am curious about how attention sink correlates with validation loss.\n\nQ2: Fig. 4 (right) shows that a lower learning rate results in a slower increase in attention sink. Is it possible that attention sink occurs simply because the model has not been well-tuned?\n\nQ3: In Table 1, GPT-XL behaves very differently from Llama and Mistral. Do you have any intuition as to why this might be?\n\nQ4: Could you provide some mathematical formulation on how the attention variants (2nd to 4th rows in Table 4) are correlated? Is there an inherent connection among these attention variants that excludes attention sink?\n\nQ5: In Table 6, it appears that the normalizer may impact attention sink. Do you have additional evidence with other types of normalizers?"
+        },
+        "rating": { "value": 8 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 4 },
+        "contribution": { "value": 3 },
+        "strengths": {
+          "value": "1. The perspectives of studying attention sink problem is diverse and well-motivated. These perspectives are also inspiring to future studies on attention mechanisms.\n2. The experiments is very comprehensive and diverse."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "The primary weakness of this paper is the lack of in-depth analysis. The empirical results come across more as observations rather than as thorough investigations. Including more theoretical analysis or deeper experimental work would strengthen the paper. For instance, in the KV bias section, it would be beneficial to explore how attention variants with and without attention sink are related in formulation."
+        }
+      },
+      "nonreaders": [],
+      "tmdate": 1731428708070,
+      "tcdate": 1730344526749,
+      "writers": [
+        "ICLR.cc/2025/Conference",
+        "ICLR.cc/2025/Conference/Submission6630/Reviewer_xfDZ"
+      ],
+      "signatures": ["ICLR.cc/2025/Conference/Submission6630/Reviewer_xfDZ"],
+      "forum": "78Nn4QJTEN",
+      "number": 2,
+      "license": "CC BY 4.0",
+      "cdate": 1730344526749,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2025/Conference/Submission6630/-/Official_Review",
+        "ICLR.cc/2025/Conference/-/Edit"
+      ],
+      "mdate": 1731428708070,
+      "domain": "ICLR.cc/2025/Conference",
+      "replyto": "78Nn4QJTEN",
+      "id": "QzxtiBzOqp",
+      "forumContent": {
+        "venue": { "value": "ICLR 2025 Spotlight" },
+        "TLDR": {
+          "value": "We conduct extensive experiments to empirically understand when attention sink emerges in language models."
+        },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": {
+          "value": ["Attention Sink", "Language Models", "Empirical Study"]
+        },
+        "supplementary_material": {
+          "value": "/attachment/4da6745633eaf0b380e39d1da213c4991adea7f9.zip"
+        },
+        "primary_area": {
+          "value": "foundation or frontier models, including LLMs"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2025/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Auto-regressive language Models (LMs) assign significant attention to the first token, even if it is not semantically important, which is known as **attention sink**. This phenomenon has been widely adopted in applications such as streaming/long context generation, KV cache optimization, inference acceleration, model quantization, and others.  Despite its widespread use, a deep understanding of attention sink in LMs is still lacking. In this work, we first demonstrate that attention sinks exist universally in auto-regressive LMs with various inputs, even in small models. Furthermore, attention sink is observed to emerge during the LM pre-training, motivating us to investigate how *optimization*, *data distribution*, *loss function*, and *model architecture* in LM pre-training influence its emergence. We highlight that attention sink emerges after effective optimization on sufficient training data. The sink position is highly correlated with the loss function and data distribution. Most importantly, we find that attention sink acts more like key biases, *storing extra attention scores*, which could be non-informative and not contribute to the value computation. We also observe that this phenomenon (at least partially) stems from tokens' inner dependence on attention scores as a result of softmax normalization. After relaxing such dependence by replacing softmax attention with other attention operations, such as sigmoid attention without normalization, attention sinks do not emerge in LMs up to 1B parameters. The code is available at https://github.com/sail-sg/Attention-Sink."
+        },
+        "_bibtex": {
+          "value": "@inproceedings{\ngu2025when,\ntitle={When Attention Sink Emerges in Language Models: An Empirical View},\nauthor={Xiangming Gu and Tianyu Pang and Chao Du and Qian Liu and Fengzhuo Zhang and Cunxiao Du and Ye Wang and Min Lin},\nbooktitle={The Thirteenth International Conference on Learning Representations},\nyear={2025},\nurl={https://openreview.net/forum?id=78Nn4QJTEN}\n}"
+        },
+        "title": {
+          "value": "When Attention Sink Emerges in Language Models: An Empirical View"
+        },
+        "pdf": { "value": "/pdf/9aaa67673456a03600b010729b9555f2b0fe7fd4.pdf" },
+        "venueid": { "value": "ICLR.cc/2025/Conference" },
+        "paperhash": {
+          "value": "gu|when_attention_sink_emerges_in_language_models_an_empirical_view"
+        },
+        "authorids": {
+          "value": [
+            "~Xiangming_Gu1",
+            "~Tianyu_Pang1",
+            "~Chao_Du1",
+            "~Qian_Liu2",
+            "~Fengzhuo_Zhang1",
+            "~Cunxiao_Du3",
+            "~Ye_Wang3",
+            "~Min_Lin1"
+          ]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors’ identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": {
+          "value": [
+            "Xiangming Gu",
+            "Tianyu Pang",
+            "Chao Du",
+            "Qian Liu",
+            "Fengzhuo Zhang",
+            "Cunxiao Du",
+            "Ye Wang",
+            "Min Lin"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "This paper proposes **MAVE**, a hybrid architecture leveraging a Mamba-based state-space sequence model enhanced with cross-attention for efficient, high-fidelity, and context-aware speech editing and zero-shot text-to-speech (TTS) generation. MAVE models long-range dependencies in audio tokens via Mamba, while dynamically aligning text and audio through cross-attention on phoneme embeddings, enabling bidirectional and precise speech modifications. The empirical evaluation on standard benchmarks demonstrates performance gains in naturalness, intelligibility, and speaker consistency compared to contemporary baselines such as VoiceCraft and FluentSpeech."
+        },
+        "soundness": { "value": 1 },
+        "confidence": { "value": 5 },
+        "questions": { "value": "N/A" },
+        "rating": { "value": 0 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 2 },
+        "contribution": { "value": 1 },
+        "strengths": {
+          "value": "1. The integration of Mamba SSMs with a cross-attention mechanism tailored for audio-text alignment addresses the quadratic inefficiency of transformer-based decoders in long speech generation."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "1. Lack of novelty. This work is essentially a copy of VoiceCraft in every aspect — design, writing, and overall structure — with the only difference being that the model architecture is changed from Transformer to Mamba.\n\n2. A severe lack of baselines, such as F5-TTS and MaskGCT, which both support TTS and editing."
+        }
+      },
+      "parentInvitations": "ICLR.cc/2026/Conference/-/Official_Review",
+      "nonreaders": [],
+      "tmdate": 1762923385952,
+      "tcdate": 1761539480901,
+      "writers": [
+        "ICLR.cc/2026/Conference",
+        "ICLR.cc/2026/Conference/Submission12518/Reviewer_zYYp"
+      ],
+      "signatures": ["ICLR.cc/2026/Conference/Submission12518/Reviewer_zYYp"],
+      "forum": "yEKyIwJvvl",
+      "number": 1,
+      "license": "CC BY 4.0",
+      "cdate": 1761539480901,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2026/Conference/Submission12518/-/Official_Review",
+        "ICLR.cc/2026/Conference/-/Edit"
+      ],
+      "mdate": 1762923385952,
+      "domain": "ICLR.cc/2026/Conference",
+      "replyto": "yEKyIwJvvl",
+      "id": "VrGZHpi1PU",
+      "forumContent": {
+        "TLDR": {
+          "value": "MAVE is a cross-attentive Mamba model for voice editing and zero-shot text-to-speech that produces more natural, high-fidelity speech while being faster and more memory-efficient than prior methods."
+        },
+        "venue": { "value": "Submitted to ICLR 2026" },
+        "keywords": {
+          "value": [
+            "Mamba",
+            "cross-attention",
+            "voice editing",
+            "zero-shot TTS",
+            "autoregressive model",
+            "structured state-space model",
+            "speech synthesis"
+          ]
+        },
+        "supplementary_material": {
+          "value": "/attachment/4d48284223f8b139bb3b786a23dbae41a4b9efce.zip"
+        },
+        "primary_area": { "value": "generative models" },
+        "abstract": {
+          "value": "We introduce $\\textbf{MAVE}$ ($\\textbf{M}$amba with Cross-$\\textbf{A}$ttention for $\\textbf{V}$oice $\\textbf{E}$diting and Synthesis), a novel autoregressive architecture for text-conditioned voice editing and high-fidelity text-to-speech (TTS) synthesis, built on a cross-attentive Mamba backbone. MAVE achieves state-of-the-art performance in speech editing and very competitive results in zero-shot TTS, while not being explicitly trained on the latter task, outperforming leading autoregressive and diffusion models on diverse, real-world audio. By integrating Mamba for efficient audio sequence modeling with cross-attention for precise text-acoustic alignment, MAVE enables context-aware voice editing with exceptional naturalness and speaker consistency. In pairwise human evaluations on a random 40-sample subset of the RealEdit benchmark (400 judgments), 57.2\\% of listeners rated MAVE-edited speech as perceptually equal to the original, while 24.8\\% prefered the original and 18.0\\% MAVE- demonstrating that in the majority of cases edits are indistinguishable from the source. MAVE compares favorably with VoiceCraft and FluentSpeech both on pairwise comparisons and standalone mean opinion score (MOS) evaluations. For zero-shot TTS, MAVE exceeds VoiceCraft in both speaker similarity and naturalness, without requiring multiple inference runs or post-processing. Remarkably, these quality gains come with a significantly lower memory cost and approximately the same latency: MAVE requires $\\sim6\\times$ less memory than VoiceCraft during inference on utterances from the RealEdit database (mean duration: 6.21s, A100, FP16, batch size 1). Our results demonstrate that MAVE establishes a new standard for flexible, high-fidelity voice editing and synthesis through the synergistic integration of structured state-space modeling and cross-modal attention."
+        },
+        "_bibtex": {
+          "value": "@misc{\nmohammad2026speak,\ntitle={Speak, Edit, Repeat: High-Fidelity Voice Editing and Zero-Shot {TTS} with Cross-Attentive Mamba},\nauthor={Baher Mohammad and Magauiya Zhussip and Stamatios Lefkimmiatis},\nyear={2026},\nurl={https://openreview.net/forum?id=yEKyIwJvvl}\n}"
+        },
+        "title": {
+          "value": "Speak, Edit, Repeat: High-Fidelity Voice Editing and Zero-Shot TTS with Cross-Attentive Mamba"
+        },
+        "pdf": { "value": "/pdf/f8c081b3d8aeb597edeb63bf7efb90df2bbd6909.pdf" },
+        "venueid": { "value": "ICLR.cc/2026/Conference/Rejected_Submission" },
+        "paperhash": {
+          "value": "mohammad|speak_edit_repeat_highfidelity_voice_editing_and_zeroshot_tts_with_crossattentive_mamba"
+        },
+        "authorids": {
+          "value": [
+            "~Baher_Mohammad2",
+            "~Magauiya_Zhussip1",
+            "~Stamatios_Lefkimmiatis1"
+          ]
+        },
+        "authors": {
+          "value": [
+            "Baher Mohammad",
+            "Magauiya Zhussip",
+            "Stamatios Lefkimmiatis"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "This paper describes an approach to summarizing 6-minute-long audio recordings by combining the Whisper speech encoder with the Mamba LLM through a cross-attention based Mamba querying projector. The authors show that DPO improves ROUGE and METEOR metrics, and that the proposed model has a better ROUGE and METEOR score, and latency over the cascade model."
+        },
+        "soundness": { "value": 2 },
+        "confidence": { "value": 5 },
+        "questions": {
+          "value": "1. In Equation 1, what is h'(t) ? \n2. The \"ideal\" query length for speech transcription is likely not representative of representations necessary for speech summarization. Can the authors clarify why these ablations were done for the transcription task on Librispeech ?\n3. How does the speed of Scuba compare to that of the model by Shang et al ? \n4. The Whisper speech encoder is frozen, and it is not clear why this modeling choice was made."
+        },
+        "rating": { "value": 3 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 2 },
+        "contribution": { "value": 2 },
+        "strengths": {
+          "value": "1. The paper attempts to address an important challenge, i.e., summarization of longform audio through a cross-attention based temporal downsampling module. \n2. It applies the recently introduced DPO technique to speech summarization, and demonstrates improved ROUGE and METEOR scores from this."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "1. I have serious concerns about the novelty of the proposed approach. From a modeling standpoint, the work is very similar to Shang et al. (2024). From a training method standpoint, the 2-stage fine-tuning approach involving speech recognition and speech summarization is well established in the field since Sharma et al. (2021), leaving only two differences: (a) having an ASR training stage over both short and long audio as opposed to just short audio, and (b) using DPO post hoc, another well established technique to improve ROUGE and METEOR numbers. All in all, it appears that there is little technical novelty in the paper.  \n\n2. Validating the proposed approach on a single relatively shortform audio dataset (upto 6 minutes) comprising synthetic audio is not very convincing. Furthermore, the work is done on a custom dataset whose LLM-generated summary labels have not been validated for correctness, either through automatic or human evaluations.  Since LLMs are known to hallucinate, it is hard to make a meaningful case using any numbers on this dataset. The authors should ideally consider evaluating on any real other dataset(s) with real audio. \n\nTo add more context, here is a paper [1] that used synthetic data for speech summarization but still reported a myriad of automatic and human evaluation metrics to validate that the data used was reasonable. Something similar to this might be more convincing than what is in the paper currently. \n\n3. The metrics used for speech summarization in this paper do not go far enough. It is well known that ROUGE and METEOR based evaluations for summarization are not all encompassing, and that the metrics have significant flaws. This again makes it hard to validate that the observed improvements correlate with summaries of higher quality. The authors could supplement these measures using human evaluations of coherence, consistency, factuality and relevance. \n\n4. Table 4 could be expanded to show the impact of the long audio transcription based alignment if any. \n\n5. The manner in which DPO is performed is not very convincing. The authors use the model generated responses as the non-preferred responses and the ground-truth summaries as the preferred responses. Do the authors validate that the model generated responses are in fact undesirable, and record metrics that demonstrate the same ?\n\n\n[1] J. -W. Jung, R. Sharma, W. Chen, B. Raj and S. Watanabe, \"AugSumm: Towards Generalizable Speech Summarization Using Synthetic Labels from Large Language Models,\" ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Seoul, Korea, Republic of, 2024, pp. 12071-12075, doi: 10.1109/ICASSP48485.2024.10447328."
+        }
+      },
+      "nonreaders": [],
+      "tmdate": 1731427688564,
+      "tcdate": 1730562786407,
+      "writers": [
+        "ICLR.cc/2025/Conference",
+        "ICLR.cc/2025/Conference/Submission9819/Reviewer_9c4a"
+      ],
+      "signatures": ["ICLR.cc/2025/Conference/Submission9819/Reviewer_9c4a"],
+      "forum": "zOMa82W1HV",
+      "number": 2,
+      "license": "CC BY 4.0",
+      "cdate": 1730562786407,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2025/Conference/Submission9819/-/Official_Review",
+        "ICLR.cc/2025/Conference/-/Edit"
+      ],
+      "mdate": 1731427688564,
+      "domain": "ICLR.cc/2025/Conference",
+      "replyto": "zOMa82W1HV",
+      "id": "HWdh0lvzkd",
+      "forumContent": {
+        "venue": { "value": "Submitted to ICLR 2025" },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": { "value": ["Summarisation", "Speech", "Mamba"] },
+        "primary_area": {
+          "value": "applications to computer vision, audio, language, and other modalities"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2025/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Abstractive Speech Summarization (SSum) becomes increasingly difficult as the input speech length grows. To address this, we present SQuBa (Speech Querying Mamba Architecture), an end-to-end model designed explicitly for efficient speech summarization. SQuBa leverages a querying-attention Mamba projector to condense extended acoustic features into compact semantic tokens, which are subsequently summarized by the Mamba Large Language Model (LLM). The architecture’s computational complexity scales linearly with input length, enabling efficient handling of longer inputs. A two-stage training framework, complemented by bootstrapped Direct Preference Optimization (DPO) fine-tuning, empowers SQuBa to generate concise and coherent summaries. Experimental results demonstrate that SQuBa delivers competitive performance while significantly improving inference speed, making it ideal for real-world applications such as podcast and meeting transcriptions."
+        },
+        "_bibtex": {
+          "value": "@misc{\neom2025squba,\ntitle={{SQ}uBa: Speech Mamba Language Model with Querying-Attention for Efficient Summarization},\nauthor={SooHwan Eom and Jay Shim and Eunseop Yoon and Hee Suk Yoon and Hyeonmok Ko and Mark A. Hasegawa-Johnson and Chang D. Yoo},\nyear={2025},\nurl={https://openreview.net/forum?id=zOMa82W1HV}\n}"
+        },
+        "title": {
+          "value": "SQuBa: Speech Mamba Language Model with Querying-Attention for Efficient Summarization"
+        },
+        "pdf": { "value": "/pdf/5f8e99f39df6ded1708d0ef2eca02f6f98f7e983.pdf" },
+        "venueid": { "value": "ICLR.cc/2025/Conference/Rejected_Submission" },
+        "paperhash": {
+          "value": "eom|squba_speech_mamba_language_model_with_queryingattention_for_efficient_summarization"
+        },
+        "authorids": {
+          "value": [
+            "~SooHwan_Eom1",
+            "~Jay_Shim1",
+            "~Eunseop_Yoon1",
+            "~Hee_Suk_Yoon1",
+            "~Hyeonmok_Ko1",
+            "~Mark_A._Hasegawa-Johnson1",
+            "~Chang_D._Yoo1"
+          ]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors’ identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": {
+          "value": [
+            "SooHwan Eom",
+            "Jay Shim",
+            "Eunseop Yoon",
+            "Hee Suk Yoon",
+            "Hyeonmok Ko",
+            "Mark A. Hasegawa-Johnson",
+            "Chang D. Yoo"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "In this paper, the authors introduce the phenomenon of visual attention sinks and, through visual analysis, propose that visual attention sink tokens are typically unrelated to the main visual subject information. Furthermore, they demonstrate through experiments how to automatically identify visual sink tokens. Based on this finding, the authors propose a method that utilizes attention budgets to redistribute attention weights. Extensive experiments have shown that this method optimizes both the general visual capabilities of models and the issue of hallucination.\n\nThe paper makes two main contributions:\n1. It introduces the phenomenon of visual attention sinks and analyzes the behavior of LVLMs.\n\n2. The proposed method enhances the performance of LVLMs with low cost."
+        },
+        "soundness": { "value": 3 },
+        "confidence": { "value": 4 },
+        "questions": {
+          "value": "1. Regarding the questions of visual attention sink:\n\n   1.a. I have previously experimented with removing the <bos> token, and the attention sink phenomenon still persisted in the first token. Therefore, I am curious whether new tokens will become visual sink tokens after redistributing the attention weights.\n\n   1.b. The author has visualized tokens with high attention weights in the text, and indeed, for these cases, the visual sink tokens are unrelated to the main subject of the image. However, I believe it is still necessary to prove the trend of visual sink tokens being unrelated to the main subject of the image on a large-scale dataset based on segmentation data.\n\n   1.c. In Table 4.a, the selection of random tokens does not seem to be related to $\\tau$, so I want to confirm whether two masked methods with the same $\\tau$ value mean that the same number of tokens are masked.\n\n2. Regarding the questions of experimental results:\n\n   2.a. The author only chose LLaVA and VILA for evaluation, but the training data for LLaVA is much smaller compared to high-performance open-source models. Therefore, it is necessary to add one or two such models for evaluation, such as Qwen2-VL and InternVL2.\n\n   2.b. LLaVA-HD has several times more image tokens compared to LLaVA, so I speculate that the author's model should perform better on this backbone. However, from Table 1, it appears that the improvement of the proposed method on LLaVA-HD is not as significant as on LLaVA.\n\nIf the author can address these concerns, I will consider raising the score. Additionally, I believe that further analysis on how to utilize this phenomenon during model training could enhance the impact of the article."
+        },
+        "rating": { "value": 6 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 3 },
+        "contribution": { "value": 2 },
+        "strengths": {
+          "value": "1. The writing in this paper is very clear, smoothly transitioning from the introduction of the visual attention sink phenomenon to its analysis and the subsequent methodological approach.\n\n2. The concept of visual attention sink proposed in this paper is indeed a direction worthy of deeper exploration within the realm of LVLMs.\n\n3. The experiments in this paper cover a comprehensive range of content and consistently achieve stable improvements across various tasks.\n\n4. The method proposed in this paper is an optimization based on the attention mechanism, making it generalizable and applicable to most LVLMs for experimentation."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "1. The phenomenon of visual attention sink appears to be similar to the summary tokens proposed in OPERA[1]. Summary tokens imply that higher attention weights are assigned to tokens without semantic information, such as ',' and '\\n'. The visual sink token seems to suggest that within visual tokens, there are also some tokens that play a similar role to summary tokens.\n\n2. The analysis of the visual attention sink phenomenon lacks experimental validation. For more specific explanations, please refer to Question 1.\n\n3. Although the author's evaluation experiments cover a comprehensive set of benchmarks, there is a lack of evaluation across more LVLMs and a detailed analysis of the experimental results. For more specific explanations, please refer to Question 2.\n\n[1] OPERA: Alleviating Hallucination in Multi-Modal Large Language Models via Over-Trust Penalty and Retrospection-Allocation"
+        }
+      },
+      "nonreaders": [],
+      "tmdate": 1732380227681,
+      "tcdate": 1729778758158,
+      "writers": [
+        "ICLR.cc/2025/Conference",
+        "ICLR.cc/2025/Conference/Submission1085/Reviewer_b7X3"
+      ],
+      "signatures": ["ICLR.cc/2025/Conference/Submission1085/Reviewer_b7X3"],
+      "forum": "7uDI7w5RQA",
+      "number": 1,
+      "license": "CC BY 4.0",
+      "cdate": 1729778758158,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2025/Conference/Submission1085/-/Official_Review",
+        "ICLR.cc/2025/Conference/-/Edit"
+      ],
+      "mdate": 1732380227681,
+      "domain": "ICLR.cc/2025/Conference",
+      "replyto": "7uDI7w5RQA",
+      "id": "gx5WA8boPo",
+      "forumContent": {
+        "TLDR": {
+          "value": "We find \"visual attention sink\" in LMMs, where irrelevant visual tokens with high attention weights arise from massive activation in specific dimensions. Also, we introduce Visual Attention Redistribution (VAR) to enhance attention on the image."
+        },
+        "venue": { "value": "ICLR 2025 Poster" },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": {
+          "value": [
+            "Large multimodal models",
+            "Visual attention sink",
+            "Visual attention redistribution"
+          ]
+        },
+        "supplementary_material": {
+          "value": "/attachment/e06949372b15aaad0181d44f2bbcc6a1dd6cb256.zip"
+        },
+        "primary_area": {
+          "value": "applications to computer vision, audio, language, and other modalities"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2025/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Large multimodal models (LMMs) \"see\" images by leveraging the attention mechanism between text and visual tokens in the transformer decoder. Ideally, these models should focus on key visual information relevant to the text token. However, recent findings indicate that LMMs have an extraordinary tendency to consistently allocate high attention weights to specific visual tokens, even when these tokens are irrelevant to the corresponding text. In this study, we investigate the property behind the appearance of these irrelevant visual tokens and examine their characteristics. Our findings show that this behavior arises due to the massive activation of certain hidden state dimensions, which resembles the attention sink found in language models. Hence, we refer to this phenomenon as the visual attention sink. In particular, our analysis reveals that removing the irrelevant visual sink tokens does not impact model performance, despite receiving high attention weights. Consequently, we recycle the attention to these tokens as surplus resources, redistributing the attention budget to enhance focus on the image. To achieve this, we introduce Visual Attention Redistribution (VAR), a method that redistributes attention in image-centric heads, which we identify as innately focusing on visual information. VAR can be seamlessly applied across different LMMs to improve performance on a wide range of tasks, including general vision-language tasks, visual hallucination tasks, and vision-centric tasks, all without the need for additional training, models, or inference steps. Experimental results demonstrate that VAR enables LMMs to process visual information more effectively by adjusting their internal attention mechanisms, offering a new direction to enhancing the multimodal capabilities of LMMs."
+        },
+        "_bibtex": {
+          "value": "@inproceedings{\nkang2025see,\ntitle={See What You Are Told: Visual Attention Sink in Large Multimodal Models},\nauthor={Seil Kang and Jinyeong Kim and Junhyeok Kim and Seong Jae Hwang},\nbooktitle={The Thirteenth International Conference on Learning Representations},\nyear={2025},\nurl={https://openreview.net/forum?id=7uDI7w5RQA}\n}"
+        },
+        "title": {
+          "value": "See What You Are Told: Visual Attention Sink in Large Multimodal Models"
+        },
+        "pdf": { "value": "/pdf/7ecb40ee9e5b79c2ca2cc105fd20884a3dde7bcb.pdf" },
+        "venueid": { "value": "ICLR.cc/2025/Conference" },
+        "paperhash": {
+          "value": "kang|see_what_you_are_told_visual_attention_sink_in_large_multimodal_models"
+        },
+        "authorids": {
+          "value": [
+            "~Seil_Kang1",
+            "~Jinyeong_Kim1",
+            "~Junhyeok_Kim3",
+            "~Seong_Jae_Hwang1"
+          ]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors’ identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": {
+          "value": [
+            "Seil Kang",
+            "Jinyeong Kim",
+            "Junhyeok Kim",
+            "Seong Jae Hwang"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "This paper proposes SpeechForensics, a unsupervised method for detecting face forgery videos by leveraging audio-visual speech representations. \nThe key ideas are:\nLearning semantically rich speech representations from both audio and visual modalities on real videos\nDetecting forgeries by identifying discrepancies between audio and visual speech representations\nModeling both local and global temporal information to capture long-range inconsistencies"
+        },
+        "soundness": { "value": 2 },
+        "confidence": { "value": 5 },
+        "questions": {
+          "value": "Could you elaborate on how the method handles significant asynchrony between audio and video, which is common in practical scenarios?\n\nHow does the method perform on videos with low audio quality or background noise?\n\nCould the approach be extended to detect other types of forgeries beyond lip movements?\n\nWhat is the computational cost compared to existing methods?\n\nImpact of Audio Quality: How does the quality of the audio track affect the performance of your forgery detection method?"
+        },
+        "rating": { "value": 5 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 2 },
+        "contribution": { "value": 2 },
+        "strengths": {
+          "value": "Using audio-visual speech representations for forgery detection\nUnsupervised method that outperforms supervised baselines\nInterpretable results through visualization and transcription analysis"
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "The method assumes the availability of both high-quality audio and visual data. In scenarios where audio quality is poor or there are discrepancies in synchronization due to encoding errors, the performance will degrade.\n\nLimited Scope on Forgery Types: The focus is primarily on forgeries involving discrepancies between audio and visual elements. As such, the technique might not be as effective against forgeries that do not involve speech or where the mouth region is not manipulated.\n\nPerformance on Silent Videos: The paper mentions a potential degradation in performance in videos with silent segments or noisy audio backgrounds, which could be significant in practical applications.\n\nLacks comparison to some recent audio-visual forgery detection methods"
+        },
+        "limitations": {
+          "value": "The authors adequately discuss limitations, noting the method's reliance on lip movements and potential issues with extreme samples. They also briefly address broader impacts, acknowledging the potential for an arms race between forgery and detection technologies. The limitations section could be expanded to provide more detailed analysis of failure cases or edge scenarios."
+        }
+      },
+      "nonreaders": [],
+      "tmdate": 1730878894204,
+      "tcdate": 1720833434434,
+      "writers": [
+        "NeurIPS.cc/2024/Conference",
+        "NeurIPS.cc/2024/Conference/Submission4048/Reviewer_N2Hi"
+      ],
+      "signatures": ["NeurIPS.cc/2024/Conference/Submission4048/Reviewer_N2Hi"],
+      "forum": "ZsS0megTsh",
+      "number": 4,
+      "license": "CC BY 4.0",
+      "cdate": 1720833434434,
+      "readers": ["everyone"],
+      "invitations": [
+        "NeurIPS.cc/2024/Conference/Submission4048/-/Official_Review",
+        "NeurIPS.cc/2024/Conference/-/Edit"
+      ],
+      "mdate": 1730878894204,
+      "domain": "NeurIPS.cc/2024/Conference",
+      "replyto": "ZsS0megTsh",
+      "id": "wdqVf8ml3I",
+      "forumContent": {
+        "venue": { "value": "NeurIPS 2024 poster" },
+        "keywords": {
+          "value": [
+            "Face Forgery Detection",
+            "Deepfake Detection",
+            "Digital Forensics",
+            "Multimodal Learning"
+          ]
+        },
+        "supplementary_material": {
+          "value": "/attachment/a5cdb45a67d6e4585f6441886cf6e27314ca243e.zip"
+        },
+        "primary_area": { "value": "machine_vision" },
+        "abstract": {
+          "value": "Detection of face forgery videos remains a formidable challenge in the field of digital forensics, especially the generalization to unseen datasets and common perturbations. In this paper, we tackle this issue by leveraging the synergy between audio and visual speech elements, embarking on a novel approach through audio-visual speech representation learning. Our work is motivated by the finding that audio signals, enriched with speech content, can provide precise information effectively reflecting facial movements. To this end, we first learn precise audio-visual speech representations on real videos via a self-supervised masked prediction task, which encodes both local and global semantic information simultaneously. Then, the derived model is directly transferred to the forgery detection task. Extensive experiments demonstrate that our method outperforms the state-of-the-art methods in terms of cross-dataset generalization and robustness, without the participation of any fake video in model training."
+        },
+        "_bibtex": {
+          "value": "@inproceedings{\nliang2024speechforensics,\ntitle={SpeechForensics: Audio-Visual Speech Representation Learning for Face Forgery Detection},\nauthor={Yachao Liang and Min Yu and Gang Li and Jianguo Jiang and Boquan Li and Feng Yu and Ning Zhang and Xiang Meng and Weiqing Huang},\nbooktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},\nyear={2024},\nurl={https://openreview.net/forum?id=ZsS0megTsh}\n}"
+        },
+        "title": {
+          "value": "SpeechForensics: Audio-Visual Speech Representation Learning for Face Forgery Detection"
+        },
+        "pdf": { "value": "/pdf/2a2f26a592cbe5de920de47ed2ae5e4ee3cf043d.pdf" },
+        "venueid": { "value": "NeurIPS.cc/2024/Conference" },
+        "paperhash": {
+          "value": "liang|speechforensics_audiovisual_speech_representation_learning_for_face_forgery_detection"
+        },
+        "authorids": {
+          "value": [
+            "~Yachao_Liang1",
+            "~Min_Yu1",
+            "~Gang_Li12",
+            "~Jianguo_Jiang3",
+            "~Boquan_Li1",
+            "~Feng_Yu9",
+            "~Ning_Zhang28",
+            "~Xiang_Meng2",
+            "~Weiqing_Huang1"
+          ]
+        },
+        "authors": {
+          "value": [
+            "Yachao Liang",
+            "Min Yu",
+            "Gang Li",
+            "Jianguo Jiang",
+            "Boquan Li",
+            "Feng Yu",
+            "Ning Zhang",
+            "Xiang Meng",
+            "Weiqing Huang"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "The paper explores the phenomenon of visual attention sinks in large multimodal models (LMMs). It identifies that these models often allocate high attention weights to irrelevant visual tokens during text-image processing, similar to \"attention sinks\" observed in language models. This issue results in diminished attention to crucial visual information, which can hinder the model’s multimodal understanding. To address this, the authors propose a method called Visual Attention Redistribution (VAR), which reallocates attention from irrelevant \"sink\" tokens to relevant visual tokens. The VAR approach first identifies image-centric attention heads that naturally focus on visual content, then redistributes the excess attention from sink tokens to strengthen attention on the actual image content."
+        },
+        "soundness": { "value": 2 },
+        "confidence": { "value": 4 },
+        "questions": {
+          "value": "1. In Figure 1, does the attention map show the attention scores between visual tokens and a specified text token, or between visual tokens and the output token?\n\n2. In the experiment shown in Figure 4(a) on the POPE benchmark, are the \"random tokens\" randomly selected from only the visual tokens? If not, and they are instead selected from all tokens, wouldn’t this comparison be unfair? If the tokens are indeed chosen only from visual tokens, how is it possible that the model's predictions drop to zero when masking all visual tokens? On the POPE dataset, LLaVA can maintain over 50% accuracy even without image input, so this experimental result is difficult to understand.\n\n3. Regarding the selection of image-centric attention heads, is the VAR strategy applied to all text tokens, or only to specific text tokens, or only to output tokens? If the experiment aligns with the analysis that VAR strategy only applied to specific object token, like \"clock\" in \"Is there a clock in this image?\", how are these particular tokens identified? If applied to all text tokens, is the visual token sink phenomenon consistent across all text tokens, which seems unlikely?\n\n4. During inference, is the attention redistribution performed layer by layer? Specifically, does the forward pass first obtain original results, identify image-centric attention heads, then update attention weights, and proceed with attention weight redistribution in the next layer? \n\nIf the author can address my second and third questions, I will raise my rating."
+        },
+        "rating": { "value": 3 },
+        "code_of_conduct": { "value": "Yes" },
+        "presentation": { "value": 2 },
+        "contribution": { "value": 3 },
+        "strengths": {
+          "value": "- Insightful Identification of Visual Attention Sink: The authors make an important discovery by identifying the phenomenon of visual attention sinks in LMMs, showing that these models often allocate high attention weights to irrelevant visual tokens. This observation highlights a key inefficiency in multimodal attention mechanisms and contributes to a deeper understanding of model behaviors.\n\n- Effective Attention Redistribution Technique: The proposed Visual Attention Redistribution (VAR) method is both innovative and practical. By reallocating attention from sink tokens to relevant visual tokens, VAR improves focus on key image content, enhancing multimodal model performance without additional training or inference overhead, making it easily applicable across different LMMs.\n\n- Broad Experimental Validation Across Tasks: The paper rigorously validates VAR across a range of multimodal tasks, including visual question answering, visual hallucination reduction, and spatial understanding tasks. This broad evaluation demonstrates the robustness and adaptability of the method, showcasing its effectiveness in various vision-language scenarios."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "- The results in Figure 4(a) are essential for validating the effectiveness of the sink token filtering strategy, yet they are challenging to interpret. If the randomly selected tokens are drawn from all input tokens, comparing them with visual sink tokens becomes less fair, making it difficult to substantiate the filtering's effectiveness. Conversely, if the random tokens are sampled exclusively from visual tokens, the experimental results appear unreasonable. Even without visual input, the model’s accuracy on the POPE benchmark should remain above 50%, yet the figure shows a final result of 0. Furthermore, when $\\tau < 10$, the tokens being pruned are predominantly standard visual tokens. Despite this, a significant difference in F1-Score persists between the two pruning strategies, contradicting the results seen when $\\tau > 10$. Without a clear explanation of the experimental findings in Figure 4(a), the credibility of the sink token filtering strategy is undermined.\n\n- The scope of the attention redistribution strategy remains ambiguous. Specifically, which tokens are targeted by this strategy? In practice, attention redistribution could apply to both input instruction tokens and output tokens, but the implementation should align with the analytical findings. If the strategy is applied only to specific tokens, it is crucial to specify how these tokens are selected; if applied to all output tokens, the analysis should demonstrate stable consistency in the attention assigned to sink tokens. However, this consistency is not currently evident in the analysis."
+        }
+      },
+      "nonreaders": [],
+      "tmdate": 1731427371208,
+      "tcdate": 1730292902814,
+      "writers": [
+        "ICLR.cc/2025/Conference",
+        "ICLR.cc/2025/Conference/Submission1085/Reviewer_P74f"
+      ],
+      "signatures": ["ICLR.cc/2025/Conference/Submission1085/Reviewer_P74f"],
+      "forum": "7uDI7w5RQA",
+      "number": 3,
+      "license": "CC BY 4.0",
+      "cdate": 1730292902814,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2025/Conference/Submission1085/-/Official_Review",
+        "ICLR.cc/2025/Conference/-/Edit"
+      ],
+      "mdate": 1731427371208,
+      "domain": "ICLR.cc/2025/Conference",
+      "replyto": "7uDI7w5RQA",
+      "id": "Wq5jXipKrX",
+      "forumContent": {
+        "TLDR": {
+          "value": "We find \"visual attention sink\" in LMMs, where irrelevant visual tokens with high attention weights arise from massive activation in specific dimensions. Also, we introduce Visual Attention Redistribution (VAR) to enhance attention on the image."
+        },
+        "venue": { "value": "ICLR 2025 Poster" },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": {
+          "value": [
+            "Large multimodal models",
+            "Visual attention sink",
+            "Visual attention redistribution"
+          ]
+        },
+        "supplementary_material": {
+          "value": "/attachment/e06949372b15aaad0181d44f2bbcc6a1dd6cb256.zip"
+        },
+        "primary_area": {
+          "value": "applications to computer vision, audio, language, and other modalities"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2025/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Large multimodal models (LMMs) \"see\" images by leveraging the attention mechanism between text and visual tokens in the transformer decoder. Ideally, these models should focus on key visual information relevant to the text token. However, recent findings indicate that LMMs have an extraordinary tendency to consistently allocate high attention weights to specific visual tokens, even when these tokens are irrelevant to the corresponding text. In this study, we investigate the property behind the appearance of these irrelevant visual tokens and examine their characteristics. Our findings show that this behavior arises due to the massive activation of certain hidden state dimensions, which resembles the attention sink found in language models. Hence, we refer to this phenomenon as the visual attention sink. In particular, our analysis reveals that removing the irrelevant visual sink tokens does not impact model performance, despite receiving high attention weights. Consequently, we recycle the attention to these tokens as surplus resources, redistributing the attention budget to enhance focus on the image. To achieve this, we introduce Visual Attention Redistribution (VAR), a method that redistributes attention in image-centric heads, which we identify as innately focusing on visual information. VAR can be seamlessly applied across different LMMs to improve performance on a wide range of tasks, including general vision-language tasks, visual hallucination tasks, and vision-centric tasks, all without the need for additional training, models, or inference steps. Experimental results demonstrate that VAR enables LMMs to process visual information more effectively by adjusting their internal attention mechanisms, offering a new direction to enhancing the multimodal capabilities of LMMs."
+        },
+        "_bibtex": {
+          "value": "@inproceedings{\nkang2025see,\ntitle={See What You Are Told: Visual Attention Sink in Large Multimodal Models},\nauthor={Seil Kang and Jinyeong Kim and Junhyeok Kim and Seong Jae Hwang},\nbooktitle={The Thirteenth International Conference on Learning Representations},\nyear={2025},\nurl={https://openreview.net/forum?id=7uDI7w5RQA}\n}"
+        },
+        "title": {
+          "value": "See What You Are Told: Visual Attention Sink in Large Multimodal Models"
+        },
+        "pdf": { "value": "/pdf/7ecb40ee9e5b79c2ca2cc105fd20884a3dde7bcb.pdf" },
+        "venueid": { "value": "ICLR.cc/2025/Conference" },
+        "paperhash": {
+          "value": "kang|see_what_you_are_told_visual_attention_sink_in_large_multimodal_models"
+        },
+        "authorids": {
+          "value": [
+            "~Seil_Kang1",
+            "~Jinyeong_Kim1",
+            "~Junhyeok_Kim3",
+            "~Seong_Jae_Hwang1"
+          ]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors’ identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": {
+          "value": [
+            "Seil Kang",
+            "Jinyeong Kim",
+            "Junhyeok Kim",
+            "Seong Jae Hwang"
+          ]
+        }
+      },
+      "version": 2
+    },
+    {
+      "content": {
+        "summary": {
+          "value": "- The authors present a foundation model for audio generation and editing which encompasses 11 tasks spanning multiple modalities of audio such as speech, music, and general sounds. \n- The paper proposes a different approach to modeling audio tokenized into discrete codes using audio codecs. The proposed architecture is a single multi-scale transformer which involves a global transformer which operates on a summarized form of each audio frame, and a local transformer which performs autoregressive generation of codes within an audio frame. The design is proposed as a way to alleviate training transformers on very long sequences of flattened audio codes (SPEAR-TTS), or having train an autoregressive transformer on one level of codes and another non-autoregressive transformer on the remaining level of audio codes (VALL-E).\n- The training process involves 7 different tasks with various task indicator tokens being used. The remaining tasks are incorporated in a fine-tuning phase post training of the base model.\n- The authors perform evaluation using subjective and objective metrics and compare against various other models which may be specialized for each task. The results indicate that UniAudio is competitive against all the baselines."
+        },
+        "presentation": { "value": "3 good" },
+        "contribution": { "value": "3 good" },
+        "soundness": { "value": "3 good" },
+        "strengths": {
+          "value": "- As the authors show in the first table, this system is the first to tackle so many tasks in audio generation using a single backbone with only additional fine-tuning.\n- The proposed model architecture is different from those used in other audio generation models and shows some gains. The comparison is not necessarily fair because of differences in training data, but it does give the community a new option to consider while building audio generation models.\n- Results for speech data and denoising are decent."
+        },
+        "flag_for_ethics_review": { "value": ["No ethics review needed."] },
+        "weaknesses": {
+          "value": "- The paper is a very dense read with some details relegated to the appendix while some details difficult to glean from the text. For example, the details about the audio tokenizer is moved to the appendix and no specifics are mentioned in the main text. Also, the text and the figure in the model architecture section are a little difficult to understand. I think I got it after reading through a few times, but adding some annotations to the figure and its caption will greatly improve readability.\n- While the results for speech are decent, I found some issues w.r.t words being skipped. Also, the results on text to music/audio are pretty poor. The authors have not discussed any of the limitations in terms of quality of the generated audio despite the model being competitive with current state-of-the-art. \n- The paper does not offer too much in terms of insights. Not to take away from the effort it takes to setup such a large scale experiment, but my main takeaways from the paper are as follows:\n  1. Existing audio codecs are not suitable for wide range of tasks, so one needs to train them on more diverse data.\n  2. As long as we collect 100k+ hours of audio data we can achieve such performance using the multi-scale transformer. \n\n  The multi-scale transformer architecture is definitely interesting to the community but the architecture contribution is not well ablated, and in my opinion, that is the most important part of the paper.\n- Minor correction: In Table 3, subjective and objective metrics column headers should be interchanged."
+        },
+        "confidence": {
+          "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+        },
+        "questions": {
+          "value": "- Wonder if the authors can add any ablations that answer questions related to the effect of data quantity?\n- Did the authors consider using DAC as the audio codec? Those models are trained on a more diverse dataset and also have other improvements over EnCodec."
+        },
+        "rating": { "value": "5: marginally below the acceptance threshold" },
+        "code_of_conduct": { "value": "Yes" }
+      },
+      "nonreaders": [],
+      "tmdate": 1699637075135,
+      "tcdate": 1698863140905,
+      "writers": [
+        "ICLR.cc/2024/Conference",
+        "ICLR.cc/2024/Conference/Submission8597/Reviewer_EAVx"
+      ],
+      "signatures": ["ICLR.cc/2024/Conference/Submission8597/Reviewer_EAVx"],
+      "forum": "nhgTmx1TZJ",
+      "number": 2,
+      "license": "CC BY 4.0",
+      "cdate": 1698863140905,
+      "readers": ["everyone"],
+      "invitations": [
+        "ICLR.cc/2024/Conference/Submission8597/-/Official_Review",
+        "ICLR.cc/2024/Conference/-/Edit"
+      ],
+      "mdate": 1699637075135,
+      "domain": "ICLR.cc/2024/Conference",
+      "replyto": "nhgTmx1TZJ",
+      "id": "R8nZGZXl50",
+      "forumContent": {
+        "venue": { "value": "Submitted to ICLR 2024" },
+        "code_of_ethics": {
+          "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "keywords": {
+          "value": [
+            "Audio Language Model",
+            "Universal Audio Generation",
+            "Foundation Model",
+            "Zero-shot"
+          ]
+        },
+        "supplementary_material": {
+          "value": "/attachment/2a399bad4066453c955a8cb7f987d6091cde5a1a.zip"
+        },
+        "primary_area": {
+          "value": "representation learning for computer vision, audio, language, and other modalities"
+        },
+        "submission_guidelines": {
+          "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2024/AuthorGuide."
+        },
+        "abstract": {
+          "value": "Language models (LMs) have demonstrated the capability to handle a variety of generative tasks. This paper presents the UniAudio system, which, unlike prior task-specific approaches, leverages LMs techniques to generate multiple types of audio (including speech, sounds, music, and singing) with given input conditions. \nUniAudio 1) first tokenizes all types of target audio along with other condition modalities, 2) concatenates source-target pair as a single sequence, and 3) performs next-token prediction using LMs. Also, a multi-scale Transformer model is proposed to handle the overly long sequences caused by the residual vector quantization based neural codec in tokenization. Training of UniAudio is scaled up to 165K hours of audio and 1B parameters, based on all generative tasks, aiming to obtain sufficient prior knowledge not only in the intrinsic properties of audio but also the inter-relationship between audio and other modalities. Therefore, the trained UniAudio model has the potential to become a foundation model for universal audio generation: it shows strong capability in all trained tasks and can seamlessly support new audio generation tasks after simple fine-tuning. Experiments demonstrate that UniAudio achieves state-of-the-art or at least competitive results on most of the 11 tasks. Demo and code are released\\footnote{\\url{https://uniaudio666.github.io/demo_UniAudio/}}"
+        },
+        "_bibtex": {
+          "value": "@misc{\nyang2024uniaudio,\ntitle={UniAudio: An  Audio Foundation Model Toward Universal Audio Generation},\nauthor={Dongchao Yang and Jinchuan Tian and Xu Tan and Rongjie Huang and Songxiang Liu and Xuankai Chang and Jiatong Shi and sheng zhao and Jiang Bian and Xixin Wu and Zhou Zhao and Shinji Watanabe and Helen M. Meng},\nyear={2024},\nurl={https://openreview.net/forum?id=nhgTmx1TZJ}\n}"
+        },
+        "title": {
+          "value": "UniAudio: An  Audio Foundation Model Toward Universal Audio Generation"
+        },
+        "pdf": { "value": "/pdf/c0238a72ace67f404afc77454481cc432814b0e5.pdf" },
+        "venueid": { "value": "ICLR.cc/2024/Conference/Rejected_Submission" },
+        "paperhash": {
+          "value": "yang|uniaudio_an_audio_foundation_model_toward_universal_audio_generation"
+        },
+        "authorids": {
+          "value": [
+            "~Dongchao_Yang1",
+            "~Jinchuan_Tian1",
+            "~Xu_Tan1",
+            "~Rongjie_Huang1",
+            "~Songxiang_Liu1",
+            "~Xuankai_Chang1",
+            "~Jiatong_Shi1",
+            "~sheng_zhao1",
+            "~Jiang_Bian1",
+            "~Xixin_Wu1",
+            "~Zhou_Zhao3",
+            "~Shinji_Watanabe1",
+            "~Helen_M._Meng1"
+          ]
+        },
+        "anonymous_url": {
+          "value": "I certify that there is no URL (e.g., github page) that could be used to find authors' identity."
+        },
+        "no_acknowledgement_section": {
+          "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "authors": {
+          "value": [
+            "Dongchao Yang",
+            "Jinchuan Tian",
+            "Xu Tan",
+            "Rongjie Huang",
+            "Songxiang Liu",
+            "Xuankai Chang",
+            "Jiatong Shi",
+            "sheng zhao",
+            "Jiang Bian",
+            "Xixin Wu",
+            "Zhou Zhao",
+            "Shinji Watanabe",
+            "Helen M. Meng"
+          ]
+        }
+      },
+      "version": 2
+    }
+  ],
+  "count": 10000,
+  "fromCache": true
+}

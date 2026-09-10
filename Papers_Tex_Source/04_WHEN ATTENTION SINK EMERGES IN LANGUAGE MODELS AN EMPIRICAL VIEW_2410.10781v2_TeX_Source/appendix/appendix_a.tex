@@ -1,0 +1,296 @@
+
+\clearpage
+
+\appendix
+
+\section{Related Work}\label{related_work}
+
+\vspace{-0.05cm}
+\subsection{Attention sink phenomenon} 
+\vspace{-0.05cm}
+Although the term \textit{attention sink} was introduced by \citet{xiao2023efficient}, similar observations have been reported in prior studies. Among them, \citet{zhai2023stabilizing} demonstrated that attention weights in Transformer models~\citep{vaswani2017attention} collapse into one-hot vectors, a phenomenon termed \textit{attention entropy collapse}. This issue has been identified as \textit{attention logit growth} by \citet{wortsman2023small, dehghani2023scaling}. Furthermore, \citet{bondarenko2023quantizable} observed the emergence of strong outliers in Transformer models, linked to attention heads that learn not to update residuals. Although not explicitly using the term attention sink, \citet{han2024lm} highlighted the significance of the first few tokens in language models (LMs), noting their distinct representational space. In vision transformers (ViTs), \citet{darcet2023vision} identified high-norm outlier tokens as artifacts in attention maps. Overall, the attention sink phenomenon is prevalent across Transformer models, including ViTs, encoder-only LMs, such as BERT~\citep{devlin2019bert}, and auto-regressive LMs. Notably, in auto-regressive LMs, attention sink consistently occurs on the first token in addition to tokens with limited semantic information in the middle context~\citep{sun2024massive,yu2024unveiling}.\looseness=-1
+
+\vspace{-0.05cm}
+\subsection{Attention sink and activation outliers}
+\vspace{-0.05cm}
+\citet{cancedda2024spectral} found that early FFNs in LLaMA2 blast off the large norm of hidden states for the first token, leading to attention sink in later layers. This is referred to as \textit{massive activations} (very few activations exhibit disproportionately large values) in \citet{sun2024massive} and \textit{token-wise activation outlier} in outlier literature~\citep{lin2024duquant}. Similar observations were made by \citet{bondarenko2023quantizable}. In contrast, \textit{channel-wise activation outlier}~\citep{dettmers2022gpt3, xiao2023smoothquant} refer to that outliers appear in specific channels across all token positions. A concurrent study~\citep{kaul2024attention} found that these two types of outliers are distinct and require different mitigation strategies. Despite the high magnitude in hidden states, \citet{bondarenko2023quantizable, guo2024attention} observed the values associated with sink tokens are typically smaller than those of other tokens.\looseness=-1
+
+\vspace{-0.05cm}
+\subsection{Understanding and mitigate attention sink}
+\vspace{-0.05cm}
+To understand the attention sink phenomenon in general Transformer models, \citet{bondarenko2023quantizable} hypothesized that the interplay among softmax, residual connections, and LayerNorm encourages models to learn not to update residuals. In auto-regressive LMs, \citet{sun2024massive} attributed attention sink at the first position to implicit biases in keys and values. A concurrent work by \citet{guo2024active} provided empirical and theoretical analyses of attention sink in very simple Transformer LMs on the Bigram-Backcopy (BB) task, identifying a mutual reinforcement mechanism as the underlying cause. Their findings on the BB task indicated that (i) replacing softmax with ReLU removes attention sink; (ii) switching the optimizer Adam to SGD eliminates massive activations but attention sink remains. 
+
+Besides the above literature, \citet{xiao2023efficient, kaul2024attention} found that replacing softmax with softmax-off-by-one~\citep{miller2023attention} alleviates attention sink at the first position, though \citet{xiao2023efficient} noted its potential emergence at other initial token positions. \citet{yin2024stablemask} proposed refining the casual mask with pseudo-attention values on the ``future tokens'', which could reduce attention sink. Though not explicitly targeting attention sink, methods such as $\sigma$Reparam~\citep{zhai2023stabilizing} and qk-norm~\citep{dehghani2023scaling} were introduced to address attention entropy collapse. To mitigate activation outliers, \citet{he2024understanding} developed an outlier-protected block and also highlighted the role of optimization in mitigating the outliers. Besides, \citet{bondarenko2023quantizable} proposed clipped softmax and gated attention, while \citet{kaul2024attention} introduced OrthoAdam to reduce activation outliers.\looseness=-1
+
+
+
+% Previous studies~\citep{zhai2023stabilizing} showed that Transformer~\citep{vaswani2017attention} tends to demonstrate low attention entropy. 
+
+\vspace{-0.05cm}
+\subsection{Applications of attention sink}
+\vspace{-0.05cm}
+Sink tokens in LMs are functionally important and absorb significant attention. This enables computational savings by prioritizing initial and recent tokens over middle-context tokens in attention calculations. Token-wise activation outliers pose challenges for quantization, necessitating specialized handling to facilitate quantization processes. These insights have motivated various applications, including streaming/long context generation~\citep{xiao2023efficient,han2024lm,yang2024seed}, KV cache optimization~\citep{ge2023model,wan2024look,wu2024layer}, efficient inference~\citep{zhang2024q,chen2024image}, model quantization~\citep{liu2024intactkv,huang2024slim}, and others.\looseness=-1
+
+% \textbf{Attention sink.} \citet{yin2024stablemask} proposed an ad-hoc approach to modify the causal mask in the attention, thus alleviating attention sink. 
+
+% \textbf{Massive activations.} \citet{bondarenko2023quantizable} also found that an activation outlier problem in transformers and softmax in attention contributes to such a problem. To fix this, they proposed clipped softmax and gated attention.  \citet{lin2024rotation} proposed a novel quantization approach to deal with the challenges brought by massive activations. 
+
+% \textbf{Small $\ell_2$-norm values.} \citet{devoto2024simple} also found that the $\ell_2$-norm of values for the sink tokens are typically small. 
+\newpage
+\section{Detailed formulations of positional embedding}\label{appendix_llm}
+
+In this section, we provide detailed formulations of positional embedding (PE) in LMs. PEs could be classified into two categories. NoPE, absolute positional embedding, and learnable positional embedding belong to the same category since they are added to the initial hidden states: $\boldsymbol{H}^0=\boldsymbol{X}\boldsymbol{W}_E+\boldsymbol{P}$. Here $\boldsymbol{P}=\left\{\boldsymbol{p}_1\textrm{,}\,\boldsymbol{p}_2\textrm{,}\,\cdots\textrm{,}\,\boldsymbol{p}_T\right\}\in\mathbb{R}^{T\times d}$. Meanwhile, the dot product between each query and key is computed as  $\langle\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j\rangle=\boldsymbol{q}_i\boldsymbol{k}_j^\top$.
+
+
+\textbf{NoPE.} NoPE~\citep{kazemnejad2024impact} refers to no positional embedding. Therefore, $\boldsymbol{P}=\boldsymbol{0}$.
+
+
+\textbf{Absolute PE.} Each position vector $\boldsymbol{p}_t$ in absolute positional embedding is a periodic function of token position $t$ following \citet{vaswani2017attention}:
+
+\begin{equation}
+    \boldsymbol{p}_t=\begin{bmatrix}
+        \sin(\omega_1 t) & \cos(\omega_1 t)  & \sin(\omega_2 t) & \cos(\omega_2 t) & \cdots & \sin(\omega_{d/2} t)& \cos(\omega_{d/2} t)\\
+    \end{bmatrix}\textrm{,}
+\end{equation}
+where $\omega_i=1/\textrm{10000}^{2(i-1)/d}$. 
+
+\textbf{Learnable PE.} Each position vector $\boldsymbol{p}_t$ in learnable positional embeddings is a learnable parameter.
+
+Relative positional embedding, ALibi, and rotary belong to another category since they consider the relative distance among tokens. Therefore, the initial hidden states are $\boldsymbol{H}^0=\boldsymbol{X}\boldsymbol{W}_E$ but how to compute the dot product between each query and key is modified. 
+
+\textbf{Relative PE.} The relative positional embeddings are adopted in T5 models~\citep{raffel2020exploring}. A bias term is adopted for the dot product: $\langle\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j\rangle=\boldsymbol{q}_i\boldsymbol{k}_j^\top+g(i-j)$, where the definition for distance function $g(\cdot)$ is:
+
+\begin{equation}
+    g(i-j)=\left\{
+    \begin{array}{lcl}
+        i-j & &\textrm{if} \,\,\,\, i-j < \mathcal{B}/2 \\
+        \frac{\mathcal{B}}{2} + \lfloor\frac{\log(\frac{i-j}{\mathcal{B}/2})}{\log(\frac{\mathcal{D}}{\mathcal{B}/2})}\rfloor\times \frac{\mathcal{B}}{2} && \textrm{if} \,\,\,\, \mathcal{B}/2 \leq i-j < \mathcal{D}\\
+        \mathcal{B}-1 && \textrm{if} \,\,\,\, i-j\geq\mathcal{D}
+    \end{array}
+    \right.
+\end{equation}
+
+Here $\mathcal{B}$ and $\mathcal{D}$ refer to the number of buckets and maximum distance, respectively. In T5 models, $\mathcal{B}=\textrm{32}$ and $\mathcal{D}=\textrm{128}$.
+
+
+\textbf{ALiBi.} Similarly, ALiBi~\citep{press2021train} also adds a bias term to the dot product: $\langle\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j\rangle=\boldsymbol{q}_i\boldsymbol{k}_j^\top+g(i-j)$, where $g(i-j)=-(i-j)\cdot m$. $m$ is a head-specific slope fixed:
+\begin{equation}
+    m=2^{-h\cdot 2^{-\log_2 H +3}}\textrm{,}
+\end{equation}
+where $1\leq h\leq H$ is the head index and $H$ is the number of heads in the multi-head self-attention (MHSA). This slope $m$ is a geometric sequence. For instance, when $H=8$, the sequence is $\frac{1}{2^1}\textrm{,}\,\frac{1}{2^2}\textrm{,}\,\cdots\textrm{,}\,\frac{1}{2^8}$. When $H=16$, the sequence is $\frac{1}{2^{0.5}}\textrm{,}\,\frac{1}{2^1}\textrm{,}\,\frac{1}{2^{1.5}}\textrm{,}\,\cdots\textrm{,}\,\frac{1}{2^8}$.
+
+\textbf{Rotary.} Rotary~\citep{su2024roformer} is the most adopted position encoding approach in the LLM community. It projects queries and keys into another space through rotations: 
+
+\begin{equation}
+    \langle\boldsymbol{q}_i\textrm{,}\, \boldsymbol{k}_j\rangle=\left(\boldsymbol{q}_i\boldsymbol{R}_{\Theta\textrm{,}\,-i}\right)\left( \boldsymbol{k}_j\boldsymbol{R}_{\Theta\textrm{,}\,-j}\right)^\top=\boldsymbol{q}_i\boldsymbol{R}_{\Theta\textrm{,}\,-i}\boldsymbol{R}_{\Theta\textrm{,}\,j}\boldsymbol{k}_j^\top=\boldsymbol{q}_i\boldsymbol{R}_{\Theta\textrm{,}\,j-i} \boldsymbol{k}_j^\top\textrm{,}
+\end{equation}
+where $\boldsymbol{R}_{\Theta\textrm{,}\,(\cdot)}$ is a pre-defined rotation matrix:
+\begin{equation}\boldsymbol{R}_{\Theta,m}=
+\left(
+    \begin{array}{ccccccc}
+       \cos m\omega_1  & -\sin m\omega_1 & 0 & 0 & \cdots & 0 & 0 \\
+        \sin m\omega_1  & \cos m\omega_1 & 0 & 0 & \cdots & 0 & 0 \\
+        0 & 0 & \cos m\omega_2  & -\sin m\omega_2  &\cdots & 0 & 0  \\
+        0 & 0 & \sin m\omega_2  & \cos m\omega_2  &\cdots & 0 & 0  \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 &  0 & 0 & \cdots & \cos m\omega_{d_h/2}  & -\sin m\omega_{d_h/2}\\
+         0 & 0 &  0 & 0 & \cdots &  \sin m\omega_{d_h/2}  & \cos m\omega_{d_h/2}\\
+    \end{array}
+    \right)\textrm{.}
+\end{equation}
+
+Here $\omega_i=1/\textrm{10000}^{2(i-1)/d_h}$ and $d_h=d/H$ is the hidden dimension in each head. From the above definition, it is noted that the rotation matrix $\boldsymbol{R}_{\Theta,m}^{d_h}$ satisfies $\boldsymbol{R}_{\Theta,m}^\top=\boldsymbol{R}_{\Theta,-m}$ and $\boldsymbol{R}_{\Theta,i}\boldsymbol{R}_{\Theta,j}=\boldsymbol{R}_{\Theta,i+j}$\looseness=-1.
+
+
+% Afterwards, we provide formulations for feed-forward network (FFN) and layer normalization (LN).\looseness=-1
+
+% \textbf{Feed Forward Network.} FFN~\citep{vaswani2017attention} is a multi-layer perceptron (MLP) with multiple linear layers together with non-linear activations: $\textrm{FFN}(\boldsymbol{h})=\sigma(\boldsymbol{h}\boldsymbol{W}_1+\boldsymbol{b}_1)\boldsymbol{W}_2+\boldsymbol{b}_2$, where $\sigma(\cdot)$ is a non-linear operation, e.g. ReLU. The weights $\boldsymbol{W}_1\in\mathbb{R}^{d\times d'}\textrm{,}\,\boldsymbol{W}_2\in\mathbb{R}^{d'\times d}\textrm{,}\,\boldsymbol{b}_1\in\mathbb{R}^{d'}\textrm{,}\,\boldsymbol{b}_2\in\mathbb{R}^{d}$, where $d'$ is the intermediate dimension in FFN. Typically, LLMs use a version of FFN with no bias: $\boldsymbol{b}_1=\boldsymbol{0}\textrm{,}\,\boldsymbol{b}_2=\boldsymbol{0}$. A variant of FFN, called SwiGLU~\citep{shazeer2020glu}, is widely adopted in the LLM community:\looseness=-1
+
+% \begin{equation}
+%     \textrm{FFN}(\boldsymbol{h})=\left(\textrm{Swish}_1(\boldsymbol{h}\boldsymbol{W}_1)\odot\boldsymbol{h}\boldsymbol{W}_2\right)\boldsymbol{W}_3\textrm{,}
+% \end{equation}
+% where $\boldsymbol{W}_1\textrm{,}\,\boldsymbol{W}_2\in\mathbb{R}^{d\times d'}\textrm{,}\,\boldsymbol{W}_3\in\mathbb{R}^{d'\times d}$, and $\odot$ is an element-wise product operation. 
+
+% \textbf{Layer Normalization.} LN is proposed to mitigate the issue of internal covariate shift~\citep{ba2016layernormalization}:\looseness=-1
+
+% \begin{equation}
+%     \textrm{LN}(\boldsymbol{h})=\frac{\boldsymbol{h}-\mu}{\sigma}\odot \boldsymbol{g}\textrm{,}\,\,\,\,\mu=\frac{1}{d}\sum_{i=1}^d\boldsymbol{h}_i\textrm{,}\,\,\,\sigma=\sqrt{\frac{1}{d}\sum_{i=1}^d(\boldsymbol{h}_i-\mu)^2}\textrm{,}
+% \end{equation}
+% where $\boldsymbol{g}\in \mathbb{R}^d$ is the learnable gain parameter. Besides the above traditional LN, RMSNorm~\citep{zhang2019root} is widely adopted in the LLM community:
+% \begin{equation}
+%     \textrm{LN}(\boldsymbol{h})=\frac{\boldsymbol{h}}{\textrm{RMS}(\boldsymbol{h})}\odot\boldsymbol{g}\textrm{,}\,\,\,\,\textrm{RMS}(\boldsymbol{h})=\sqrt{\frac{1}{d}\sum_{i=1}^d\boldsymbol{h}_i^2}\textrm{.}
+% \end{equation}
+% It is noted that RMSNorm simplifies the traditional LN by removing the re-centering operation. Empirically, it is comparable to the traditional LN in model performance. 
+
+
+% And we show the $\ell_{2}$-norm satisfies the following inequality:
+
+% \begin{align}
+%     \left\|\textrm{LN}(\boldsymbol{h})\right\|_2&\leq \left\|\frac{\boldsymbol{h}}{\textrm{RMS}(\boldsymbol{h})}\otimes \frac{\boldsymbol{h}}{\textrm{RMS}(\boldsymbol{h})}\right\|_2\left\|\boldsymbol{g}\otimes\boldsymbol{g}\right\|_2\\
+%     &=\left\|\frac{\boldsymbol{h}}{\textrm{RMS}(\boldsymbol{h})}\right\|_4^2 \left\|\boldsymbol{g}\right\|_4^2\\
+%     &=
+% \end{align}
+% Therefore, LN can bound the $\ell_{2}$-norm of hidden states. 
+
+% \clearpage
+
+% \subsection{Proof of Theorem~\ref{theorem1} and Corollary~\ref{corollary1}-\ref{corollary2}}
+
+% $f_{\theta}$ first embeds the input token to the initial hidden states by $\boldsymbol{H}^{\{0\}}=\{\boldsymbol{h}_1^{\{0\}}, \boldsymbol{h}_2^{\{0\}}, ..., \boldsymbol{h}_T^{\{0\}}\}=\boldsymbol{W}_E\boldsymbol{X}$. Suppose we have \textbf{no positional embeddings}. Then the hidden states after $l$-th ($0 \leq l \leq L$) decoder layer could be computed by the following operations:
+
+% % \textrm{SA}\circ\textrm{LN}(\boldsymbol{h}_t^{\{l-1\}})
+
+% \begin{equation}
+%     \boldsymbol{h}_t^{\{l\}}=\textrm{FFN}\circ\textrm{LN}(\boldsymbol{a}_t^{\{l-1\}} + \boldsymbol{h}_t^{\{l-1\}}) + \boldsymbol{a}_t^{\{l-1\}}  + \boldsymbol{h}_t^{\{l-1\}}\textrm{,}
+% \end{equation}
+% where $\textrm{FFN}$ refers to the feed-forward network,  $\textrm{LN}$ is layer normalization, $\boldsymbol{a}_t^{\{l-1\}}$ is the output of casual self-attention operation. Here we consider a pre-norm Transformer in our formulation. However, a post-norm Transformer should also fullfill our derived conclusion. $\boldsymbol{a}_t^{\{l-1\}}$ is computed
+
+% \begin{equation}
+%     \boldsymbol{a}_t^{\{l-1\}}=\sum_{h}\textrm{Attn}^{(h)}(\textrm{LN}(\boldsymbol{h}_t^{\{l-1\}}), \textrm{LN}(\boldsymbol{H}^{\{l-1\}}))
+% \end{equation}
+
+% % \begin{equation}
+% %     \textrm{Attn}^{(h)}
+% % \end{equation}
+
+% Let $\boldsymbol{q}_t^{\{l-1\}}=\boldsymbol{W}_Q\textrm{LN}(\boldsymbol{h}_t^{\{l-1\}})\textrm{,} \,\boldsymbol{k}_t^{\{l-1\}}=\boldsymbol{W}_K\textrm{LN}(\boldsymbol{h}_t^{\{l-1\}})\textrm{,}\,\boldsymbol{v}_t^{\{l-1\}}=\boldsymbol{W}_V\textrm{LN}(\boldsymbol{h}_t^{\{l-1\}})$, then the attention weights would be:
+% \begin{equation}
+%     \boldsymbol{\alpha}^{\{l-1\}} = [\boldsymbol{q}_t^{\{l-1\}}\cdot\boldsymbol{k}_0^{\{l-1\}}, \boldsymbol{q}_t^{\{l-1\}}\cdot\boldsymbol{k}_1^{\{l-1\}}, ..., \boldsymbol{q}_t^{\{l-1\}}\cdot\boldsymbol{k}_t^{\{l-1\}}]^T
+% \end{equation}
+
+
+% We have $\hat{\boldsymbol{\alpha}}^{\{l-1\}}=\textrm{softmax}(\boldsymbol{\alpha}^{\{l-1\}})$, then
+% \begin{equation}
+%     \boldsymbol{o}_t^{\{l-1\}}=\boldsymbol{W}_O(\sum_{i}^t\hat{\boldsymbol{\alpha}}_i^{\{l-1\}}\boldsymbol{v}_i^{\{l-1\}})
+% \end{equation}
+
+
+% Now we analyze the hidden states for each token position $t$. When $t=1$, for each layer, we have $\hat{\boldsymbol{\alpha}}^{\{l-1\}}=[1]^T$, then $\boldsymbol{o}_1^{\{l-1\}}=\boldsymbol{W}_O\boldsymbol{v}_1^{\{l-1\}}$. 
+
+% When $t=2$, for the first layer, we know that $\boldsymbol{h}_1^{\{0\}}=\boldsymbol{h}_2^{\{0\}}$. Then $\boldsymbol{k}_1^{\{0\}}=\boldsymbol{k}_2^{\{0\}}$, $\hat{\boldsymbol{\alpha}}^{\{0\}}=[\frac{1}{2}, \frac{1}{2}]^T$
+
+% \begin{equation}
+%     \boldsymbol{o}_2^{\{0\}}=\boldsymbol{W}_O(\sum_{i}^2\hat{\boldsymbol{\alpha}}_i^{\{0\}}\boldsymbol{v}_i^{\{0\}})=\boldsymbol{W}_O\boldsymbol{v}_1^{\{0\}}=\boldsymbol{o}_1^{\{0\}}
+% \end{equation}
+
+% Then we know that $\boldsymbol{h}_1^{\{1\}}=\boldsymbol{h}_2^{\{1\}}$, similarly, we could infer that $\boldsymbol{h}_1^{\{l\}}=\boldsymbol{h}_2^{\{l\}}, 0\leq l \leq L$.
+
+% Now assume that we have $\boldsymbol{h}_1^{\{l\}}=\boldsymbol{h}_2^{\{l\}}=...=\boldsymbol{h}_{t-1}^{\{l\}}, 0\leq l \leq L$. For the token position $t$, we can compute the attention weights for the first layer as $\hat{\boldsymbol{\alpha}}^{\{0\}}=[\frac{1}{t}, \frac{1}{t}, ..., \frac{1}{t}]^T$ since all the hidden states after the word embedding are the same. 
+
+% \begin{equation}
+%     \boldsymbol{o}_t^{\{0\}}=\boldsymbol{W}_O(\sum_{i}^t\hat{\boldsymbol{\alpha}}_i^{\{0\}}\boldsymbol{v}_i^{\{0\}})=\boldsymbol{W}_O\boldsymbol{v}_1^{\{0\}}=\boldsymbol{o}_1^{\{0\}}
+% \end{equation}
+
+% Then we know that $\boldsymbol{h}_t^{\{1\}}=\boldsymbol{h}_{t-1}^{\{1\}}=...=\boldsymbol{h}_1^{\{1\}}$. Similarly, we could infer that $\boldsymbol{h}_t^{\{l\}}=\boldsymbol{h}_{t-1}^{\{l\}}=...=\boldsymbol{h}_{1}^{\{l\}}, 0\leq l \leq L$.
+
+% The corollary~\ref{corollary1} could be easily derived based on the above proof. Since the tokens are the same, the hidden states before the first transformer layer (after the word embeddings) would be the same. The first $T'$ tokens share the same queries, keys, and values for the first transformer layer. 
+
+
+% For NOPE, the attention weights are computed by 
+
+% \begin{equation}
+%     \boldsymbol{\alpha}_{ti}=\langle \boldsymbol{q}_t, \boldsymbol{k}_i\rangle=\boldsymbol{q}_t^T\boldsymbol{k}_i\textrm{,}
+% \end{equation}
+% so the attention weights are the same.
+
+% For T5's relative positional embeddings, the attention weights are computed by
+
+% \begin{equation}
+%     \boldsymbol{\alpha}_{ti}=\langle \boldsymbol{q}_t, \boldsymbol{k}_i\rangle=\boldsymbol{q}_t^T\boldsymbol{k}_i+b_{\textrm{bucket}(t-i)}\textrm{,}
+% \end{equation}
+
+% where $b$ is a learned scalar and the bucket function is defined as ($\mathcal{B}$ and $\mathcal{D}$ refer to the number of buckets and maximum distance, respectively)
+
+% \begin{equation}
+%     \textrm{bucket}(n)=\left\{
+%     \begin{array}{lcl}
+%         n & &\textrm{if} \,\,\,\, n < \frac{\mathcal{B}}{2} \\
+%         \frac{\mathcal{B}}{2} + \lfloor\frac{\log(\frac{n}{\mathcal{B}/2})}{\log(\frac{\mathcal{D}}{\mathcal{B}/2})}\times \frac{\mathcal{B}}{2} && \textrm{if} \,\,\,\, \frac{\mathcal{B}}{2}\leq n < \mathcal{D}\\
+%         \mathcal{B}-1 && \textrm{if} \,\,\,\, n>\mathcal{D}
+%     \end{array}
+%     \right.
+% \end{equation}
+
+% Therefore, the attention weights after softmax normalization $\hat{\boldsymbol{\alpha}}$ would only depend on $b_{\textrm{bucket}(t-i)}$:
+
+% \begin{align}
+%     \hat{\boldsymbol{\alpha}}_t&=\textrm{softmax}(\boldsymbol{q}_t^T\boldsymbol{k}_1+b_{\textrm{bucket}(t-1)}, \boldsymbol{q}_t^T\boldsymbol{k}_2+b_{\textrm{bucket}(t-2)}, ..., \boldsymbol{q}_t^T\boldsymbol{k}_t+b_{\textrm{bucket}(0)})\\
+%     &=\textrm{softmax}(b_{\textrm{bucket}(t-1)}, b_{\textrm{bucket}(t-2)}, ..., b_{\textrm{bucket}(0)})\textrm{,}
+% \end{align}
+
+% As the values are the same, the hidden states after self-attention would be the same regardless of attention weights as they added up to one.
+
+% For ALiBi, the attention weights are computed by
+
+% \begin{equation}
+%     \boldsymbol{\alpha}_{ti}=\langle \boldsymbol{q}_t, \boldsymbol{k}_i\rangle=\boldsymbol{q}_t^T\boldsymbol{k}_i-(t-i)\cdot C^{(m+1)}\textrm{,}
+% \end{equation}
+
+% where $m$ is head index for multi-head self-attention and $C$ is defined as $C=2^{-2^{-\log_2(\textrm{\#heads}+3)}}$.
+
+% Similarly, we know that 
+
+% \begin{align}
+%     \hat{\boldsymbol{\alpha}}_t&=\textrm{softmax}(\boldsymbol{q}_t^T\boldsymbol{k}_1-(t-1)\cdot C^{(m+1)}, \boldsymbol{q}_t^T\boldsymbol{k}_2-(t-2)\cdot C^{(m+1)}, ..., \boldsymbol{q}_t^T\boldsymbol{k}_t-(t-3)\cdot C^{(m+1)})\\
+%     &=\textrm{softmax}(-(t-1)\cdot C^{(m+1)}, -(t-2)\cdot C^{(m+1)}, ..., -(t-3)\cdot C^{(m+1)})\textrm{,}
+% \end{align}
+
+% For Rotary, the attention weights are computed by
+
+% \begin{equation}
+%     \boldsymbol{\alpha}_{ti}=\langle \boldsymbol{q}_t, \boldsymbol{k}_i\rangle=\boldsymbol{q}_t^T\boldsymbol{R}_{\Theta,t-i}^d\boldsymbol{k}_i\textrm{,}
+% \end{equation}
+
+% where we have the rotation matrix
+
+% \begin{equation}\boldsymbol{R}_{\Theta,m}^d=
+% \left(
+%     \begin{array}{ccccccc}
+%        \cos m\theta_1  & -\sin m\theta_1 & 0 & 0 & \cdots & 0 & 0 \\
+%         \sin m\theta_1  & \cos m\theta_1 & 0 & 0 & \cdots & 0 & 0 \\
+%         0 & 0 & \cos m\theta_2  & -\sin m\theta_2  &\cdots & 0 & 0  \\
+%         0 & 0 & \sin m\theta_2  & \cos m\theta_2  &\cdots & 0 & 0  \\
+%         \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+%         0 & 0 &  0 & 0 & \cdots & \cos m\theta_{d/2}  & -\sin m\theta_{d/2}\\
+%          0 & 0 &  0 & 0 & \cdots &  \sin m\theta_{d/2}  & \cos m\theta_{d/2}\\
+%     \end{array}
+%     \right)\textrm{,}
+% \end{equation}
+
+% Similarly, we know that
+
+
+% \begin{align}
+%    \hat{\boldsymbol{\alpha}}_t&=\textrm{softmax}(\boldsymbol{q}_t^T\boldsymbol{R}_{\Theta,t-1}^d\boldsymbol{k}_1, \boldsymbol{q}_t^T\boldsymbol{R}_{\Theta,t-2}^d\boldsymbol{k}_2, ..., \boldsymbol{q}_t^T\boldsymbol{R}_{\Theta,0}^d\boldsymbol{k}_t)\\
+%    &=\textrm{softmax}(\boldsymbol{q}^T\boldsymbol{R}_{\Theta,t-1}^d\boldsymbol{k}, \boldsymbol{q}^T\boldsymbol{R}_{\Theta,t-2}^d\boldsymbol{k}, ..., \boldsymbol{q}^T\boldsymbol{R}_{\Theta,0}^d\boldsymbol{k})\\
+%    &=\textrm{softmax}(||\boldsymbol{q}||_2\cdot||\boldsymbol{k}||_2\cos(\beta_{t-1}), ||\boldsymbol{q}||_2\cdot||\boldsymbol{k}||_2\cos(\beta_{t-2}), ...,||\boldsymbol{q}||_2\cdot||\boldsymbol{k}||_2\cos(\beta_{0}))
+%    % &=\textrm{softmax}(\cos(\beta_{t-1}), \cos(\beta_{t-2}), ..., \cos(\beta_{0}))
+%    \textrm{,}
+% \end{align}
+% where
+
+% \begin{align}
+% \boldsymbol{q}^T\boldsymbol{R}_{\Theta,t'}^d\boldsymbol{k}&=||\boldsymbol{q}||_2||\boldsymbol{R}_{\Theta,t'}^d\boldsymbol{k}||_2\cos\left(\frac{\boldsymbol{q}\cdot(\boldsymbol{R}_{\Theta,t'}^d\boldsymbol{k})}{||\boldsymbol{q}||_2||\boldsymbol{R}_{\Theta,t'}^d\boldsymbol{k}||_2}\right)\\
+% &=||\boldsymbol{q}||_2||\boldsymbol{k}||_2\cos\left(\frac{\boldsymbol{q}\cdot(\boldsymbol{R}_{\Theta,t'}^d\boldsymbol{k})}{||\boldsymbol{q}||_2||\boldsymbol{k}||_2}\right)\\
+% &=||\boldsymbol{q}||_2||\boldsymbol{k}||_2\cos(\beta_{t'})
+% \end{align}
+
+% Since $-1\leq\cos(\beta_{t'})\leq1$, $e^{-1}\leq e^{\cos(\beta_{t'})}\leq e$. For each entry in $\hat{\boldsymbol{\alpha}}_t$, we know
+
+% \begin{align}
+% \hat{\boldsymbol{\alpha}}_t(i)&=\frac{e^{\cos(\beta_{t-i})}}{\sum_{j\neq i}e^{\cos(\beta_{t-j})}+e^{\cos(\beta_{t-i})}}\\
+% &=\frac{1}{\frac{\sum_{j\neq i}e^{\cos(\beta_{t-j})}}{e^{\cos(\beta_{t-i})}}+1}\\
+% &\leq\frac{1}{\min\left(\frac{\sum_{j\neq i}e^{\cos(\beta_{t-j})}}{e^{\cos(\beta_{t-i})}}\right)+1}\\
+% &\leq \frac{e^2}{t-1+e^2}
+% \end{align}
+
+% Therefore, 
+% \begin{equation}
+%     \lim_{t\to\infty}\max \frac{\hat{\boldsymbol{\alpha}}_t}{1/t}\leq\lim_{t\to\infty}\frac{te^2}{t-1+e^2}=e^2
+% \end{equation}
+
+
+% \input{summary}
+
+
+% % \cos(\beta_{t'})=\frac{\boldsymbol{q}\cdot(\boldsymbol{R}_{\Theta,t'}^d\boldsymbol{k})}{||\boldsymbol{q}||_2||||}

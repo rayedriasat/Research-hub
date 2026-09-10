@@ -1,0 +1,140 @@
+\appendix
+\section{Technical Appendices and Supplementary Material}
+\renewcommand\thefigure{S.\arabic{figure}}    
+\setcounter{figure}{0}
+\renewcommand\thetable{S.\arabic{table}}   
+\setcounter{table}{0}
+
+%%%%%%%%%%%%%%%% table of content %%%%%%%%%%%%%%%
+\textbf{\Large Sections}
+
+\begin{enumerate}
+    \item Implementation Details for Self-Distillation (section~\ref{distillation})
+    \item Implementation Details for Quantitative Evaluation (section~\ref{eval})
+    \item Additional Efficiency Analysis of PH-Reg Compared to DVT (section~\ref{efficiency})
+    \item Additional Qualitative Examples for Segmentation (section~\ref{additional})
+    \item Additional Qualitative Heatmaps for PH-Reg Zero-Shot (section~\ref{denoising_supp})
+    \item Proof of Test Time Augmentation  (section~\ref{proof})
+\end{enumerate}
+\newpage
+
+\vspace{30em}
+
+\section{Implementation Details for Self-Distillation}
+\label{distillation}
+\input{supp_sections/distillation_details2}
+\clearpage
+\section{Implementation Details for Quantitative Evaluation}\label{eval}
+\input{supp_sections/evaluation_details}
+\section{Additional Efficiency Analysis of PH-Reg Compared to DVT}\label{efficiency}
+\input{supp_sections/efficiency}
+\clearpage
+
+\section{Additional Qualitative Examples}
+\label{additional}
+
+\begin{figure}[htbp]
+  \centering
+  \vspace{-1em}
+\includegraphics[width=0.95\linewidth, trim=0 470 0 0, clip]{fig_pdf/ade20k.pdf}
+  \caption{Open-vocabulary semantic segmantation qualitative comparision between different baseline models on ADE20K.}
+  \vspace{-.5cm}
+  \label{fig:ade}
+\end{figure}
+
+\begin{figure}[htbp]
+\vfill
+  \centering
+\includegraphics[width=0.95\linewidth, trim=0 450 0 140, clip]{fig_pdf/context59.pdf}
+  \caption{Open-vocabulary semantic segmantation qualitative comparision between different baseline models on Pascal Context59.}
+  \vspace{-.5cm}
+  \label{fig:voc}
+\vfill
+\end{figure}
+\newpage
+
+\begin{figure}[htbp]
+  \centering
+  % \vspace{-2em}
+\includegraphics[width=0.95\linewidth, trim=0 850 0 100, clip]{fig_pdf/object.pdf}
+  \caption{Open-vocabulary semantic segmantation qualitative comparision between different baseline models on COCO Obejct.}
+  \vspace{-.5cm}
+  \label{fig:obj}
+\end{figure}
+
+\clearpage
+
+\section{Additional Qualitative Heatmaps for PH-Reg Zero-Shot}\label{denoising_supp}
+\begin{figure}[htbp]
+\vfill
+  \centering
+\includegraphics[width=0.85\linewidth]{fig_pdf/sim1_1.pdf}
+  \caption{\textbf{Zero-shot Heatmap Results.} Our results have fewer artifacts than other methods.}
+  \vspace{-.5cm}
+\vfill
+\end{figure}
+
+\begin{figure}[htbp]
+\vfill
+  \centering
+  \vspace{1cm}
+\includegraphics[width=0.85\linewidth]{fig_pdf/sim1_2.pdf}
+  \caption{\textbf{Zero-shot Heatmap Results.} Our results have fewer artifacts than other methods.}
+  \vspace{-.5cm}
+\vfill
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\vfill
+  \centering
+\includegraphics[width=0.85\linewidth]{fig_pdf/sim2_1.pdf}
+  \caption{\textbf{Zero-shot Heatmap Results.} Our results have fewer artifacts than other methods.}
+  \vspace{-.5cm}
+\vfill
+\end{figure}
+
+\begin{figure}[htbp]
+\vfill
+  \centering
+  \vspace{1cm}
+\includegraphics[width=0.85\linewidth]{fig_pdf/sim2_2.pdf}
+  \caption{\textbf{Zero-shot Heatmap Results.} Our results have fewer artifacts than other methods.}
+  \vspace{-.5cm}
+\vfill
+\end{figure}
+
+\clearpage
+
+
+\section{Optimal Feature Aggregation}
+\label{proof}
+Let $ f_{1}, \dots, f_{n} \in \mathbb{R}^d$ be feature vectors of a single patch from $n$ different transformations of an input image $\mathcal{I}$. We seek the optimal aggregated feature $f^*$ that minimizes the total squared error:
+
+\begin{equation}
+f^* = \mathop{\arg\min}_{f} \sum_{i=1}^n \|f_i - f\|_2^2
+\end{equation}
+
+Expanding the objective gives us:
+\begin{equation}
+\mathop{\arg\min}_f\sum_{i=1}^n (f_i^\top f_i - 2f_i^\top f + f^\top f)
+\end{equation}
+
+Dropping constant terms that do not change the optimum:
+\begin{equation}
+= nf^\top f - 2\left(\sum_{i=1}^n f_i^\top\right) f
+\end{equation}
+Dividing and multiplying the right side by $n$:
+\begin{equation}
+= nf^\top f - 2n\left(\sum_{i=1}^n \frac{1}{n} f_i^\top\right) f
+\end{equation}
+Dividing the equation by $n$ as whole shows us that we need to minimize:
+\begin{equation}
+\|f-\frac{1}{n}\sum_{i=1}^{n} f_i\|_{2}^{2}
+\end{equation}
+So it can be derived that the mean of the feature vectors is the minimizer under MSE loss: 
+
+\begin{equation}f^* = \frac{1}{n}\sum_{i=1}^{n} f_i\end{equation}
+
+
+

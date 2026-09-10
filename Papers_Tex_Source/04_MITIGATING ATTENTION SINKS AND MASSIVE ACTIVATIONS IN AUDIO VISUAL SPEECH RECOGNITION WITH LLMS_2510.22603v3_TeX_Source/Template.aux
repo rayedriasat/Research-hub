@@ -1,0 +1,98 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{li2023blip,gao2023llama,fathullah2024prompting,ma2024embarrassingly,maaz2023video,chen2024llast,zang2025contextual}
+\citation{cappellazzo2025large,thomas2025vallr,yeo2024visual,cappellazzo2025adaptive,yeo2025mms,llama-SMoP,yeo2025zero,cappellazzo2025mome,cappellazzo2025omni}
+\citation{hu2022lora}
+\citation{xiao2023streamingllm,gu2024attention,yu2024unveiling,cancedda2024spectral,barbero2025llms,qiu2025gated}
+\citation{xiao2023streamingllm}
+\citation{gu2024attention}
+\citation{xiao2023streamingllm}
+\citation{yu2024unveiling}
+\citation{sun2024massive,owen2025refined,kaul2024attention}
+\citation{xiao2023streamingllm,gu2024attention}
+\citation{cappellazzo2025large}
+\citation{xiao2023streamingllm,zuhri2025softpick}
+\citation{yu2024unveiling}
+\citation{cappellazzo2025large}
+\citation{shi2022learning}
+\citation{radford2023robust}
+\@writefile{toc}{\contentsline {section}{\numberline {1} Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2} Preliminaries}{1}{section.2}\protected@file@percent }
+\newlabel{sec:preliminaries}{{2}{1}{Preliminaries}{section.2}{}}
+\citation{vaswani2017attention}
+\citation{dubey2024llama}
+\citation{xiao2023streamingllm}
+\citation{sun2024massive}
+\@writefile{toc}{\contentsline {section}{\numberline {3} Analysis of Audio-Visual LLMs}{2}{section.3}\protected@file@percent }
+\newlabel{sec:analysis}{{3}{2}{Analysis of Audio-Visual LLMs}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1} Attention Sinks}{2}{subsection.3.1}\protected@file@percent }
+\newlabel{subsec:sink}{{3.1}{2}{Attention Sinks}{subsection.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {(a,b,c)} Attention sinks present in BOS and intermediate tokens for different tasks and compression rates (e.g., AVSR task at audio-video compression rates of (16, 5)). \textbf  {(d)} Activation magnitudes (z-axis) of the hidden state in Llama-AVSR (16, 5) at layer 5 reveal some features with massive activation in sink tokens.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:attention_map}{{1}{2}{\textbf {(a,b,c)} Attention sinks present in BOS and intermediate tokens for different tasks and compression rates (e.g., AVSR task at audio-video compression rates of (16, 5)). \textbf {(d)} Activation magnitudes (z-axis) of the hidden state in Llama-AVSR (16, 5) at layer 5 reveal some features with massive activation in sink tokens}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {(a)} Intermediate attention sinks originate after layer 2 in Llama-AVSR (16,5). \textbf  {(b)} Massive activations in Llama-AVSR (16,5) originate from the MLP of Layer 2.}}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:layer_analysis}{{2}{3}{\textbf {(a)} Intermediate attention sinks originate after layer 2 in Llama-AVSR (16,5). \textbf {(b)} Massive activations in Llama-AVSR (16,5) originate from the MLP of Layer 2}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2} Massive Activations}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{subsec:activation}{{3.2}{3}{Massive Activations}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3} Cosine Similarity with BOS}{3}{subsection.3.3}\protected@file@percent }
+\newlabel{subsec:cosine_sim}{{3.3}{3}{Cosine Similarity with BOS}{subsection.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {(a)} Cosine similarity of intermediate sink tokens and non-sink tokens with BOS token across layers of Llama-AVSR (16, 5). \textbf  {(b)} Pairwise cosine similarity heatmap of hidden-state embeddings of tokens of Llama-AVSR (16, 5) in layer 5.}}{3}{figure.3}\protected@file@percent }
+\newlabel{fig:cosine_sim}{{3}{3}{\textbf {(a)} Cosine similarity of intermediate sink tokens and non-sink tokens with BOS token across layers of Llama-AVSR (16, 5). \textbf {(b)} Pairwise cosine similarity heatmap of hidden-state embeddings of tokens of Llama-AVSR (16, 5) in layer 5}{figure.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4} Proposed Method}{3}{section.4}\protected@file@percent }
+\newlabel{sec:method}{{4}{3}{Proposed Method}{section.4}{}}
+\citation{cappellazzo2025large}
+\citation{dubey2024llama}
+\citation{xiao2023streamingllm,zuhri2025softpick}
+\citation{yu2024unveiling}
+\citation{yu2024unveiling}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textbf  {(a,b)} Sinks and massive activations vanish when disaligned from BOS. \textbf  {(c,d)} They emerge when aligned with BOS.}}{4}{figure.4}\protected@file@percent }
+\newlabel{fig:sink_rotate}{{4}{4}{\textbf {(a,b)} Sinks and massive activations vanish when disaligned from BOS. \textbf {(c,d)} They emerge when aligned with BOS}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1} Decorrelation Loss}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2} Final Training Loss}{4}{subsection.4.2}\protected@file@percent }
+\newlabel{eqn:method}{{11}{4}{Final Training Loss}{equation.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5} Experimental Results}{4}{section.5}\protected@file@percent }
+\newlabel{sec:results}{{5}{4}{Experimental Results}{section.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Llama-AVSR WER (\%) results with and without decorrelation loss.}}{4}{table.1}\protected@file@percent }
+\newlabel{tab:decor}{{1}{4}{Llama-AVSR WER (\%) results with and without decorrelation loss}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Comparison between our proposed method and ACT \cite  {yu2024unveiling}.}}{4}{table.2}\protected@file@percent }
+\newlabel{tab:act_comparison}{{2}{4}{Comparison between our proposed method and ACT \cite {yu2024unveiling}}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1} Decorrelation Loss for Intermediate Attention Sinks}{4}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2} Comparison with Prior Sink Mitigation Methods}{4}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6} Conclusion}{4}{section.6}\protected@file@percent }
+\bibstyle{IEEEbib}
+\bibdata{strings,refs}
+\bibcite{li2023blip}{1}
+\bibcite{gao2023llama}{2}
+\bibcite{fathullah2024prompting}{3}
+\bibcite{ma2024embarrassingly}{4}
+\bibcite{maaz2023video}{5}
+\bibcite{chen2024llast}{6}
+\bibcite{zang2025contextual}{7}
+\bibcite{cappellazzo2025large}{8}
+\bibcite{thomas2025vallr}{9}
+\bibcite{yeo2024visual}{10}
+\bibcite{cappellazzo2025adaptive}{11}
+\bibcite{yeo2025mms}{12}
+\bibcite{llama-SMoP}{13}
+\bibcite{yeo2025zero}{14}
+\bibcite{cappellazzo2025mome}{15}
+\bibcite{cappellazzo2025omni}{16}
+\bibcite{hu2022lora}{17}
+\bibcite{xiao2023streamingllm}{18}
+\bibcite{gu2024attention}{19}
+\bibcite{yu2024unveiling}{20}
+\bibcite{cancedda2024spectral}{21}
+\bibcite{barbero2025llms}{22}
+\bibcite{qiu2025gated}{23}
+\bibcite{sun2024massive}{24}
+\bibcite{owen2025refined}{25}
+\bibcite{kaul2024attention}{26}
+\bibcite{zuhri2025softpick}{27}
+\bibcite{shi2022learning}{28}
+\bibcite{radford2023robust}{29}
+\bibcite{vaswani2017attention}{30}
+\bibcite{dubey2024llama}{31}
+\@writefile{toc}{\contentsline {section}{\numberline {7} References}{5}{section.7}\protected@file@percent }
+\gdef \@abspage@last{5}

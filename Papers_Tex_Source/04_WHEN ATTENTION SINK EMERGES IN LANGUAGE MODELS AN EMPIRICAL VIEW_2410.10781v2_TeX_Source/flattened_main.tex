@@ -1,0 +1,2778 @@
+
+\documentclass{article} \usepackage{iclr2025_conference,times}
+
+
+
+\usepackage{amsmath,amsfonts,bm}
+
+\newcommand{\figleft}{{\em (Left)}}
+\newcommand{\figcenter}{{\em (Center)}}
+\newcommand{\figright}{{\em (Right)}}
+\newcommand{\figtop}{{\em (Top)}}
+\newcommand{\figbottom}{{\em (Bottom)}}
+\newcommand{\captiona}{{\em (a)}}
+\newcommand{\captionb}{{\em (b)}}
+\newcommand{\captionc}{{\em (c)}}
+\newcommand{\captiond}{{\em (d)}}
+
+\newcommand{\newterm}[1]{{\bf #1}}
+
+
+\def\figref#1{figure~\ref{#1}}
+\def\Figref#1{Figure~\ref{#1}}
+\def\twofigref#1#2{figures \ref{#1} and \ref{#2}}
+\def\quadfigref#1#2#3#4{figures \ref{#1}, \ref{#2}, \ref{#3} and \ref{#4}}
+\def\secref#1{section~\ref{#1}}
+\def\Secref#1{Section~\ref{#1}}
+\def\twosecrefs#1#2{sections \ref{#1} and \ref{#2}}
+\def\secrefs#1#2#3{sections \ref{#1}, \ref{#2} and \ref{#3}}
+\def\eqref#1{equation~\ref{#1}}
+\def\Eqref#1{Equation~\ref{#1}}
+\def\plaineqref#1{\ref{#1}}
+\def\chapref#1{chapter~\ref{#1}}
+\def\Chapref#1{Chapter~\ref{#1}}
+\def\rangechapref#1#2{chapters\ref{#1}--\ref{#2}}
+\def\algref#1{algorithm~\ref{#1}}
+\def\Algref#1{Algorithm~\ref{#1}}
+\def\twoalgref#1#2{algorithms \ref{#1} and \ref{#2}}
+\def\Twoalgref#1#2{Algorithms \ref{#1} and \ref{#2}}
+\def\partref#1{part~\ref{#1}}
+\def\Partref#1{Part~\ref{#1}}
+\def\twopartref#1#2{parts \ref{#1} and \ref{#2}}
+
+\def\ceil#1{\lceil #1 \rceil}
+\def\floor#1{\lfloor #1 \rfloor}
+\def\1{\bm{1}}
+\newcommand{\train}{\mathcal{D}}
+\newcommand{\valid}{\mathcal{D_{\mathrm{valid}}}}
+\newcommand{\test}{\mathcal{D_{\mathrm{test}}}}
+
+\def\eps{{\epsilon}}
+
+
+\def\reta{{\textnormal{$\eta$}}}
+\def\ra{{\textnormal{a}}}
+\def\rb{{\textnormal{b}}}
+\def\rc{{\textnormal{c}}}
+\def\rd{{\textnormal{d}}}
+\def\re{{\textnormal{e}}}
+\def\rf{{\textnormal{f}}}
+\def\rg{{\textnormal{g}}}
+\def\rh{{\textnormal{h}}}
+\def\ri{{\textnormal{i}}}
+\def\rj{{\textnormal{j}}}
+\def\rk{{\textnormal{k}}}
+\def\rl{{\textnormal{l}}}
+\def\rn{{\textnormal{n}}}
+\def\ro{{\textnormal{o}}}
+\def\rp{{\textnormal{p}}}
+\def\rq{{\textnormal{q}}}
+\def\rr{{\textnormal{r}}}
+\def\rs{{\textnormal{s}}}
+\def\rt{{\textnormal{t}}}
+\def\ru{{\textnormal{u}}}
+\def\rv{{\textnormal{v}}}
+\def\rw{{\textnormal{w}}}
+\def\rx{{\textnormal{x}}}
+\def\ry{{\textnormal{y}}}
+\def\rz{{\textnormal{z}}}
+
+\def\rvepsilon{{\mathbf{\epsilon}}}
+\def\rvtheta{{\mathbf{\theta}}}
+\def\rva{{\mathbf{a}}}
+\def\rvb{{\mathbf{b}}}
+\def\rvc{{\mathbf{c}}}
+\def\rvd{{\mathbf{d}}}
+\def\rve{{\mathbf{e}}}
+\def\rvf{{\mathbf{f}}}
+\def\rvg{{\mathbf{g}}}
+\def\rvh{{\mathbf{h}}}
+\def\rvu{{\mathbf{i}}}
+\def\rvj{{\mathbf{j}}}
+\def\rvk{{\mathbf{k}}}
+\def\rvl{{\mathbf{l}}}
+\def\rvm{{\mathbf{m}}}
+\def\rvn{{\mathbf{n}}}
+\def\rvo{{\mathbf{o}}}
+\def\rvp{{\mathbf{p}}}
+\def\rvq{{\mathbf{q}}}
+\def\rvr{{\mathbf{r}}}
+\def\rvs{{\mathbf{s}}}
+\def\rvt{{\mathbf{t}}}
+\def\rvu{{\mathbf{u}}}
+\def\rvv{{\mathbf{v}}}
+\def\rvw{{\mathbf{w}}}
+\def\rvx{{\mathbf{x}}}
+\def\rvy{{\mathbf{y}}}
+\def\rvz{{\mathbf{z}}}
+
+\def\erva{{\textnormal{a}}}
+\def\ervb{{\textnormal{b}}}
+\def\ervc{{\textnormal{c}}}
+\def\ervd{{\textnormal{d}}}
+\def\erve{{\textnormal{e}}}
+\def\ervf{{\textnormal{f}}}
+\def\ervg{{\textnormal{g}}}
+\def\ervh{{\textnormal{h}}}
+\def\ervi{{\textnormal{i}}}
+\def\ervj{{\textnormal{j}}}
+\def\ervk{{\textnormal{k}}}
+\def\ervl{{\textnormal{l}}}
+\def\ervm{{\textnormal{m}}}
+\def\ervn{{\textnormal{n}}}
+\def\ervo{{\textnormal{o}}}
+\def\ervp{{\textnormal{p}}}
+\def\ervq{{\textnormal{q}}}
+\def\ervr{{\textnormal{r}}}
+\def\ervs{{\textnormal{s}}}
+\def\ervt{{\textnormal{t}}}
+\def\ervu{{\textnormal{u}}}
+\def\ervv{{\textnormal{v}}}
+\def\ervw{{\textnormal{w}}}
+\def\ervx{{\textnormal{x}}}
+\def\ervy{{\textnormal{y}}}
+\def\ervz{{\textnormal{z}}}
+
+\def\rmA{{\mathbf{A}}}
+\def\rmB{{\mathbf{B}}}
+\def\rmC{{\mathbf{C}}}
+\def\rmD{{\mathbf{D}}}
+\def\rmE{{\mathbf{E}}}
+\def\rmF{{\mathbf{F}}}
+\def\rmG{{\mathbf{G}}}
+\def\rmH{{\mathbf{H}}}
+\def\rmI{{\mathbf{I}}}
+\def\rmJ{{\mathbf{J}}}
+\def\rmK{{\mathbf{K}}}
+\def\rmL{{\mathbf{L}}}
+\def\rmM{{\mathbf{M}}}
+\def\rmN{{\mathbf{N}}}
+\def\rmO{{\mathbf{O}}}
+\def\rmP{{\mathbf{P}}}
+\def\rmQ{{\mathbf{Q}}}
+\def\rmR{{\mathbf{R}}}
+\def\rmS{{\mathbf{S}}}
+\def\rmT{{\mathbf{T}}}
+\def\rmU{{\mathbf{U}}}
+\def\rmV{{\mathbf{V}}}
+\def\rmW{{\mathbf{W}}}
+\def\rmX{{\mathbf{X}}}
+\def\rmY{{\mathbf{Y}}}
+\def\rmZ{{\mathbf{Z}}}
+
+\def\ermA{{\textnormal{A}}}
+\def\ermB{{\textnormal{B}}}
+\def\ermC{{\textnormal{C}}}
+\def\ermD{{\textnormal{D}}}
+\def\ermE{{\textnormal{E}}}
+\def\ermF{{\textnormal{F}}}
+\def\ermG{{\textnormal{G}}}
+\def\ermH{{\textnormal{H}}}
+\def\ermI{{\textnormal{I}}}
+\def\ermJ{{\textnormal{J}}}
+\def\ermK{{\textnormal{K}}}
+\def\ermL{{\textnormal{L}}}
+\def\ermM{{\textnormal{M}}}
+\def\ermN{{\textnormal{N}}}
+\def\ermO{{\textnormal{O}}}
+\def\ermP{{\textnormal{P}}}
+\def\ermQ{{\textnormal{Q}}}
+\def\ermR{{\textnormal{R}}}
+\def\ermS{{\textnormal{S}}}
+\def\ermT{{\textnormal{T}}}
+\def\ermU{{\textnormal{U}}}
+\def\ermV{{\textnormal{V}}}
+\def\ermW{{\textnormal{W}}}
+\def\ermX{{\textnormal{X}}}
+\def\ermY{{\textnormal{Y}}}
+\def\ermZ{{\textnormal{Z}}}
+
+\def\vzero{{\bm{0}}}
+\def\vone{{\bm{1}}}
+\def\vmu{{\bm{\mu}}}
+\def\vtheta{{\bm{\theta}}}
+\def\va{{\bm{a}}}
+\def\vb{{\bm{b}}}
+\def\vc{{\bm{c}}}
+\def\vd{{\bm{d}}}
+\def\ve{{\bm{e}}}
+\def\vf{{\bm{f}}}
+\def\vg{{\bm{g}}}
+\def\vh{{\bm{h}}}
+\def\vi{{\bm{i}}}
+\def\vj{{\bm{j}}}
+\def\vk{{\bm{k}}}
+\def\vl{{\bm{l}}}
+\def\vm{{\bm{m}}}
+\def\vn{{\bm{n}}}
+\def\vo{{\bm{o}}}
+\def\vp{{\bm{p}}}
+\def\vq{{\bm{q}}}
+\def\vr{{\bm{r}}}
+\def\vs{{\bm{s}}}
+\def\vt{{\bm{t}}}
+\def\vu{{\bm{u}}}
+\def\vv{{\bm{v}}}
+\def\vw{{\bm{w}}}
+\def\vx{{\bm{x}}}
+\def\vy{{\bm{y}}}
+\def\vz{{\bm{z}}}
+
+\def\evalpha{{\alpha}}
+\def\evbeta{{\beta}}
+\def\evepsilon{{\epsilon}}
+\def\evlambda{{\lambda}}
+\def\evomega{{\omega}}
+\def\evmu{{\mu}}
+\def\evpsi{{\psi}}
+\def\evsigma{{\sigma}}
+\def\evtheta{{\theta}}
+\def\eva{{a}}
+\def\evb{{b}}
+\def\evc{{c}}
+\def\evd{{d}}
+\def\eve{{e}}
+\def\evf{{f}}
+\def\evg{{g}}
+\def\evh{{h}}
+\def\evi{{i}}
+\def\evj{{j}}
+\def\evk{{k}}
+\def\evl{{l}}
+\def\evm{{m}}
+\def\evn{{n}}
+\def\evo{{o}}
+\def\evp{{p}}
+\def\evq{{q}}
+\def\evr{{r}}
+\def\evs{{s}}
+\def\evt{{t}}
+\def\evu{{u}}
+\def\evv{{v}}
+\def\evw{{w}}
+\def\evx{{x}}
+\def\evy{{y}}
+\def\evz{{z}}
+
+\def\mA{{\bm{A}}}
+\def\mB{{\bm{B}}}
+\def\mC{{\bm{C}}}
+\def\mD{{\bm{D}}}
+\def\mE{{\bm{E}}}
+\def\mF{{\bm{F}}}
+\def\mG{{\bm{G}}}
+\def\mH{{\bm{H}}}
+\def\mI{{\bm{I}}}
+\def\mJ{{\bm{J}}}
+\def\mK{{\bm{K}}}
+\def\mL{{\bm{L}}}
+\def\mM{{\bm{M}}}
+\def\mN{{\bm{N}}}
+\def\mO{{\bm{O}}}
+\def\mP{{\bm{P}}}
+\def\mQ{{\bm{Q}}}
+\def\mR{{\bm{R}}}
+\def\mS{{\bm{S}}}
+\def\mT{{\bm{T}}}
+\def\mU{{\bm{U}}}
+\def\mV{{\bm{V}}}
+\def\mW{{\bm{W}}}
+\def\mX{{\bm{X}}}
+\def\mY{{\bm{Y}}}
+\def\mZ{{\bm{Z}}}
+\def\mBeta{{\bm{\beta}}}
+\def\mPhi{{\bm{\Phi}}}
+\def\mLambda{{\bm{\Lambda}}}
+\def\mSigma{{\bm{\Sigma}}}
+
+\DeclareMathAlphabet{\mathsfit}{\encodingdefault}{\sfdefault}{m}{sl}
+\SetMathAlphabet{\mathsfit}{bold}{\encodingdefault}{\sfdefault}{bx}{n}
+\newcommand{\tens}[1]{\bm{\mathsfit{#1}}}
+\def\tA{{\tens{A}}}
+\def\tB{{\tens{B}}}
+\def\tC{{\tens{C}}}
+\def\tD{{\tens{D}}}
+\def\tE{{\tens{E}}}
+\def\tF{{\tens{F}}}
+\def\tG{{\tens{G}}}
+\def\tH{{\tens{H}}}
+\def\tI{{\tens{I}}}
+\def\tJ{{\tens{J}}}
+\def\tK{{\tens{K}}}
+\def\tL{{\tens{L}}}
+\def\tM{{\tens{M}}}
+\def\tN{{\tens{N}}}
+\def\tO{{\tens{O}}}
+\def\tP{{\tens{P}}}
+\def\tQ{{\tens{Q}}}
+\def\tR{{\tens{R}}}
+\def\tS{{\tens{S}}}
+\def\tT{{\tens{T}}}
+\def\tU{{\tens{U}}}
+\def\tV{{\tens{V}}}
+\def\tW{{\tens{W}}}
+\def\tX{{\tens{X}}}
+\def\tY{{\tens{Y}}}
+\def\tZ{{\tens{Z}}}
+
+
+\def\gA{{\mathcal{A}}}
+\def\gB{{\mathcal{B}}}
+\def\gC{{\mathcal{C}}}
+\def\gD{{\mathcal{D}}}
+\def\gE{{\mathcal{E}}}
+\def\gF{{\mathcal{F}}}
+\def\gG{{\mathcal{G}}}
+\def\gH{{\mathcal{H}}}
+\def\gI{{\mathcal{I}}}
+\def\gJ{{\mathcal{J}}}
+\def\gK{{\mathcal{K}}}
+\def\gL{{\mathcal{L}}}
+\def\gM{{\mathcal{M}}}
+\def\gN{{\mathcal{N}}}
+\def\gO{{\mathcal{O}}}
+\def\gP{{\mathcal{P}}}
+\def\gQ{{\mathcal{Q}}}
+\def\gR{{\mathcal{R}}}
+\def\gS{{\mathcal{S}}}
+\def\gT{{\mathcal{T}}}
+\def\gU{{\mathcal{U}}}
+\def\gV{{\mathcal{V}}}
+\def\gW{{\mathcal{W}}}
+\def\gX{{\mathcal{X}}}
+\def\gY{{\mathcal{Y}}}
+\def\gZ{{\mathcal{Z}}}
+
+\def\sA{{\mathbb{A}}}
+\def\sB{{\mathbb{B}}}
+\def\sC{{\mathbb{C}}}
+\def\sD{{\mathbb{D}}}
+\def\sF{{\mathbb{F}}}
+\def\sG{{\mathbb{G}}}
+\def\sH{{\mathbb{H}}}
+\def\sI{{\mathbb{I}}}
+\def\sJ{{\mathbb{J}}}
+\def\sK{{\mathbb{K}}}
+\def\sL{{\mathbb{L}}}
+\def\sM{{\mathbb{M}}}
+\def\sN{{\mathbb{N}}}
+\def\sO{{\mathbb{O}}}
+\def\sP{{\mathbb{P}}}
+\def\sQ{{\mathbb{Q}}}
+\def\sR{{\mathbb{R}}}
+\def\sS{{\mathbb{S}}}
+\def\sT{{\mathbb{T}}}
+\def\sU{{\mathbb{U}}}
+\def\sV{{\mathbb{V}}}
+\def\sW{{\mathbb{W}}}
+\def\sX{{\mathbb{X}}}
+\def\sY{{\mathbb{Y}}}
+\def\sZ{{\mathbb{Z}}}
+
+\def\emLambda{{\Lambda}}
+\def\emA{{A}}
+\def\emB{{B}}
+\def\emC{{C}}
+\def\emD{{D}}
+\def\emE{{E}}
+\def\emF{{F}}
+\def\emG{{G}}
+\def\emH{{H}}
+\def\emI{{I}}
+\def\emJ{{J}}
+\def\emK{{K}}
+\def\emL{{L}}
+\def\emM{{M}}
+\def\emN{{N}}
+\def\emO{{O}}
+\def\emP{{P}}
+\def\emQ{{Q}}
+\def\emR{{R}}
+\def\emS{{S}}
+\def\emT{{T}}
+\def\emU{{U}}
+\def\emV{{V}}
+\def\emW{{W}}
+\def\emX{{X}}
+\def\emY{{Y}}
+\def\emZ{{Z}}
+\def\emSigma{{\Sigma}}
+
+\newcommand{\etens}[1]{\mathsfit{#1}}
+\def\etLambda{{\etens{\Lambda}}}
+\def\etA{{\etens{A}}}
+\def\etB{{\etens{B}}}
+\def\etC{{\etens{C}}}
+\def\etD{{\etens{D}}}
+\def\etE{{\etens{E}}}
+\def\etF{{\etens{F}}}
+\def\etG{{\etens{G}}}
+\def\etH{{\etens{H}}}
+\def\etI{{\etens{I}}}
+\def\etJ{{\etens{J}}}
+\def\etK{{\etens{K}}}
+\def\etL{{\etens{L}}}
+\def\etM{{\etens{M}}}
+\def\etN{{\etens{N}}}
+\def\etO{{\etens{O}}}
+\def\etP{{\etens{P}}}
+\def\etQ{{\etens{Q}}}
+\def\etR{{\etens{R}}}
+\def\etS{{\etens{S}}}
+\def\etT{{\etens{T}}}
+\def\etU{{\etens{U}}}
+\def\etV{{\etens{V}}}
+\def\etW{{\etens{W}}}
+\def\etX{{\etens{X}}}
+\def\etY{{\etens{Y}}}
+\def\etZ{{\etens{Z}}}
+
+\newcommand{\pdata}{p_{\rm{data}}}
+\newcommand{\ptrain}{\hat{p}_{\rm{data}}}
+\newcommand{\Ptrain}{\hat{P}_{\rm{data}}}
+\newcommand{\pmodel}{p_{\rm{model}}}
+\newcommand{\Pmodel}{P_{\rm{model}}}
+\newcommand{\ptildemodel}{\tilde{p}_{\rm{model}}}
+\newcommand{\pencode}{p_{\rm{encoder}}}
+\newcommand{\pdecode}{p_{\rm{decoder}}}
+\newcommand{\precons}{p_{\rm{reconstruct}}}
+
+\newcommand{\laplace}{\mathrm{Laplace}} 
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Ls}{\mathcal{L}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\emp}{\tilde{p}}
+\newcommand{\lr}{\alpha}
+\newcommand{\reg}{\lambda}
+\newcommand{\rect}{\mathrm{rectifier}}
+\newcommand{\softmax}{\mathrm{softmax}}
+\newcommand{\sigmoid}{\sigma}
+\newcommand{\softplus}{\zeta}
+\newcommand{\KL}{D_{\mathrm{KL}}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\standarderror}{\mathrm{SE}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\normlzero}{L^0}
+\newcommand{\normlone}{L^1}
+\newcommand{\normltwo}{L^2}
+\newcommand{\normlp}{L^p}
+\newcommand{\normmax}{L^\infty}
+
+\newcommand{\parents}{Pa} 
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Tr}{Tr}
+\let\ab\allowbreak
+ 
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage[utf8]{inputenc} \usepackage[T1]{fontenc}    \usepackage{hyperref}       \usepackage{url}            \usepackage{booktabs}       \usepackage{amsfonts}       \usepackage{nicefrac}       \usepackage{microtype}      \usepackage[titletoc]{appendix}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{diagbox}
+\usepackage{bm}
+\usepackage{tablefootnote}
+\usepackage{fancybox}
+\usepackage{colortbl}
+\usepackage{subcaption}
+\usepackage{comment}
+
+
+\definecolor{SDEblue}{RGB}{28 58 88}
+\definecolor{cc1}{rgb}{1.0, 0.44, 0.37}
+\definecolor{cc2}{rgb}{0.0, 0.2, 0.6}
+\definecolor{cc3}{RGB}{255, 191, 0}
+\definecolor{cc4}{RGB}{0, 128, 128}
+\hypersetup{
+ colorlinks=true,
+ urlcolor=magenta,
+ citecolor=SDEblue,
+}
+
+\usepackage{tcolorbox}
+\definecolor{lightroyalblue}{HTML}{F6F8FD} \definecolor{royalblue}{HTML}{4169E1}
+\definecolor{lighterblue}{HTML}{f2fafd}  \newtcolorbox{abox}{colback=lightroyalblue,colframe=black}
+\definecolor{LightCyan}{rgb}{.9, .95, 1.}
+
+
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{observation}{Observation}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{innercustomthm}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{theoremappendix}{Theorem}
+\newtheorem{lemmaappendix}{Lemma}
+\newtheorem{hypothesis}{Hypothesis}
+
+\DeclareMathOperator*{\argsup}{arg\,sup}
+\DeclareMathOperator*{\arginf}{arg\,inf}
+\DeclareMathOperator{\sgn}{sign}
+\DeclareMathOperator{\predict}{\mathbb{P}}
+\DeclareMathOperator{\Confidence}{Confidence}
+\DeclareMathOperator{\st}{s.t.}
+\DeclareMathOperator{\clip}{clip}
+\DeclareMathOperator{\minimize}{minimize}
+
+
+
+
+\renewcommand{\multirowsetup}{\centering}
+
+
+\title{When Attention Sink Emerges\\in Language Models: An Empirical View}
+
+
+
+\renewcommand\footnotemark{}
+\author{
+    \!\!Xiangming Gu$^{*1,2}$, Tianyu Pang$^{\dagger1}$, Chao Du$^{1}$, Qian Liu$^{1}$, Fengzhuo Zhang$^{1,2}$, \\
+    \textbf{Cunxiao Du$^{1}$, Ye Wang$^{\dagger2}$, Min Lin$^{1}$}\thanks{$^*$Work done during Xiangming Gu’s internship at Sea AI Lab.}\thanks{$^{\dagger}$Correspondence to Tianyu Pang and Ye Wang.}\\
+    $^{1}$Sea AI Lab, Singapore \,\,\,\,\,$^{2}$National University of Singapore \\
+    \footnotesize{\texttt{\{guxm, tianyupang, duchao, liuqian, zhangfz, ducx, linmin\}@sea.com;}} \\
+    \footnotesize{\texttt{wangye@comp.nus.edu.sg}}
+}
+
+
+
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\iclrfinalcopy \begin{document}
+
+
+\maketitle
+
+
+
+
+
+\begin{abstract}
+    Auto-regressive Language Models (LMs) assign significant attention to the first token, even if it is not semantically important, which is known as \textbf{attention sink}. This phenomenon has been widely adopted in applications such as streaming/long context generation, KV cache optimization, inference acceleration, model quantization, and others. Despite its widespread use, a deep understanding of attention sink in LMs is still lacking. In this work, we first demonstrate that attention sinks exist universally in auto-regressive LMs with various inputs, even in small models. Furthermore, attention sink is observed to emerge during the LM pre-training, motivating us to investigate how {\color{cc1}{optimization}}, {\color{cc2}{data distribution}}, {\color{cc3}{loss function}}, and {\color{cc4}{model architecture}} in LM pre-training influence its emergence. We highlight that attention sink emerges after effective optimization on sufficient training data. The sink position is highly correlated with the loss function and data distribution. Most importantly, we find that attention sink acts more like key biases, \emph{storing extra attention scores}, which could be non-informative and not contribute to the value computation. We also observe that this phenomenon (at least partially) stems from tokens' inner dependence on attention scores as a result of softmax normalization. After relaxing such dependence by replacing softmax attention with other attention operations, such as sigmoid attention without normalization, attention sinks do not emerge in LMs up to 1B parameters. The code is available at \href{https://github.com/sail-sg/Attention-Sink}{https://github.com/sail-sg/Attention-Sink}.\looseness=-1  
+\end{abstract}
+
+
+
+ \section{Introduction}
+
+
+
+
+\citet{xiao2023efficient} showed that Large Language models (LLMs) allocate significant attention to the initial tokens, irrespective of their semantic relevance. This interesting phenomenon is termed as \textbf{attention sink} and has widespread applications, including streaming/long context generation~\citep{xiao2023efficient,han2024lm,yang2024seed}, KV cache optimization~\citep{ge2023model,wan2024look,wu2024layer}, efficient inference~\citep{zhang2024q,chen2024image}, model quantization~\citep{liu2024intactkv,huang2024slim}, and others.\looseness=-1
+
+
+
+A seminal of works attempted to understand attention sink. Among them, \citet{cancedda2024spectral} clarified that attention sink primarily appears only on the first token. They attributed the phenomenon to the large norm of hidden states of the first token. This is referred to as \textit{massive activations} (very few activations exhibit extremely large values compared to others) in \citet{sun2024massive}. Besides, \citet{sun2024massive,yu2024unveiling} observed that attention sink may also appear in several word tokens carrying limited semantic information and having no fixed position. Despite the above research efforts, a deep understanding of attention sink is still absent. Therefore, we conduct a comprehensive study to investigate when attention sink emerges. We defer full discussions on related work to Appendix~\ref{related_work}.\looseness=-1
+
+
+
+Based on open-sourced auto-regressive LMs, we show that the first token acts as biases: the angles between the first key and queries of other tokens are typically small, leading to attention sink. Then we find that attention sink universally exists in auto-regressive LMs across different inputs, even in the small models or with random token sequences. Additionally, attention sink is observed to emerge during the LM pre-training before continual instruction tuning~\citep{ouyang2022training}. This motivates us to focus on the LM pre-training, whose objective can be formulated as:\looseness=-1
+\begin{equation}
+{\color{cc1}\min_{\theta}}\hspace{0.05cm}\mathbb{E}_{{\boldsymbol{X}\sim\color{cc2} p_{\textrm{data}}}}\left[{\color{cc3}\mathcal{L}}\left({\color{cc4}p_{\theta}}(\boldsymbol{X})\right)\right]\textrm{.}
+\end{equation}
+In the remaining part of this paper, we investigate how the {\color{cc1}optimization} (Section~\ref{sec4}), {\color{cc2}data distribution} (Section~\ref{sec5}), {\color{cc3}loss function} (Section~\ref{sec6}), and {\color{cc4}model architecture} (Section~\ref{sec7}) influence the emergence of attention sink. We have the following conclusions: 
+\begin{itemize}
+    \item Attention sink emerges after LMs are trained effectively on sufficient training data. It appears less obvious in LMs trained with small learning rates. While weight decay encourages the emergence of attention sink. 
+    \item The sink position is highly related to the loss function and data distribution and can be shifted to other positions rather than the first token.  
+    \item Attention sink acts more like key biases, storing extra attention and meanwhile not contributing to the value computation. This phenomenon (at least partially) stems from tokens' inner dependence on attention scores due to the softmax normalization. After relaxing such dependence by replacing softmax attention with other attention operations, e.g., sigmoid attention without normalization, attention sinks do not emerge in LMs up to 1B parameters.\looseness=-1
+\end{itemize}
+ 
+
+
+%
+ 
+
+\vspace{-0.25cm}
+\section{Preliminaries on LMs and attention sink}
+\vspace{-0.15cm}
+
+
+
+
+Let $f_{\theta}$ be an auto-regressive LM with $L$ transformer decoder blocks and $\boldsymbol{X}\in \mathbb{R}^{T \times |\mathbb{V}|}:=\{\boldsymbol{x}_1\textrm{,}\,\boldsymbol{x}_2\textrm{,}\,\ldots\textrm{,}\,\boldsymbol{x}_T\}$ are the input tokens, where each token $\boldsymbol{x}_t$ is a one-hot encoding and $|\mathbb{V}|$ is the vocabulary size of tokenizer $\mathbb{V}$. The LM output is also a sequence $\boldsymbol{Y}\in \mathbb{R}^{T \times |\mathbb{V}|}:=\{\boldsymbol{y}_1\textrm{,}\, \boldsymbol{y}_2\textrm{,}\,\ldots\textrm{,}\, \boldsymbol{y}_T\}=f_{\theta}(\boldsymbol{X})$, where $\boldsymbol{y}_t$ represents the predicted logits of $p(\boldsymbol{x}_{t+1}|\boldsymbol{x}_{\leq t})$. 
+
+
+\textbf{Transformer blocks.} In the forward pass, $\boldsymbol{X}$ is first embedded as $\boldsymbol{H}^{0} \in\mathbb{R}^{T\times d}:=\boldsymbol{X}\boldsymbol{W}_{E}+\boldsymbol{P}$,  where $\boldsymbol{W}_{E}\in \mathbb{R}^{|\mathbb{V}|\times d}$ is the learnable word embedding, $\boldsymbol{P}\in\mathbb{R}^{T\times d}$ is the positional embedding, and $d$ is the hidden dimension. We denote $\boldsymbol{H}^{l}\in \mathbb{R}^{T\times d}:=\{\boldsymbol{h}_1^{l}\textrm{,}\,\boldsymbol{h}_2^{l}\textrm{,}\,\ldots\textrm{,}\,\boldsymbol{h}_T^{l}\}\textrm{,}\,1\leq l\leq L$ to be the output of the $l$-th block. Each block comprises a multi-head self-attention (MHSA) operation and a feed-forward network (FFN). The block has either a pre-norm or post-norm structure according to the location of layer normalization (LN)~\citep{ba2016layernormalization,zhang2019root}. Most of LLMs consider a pre-norm block, as also shown in Figure~\ref{architecture}(\emph{Left}):
+\begin{equation}\label{eq-pre-norm}
+    \boldsymbol{H}^{l}=\textrm{FFN}(\textrm{LN}(\boldsymbol{O}^l + \boldsymbol{H}^{l-1})) +  \boldsymbol{O}^l + \boldsymbol{H}^{l-1}\textrm{,}\,\,\,\,\boldsymbol{O}^l=\textrm{MHSA}(\textrm{LN}(\boldsymbol{H}^{l-1}))\textrm{,}
+\end{equation}
+while the post-norm transformer block is
+\begin{equation}
+\boldsymbol{H}^{l}=\textrm{LN}\left(\textrm{FFN}(\textrm{LN}(\boldsymbol{O}^l + \boldsymbol{H}^{l-1})) + \textrm{LN}(\boldsymbol{O}^l + \boldsymbol{H}^{l-1})\right)\textrm{,}\,\,\,\,\boldsymbol{O}^l=\textrm{MHSA}(\boldsymbol{H}^{l-1})\textrm{.}
+\end{equation}
+
+\begin{figure}[t]
+\centering
+\vspace{-1.1cm}
+ \includegraphics[width=\textwidth]{figures/architecture.pdf}
+\vspace{-0.6cm}
+\caption{(\emph{Left}) Architecture of pre-norm transformer block (we highlight the location of post-norm LN using dashed lines). We denote the output of MHSA as $\boldsymbol{O}^l$ and the output of FFN as $\boldsymbol{F}^l$. (\emph{Right}) The packing strategy in the LM pre-training. All documents are concatenated with BOS (optional) and EOS tokens as the boundaries. Then it is chunked into equal-sized sequences with context length $C$.\looseness=-1
+}
+\vspace{-0.3cm}
+\label{architecture}
+\end{figure}
+
+\textbf{MHSA layers.} In the MHSA layer, the input $\boldsymbol{H}^{l-1}$ are first transformed into keys, queries, and values: $\boldsymbol{K}^{l\textrm{,}h}=\boldsymbol{H}^{l-1}\boldsymbol{W}_{K}^{l\textrm{,}h}$, $\boldsymbol{Q}^{l\textrm{,}h}=\boldsymbol{H}^{l-1}\boldsymbol{W}_{Q}^{l\textrm{,}h}$, $\boldsymbol{V}^{l\textrm{,}h}=\boldsymbol{H}^{l-1}\boldsymbol{W}_{V}^{l\textrm{,}h}$ for each head $1\leq h\leq H$ (we omit the notation of LN when considering pre-norm design for simplicity). Here $\boldsymbol{W}_{K}^{l\textrm{,}h}, \boldsymbol{W}_{Q}^{l\textrm{,}h}, \boldsymbol{W}_{V}^{l\textrm{,}h} \in \mathbb{R}^{d\times d_h}\textrm{,}\,d_h=d/H$. Then the attention output is computed as
+\begin{equation}
+    \boldsymbol{A}^{l\textrm{,}h}= \textrm{Softmax}\big({\boldsymbol{Q}^{l\textrm{,}h}{\boldsymbol{K}^{l\textrm{,}h}}^\top}/{\sqrt{d_h}}+ \boldsymbol{M}\big)\textrm{,}\,\,\,\,
+\boldsymbol{O}^l=\textrm{Concat}_{h=1}^H\left(\boldsymbol{A}^{l\textrm{,}h}\boldsymbol{V}^{l\textrm{,}h}\right)\boldsymbol{W}_{O}^l\textrm{,}
+\end{equation}
+where $\boldsymbol{M}\in \mathbb{R}^{T\times T}$ is an attention mask. For vanilla causal attention, $\boldsymbol{M}_{ij}=-\infty$ for $i<j$ and $\boldsymbol{M}_{ij}=0$ for $i\geq j$. Finally, the output of final transformer block $\boldsymbol{H}^{L}$ is fed into an unembedding layer for prediction: $\boldsymbol{Y}=\textrm{LN}(\boldsymbol{H}^{L})\boldsymbol{W}_{\textrm{cls}}$, where $\boldsymbol{W}_{\textrm{cls}}\in\mathbb{R}^{d\times |\mathbb{V}|}$.\looseness=-1
+
+\textbf{Positional embedding.} NoPE~\citep{kazemnejad2024impact} considered no explicit positional embedding (PE) in LMs, where $\boldsymbol{P}=\boldsymbol{0}$. When using absolute PE~\citep{vaswani2017attention}, $\boldsymbol{P}$ is a periodic function of token positions. \citet{devlin2019bert,Brown2020language} adopted a learnable PE, which means $\boldsymbol{P}$ is a learnable embedding of token positions. The dot product between each query and key meets $\langle\boldsymbol{q}_i\textrm{,}\, \boldsymbol{k}_j\rangle=\boldsymbol{q}_i \boldsymbol{k}_j^\top$ when using the above three PEs. While for relative PE~\citep{raffel2020exploring}, ALiBi~\citep{press2021train}, Rotary~\citep{su2024roformer}, they have  $\boldsymbol{P}=\boldsymbol{0}$. Instead, they modify the dot product $\langle\boldsymbol{q}_i\textrm{,}\, \boldsymbol{k}_j\rangle$. For relative PE and ALiBi, $\langle\boldsymbol{q}_i\textrm{,}\, \boldsymbol{k}_j\rangle=\boldsymbol{q}_i \boldsymbol{k}_j^\top + g(i-j)$, where $g(\cdot)$ is pre-defined function of the distance between two token positions. For Rotary, $\langle\boldsymbol{q}_i\textrm{,}\, \boldsymbol{k}_j\rangle=\boldsymbol{q}_i\boldsymbol{R}_{\Theta\textrm{,}\,j-i} \boldsymbol{k}_j^\top$, where $\boldsymbol{R}_{\Theta\textrm{,}\,(\cdot)}$ is a pre-defined rotation matrix. We include detailed formulations of the above PEs in Appendix~\ref{appendix_llm}.\looseness=-1
+
+
+\textbf{Auto-regressive objective.}  The pre-training objective of LMs is to maximize the likelihood of input data: $\theta^*=\arg\max_{\theta} \mathbb{E}_{\boldsymbol{X}\sim p_{\textrm{data}}}\left[\sum_{t=1}^T\log p_{\theta}(\boldsymbol{x}_t|\boldsymbol{x}_{<t})\right]$, where $p_{\textrm{data}}$ refers to the data distribution. 
+
+
+
+
+
+
+
+
+
+
+
+\textbf{Packing documents in pre-training.} Given a large corpus $\mathcal{D}=\{\boldsymbol{d}_1\textrm{,}\,\boldsymbol{d}_2\textrm{,}\,\cdots\textrm{,}\,\boldsymbol{d}_{|\mathcal{D}|}\}$, where each $\boldsymbol{d}_i$ represents a document containing a sequence of tokens. A packing strategy is adopted in the LM pre-training, as present in Figure~\ref{architecture}(\emph{Right}). All documents are concatenated and chunked into sequences with a context length of $C$. Each chunk could start with any token within one document or the BOS/EOS token. Then the empirical loss function for each chunk is $\mathcal{L}=\sum_{t=2}^C\log p_{\theta}(\boldsymbol{x}_t|\boldsymbol{x}_{<t})$. We note that $p_{\theta}(\boldsymbol{x}_1)$ is ignored since $\boldsymbol{y}_1=f_{\theta}(\boldsymbol{x}_1)$ is the prediction for the next token $\boldsymbol{x}_2$.\looseness=-1
+
+
+
+
+
+\textbf{LM inference.} During the inference, a BOS token is fed into the model as the prefix for unconditional generation: $\boldsymbol{x}'_t\sim p_{\theta}(\boldsymbol{x}'_t|\boldsymbol{x}'_{<t}\textrm{,}\,\boldsymbol{x}\textrm{,}\,\textrm{BOS})$, where $\boldsymbol{x}'_t$ is the $t$-th generated token, $\boldsymbol{x}$ is the optional prompt. If there are no BOS tokens in the pre-training, the EOS token is considered as the BOS.\looseness=-1
+
+
+
+
+
+
+
+
+
+
+
+\textbf{Attention sink.} \citet{xiao2023efficient} revealed that LLMs allocate significant attention scores to specific token positions, e.g. the first token (not necessary to be a BOS token), resulting in ``vertical'' attention patterns. To represent this, we have the attention scores $\boldsymbol{A}_{i\textrm{,}\,1}^{l\textrm{,}\,h}\gg \textrm{mean}(\boldsymbol{A}_{i\textrm{,}\,j\neq 1}^{l\textrm{,}\,h})$.\looseness=-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+ \begin{figure}[t]
+\centering
+\vspace{-1.cm}
+\includegraphics[width=\textwidth]{figures/activations_llama3-7b.pdf}
+
+
+\vspace{-0.3cm}
+\caption{In LLaMA3-8B Base, (\emph{Top}) the first token has significantly larger $\ell_2$-norm of hidden states, but much smaller $\ell_2$-norm of keys and values than the mean of other tokens; (\emph{Bottom}) cosine similarity instead of norm product contributes to attention sink. We delay more visualizations to Appendix~\ref{vis_norm}.\looseness=-1
+}
+\label{massive}
+\end{figure}
+
+\vspace{-.2cm}
+\section{Properties of attention sink}
+\vspace{-.1cm}
+
+
+\vspace{-.1cm}
+\subsection{The first token acts as biases}\label{section3_1}
+\vspace{-.1cm}
+\textbf{Uniqueness of the first token.} It is noted that the calculation of hidden states for the first token has no involvement of self-attention $\boldsymbol{h}_1^{l}=\textrm{FFN}(\textrm{LN}(\boldsymbol{o}_1^l + \boldsymbol{h}_1^{l-1})) +  \boldsymbol{o}_1^l + \boldsymbol{h}_1^{l-1}$, where $\boldsymbol{o}_1^l=\textrm{LN}(\boldsymbol{h}_1^{l-1})\begin{bmatrix}
+    \boldsymbol{W}^{l\textrm{,}1} & \boldsymbol{W}^{l\textrm{,}2} & \cdots & \boldsymbol{W}^{l\textrm{,}H}\\
+\end{bmatrix}\boldsymbol{W}_{O}^l$. Therefore, $\boldsymbol{h}_1^l$, and corresponding queries/keys/values $\boldsymbol{k}_1^{l\textrm{,}h}=\textrm{LN}(\boldsymbol{h}_1^{l-1})\boldsymbol{W}_{K}^{l\textrm{,}h}$, $\boldsymbol{q}_1^{l\textrm{,}h}=\textrm{LN}(\boldsymbol{h}_1^{l-1})\boldsymbol{W}_{Q}^{l\textrm{,}h}$, $\boldsymbol{v}_1^{l\textrm{,}h}=\textrm{LN}(\boldsymbol{h}_1^{l-1})\boldsymbol{W}_{V}^{l\textrm{,}h}$ could be considered as the MLP output of input word embedding $\boldsymbol{x}_1\boldsymbol{W}_E$. Using LLaMA3-8B Base~\citep{dubey2024llama}, we show that from certain transformer block, e.g., $l=2$, the $\ell_2$-norm of $\boldsymbol{h}_1^l$ is significantly larger than that of other tokens $\boldsymbol{h}_{t\neq 1}$ in Figure~\ref{massive}(\emph{Top}). This reproduces massive activations in \citet{cancedda2024spectral,sun2024massive}. Despite the large $\ell_2$-norm of hidden states, we observe that the $\ell_2$-norm of keys and values of the first token is significantly smaller than that of other tokens in the same figure, which was also observed in \citet{devoto2024simple, guo2024attention}.\looseness=-1 
+
+
+
+
+\textbf{QK angles contribute to attention sink.}  In the $l$-th transformer block, we consider the keys and queries after adding PE (Rotary in LLaMA3-8B Base): $\boldsymbol{k}_t^{l\textrm{,}h}=\textrm{LN}(\boldsymbol{h}_t^{l-1})\boldsymbol{W}_{K}^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,-t}$, $\boldsymbol{q}_t^{l\textrm{,}h}=\textrm{LN}(\boldsymbol{h}_t^{l-1})\boldsymbol{W}_{Q}^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,-t}$, where LN is RMSNorm~\citep{zhang2019root}: $\textrm{LN}(\boldsymbol{h})=\frac{\boldsymbol{h}}{\textrm{RMS}(\boldsymbol{h})}\odot\boldsymbol{g}$ and $\textrm{RMS}(\boldsymbol{h})=\sqrt{\frac{1}{d}\sum_{i=1}^d\boldsymbol{h}_i^2}$.
+Here $\boldsymbol{g}$ is a learnable gain parameter. Suppose that $\boldsymbol{h}_1^{l-1}$ already has massive activations. Since $\boldsymbol{h}_1^{l}$ has a massive magnitude in specific dimensions, the LN operation retains the magnitude in these dimensions and further reduces the magnitude in other dimensions, leading to that $\boldsymbol{q}_1^{l\textrm{,}\,h}$,  $\boldsymbol{k}_1^{l\textrm{,}\,h}$, and  $\boldsymbol{v}_1^{l\textrm{,}\,h}$ are distributed on different manifolds, especially for $\boldsymbol{k}_1^{l\textrm{,}\,h}$. 
+
+For the $t$-th query, we know that $\boldsymbol{q}_t^{l\textrm{,}\,h}{\boldsymbol{k}_{1}^{l\textrm{,}\,h}}^\top$ typically has much larger values than $\boldsymbol{q}_t^{l\textrm{,}\,h}{\boldsymbol{k}_{j\neq 1}^{l\textrm{,}\,h}}^\top$, as visualized in Figure~\ref{massive}(\emph{Bottom}). We further show that due to the different manifold of $\boldsymbol{k}_1^{l\textrm{,}\,h}$, the angles between $\boldsymbol{k}_1^{l\textrm{,}\,h}$ and $\boldsymbol{q}_{t}^{l\textrm{,}\,h}$ play an important role. Considering $\boldsymbol{q}_t^{l\textrm{,}h}{\boldsymbol{k}_j^{l\textrm{,}h}}^\top=\|\boldsymbol{q}_t^{l\textrm{,}h}\|\cdot\|\boldsymbol{k}_j^{l\textrm{,}h}\|\cdot\textrm{cos}(\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_j^{l\textrm{,}h})$, we visualize the cosine similarity between keys and values, and the product of $\ell_2$-norm between keys and values in Figure~\ref{massive}(\emph{Bottom}). Although $\|\boldsymbol{q}_t^{l\textrm{,}h}\|\cdot\|\boldsymbol{k}_1^{l\textrm{,}h}\|$ is comparatively small,  $\textrm{cos}(\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_1^{l\textrm{,}h})$ is significantly large, leading to attention sink. This explains why attention sink exists despite the small $\ell_2$-norm of keys of the first token. To conclude,  the first token leverages its keys to act as biases, thus minimizing the angles between $\boldsymbol{k}_{1}^{l\textrm{,}\,h}$ and $\boldsymbol{q}_{t}^{l\textrm{,}\,h}$ and exhibiting attention sink.
+
+
+
+
+
+
+
+
+
+
+
+\vspace{-0.15cm}
+\subsection{Measuring attention sink}
+\vspace{-0.05cm}
+
+
+
+
+\begin{figure}[t]
+\centering
+\vspace{-1.cm}
+\includegraphics[width=\textwidth]{figures/metrics.pdf}
+\vspace{-.6cm}
+\caption{The metric $\textrm{Sink}_1^{\epsilon}$ (averaged on 100 sequences) tends to decrease with larger token lengths $T$. This tendency becomes more obvious with the more strict definition of attention sink (larger $\epsilon$).
+}
+\vspace{-0.2cm}
+\label{metrics}
+\end{figure}
+
+
+
+\textbf{Threshold-based metrics.} \citet{xiao2023efficient} showcased the appearance of attention sink by visualizing attention logits/scores in different heads/blocks. This leads to the intractability of measuring attention sink quantitatively due to the large number of attention heads and blocks. Therefore, we first explore the metrics to measure the attention sink. Within each head, we compute the importance scores for the $k$-th token $\alpha_k^{l\textrm{,}h}=\frac{1}{T-k+1}\sum_{i=k}^T \boldsymbol{A}_{i\textrm{,}\,k}^{l\textrm{,}\,h}$. We mainly focus on the first token $\alpha_1^{l\textrm{,}h}$. It is noted that $\frac{1}{T}\leq \alpha_1^{l\textrm{,}\,h}\leq 1$ since $\boldsymbol{A}_{1\textrm{,}\,1}^{l\textrm{,}\,h}=1$ and $0\leq \boldsymbol{A}_{i\neq 1\textrm{,}\,1}^{l\textrm{,}\,h}\leq 1$. Then we adopt a threshold-based metric, we consider a head has attention sink in the first token if $\alpha_1^{l\textrm{,}h}>\epsilon$. Considering that the whole model has $L$ blocks and each block has $H$ heads, we use the following metric to measure the attention sink of the whole LM: {\color{red!20!violet}$\textrm{Sink}_k^{\epsilon}=\frac{1}{L}\sum_{l=1}^L\frac{1}{H}\sum_{h=1}^H\mathbb{I}(\alpha_k^{l\textrm{,}h}>\epsilon)$}.\looseness=-1
+
+
+
+
+
+\textbf{Selections of thresholds.} Typically, the selections of thresholds represent the strictness of quantifying attention sink. Generally, a larger $\epsilon$ represents a strict definition for attention sink. There is no principal way to find an optimal threshold and we only use this metric to quantify the emergence of attention sink empirically. Based on Figure~\ref{metrics}, we prefer to select a threshold that is both strict in quantifying attention sink and less sensitive to the token length $T$. This gives us the selection of $\epsilon=\textrm{0.3}$. For fair comparisons, we need to fix $T$ when computing the metric, e.g., $T=\textrm{64}$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{-0.2cm}
+\subsection{Attention sink under different inputs}\label{section3_3}
+\vspace{-0.2cm}
+
+\textbf{Different data domains.} We first explore the effects of input domains on attention sinks. The pile dataset~\citep{gao2020pile}, a regular dataset for LM pretraining, has 17 available data domains. As shown in Appendix~\ref{vis_domains}, input domains have negligible effects on our attention sink metric $\textrm{Sink}_1^{\epsilon}$. 
+
+
+
+
+
+
+\textbf{Beyond natural languages.} We also consider two ideal scenarios: (i) randomly sample $T$ tokens from the tokenizer vocabulary $\mathbb{V}$ to construct a sequence and (ii) randomly sample 1 token from the tokenizer $\mathbb{V}$ and repeat it $T$ times. As present in Table~\ref{input}(\emph{Left}), attention sink still exists when the inputs are random tokens instead of natural language. However, with repeated tokens, attention sink in Mistral~\citep{jiang2023mistral} and LLaMA models disappears. In Appendix~\ref{explain_pe}, we prove that for LMs with NoPE/relative PE/ALiBI/Rotary, if the first $T$ tokens are the same, their corresponding hidden states are the same. They all have massive activations, thus dispersing the attention sink. We also provide the closed form/upper bound for attention scores in these LMs through Propositions~\ref{prop1}-\ref{prop4}.\looseness=-1
+
+
+
+\begin{table}[t]
+\vspace{-1.1cm}
+\caption{(\emph{Left}) Even with random sequence as input, there still exists an obvious attention sink. But with repeated tokens, the attention sink disappears for Mistral/LLaMA models. (\emph{Right}) Chat models have comparable attention sink metrics with base models.}
+\vspace{-0.2cm}
+\begin{minipage}[t]{0.54\linewidth}
+\begin{center}
+\begin{tabular}{l|ccc}
+\toprule
+\multirow{2}{*}{LLM} & \multicolumn{3}{c}{$\textrm{Sink}_1^{\epsilon}$(\%)} \\
+& natural & random & repeat\\
+\midrule
+GPT2-XL  & 77.00 & 70.29 & 62.28 \\
+Mistral-7B &  97.49 & 75.21 & \,\,\,0.00 \\
+LLaMA2-7B Base & 92.47 & 90.13 & \,\,\,0.00 \\
+LLaMA3-8B Base & 99.02 & 91.23 & \,\,\,0.00\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.40\linewidth}
+\begin{center}
+\begin{tabular}{l|cc}
+\toprule
+\multirow{2}{*}{LLM} & \multicolumn{2}{c}{$\textrm{Sink}_1^{\epsilon}$(\%)} \\
+& Base & Chat\\
+\midrule
+Mistral-7B & 97.49 & 88.34 \\
+LLaMA2-7B & 92.47 & 92.88 \\
+LLaMA2-13B & 91.69 & 90.94 \\
+LLaMA3-8B & 99.02 & 98.85\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\vspace{-.3cm}
+\label{input}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/model_scale.pdf}
+\end{subfigure}
+\vspace{-0.675cm}
+\caption{(\textit{Left}) Attention sink also emerges in small LMs. (\textit{Middle}) Dynamics of train/valid loss and $\textrm{Sink}_1^\epsilon$ during LM pre-training under the default setup. Attention sink emerges after certain optimization steps. (\textit{Right}) Training loss (solid lines)/attention sink (dashed lines) dynamics of LMs using different learning rates. We observe that with smaller learning rates, attention sink tends to emerge after more optimization steps and be less obvious.\looseness=-1}
+\vspace{-0.2cm}
+\label{model}
+\end{figure}
+
+\vspace{-0.3cm}
+\subsection{Attention sink under different LMs}\label{section3_4}
+\vspace{-0.2cm}
+\textbf{Base vs. chat model.} Compared with base models, chat models are typically continually trained through instruction tuning~\citep{ouyang2022training}. From Table~\ref{input}(\emph{Right}), instruction tuning has an insignificant impact on attention sink, which motivates us to focus on the LM pre-training.\looseness=-1
+
+\textbf{Model scale.} We evaluate the metric $\textrm{Sink}_1^{\epsilon}$ of LLaMA2 Base~\citep{touvron2023llama}, LLaMA3 Base~\citep{dubey2024llama}, Pythia~\citep{biderman2023pythia}, GPT2~\citep{radford2019language}, OPT~\citep{zhang2022opt} families. As visualized in Figure~\ref{model}(\emph{Left}), attention sink emerges in small LMs, even in Pythia-14M. Only in Pythia family, larger-sized LMs tend to have more obvious attention sink.\looseness=-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+ 
+\vspace{-0.3cm}
+\section{Effects of {\color{cc1}optimization} on attention Sink.}
+\vspace{-0.25cm}
+\label{sec4}
+
+
+We pre-train a series of LLaMA models to conduct our experiments, based on the repos~\citep{zhang2024tinyllama,liu2024regmix}. Due to the intractability of replicating LLaMA pre-training, we design small-sized models. Following \citet{liu2024regmix}, we set hidden dimension $d=\textrm{768}$, block number $L=\textrm{10}$, head number $H=\textrm{8}$, intermediate size of FFN as 1536, resulting in approximately 60M parameters except for word embeddings and unembeddings. We keep the other design the same as LLaMA2 models, including Rotary~\citep{su2024roformer}, pre-norm structure, RMSNorm~\citep{zhang2019root} as LN, SwiGLU activation~\citep{shazeer2020glu} in FFN, etc.\looseness=-1
+
+For data distribution, we sample 5B tokens from the Pile dataset~\citep{gao2020pile}. We set the context length to 2048 tokens, the batch size to 1M tokens, and the training step to 20k (including 100 steps for warm-up). We adopt a learning rate of 4e-4 with cosine scheduling. The optimizer is AdamW~\citep{loshchilov2017decoupled} with a weight decay ratio of 0.1. We use the Pile-CC validation loss~\citep{gao2020pile,liu2024regmix} to measure the model performance and sample 100 sequences with $T=64$ (no BOS token) out of training data to measure the metric $\textrm{Sink}_k^\epsilon$ with $\epsilon=\textrm{0.3}$.  
+
+
+
+
+
+
+\begin{table}[t]
+\vspace{-1.1cm}
+\caption{Larger weight decay ratios tend to induce more attention sink heads in LMs. But much larger values hurt the model performance and attention sink disappears.}
+\vspace{-.4cm}
+\begin{center}
+\begin{tabular}{l|cccccccc}
+\toprule
+$\gamma$ & 0.0 & 0.001 & 0.01 & 0.1 & 0.5 & 1.0 & 2.0 & 5.0\\
+\midrule
+$\textrm{Sink}_1^{\epsilon}$(\%)  & 15.20 & 15.39 & 15.23 & 18.18 & 41.08 & 37.71 & 6.13 &  0.01\\
+valid loss & \,\,\,3.72 & \,\,\,3.72 & \,\,\,3.72 & \,\,\,3.73 & \,\,\,3.80  & \,\,\,3.90 &  4.23 & 5.24\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.5cm}
+\label{decay}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\textbf{Optimization steps.} As visualized in Figure~\ref{model}(\emph{Middle}), under our default setup, attention sink emerges after certain optimization steps, e.g., between 1k and 2k steps. With the progression of pre-training, attention sink becomes more obvious. 
+
+\textbf{Learning rate.} With a smaller learning rate, it takes longer training steps to lower training loss, as present in Figure~\ref{model}(\emph{Right}). Meanwhile, the emergence of attention sink is also delayed. Besides, as shown in Table~\ref{lr}, we also find that a smaller learning rate results in LMs with less obvious attention sink, even if we compensate for more training steps.  But further decreasing learning rate significantly affects the optimization and model performance, thus affecting the emergence of attention sink.\looseness=-1
+
+\textbf{Batch size.} In Table~\ref{batch_fix}(\emph{Left}), we find that only modifying batch size has no effects on attention sink.\looseness=-1
+
+\vspace{-0.1cm}
+\begin{abox} \looseness -1 \textbf{Takeaways:} 1.~Attention sink emerges after LMs are trained effectively. 2.~Attention sink appears less obvious in LMs trained with small learning rates.\end{abox}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+\vspace{-0.2cm}
+\section{Effects of {\color{cc2}data distribution  \texorpdfstring{$p_{\textrm{data}}$}{TEXT}} on attention sink}
+\vspace{-0.2cm}
+\label{sec5}
+
+\begin{figure}[t]
+\centering
+\begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/data_prefix.pdf}
+\end{subfigure}
+\vspace{-0.65cm}
+\caption{(\emph{Left}) Attention pattern for prefix language modeling. (\emph{Middle}) Attention sink does not only appear on the first token but among the prefix tokens for LMs with $p=\textrm{5}$. (\textit{Right}) With less training data, attention sink disappears. Meanwhile, trained LMs demonstrate overfitting behaviors.\looseness=-1}
+\vspace{-0.15cm}
+\label{data}
+\end{figure}
+
+\textbf{Training data amount.} In the default setup, we consider 5B tokens. We wonder whether the attention sink emerges if we further constrain the data within a fixed compute budget. Therefore, we constrain the training data to 5B, 2.5B, 500M, 200M, 100M, and 50M. Meanwhile, we fix the batch size and optimization steps. As visualized in Figure~\ref{data}(\emph{Right}), with less training data, attention sink disappears. Further evidence in Figure~\ref{appendix_overfit} shows that this is not related to overfitting.\looseness=-1
+
+\textbf{Randomness in data distribution.} After packing documents into chunks, we re-sample the first token within the chunk $\boldsymbol{x}_1\sim \textrm{Uniform}(\mathbb{V})$. The trained LM has the metric $\textrm{Sink}_1^\epsilon=\textrm{27.03\%}$, even larger than the default setup. This further validates the low semantic information of the sink token. We also consider $\boldsymbol{x}_1\textrm{,}\,\boldsymbol{x}_2\sim \textrm{Uniform}(\mathbb{V})$, and we find attention sink shifts to the second token with $\textrm{Sink}_2^\epsilon=\textrm{14.08\%}$ while the attention sink on the first token is much less obvious $\textrm{Sink}_1^\epsilon=\textrm{1.98\%}$. But when only sample $\boldsymbol{x}_2\sim \textrm{Uniform}(\mathbb{V})$, the attention sink still always appears on the first token ($\textrm{Sink}_1^\epsilon=\textrm{20.99\%}$). Additionally, we find with more random tokens during pre-training, attention sink tends to disappear.\looseness=-1
+
+\textbf{Fixing token in a specific position.} \citet{xiao2023efficient} considered a learnable token in the first token position within each chunk, which can be considered as $\boldsymbol{x}_1\sim \mathbb{I}(\boldsymbol{x}=\boldsymbol{x}_{\textrm{fix}})$. We also consider fixing the token $\boldsymbol{x}_{\textrm{fix}}$ in the second/third token position during pre-training. Consequently, the attention sink always appears in the fixed token instead of the first token, as shown in Table~\ref{batch_fix}(\emph{Right}).
+
+\vspace{-0.1cm}
+\begin{abox} \looseness -1 \textbf{Takeaways:} 1.~Attention sink emerges after LMs are trained on sufficient training data. 2.~Attention sink could be shifted to other positions rather than the first token if modifying $\color{cc2} p_{\textrm{data}}$.\looseness=-1\end{abox}
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+\vspace{-0.2cm}
+\section{Effects of {\color{cc3}loss function \texorpdfstring{$\mathcal{L}$}{TEXT}} on attention sink}
+\vspace{-0.2cm}
+\label{sec6}
+
+
+\textbf{Weight decay.} The loss function becomes $\mathcal{L}=\sum_{t=2}^C\log p_{\theta}(\boldsymbol{x}_t|\boldsymbol{x}_{<t})+\gamma \left\|\theta\right\|_2^2$ when introducing weight decay ratio $\gamma$. As indicated in Table~\ref{decay}, even $\gamma=\textrm{0}$ in the loss function, attention sink still emerges in LMs. Then a larger $\gamma$ encourages more heads to have attention sink. But further increasing weight decay hurts the optimization, leading to less obvious or even no attention sink.\looseness=-1
+
+
+
+\begin{figure}[t]
+\vspace{-1.0cm}
+\centering
+\includegraphics[width=\textwidth]{figures/window_attention.pdf}
+\caption{(\emph{Left}) Shifted window attention pattern. (\emph{Middle}) In LMs with window attention, attention sink appears on the first token, but not on the ``first token'' within each window. (\emph{Right}) Attention sink tends to emerge when the window size is large enough.\looseness=-1 
+}
+\label{window}
+\vspace{-0.2cm}
+\end{figure}
+
+
+\textbf{Prefix language modeling.} Since the first token is not predicted in the auto-regressive loss function, it could be considered as the prefix token. Then the original auto-regressive loss can be generalized into the formula $\mathcal{L}=\sum_{t=p+1}^C\log p_{\theta}(\boldsymbol{x}_t|\boldsymbol{x}_{p+1:t-1}\textrm{,}\,\boldsymbol{x}_{1:p})$, with the prefix length $p=1$. Motivated by \citet{wang2022language}, we consider $p>1$ and the casual mask visualized in Figure~\ref{data}(\emph{Left}). Although this design does not affect the emergence of attention sink, it shifts the sink position. In Figure~\ref{data}(\emph{Middle}), the attention sink only appears on one token. But it appears among these prefix tokens instead of on the first token only. Massive activations also appear on the corresponding sink token.\looseness=-1
+
+
+
+
+
+
+
+
+\textbf{Shifted window attention.} Motivated by the shifted window attention adopted in Mistral-7B, we further explore the effects of window size on attention sink. With shifted window attention, the loss function becomes $\mathcal{L}=\sum_{t=2}^C\log p_{\theta}(\boldsymbol{x}_t|\boldsymbol{x}_{t-w:t-1})$, where $w$ refers to the window size. As shown in Figure~\ref{window}(\emph{Left}) and (\emph{Middle}), with shifted window attention, we find that if $t\leq w$, the $t$-th token can still ``look at'' the first token, and LMs still have attention sink on the first token. When $t>w$, the $t$-th token can only attend up to the $t-w+1$-th token. Although this token is the ``first token'' for the $t$-th token, typically it has no attention sink. We have similar observations in Mistral-7B. Additionally, from Figure~\ref{window}(\emph{Right}), smaller window size prevents the emergence of attention sink.\looseness=-1
+
+\vspace{-0.1cm}
+\begin{abox} \looseness -1 \textbf{Takeaways:} 1.~Weight decay encourages the emergence of attention sink. 2.~With prefix language modeling, attention sink appears among the prefix tokens rather than the first token only. 3.~With shifted window attention, attention sink appears on the ``absolute'', not the  ``relative'' first token. Smaller window size prevents the emergence of attention sink.
+\end{abox}
+
+
+
+
+
+
+ 
+
+
+
+
+\vspace{-0.2cm}
+\section{Effects of {\color{cc4}model architecture \texorpdfstring{$p_{\theta}$}{TEXT}} on attention sink}
+\vspace{-0.2cm}
+\label{sec7}
+
+In this section, we mainly explore the effects of positional embedding, pre-norm or post-norm structure, and attention design on the emergence of attention sink. In Appendix~\ref{appendix_model}, we also show that varying activation functions in the FFN, multi-head design do not affect the emergence of attention sink.\looseness=-1
+
+\vspace{-0.15cm}
+\subsection{Positional embedding}
+\vspace{-0.15cm}
+
+
+Attention sink always appears on the first token, which motivates us to explore where such a position property is brought by positional embedding (PE). Therefore, we attempt to replace the original Rotary with other PEs, as shown in Table~\ref{pe}. We differentiate these PEs through the calculations of the hidden states $\boldsymbol{H}^0$ before the first transformer block and the dot product between queries and keys $\langle\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j\rangle$. The detailed formulations are delayed to Appendix~\ref{appendix_llm}. From the same Table, we observe that only the model with relative PE is difficult to train while other models have comparable performance under our setup. Then we note that all these LMs, even the one without explicit PE (NoPE), have attention sink.\looseness=-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{-0.2cm}
+\subsection{Pre-norm and post-norm structure} 
+\vspace{-0.2cm}
+Layer normalization (LN)~\citep{ba2016layernormalization,zhang2019root} regularizes the hidden states in LMs by re-centering and re-scaling, which may affect the massive activations. This motivates us to explore the effects of LN location on attention sink. In the pre-norm structure, as stated in \Eqref{eq-pre-norm}, hidden states from the earlier blocks could be retained by the later blocks through residual connections~\citep{he2016deep}.  Therefore, if massive activations appear in a specific block, they will likely be retained in the subsequent blocks. Within a post-norm structure, the hidden states will be normalized before being fed into the following blocks, as present in Figure~\ref{architecture}(\emph{Left}). 
+
+When replacing the pre-norm structure with the post-norm structure, $\textrm{Sink}_1^{\epsilon}$ becomes 13.54\%. This indicates that the attention sink still exists in post-norm LMs. After further investigations, as visualized in Figure~\ref{massive_activations}(\emph{Left}), massive activations exist in the hidden states before the post LN instead of $\boldsymbol{h}_1^{l}$.\looseness=-1 
+
+
+\begin{table}[t]
+\vspace{-1cm}
+\caption{Positional embedding does not affect the emergence of attention sink.}
+\vspace{-.5cm}
+\begin{center}
+\begin{tabular}{l|ll|ccc}
+\toprule
+PE & $\boldsymbol{H}^0$ & $\langle\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j\rangle$ & $\textrm{Sink}_1^{\epsilon}$(\%)  & valid loss\\
+\midrule
+NoPE & $\boldsymbol{X}\boldsymbol{W}_E$ & $\boldsymbol{q}_i\boldsymbol{k}_j^\top$ & 20.35 & 3.81\\
+Absolute PE & $\boldsymbol{X}\boldsymbol{W}_E+\boldsymbol{P}_{\textrm{abs}}$ & $\boldsymbol{q}_i\boldsymbol{k}_j^\top$ & 32.73 &  3.74\\
+Learnable PE & $\boldsymbol{X}\boldsymbol{W}_E+\boldsymbol{P}_{\textrm{learnable}}$ & $\boldsymbol{q}_i\boldsymbol{k}_j^\top$ & 33.13 &  3.79\\
+Relative PE & $\boldsymbol{X}\boldsymbol{W}_E$ & $\boldsymbol{q}_i\boldsymbol{k}_j^\top+g_{\textrm{relative}}(i-j)$ & 35.53 & 5.45\\
+ALiBi & $\boldsymbol{X}\boldsymbol{W}_E$ & $\boldsymbol{q}_i\boldsymbol{k}_j^\top+g_{\textrm{alibi}}(i-j)$ & 20.78 &  3.71\\
+Rotary & $\boldsymbol{X}\boldsymbol{W}_E$ & $\boldsymbol{q}_i\boldsymbol{R}_{\Theta\textrm{,}\,j-i}\boldsymbol{k}_j^\top$ & 18.18 & 3.73\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.3cm}
+\label{pe}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\vspace{-0.25cm}
+\includegraphics[width=\textwidth]{figures/massive_activations_bias.pdf}
+\vspace{-0.85cm}
+\caption{$\ell_2$-norm ratio of $\boldsymbol{h}_1^l$ and mean of $\boldsymbol{h}_{t\neq 0}^l$. (\emph{Left}) Massive activations exist not in hidden states in post-norm LMs, but in the features before LN. (\emph{Middle}) LMs with KV biases or K biases have no massive activations, while LMs with a learnable sink token or V biases have massive activations. (\emph{Right}) Massive activations emerge when increasing the $\ell_2$-norm of fixed $\boldsymbol{v}^{*l\textrm{,}\,h}$ for the setup of K biases.\looseness=-1 
+}
+\vspace{-0.35cm}
+\label{massive_activations}
+\end{figure}
+
+
+
+
+\begin{table}[t]
+\vspace{-1.1cm}
+\caption{With comparable performance, LMs with sink token, KV biases, and K biases could shift attention sink from the first token to key biases' position. Value biases cannot affect attention sink.}
+\vspace{-.4cm}
+\begin{center}
+\begin{tabular}{l|ccc}
+\toprule
+ Attention in each head  &  $\textrm{Sink}_{*}^{\epsilon}$(\%) &  $\textrm{Sink}_1^{\epsilon}$(\%) &valid loss \\
+\midrule
+ $\textrm{Softmax}\left(\frac{1}{\sqrt{d_h}}\boldsymbol{Q}^{l\textrm{,}h}{\boldsymbol{K}^{l\textrm{,}h}}^\top+ \boldsymbol{M}\right)\boldsymbol{V}^{l\textrm{,}h}$ & - & 18.18 & 3.73 \\
+ $\textrm{Softmax}\left(\frac{1}{\sqrt{d_h}}\begin{bmatrix}
+    \boldsymbol{q}^{*l,h} \\
+        \boldsymbol{Q}^{l,h}
+    \end{bmatrix}\begin{bmatrix}
+       {\boldsymbol{k}^{*l\textrm{,}h}}^\top & {\boldsymbol{K}^{l\textrm{,}h}}^\top
+    \end{bmatrix}+ \boldsymbol{M}\right)\begin{bmatrix}
+    \boldsymbol{v}^{*l\textrm{,}h} \\
+    \boldsymbol{V}^{l\textrm{,}h}
+\end{bmatrix}$ & 74.12 & \,\,\,0.00 &  3.72\\
+ $\textrm{Softmax}\left(\frac{1}{\sqrt{d_h}}\boldsymbol{Q}^{l\textrm{,}h}\begin{bmatrix}
+       {\boldsymbol{k}^{*l\textrm{,}h}}^\top & {\boldsymbol{K}^{l\textrm{,}h}}^\top
+    \end{bmatrix}+ \boldsymbol{M}\right)\begin{bmatrix}
+    \boldsymbol{v}^{*l\textrm{,}h} \\
+    \boldsymbol{V}^{l\textrm{,}h}
+\end{bmatrix}$ & 72.76 & \,\,\,0.04 & 3.72\\
+ $\textrm{Softmax}\left(\frac{1}{\sqrt{d_h}}\boldsymbol{Q}^{l\textrm{,}h}\begin{bmatrix}
+       {\boldsymbol{k}^{*l\textrm{,}h}}^\top & {\boldsymbol{K}^{l\textrm{,}h}}^\top
+    \end{bmatrix}+ \boldsymbol{M}\right)\begin{bmatrix}
+    \boldsymbol{0} \\
+    \boldsymbol{V}^{l\textrm{,}h}
+\end{bmatrix}$ & 73.34 & \,\,\,0.00 & 3.72 \\
+ $\textrm{Softmax}\left(\frac{1}{\sqrt{d_h}}\boldsymbol{Q}^{l\textrm{,}h}{\boldsymbol{K}^{l\textrm{,}h}}^\top+ \boldsymbol{M}\right)\boldsymbol{V}^{l\textrm{,}h}+\boldsymbol{v}^{*l\textrm{,}h}$ & - & 17.53 & 3.73\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.2cm}
+\label{bias}
+\end{table}
+
+\vspace{-0.2cm}
+\subsection{Attention biases}
+\vspace{-0.2cm}
+\textbf{Learnable biases in attention.} In Section~\ref{section3_1}, we have shown that the first token acts as a bias: its key $\boldsymbol{k}_1^{l\textrm{,}\,h}$ is distributed in a different manifold and its value $\boldsymbol{v}_1^{l\textrm{,}\,h}$ has small $\ell_2$ norm. \citet{xiao2023efficient} considered a learnable sink token in each chunk before the input tokens during LM pre-training. As this token is fixed in the first token, this could be considered as implicitly introducing biases $\boldsymbol{k}^{*l,h}$, $\boldsymbol{v}^{*l,h}$, $\boldsymbol{q}^{*l,h}$ in attention, as shown in the second row in Table~\ref{bias}. These biases are the MLP output of $\boldsymbol{x}^*\boldsymbol{W}_E$. \citet{sun2024massive} directly introducing $\boldsymbol{k}^{*l,h}$ and $\boldsymbol{v}^{*l,h}$ as learnable parameters in attention (\emph{KV biases}). They found that this design could alleviate the massive activations. Considering the important role of $\boldsymbol{k}^{*l,h}$ and small $\ell_2$-norm of $\boldsymbol{v}^{*l,h}$ , we propose introducing only the key biases  $\boldsymbol{k}^{*l,h}$ and fix value biases $\boldsymbol{v}^{*l,h}=\boldsymbol{0}$ (\emph{K biases}). As a control, we also consider only adding value biases (\emph{V biases}). The formulations of all these attention designs are shown in Table~\ref{bias}.\looseness=-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\textbf{LMs need key biases.} After evaluating the LMs with setups in Table~\ref{bias}, we first observe that these LMs have comparable model performance. Moreover, as long as there are key biases $\boldsymbol{k}^{*l\textrm{,}\,h}$, attention sink disappears on the first token but on the biases. From the setup of K biases, we reaffirm that the sink token acts as key biases, storing extra attention scores, which could be completely non-informative and not contribute to the value computation. It is worth mentioning that the introduced learnable sink token, KV biases, and V biases become part of model parameters in LMs. Removing them will lead to no attention sink in the first position, but a significant drop in model performance. In Figure~\ref{massive_activations}(\emph{Middle}),  we also find that the LM with a learnable sink token has massive activations in $\boldsymbol{x}^*$. While LMs with KV biases and K biases have no massive activations.\looseness=-1
+
+
+
+
+\begin{table}[t]
+\vspace{-0.2cm}
+\caption{Larger $\ell_2$-norm of fixed $\boldsymbol{v}^{*l\textrm{,}h}$ results in LMs allocating more attention on $\boldsymbol{x}_1$ instead of $\boldsymbol{k}^{*l\textrm{,}h}$.\looseness=-1}
+\vspace{-.4cm}
+\begin{center}
+\begin{tabular}{l|ccccccc}
+\toprule
+$\boldsymbol{v}^{*l,h}$ & $\boldsymbol{0}$ & $\boldsymbol{v}'$ & 5$\boldsymbol{v}'$ & 20$\boldsymbol{v}'$ & $\boldsymbol{v}''$ & 5$\boldsymbol{v}''$  & 20$\boldsymbol{v}''$  \\
+\midrule
+$\textrm{Sink}_{*}^{\epsilon}$(\%) & 73.34 & 70.03 & 44.43 & \,\,\,1.51 & 69.74 & 27.99 &  \,\,\,0.00 \\
+$\textrm{Sink}_{1}^{\epsilon}$(\%) & \,\,\,0.00 &  \,\,\,0.06 & \,\,\,3.71 & 25.88 & \,\,\,2.15 & \,\,\,5.93 & 11.21 \\
+valid loss & \,\,\,3.72 & \,\,\,3.72 & \,\,\,3.72 & \,\,\,3.71 & \,\,\,3.72 & \,\,\,3.72 & \,\,\,3.73 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.4cm}
+\label{v_norm}
+\end{table}
+
+
+
+\textbf{Beyond all zeros in V biases.} In the setup of K biases, we fix $\boldsymbol{v}^{*l,h}=\boldsymbol{0}$. We wonder whether the fixed values of $\boldsymbol{v}^{*l,h}$ could affect the attention sink. We consider, $\boldsymbol{v}^{*l,h}=m\boldsymbol{v}'$ or $\boldsymbol{v}^{*l,h}=m\boldsymbol{v}''$, where $m$ is the controllable $\ell_2$ norm and $\boldsymbol{v}'=[1,0,0,..,0]$ and $\boldsymbol{v}''=[1,1,1,..,1]/ \sqrt{d_h}$. As shown in Table~\ref{v_norm}, with larger $\ell_2$-norm of $\boldsymbol{v}^{*l,h}$, attention sink shifts from $\boldsymbol{k}^{*l,h}$ to the first token. Intuitively, it is difficult for LMs to remove the effects of $\boldsymbol{v}^{*l,h}$ with larger $\ell_2$-norm in model predictions. Then they opt to optimize the keys and values of the first token to save extra attention. 
+
+\textbf{Design space of biases.} In Table~\ref{multi_head}(\emph{Right}), the LM with head-sharing KV biases tends to shift the sink from $\boldsymbol{k}^{*l,h}$ back to the first token. While the one with head-sharing K biases is less affected. In Table~\ref{k_low_rank}, even with small learnable dimensions for key biases, they can still absorb large attention.\looseness=-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{-0.2cm}
+\subsection{Attention operation}
+\vspace{-0.2cm}
+\textbf{General formulation of attention.} In the last section, we realize that LMs need key biases to save extra attention. This motivates us to explore whether such a property is related to the dependence among attention scores due to the softmax operation. First, the attention output for the $i$-th token can be generalized as: $\boldsymbol{v}_i^{\dagger}=\left(\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))\right)^{-1}\sum_{j=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))\boldsymbol{v}_j=\boldsymbol{Z}_i^{-1}\sum_{j=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))\boldsymbol{v}_j$,
+where we omit the PE, and block/head indexes for simplicity. $\boldsymbol{Z}_i$ is a normalization term and $\varphi(\cdot)$ is a kernel function. Normally, $\boldsymbol{Z}_i=\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))$. For softmax attention, $\varphi(\cdot)$ is an identity kernel and $\textrm{sim}(\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j)=\textrm{exp}(\boldsymbol{q}_i\boldsymbol{k}_j^\top/\sqrt{d_h})$.
+
+
+
+
+\textbf{Normalization.} In Table~\ref{reweight}(\emph{Left}) and Figure~\ref{appendix_normalizer}, we show that modifying normalization may result in less obvious attention sink but does not stop its emergence. So we consider removing the normalization. Since the exponential function in softmax tends to explode without normalization, we replace it with sigmoid or elu plus one. When evaluating the attention sink, we compute the \textit{proxy} attention scores by using the term $\boldsymbol{Z}_i=\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))$ for attention sink metric $\textrm{Sink}_1^{\epsilon}$. As shown in Table~\ref{operation}, without normalization, LMs still have comparable validation loss but no attention sink. With normalization, attention sink also emerges in LMs with sigmoid attention.\looseness=-1
+
+
+
+
+
+
+\begin{table}[t]
+\vspace{-1.1cm}
+\caption{Normalization and selections of kernels in attention significantly affect the emergence of the attention sink. We use ``*'' to mark that the metric $\textrm{Sink}_1^{\epsilon}$ is computed by proxy attention scores.}
+\vspace{-.2cm}
+\begin{center}
+\begin{tabular}{l|l|cc}
+\toprule
+  $\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))$ & $\boldsymbol{Z}_i$ & $\textrm{Sink}_1^{\epsilon}$(\%) & valid loss \\
+\midrule
+ $\textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})$ & $\sum_{j'=1}^i \textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_{j'}^\top}{\sqrt{d_h}})$ & 18.18 & 3.73 \\
+ $\textrm{sigmoid}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})$ & $1$ & \,\,\,\,\,\,0.44$^*$ &  3.70 \\
+$\textrm{sigmoid}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})$ & $\sum_{j'=1}^i \textrm{sigmoid}(\frac{\boldsymbol{q}_i\boldsymbol{k}_{j'}^\top}{\sqrt{d_h}})$ & 30.24 & 3.74 \\
+ $\textrm{elu}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})+1$ & $1$ & \,\,\,\,\,\,0.80$^*$ &  3.69 \\ 
+\midrule
+$\frac{(\textrm{elu}(\boldsymbol{q}_i)+1)(\textrm{elu}(\boldsymbol{k}_j)+1)^\top}{\sqrt{d_h}}$ & $\sum_{j'=1}^i\frac{(\textrm{elu}(\boldsymbol{q}_i)+1)(\textrm{elu}(\boldsymbol{k}_{j'})+1)^\top}{\sqrt{d_h}}$ & \,\,\,53.65$^*$ & 4.19\\ 
+$\frac{\boldsymbol{q}_i\boldsymbol{k}_{j}^\top}{\sqrt{d_h}}$ & $1$ & \,\,\,\,\,0.00$^*$ & 3.99 \\
+$\frac{\textrm{mlp}(\boldsymbol{q}_i)\textrm{mlp}(\boldsymbol{k}_j)^\top}{\sqrt{d_h}}$ &  $\textrm{max}\left(\left|\sum_{j'=1}^i\frac{\textrm{mlp}(\boldsymbol{q}_i)\textrm{mlp}(\boldsymbol{k}_{j'})^\top}{\sqrt{d_h}}\right|\textrm{,}\,1\right)$ & \,\,\,\,\,0.19$^*$ &  3.85\\
+$\frac{\textrm{mlp}(\boldsymbol{q}_i)\textrm{mlp}(\boldsymbol{k}_j)^\top}{\sqrt{d_h}}$ & $1$ & \,\,\,\,\,0.74$^*$ & 3.91 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.2cm}
+\label{operation}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/massive_activations_operations.pdf}
+\vspace{-0.85cm}
+\caption{We visualize the $\ell_2$-norm ratio of $\boldsymbol{h}_1^l$ and mean of $\boldsymbol{h}_{t\neq 0}^l$. (\emph{Left}) Massive activations exist in LMs with attention scores that are non-negative and added up to one. (\emph{Middle}) Massive activations do not exist in LMs with independent attention scores. (\emph{Right}) When scaling the model size to 1B, LLMs with sigmoid attention (no normalization) still have no massive activations.\looseness=-1 
+}
+\vspace{-0.2cm}
+\label{massive_activations_operation}
+\end{figure}
+
+\textbf{Kernel functions.} Motivated by linear attention~\citep{katharopoulos2020transformers}, we consider different kernel functions $\varphi(\cdot)$, including elu plus one, identity, and MLP. It is noted that  $\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))$ could be minus for identity and MLP kernels. This brings intrinsic difficulty for normalization during the training and calculation of $\textrm{Sink}_1^{\epsilon}$. For normalization in the training, we consider $\boldsymbol{Z}_i=\textrm{max}\big(\big|\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))\big|\textrm{,}\,1\big)$. When computing $\textrm{Sink}_1^{\epsilon}$, we consider the proxy attention scores $\left|\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))\right|/\sum_{j'=1}^i\left|\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))\right|$. From Table~\ref{operation} (a full version in Table~\ref{appendix_operation}), we find that the LM with MLP kernel have no attention sink with or without normalization.\looseness=-1
+
+\textbf{Inner dependence on attention scores.} We note that the LMs with no attention sink typically relax tokens' inner dependence on attention scores. Their attention scores during pre-training could be negative or not add up to one. This indicated that attention sink (at least partially) stems from such inner dependence. Besides the attention metric computed by proxy attention scores, we also observe that the above LMs also have no massive activations, as shown in Figure~\ref{massive_activations_operation}(\emph{Middle}). 
+
+\textbf{Scale up to 1B parameters.} We compare model behaviors of 1B LMs with softmax attention and sigmoid attention (without normalization). Specifically, the latter achieves a validation loss of 3.10, slightly larger than the 3.07 achieved by the former. However, the attention sink metric significantly drops from 45.11\% to near zero: $\textrm{Sink}_1^{\epsilon}=\textrm{2.46\%}$ using the proxy attention scores. Meanwhile, as present in Figure~\ref{massive_activations_operation}(\emph{Right}), LLMs with sigmoid attention have no massive activations. Furthermore, they have no issues of training stability during continued supervised fine-tuning in Appendix~\ref{sft}.\looseness=-1
+
+
+\begin{abox} \looseness -1 \textbf{Takeaways:} 1.~Positional embedding, FFN design, LN location, and multi-head design do not affect the emergence of attention sink. 2.~Attention sink acts more like key biases, storing extra attention and meanwhile not contributing to the value computation. 3.~When relaxing tokens' inner dependence on attention scores, attention sink does not emerge in LMs. \end{abox}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+ 
+\vspace{-0.1cm}
+\section{Future work}
+\vspace{-0.1cm}
+This work focuses on the sink token in the first position. \citet{sun2024massive,yu2024unveiling} showed that attention sink can also appear on certain word tokens, e.g., period and newline tokens. However, these sink words may vary in different LMs and typically have no fixed positions. In the future, we will extend the research scope to explore how these sink tokens are related to the pre-training. Additionally, it remains unclear whether attention sink benefits LM downstream performance.\looseness=-1
+ \clearpage
+%
+ 
+
+\begin{thebibliography}{64}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ba et~al.(2016)Ba, Kiros, and Hinton]{ba2016layernormalization}
+Jimmy~Lei Ba, Jamie~Ryan Kiros, and Geoffrey~E. Hinton.
+\newblock Layer normalization.
+\newblock \emph{arXiv preprint arXiv:1607.06450}, 2016.
+
+\bibitem[Biderman et~al.(2023)Biderman, Schoelkopf, Anthony, Bradley, O’Brien, Hallahan, Khan, Purohit, Prashanth, Raff, et~al.]{biderman2023pythia}
+Stella Biderman, Hailey Schoelkopf, Quentin~Gregory Anthony, Herbie Bradley, Kyle O’Brien, Eric Hallahan, Mohammad~Aflah Khan, Shivanshu Purohit, USVSN~Sai Prashanth, Edward Raff, et~al.
+\newblock Pythia: A suite for analyzing large language models across training and scaling.
+\newblock In \emph{International Conference on Machine Learning}, pp.\  2397--2430. PMLR, 2023.
+
+\bibitem[Bondarenko et~al.(2023)Bondarenko, Nagel, and Blankevoort]{bondarenko2023quantizable}
+Yelysei Bondarenko, Markus Nagel, and Tijmen Blankevoort.
+\newblock Quantizable transformers: Removing outliers by helping attention heads do nothing.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36:\penalty0 75067--75096, 2023.
+
+\bibitem[Brown et~al.(2020)Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal, Neelakantan, Shyam, Sastry, Askell, Agarwal, Herbert-Voss, Krueger, Henighan, Child, Ramesh, Ziegler, Wu, Winter, Hesse, Chen, Sigler, Litwin, Gray, Chess, Clark, Berner, McCandlish, Radford, Sutskever, and Amodei]{Brown2020language}
+Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared~D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel Ziegler, Jeffrey Wu, Clemens Winter, Chris Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei.
+\newblock Language models are few-shot learners.
+\newblock \emph{Advances in neural information processing systems}, 33, 2020.
+
+\bibitem[Cancedda(2024)]{cancedda2024spectral}
+Nicola Cancedda.
+\newblock Spectral filters, dark signals, and attention sinks.
+\newblock \emph{arXiv preprint arXiv:2402.09221}, 2024.
+
+\bibitem[Chen et~al.(2024)Chen, Zhao, Liu, Bai, Lin, Zhou, and Chang]{chen2024image}
+Liang Chen, Haozhe Zhao, Tianyu Liu, Shuai Bai, Junyang Lin, Chang Zhou, and Baobao Chang.
+\newblock An image is worth 1/2 tokens after layer 2: Plug-and-play inference acceleration for large vision-language models.
+\newblock \emph{arXiv preprint arXiv:2403.06764}, 2024.
+
+\bibitem[Darcet et~al.(2023)Darcet, Oquab, Mairal, and Bojanowski]{darcet2023vision}
+Timoth{\'e}e Darcet, Maxime Oquab, Julien Mairal, and Piotr Bojanowski.
+\newblock Vision transformers need registers.
+\newblock \emph{arXiv preprint arXiv:2309.16588}, 2023.
+
+\bibitem[Dehghani et~al.(2023)Dehghani, Djolonga, Mustafa, Padlewski, Heek, Gilmer, Steiner, Caron, Geirhos, Alabdulmohsin, et~al.]{dehghani2023scaling}
+Mostafa Dehghani, Josip Djolonga, Basil Mustafa, Piotr Padlewski, Jonathan Heek, Justin Gilmer, Andreas~Peter Steiner, Mathilde Caron, Robert Geirhos, Ibrahim Alabdulmohsin, et~al.
+\newblock Scaling vision transformers to 22 billion parameters.
+\newblock In \emph{International Conference on Machine Learning}, pp.\  7480--7512. PMLR, 2023.
+
+\bibitem[Dettmers et~al.(2022)Dettmers, Lewis, Belkada, and Zettlemoyer]{dettmers2022gpt3}
+Tim Dettmers, Mike Lewis, Younes Belkada, and Luke Zettlemoyer.
+\newblock Gpt3. int8 (): 8-bit matrix multiplication for transformers at scale.
+\newblock \emph{Advances in Neural Information Processing Systems}, 35:\penalty0 30318--30332, 2022.
+
+\bibitem[Devlin et~al.(2019)Devlin, Chang, Lee, and Toutanova]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+\newblock Bert: Pre-training of deep bidirectional transformers for language understanding.
+\newblock In \emph{Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)}, pp.\  4171--4186, 2019.
+
+\bibitem[Devoto et~al.(2024)Devoto, Zhao, Scardapane, and Minervini]{devoto2024simple}
+Alessio Devoto, Yu~Zhao, Simone Scardapane, and Pasquale Minervini.
+\newblock A simple and effective $ l\_2 $ norm-based strategy for kv cache compression.
+\newblock \emph{arXiv preprint arXiv:2406.11430}, 2024.
+
+\bibitem[Ding et~al.(2023)Ding, Chen, Xu, Qin, Zheng, Hu, Liu, Sun, and Zhou]{ding2023enhancing}
+Ning Ding, Yulin Chen, Bokai Xu, Yujia Qin, Zhi Zheng, Shengding Hu, Zhiyuan Liu, Maosong Sun, and Bowen Zhou.
+\newblock Enhancing chat language models by scaling high-quality instructional conversations.
+\newblock \emph{arXiv preprint arXiv:2305.14233}, 2023.
+
+\bibitem[Dubey et~al.(2024)Dubey, Jauhri, Pandey, Kadian, Al-Dahle, Letman, Mathur, Schelten, Yang, Fan, et~al.]{dubey2024llama}
+Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Amy Yang, Angela Fan, et~al.
+\newblock The llama 3 herd of models.
+\newblock \emph{arXiv preprint arXiv:2407.21783}, 2024.
+
+\bibitem[Fedus et~al.(2022)Fedus, Zoph, and Shazeer]{fedus2022switch}
+William Fedus, Barret Zoph, and Noam Shazeer.
+\newblock Switch transformers: Scaling to trillion parameter models with simple and efficient sparsity.
+\newblock \emph{Journal of Machine Learning Research}, 23\penalty0 (120):\penalty0 1--39, 2022.
+
+\bibitem[Gao et~al.(2020)Gao, Biderman, Black, Golding, Hoppe, Foster, Phang, He, Thite, Nabeshima, et~al.]{gao2020pile}
+Leo Gao, Stella Biderman, Sid Black, Laurence Golding, Travis Hoppe, Charles Foster, Jason Phang, Horace He, Anish Thite, Noa Nabeshima, et~al.
+\newblock The pile: An 800gb dataset of diverse text for language modeling.
+\newblock \emph{arXiv preprint arXiv:2101.00027}, 2020.
+
+\bibitem[Gao et~al.(2024)Gao, Tow, Abbasi, Biderman, Black, DiPofi, Foster, Golding, Hsu, Le~Noac'h, Li, McDonell, Muennighoff, Ociepa, Phang, Reynolds, Schoelkopf, Skowron, Sutawika, Tang, Thite, Wang, Wang, and Zou]{eval-harness}
+Leo Gao, Jonathan Tow, Baber Abbasi, Stella Biderman, Sid Black, Anthony DiPofi, Charles Foster, Laurence Golding, Jeffrey Hsu, Alain Le~Noac'h, Haonan Li, Kyle McDonell, Niklas Muennighoff, Chris Ociepa, Jason Phang, Laria Reynolds, Hailey Schoelkopf, Aviya Skowron, Lintang Sutawika, Eric Tang, Anish Thite, Ben Wang, Kevin Wang, and Andy Zou.
+\newblock A framework for few-shot language model evaluation, 07 2024.
+\newblock URL \url{https://zenodo.org/records/12608602}.
+
+\bibitem[Ge et~al.(2023)Ge, Zhang, Liu, Zhang, Han, and Gao]{ge2023model}
+Suyu Ge, Yunan Zhang, Liyuan Liu, Minjia Zhang, Jiawei Han, and Jianfeng Gao.
+\newblock Model tells you what to discard: Adaptive kv cache compression for llms.
+\newblock \emph{arXiv preprint arXiv:2310.01801}, 2023.
+
+\bibitem[Gu \& Dao(2023)Gu and Dao]{gu2023mamba}
+Albert Gu and Tri Dao.
+\newblock Mamba: Linear-time sequence modeling with selective state spaces.
+\newblock \emph{arXiv preprint arXiv:2312.00752}, 2023.
+
+\bibitem[Guo et~al.(2024{\natexlab{a}})Guo, Pai, Bai, Jiao, Jordan, and Mei]{guo2024active}
+Tianyu Guo, Druv Pai, Yu~Bai, Jiantao Jiao, Michael~I Jordan, and Song Mei.
+\newblock Active-dormant attention heads: Mechanistically demystifying extreme-token phenomena in llms.
+\newblock \emph{arXiv preprint arXiv:2410.13835}, 2024{\natexlab{a}}.
+
+\bibitem[Guo et~al.(2024{\natexlab{b}})Guo, Kamigaito, and Watanabe]{guo2024attention}
+Zhiyu Guo, Hidetaka Kamigaito, and Taro Watanabe.
+\newblock Attention score is not all you need for token importance indicator in kv cache reduction: Value also matters.
+\newblock \emph{arXiv preprint arXiv:2406.12335}, 2024{\natexlab{b}}.
+
+\bibitem[Han et~al.(2024)Han, Wang, Peng, Xiong, Chen, Ji, and Wang]{han2024lm}
+Chi Han, Qifan Wang, Hao Peng, Wenhan Xiong, Yu~Chen, Heng Ji, and Sinong Wang.
+\newblock Lm-infinite: Zero-shot extreme length generalization for large language models.
+\newblock In \emph{Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)}, pp.\  3991--4008, 2024.
+
+\bibitem[He et~al.(2024)He, Noci, Paliotta, Schlag, and Hofmann]{he2024understanding}
+Bobby He, Lorenzo Noci, Daniele Paliotta, Imanol Schlag, and Thomas Hofmann.
+\newblock Understanding and minimising outlier features in transformer training.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2024.
+
+\bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{he2016deep}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In \emph{Proceedings of the IEEE conference on computer vision and pattern recognition}, pp.\  770--778, 2016.
+
+\bibitem[Hendrycks \& Gimpel(2016)Hendrycks and Gimpel]{hendrycks2016gaussian}
+Dan Hendrycks and Kevin Gimpel.
+\newblock Gaussian error linear units (gelus).
+\newblock \emph{arXiv preprint arXiv:1606.08415}, 2016.
+
+\bibitem[Huang et~al.(2024)Huang, Qin, Liu, Li, Liu, Benini, Magno, and Qi]{huang2024slim}
+Wei Huang, Haotong Qin, Yangdong Liu, Yawei Li, Xianglong Liu, Luca Benini, Michele Magno, and Xiaojuan Qi.
+\newblock Slim-llm: Salience-driven mixed-precision quantization for large language models.
+\newblock \emph{arXiv preprint arXiv:2405.14917}, 2024.
+
+\bibitem[Jiang et~al.(2023)Jiang, Sablayrolles, Mensch, Bamford, Chaplot, Casas, Bressand, Lengyel, Lample, Saulnier, et~al.]{jiang2023mistral}
+Albert~Q Jiang, Alexandre Sablayrolles, Arthur Mensch, Chris Bamford, Devendra~Singh Chaplot, Diego de~las Casas, Florian Bressand, Gianna Lengyel, Guillaume Lample, Lucile Saulnier, et~al.
+\newblock Mistral 7b.
+\newblock \emph{arXiv preprint arXiv:2310.06825}, 2023.
+
+\bibitem[Katharopoulos et~al.(2020)Katharopoulos, Vyas, Pappas, and Fleuret]{katharopoulos2020transformers}
+Angelos Katharopoulos, Apoorv Vyas, Nikolaos Pappas, and Fran{\c{c}}ois Fleuret.
+\newblock Transformers are rnns: Fast autoregressive transformers with linear attention.
+\newblock In \emph{International conference on machine learning}, pp.\  5156--5165. PMLR, 2020.
+
+\bibitem[Kaul et~al.(2024)Kaul, Ma, Elezi, and Deng]{kaul2024attention}
+Prannay Kaul, Chengcheng Ma, Ismail Elezi, and Jiankang Deng.
+\newblock From attention to activation: Unravelling the enigmas of large language models.
+\newblock \emph{arXiv preprint arXiv:2410.17174}, 2024.
+
+\bibitem[Kazemnejad et~al.(2024)Kazemnejad, Padhi, Natesan~Ramamurthy, Das, and Reddy]{kazemnejad2024impact}
+Amirhossein Kazemnejad, Inkit Padhi, Karthikeyan Natesan~Ramamurthy, Payel Das, and Siva Reddy.
+\newblock The impact of positional encoding on length generalization in transformers.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36, 2024.
+
+\bibitem[Kingma \& Ba(2014)Kingma and Ba]{kingma2014adam}
+Diederik Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock \emph{arXiv preprint arXiv:1412.6980}, 2014.
+
+\bibitem[Lieber et~al.(2024)Lieber, Lenz, Bata, Cohen, Osin, Dalmedigos, Safahi, Meirom, Belinkov, Shalev-Shwartz, et~al.]{lieber2024jamba}
+Opher Lieber, Barak Lenz, Hofit Bata, Gal Cohen, Jhonathan Osin, Itay Dalmedigos, Erez Safahi, Shaked Meirom, Yonatan Belinkov, Shai Shalev-Shwartz, et~al.
+\newblock Jamba: A hybrid transformer-mamba language model.
+\newblock \emph{arXiv preprint arXiv:2403.19887}, 2024.
+
+\bibitem[Lin et~al.(2024)Lin, Xu, Wu, Cui, Zhang, Mou, Song, Sun, and Wei]{lin2024duquant}
+Haokun Lin, Haobo Xu, Yichen Wu, Jingzhi Cui, Yingtao Zhang, Linzhan Mou, Linqi Song, Zhenan Sun, and Ying Wei.
+\newblock Duquant: Distributing outliers via dual transformation makes stronger quantized llms.
+\newblock In \emph{The Thirty-eighth Annual Conference on Neural Information Processing Systems}, 2024.
+
+\bibitem[Liu et~al.(2024{\natexlab{a}})Liu, Zheng, Muennighoff, Zeng, Dou, Pang, Jiang, and Lin]{liu2024regmix}
+Qian Liu, Xiaosen Zheng, Niklas Muennighoff, Guangtao Zeng, Longxu Dou, Tianyu Pang, Jing Jiang, and Min Lin.
+\newblock Regmix: Data mixture as regression for language model pre-training.
+\newblock \emph{arXiv preprint arXiv:2407.01492}, 2024{\natexlab{a}}.
+
+\bibitem[Liu et~al.(2024{\natexlab{b}})Liu, Bai, Lin, Li, Gao, Xu, Hou, Yao, and Yuan]{liu2024intactkv}
+Ruikang Liu, Haoli Bai, Haokun Lin, Yuening Li, Han Gao, Zhengzhuo Xu, Lu~Hou, Jun Yao, and Chun Yuan.
+\newblock Intactkv: Improving large language model quantization by keeping pivot tokens intact.
+\newblock \emph{arXiv preprint arXiv:2403.01241}, 2024{\natexlab{b}}.
+
+\bibitem[Loshchilov \& Hutter(2017)Loshchilov and Hutter]{loshchilov2017decoupled}
+Ilya Loshchilov and Frank Hutter.
+\newblock Decoupled weight decay regularization.
+\newblock \emph{arXiv preprint arXiv:1711.05101}, 2017.
+
+\bibitem[Miller(2023)]{miller2023attention}
+Evan Miller.
+\newblock Attention is off by one.
+\newblock \emph{URL https://www.evanmiller.org/attention-is-off-by-one.html}, 2023.
+
+\bibitem[Ouyang et~al.(2022)Ouyang, Wu, Jiang, Almeida, Wainwright, Mishkin, Zhang, Agarwal, Slama, Ray, et~al.]{ouyang2022training}
+Long Ouyang, Jeffrey Wu, Xu~Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et~al.
+\newblock Training language models to follow instructions with human feedback.
+\newblock \emph{Advances in neural information processing systems}, 35:\penalty0 27730--27744, 2022.
+
+\bibitem[Press et~al.(2021)Press, Smith, and Lewis]{press2021train}
+Ofir Press, Noah~A Smith, and Mike Lewis.
+\newblock Train short, test long: Attention with linear biases enables input length extrapolation.
+\newblock \emph{arXiv preprint arXiv:2108.12409}, 2021.
+
+\bibitem[Radford et~al.(2019)Radford, Wu, Child, Luan, Amodei, Sutskever, et~al.]{radford2019language}
+Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, et~al.
+\newblock Language models are unsupervised multitask learners.
+\newblock \emph{OpenAI blog}, 1\penalty0 (8):\penalty0 9, 2019.
+
+\bibitem[Raffel et~al.(2020)Raffel, Shazeer, Roberts, Lee, Narang, Matena, Zhou, Li, and Liu]{raffel2020exploring}
+Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, and Peter~J Liu.
+\newblock Exploring the limits of transfer learning with a unified text-to-text transformer.
+\newblock \emph{Journal of machine learning research}, 21\penalty0 (140):\penalty0 1--67, 2020.
+
+\bibitem[Ramachandran et~al.(2017)Ramachandran, Zoph, and Le]{ramachandran2017searching}
+Prajit Ramachandran, Barret Zoph, and Quoc~V Le.
+\newblock Searching for activation functions.
+\newblock \emph{arXiv preprint arXiv:1710.05941}, 2017.
+
+\bibitem[Ramapuram et~al.(2024)Ramapuram, Danieli, Dhekane, Weers, Busbridge, Ablin, Likhomanenko, Digani, Gu, Shidani, et~al.]{ramapuram2024theory}
+Jason Ramapuram, Federico Danieli, Eeshan Dhekane, Floris Weers, Dan Busbridge, Pierre Ablin, Tatiana Likhomanenko, Jagrit Digani, Zijin Gu, Amitis Shidani, et~al.
+\newblock Theory, analysis, and best practices for sigmoid self-attention.
+\newblock \emph{arXiv preprint arXiv:2409.04431}, 2024.
+
+\bibitem[Shazeer(2020)]{shazeer2020glu}
+Noam Shazeer.
+\newblock Glu variants improve transformer.
+\newblock \emph{arXiv preprint arXiv:2002.05202}, 2020.
+
+\bibitem[Shazeer et~al.(2017)Shazeer, Mirhoseini, Maziarz, Davis, Le, Hinton, and Dean]{shazeer2017outrageously}
+Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, and Jeff Dean.
+\newblock Outrageously large neural networks: The sparsely-gated mixture-of-experts layer.
+\newblock \emph{arXiv preprint arXiv:1701.06538}, 2017.
+
+\bibitem[Su et~al.(2024)Su, Ahmed, Lu, Pan, Bo, and Liu]{su2024roformer}
+Jianlin Su, Murtadha Ahmed, Yu~Lu, Shengfeng Pan, Wen Bo, and Yunfeng Liu.
+\newblock Roformer: Enhanced transformer with rotary position embedding.
+\newblock \emph{Neurocomputing}, 568:\penalty0 127063, 2024.
+
+\bibitem[Sun et~al.(2024)Sun, Chen, Kolter, and Liu]{sun2024massive}
+Mingjie Sun, Xinlei Chen, J~Zico Kolter, and Zhuang Liu.
+\newblock Massive activations in large language models.
+\newblock \emph{arXiv preprint arXiv:2402.17762}, 2024.
+
+\bibitem[Team et~al.(2024)Team, Lenz, Arazi, Bergman, Manevich, Peleg, Aviram, Almagor, Fridman, Padnos, et~al.]{team2024jamba}
+Jamba Team, Barak Lenz, Alan Arazi, Amir Bergman, Avshalom Manevich, Barak Peleg, Ben Aviram, Chen Almagor, Clara Fridman, Dan Padnos, et~al.
+\newblock Jamba-1.5: Hybrid transformer-mamba models at scale.
+\newblock \emph{arXiv preprint arXiv:2408.12570}, 2024.
+
+\bibitem[Touvron et~al.(2023)Touvron, Martin, Stone, Albert, Almahairi, Babaei, Bashlykov, Batra, Bhargava, Bhosale, et~al.]{touvron2023llama}
+Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et~al.
+\newblock Llama 2: Open foundation and fine-tuned chat models.
+\newblock \emph{arXiv preprint arXiv:2307.09288}, 2023.
+
+\bibitem[Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin]{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N Gomez, {\L}ukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock \emph{Advances in neural information processing systems}, 30, 2017.
+
+\bibitem[Wan et~al.(2024)Wan, Wu, Liu, Huang, Zhu, Jin, Wang, and Yuan]{wan2024look}
+Zhongwei Wan, Ziang Wu, Che Liu, Jinfa Huang, Zhihong Zhu, Peng Jin, Longyue Wang, and Li~Yuan.
+\newblock Look-m: Look-once optimization in kv cache for efficient multimodal long-context inference.
+\newblock \emph{arXiv preprint arXiv:2406.18139}, 2024.
+
+\bibitem[Wang et~al.(2022)Wang, Roberts, Hesslow, Le~Scao, Chung, Beltagy, Launay, and Raffel]{wang2022language}
+Thomas Wang, Adam Roberts, Daniel Hesslow, Teven Le~Scao, Hyung~Won Chung, Iz~Beltagy, Julien Launay, and Colin Raffel.
+\newblock What language model architecture and pretraining objective works best for zero-shot generalization?
+\newblock In \emph{International Conference on Machine Learning}, pp.\  22964--22984. PMLR, 2022.
+
+\bibitem[Wortsman et~al.(2023)Wortsman, Liu, Xiao, Everett, Alemi, Adlam, Co-Reyes, Gur, Kumar, Novak, et~al.]{wortsman2023small}
+Mitchell Wortsman, Peter~J Liu, Lechao Xiao, Katie Everett, Alex Alemi, Ben Adlam, John~D Co-Reyes, Izzeddin Gur, Abhishek Kumar, Roman Novak, et~al.
+\newblock Small-scale proxies for large-scale transformer training instabilities.
+\newblock \emph{arXiv preprint arXiv:2309.14322}, 2023.
+
+\bibitem[Wu \& Tu(2024)Wu and Tu]{wu2024layer}
+Haoyi Wu and Kewei Tu.
+\newblock Layer-condensed kv cache for efficient inference of large language models.
+\newblock \emph{arXiv preprint arXiv:2405.10637}, 2024.
+
+\bibitem[Xiao et~al.(2023{\natexlab{a}})Xiao, Lin, Seznec, Wu, Demouth, and Han]{xiao2023smoothquant}
+Guangxuan Xiao, Ji~Lin, Mickael Seznec, Hao Wu, Julien Demouth, and Song Han.
+\newblock Smoothquant: Accurate and efficient post-training quantization for large language models.
+\newblock In \emph{International Conference on Machine Learning}, pp.\  38087--38099. PMLR, 2023{\natexlab{a}}.
+
+\bibitem[Xiao et~al.(2023{\natexlab{b}})Xiao, Tian, Chen, Han, and Lewis]{xiao2023efficient}
+Guangxuan Xiao, Yuandong Tian, Beidi Chen, Song Han, and Mike Lewis.
+\newblock Efficient streaming language models with attention sinks.
+\newblock \emph{arXiv preprint arXiv:2309.17453}, 2023{\natexlab{b}}.
+
+\bibitem[Yang et~al.(2024)Yang, Ge, Li, Chen, Ge, Shan, and Chen]{yang2024seed}
+Shuai Yang, Yuying Ge, Yang Li, Yukang Chen, Yixiao Ge, Ying Shan, and Yingcong Chen.
+\newblock Seed-story: Multimodal long story generation with large language model.
+\newblock \emph{arXiv preprint arXiv:2407.08683}, 2024.
+
+\bibitem[Yin et~al.(2024)Yin, He, Zhuang, Zhao, Yao, Shen, and Zhang]{yin2024stablemask}
+Qingyu Yin, Xuzheng He, Xiang Zhuang, Yu~Zhao, Jianhua Yao, Xiaoyu Shen, and Qiang Zhang.
+\newblock Stablemask: Refining causal masking in decoder-only transformer.
+\newblock \emph{arXiv preprint arXiv:2402.04779}, 2024.
+
+\bibitem[Yu et~al.(2024)Yu, Wang, Fu, Shi, Shaikh, and Lin]{yu2024unveiling}
+Zhongzhi Yu, Zheng Wang, Yonggan Fu, Huihong Shi, Khalid Shaikh, and Yingyan~Celine Lin.
+\newblock Unveiling and harnessing hidden attention sinks: Enhancing large language models without training through attention calibration.
+\newblock \emph{arXiv preprint arXiv:2406.15765}, 2024.
+
+\bibitem[Zellers et~al.(2019)Zellers, Holtzman, Bisk, Farhadi, and Choi]{zellers2019hellaswag}
+Rowan Zellers, Ari Holtzman, Yonatan Bisk, Ali Farhadi, and Yejin Choi.
+\newblock Hellaswag: Can a machine really finish your sentence?
+\newblock \emph{arXiv preprint arXiv:1905.07830}, 2019.
+
+\bibitem[Zhai et~al.(2023)Zhai, Likhomanenko, Littwin, Busbridge, Ramapuram, Zhang, Gu, and Susskind]{zhai2023stabilizing}
+Shuangfei Zhai, Tatiana Likhomanenko, Etai Littwin, Dan Busbridge, Jason Ramapuram, Yizhe Zhang, Jiatao Gu, and Joshua~M Susskind.
+\newblock Stabilizing transformer training by preventing attention entropy collapse.
+\newblock In \emph{International Conference on Machine Learning}, pp.\  40770--40803. PMLR, 2023.
+
+\bibitem[Zhang \& Sennrich(2019)Zhang and Sennrich]{zhang2019root}
+Biao Zhang and Rico Sennrich.
+\newblock Root mean square layer normalization.
+\newblock \emph{Advances in Neural Information Processing Systems}, 32, 2019.
+
+\bibitem[Zhang et~al.(2024{\natexlab{a}})Zhang, Zeng, Wang, and Lu]{zhang2024tinyllama}
+Peiyuan Zhang, Guangtao Zeng, Tianduo Wang, and Wei Lu.
+\newblock Tinyllama: An open-source small language model.
+\newblock \emph{arXiv preprint arXiv:2401.02385}, 2024{\natexlab{a}}.
+
+\bibitem[Zhang et~al.(2022)Zhang, Roller, Goyal, Artetxe, Chen, Chen, Dewan, Diab, Li, Lin, et~al.]{zhang2022opt}
+Susan Zhang, Stephen Roller, Naman Goyal, Mikel Artetxe, Moya Chen, Shuohui Chen, Christopher Dewan, Mona Diab, Xian Li, Xi~Victoria Lin, et~al.
+\newblock Opt: Open pre-trained transformer language models.
+\newblock \emph{arXiv preprint arXiv:2205.01068}, 2022.
+
+\bibitem[Zhang et~al.(2024{\natexlab{b}})Zhang, Liu, Chen, Kailkhura, Chen, and Wang]{zhang2024q}
+Zhenyu Zhang, Shiwei Liu, Runjin Chen, Bhavya Kailkhura, Beidi Chen, and Atlas Wang.
+\newblock Q-hitter: A better token oracle for efficient llm inference via sparse-quantized kv cache.
+\newblock \emph{Proceedings of Machine Learning and Systems}, 6:\penalty0 381--394, 2024{\natexlab{b}}.
+
+\end{thebibliography}
+ 
+\bibliographystyle{iclr2025_conference}
+
+
+\clearpage
+
+\appendix
+
+\section{Related Work}\label{related_work}
+
+\vspace{-0.05cm}
+\subsection{Attention sink phenomenon} 
+\vspace{-0.05cm}
+Although the term \textit{attention sink} was introduced by \citet{xiao2023efficient}, similar observations have been reported in prior studies. Among them, \citet{zhai2023stabilizing} demonstrated that attention weights in Transformer models~\citep{vaswani2017attention} collapse into one-hot vectors, a phenomenon termed \textit{attention entropy collapse}. This issue has been identified as \textit{attention logit growth} by \citet{wortsman2023small, dehghani2023scaling}. Furthermore, \citet{bondarenko2023quantizable} observed the emergence of strong outliers in Transformer models, linked to attention heads that learn not to update residuals. Although not explicitly using the term attention sink, \citet{han2024lm} highlighted the significance of the first few tokens in language models (LMs), noting their distinct representational space. In vision transformers (ViTs), \citet{darcet2023vision} identified high-norm outlier tokens as artifacts in attention maps. Overall, the attention sink phenomenon is prevalent across Transformer models, including ViTs, encoder-only LMs, such as BERT~\citep{devlin2019bert}, and auto-regressive LMs. Notably, in auto-regressive LMs, attention sink consistently occurs on the first token in addition to tokens with limited semantic information in the middle context~\citep{sun2024massive,yu2024unveiling}.\looseness=-1
+
+\vspace{-0.05cm}
+\subsection{Attention sink and activation outliers}
+\vspace{-0.05cm}
+\citet{cancedda2024spectral} found that early FFNs in LLaMA2 blast off the large norm of hidden states for the first token, leading to attention sink in later layers. This is referred to as \textit{massive activations} (very few activations exhibit disproportionately large values) in \citet{sun2024massive} and \textit{token-wise activation outlier} in outlier literature~\citep{lin2024duquant}. Similar observations were made by \citet{bondarenko2023quantizable}. In contrast, \textit{channel-wise activation outlier}~\citep{dettmers2022gpt3, xiao2023smoothquant} refer to that outliers appear in specific channels across all token positions. A concurrent study~\citep{kaul2024attention} found that these two types of outliers are distinct and require different mitigation strategies. Despite the high magnitude in hidden states, \citet{bondarenko2023quantizable, guo2024attention} observed the values associated with sink tokens are typically smaller than those of other tokens.\looseness=-1
+
+\vspace{-0.05cm}
+\subsection{Understanding and mitigate attention sink}
+\vspace{-0.05cm}
+To understand the attention sink phenomenon in general Transformer models, \citet{bondarenko2023quantizable} hypothesized that the interplay among softmax, residual connections, and LayerNorm encourages models to learn not to update residuals. In auto-regressive LMs, \citet{sun2024massive} attributed attention sink at the first position to implicit biases in keys and values. A concurrent work by \citet{guo2024active} provided empirical and theoretical analyses of attention sink in very simple Transformer LMs on the Bigram-Backcopy (BB) task, identifying a mutual reinforcement mechanism as the underlying cause. Their findings on the BB task indicated that (i) replacing softmax with ReLU removes attention sink; (ii) switching the optimizer Adam to SGD eliminates massive activations but attention sink remains. 
+
+Besides the above literature, \citet{xiao2023efficient, kaul2024attention} found that replacing softmax with softmax-off-by-one~\citep{miller2023attention} alleviates attention sink at the first position, though \citet{xiao2023efficient} noted its potential emergence at other initial token positions. \citet{yin2024stablemask} proposed refining the casual mask with pseudo-attention values on the ``future tokens'', which could reduce attention sink. Though not explicitly targeting attention sink, methods such as $\sigma$Reparam~\citep{zhai2023stabilizing} and qk-norm~\citep{dehghani2023scaling} were introduced to address attention entropy collapse. To mitigate activation outliers, \citet{he2024understanding} developed an outlier-protected block and also highlighted the role of optimization in mitigating the outliers. Besides, \citet{bondarenko2023quantizable} proposed clipped softmax and gated attention, while \citet{kaul2024attention} introduced OrthoAdam to reduce activation outliers.\looseness=-1
+
+
+
+
+
+\vspace{-0.05cm}
+\subsection{Applications of attention sink}
+\vspace{-0.05cm}
+Sink tokens in LMs are functionally important and absorb significant attention. This enables computational savings by prioritizing initial and recent tokens over middle-context tokens in attention calculations. Token-wise activation outliers pose challenges for quantization, necessitating specialized handling to facilitate quantization processes. These insights have motivated various applications, including streaming/long context generation~\citep{xiao2023efficient,han2024lm,yang2024seed}, KV cache optimization~\citep{ge2023model,wan2024look,wu2024layer}, efficient inference~\citep{zhang2024q,chen2024image}, model quantization~\citep{liu2024intactkv,huang2024slim}, and others.\looseness=-1
+
+
+
+
+
+\newpage
+\section{Detailed formulations of positional embedding}\label{appendix_llm}
+
+In this section, we provide detailed formulations of positional embedding (PE) in LMs. PEs could be classified into two categories. NoPE, absolute positional embedding, and learnable positional embedding belong to the same category since they are added to the initial hidden states: $\boldsymbol{H}^0=\boldsymbol{X}\boldsymbol{W}_E+\boldsymbol{P}$. Here $\boldsymbol{P}=\left\{\boldsymbol{p}_1\textrm{,}\,\boldsymbol{p}_2\textrm{,}\,\cdots\textrm{,}\,\boldsymbol{p}_T\right\}\in\mathbb{R}^{T\times d}$. Meanwhile, the dot product between each query and key is computed as  $\langle\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j\rangle=\boldsymbol{q}_i\boldsymbol{k}_j^\top$.
+
+
+\textbf{NoPE.} NoPE~\citep{kazemnejad2024impact} refers to no positional embedding. Therefore, $\boldsymbol{P}=\boldsymbol{0}$.
+
+
+\textbf{Absolute PE.} Each position vector $\boldsymbol{p}_t$ in absolute positional embedding is a periodic function of token position $t$ following \citet{vaswani2017attention}:
+
+\begin{equation}
+    \boldsymbol{p}_t=\begin{bmatrix}
+        \sin(\omega_1 t) & \cos(\omega_1 t)  & \sin(\omega_2 t) & \cos(\omega_2 t) & \cdots & \sin(\omega_{d/2} t)& \cos(\omega_{d/2} t)\\
+    \end{bmatrix}\textrm{,}
+\end{equation}
+where $\omega_i=1/\textrm{10000}^{2(i-1)/d}$. 
+
+\textbf{Learnable PE.} Each position vector $\boldsymbol{p}_t$ in learnable positional embeddings is a learnable parameter.
+
+Relative positional embedding, ALibi, and rotary belong to another category since they consider the relative distance among tokens. Therefore, the initial hidden states are $\boldsymbol{H}^0=\boldsymbol{X}\boldsymbol{W}_E$ but how to compute the dot product between each query and key is modified. 
+
+\textbf{Relative PE.} The relative positional embeddings are adopted in T5 models~\citep{raffel2020exploring}. A bias term is adopted for the dot product: $\langle\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j\rangle=\boldsymbol{q}_i\boldsymbol{k}_j^\top+g(i-j)$, where the definition for distance function $g(\cdot)$ is:
+
+\begin{equation}
+    g(i-j)=\left\{
+    \begin{array}{lcl}
+        i-j & &\textrm{if} \,\,\,\, i-j < \mathcal{B}/2 \\
+        \frac{\mathcal{B}}{2} + \lfloor\frac{\log(\frac{i-j}{\mathcal{B}/2})}{\log(\frac{\mathcal{D}}{\mathcal{B}/2})}\rfloor\times \frac{\mathcal{B}}{2} && \textrm{if} \,\,\,\, \mathcal{B}/2 \leq i-j < \mathcal{D}\\
+        \mathcal{B}-1 && \textrm{if} \,\,\,\, i-j\geq\mathcal{D}
+    \end{array}
+    \right.
+\end{equation}
+
+Here $\mathcal{B}$ and $\mathcal{D}$ refer to the number of buckets and maximum distance, respectively. In T5 models, $\mathcal{B}=\textrm{32}$ and $\mathcal{D}=\textrm{128}$.
+
+
+\textbf{ALiBi.} Similarly, ALiBi~\citep{press2021train} also adds a bias term to the dot product: $\langle\boldsymbol{q}_i\textrm{,}\,\boldsymbol{k}_j\rangle=\boldsymbol{q}_i\boldsymbol{k}_j^\top+g(i-j)$, where $g(i-j)=-(i-j)\cdot m$. $m$ is a head-specific slope fixed:
+\begin{equation}
+    m=2^{-h\cdot 2^{-\log_2 H +3}}\textrm{,}
+\end{equation}
+where $1\leq h\leq H$ is the head index and $H$ is the number of heads in the multi-head self-attention (MHSA). This slope $m$ is a geometric sequence. For instance, when $H=8$, the sequence is $\frac{1}{2^1}\textrm{,}\,\frac{1}{2^2}\textrm{,}\,\cdots\textrm{,}\,\frac{1}{2^8}$. When $H=16$, the sequence is $\frac{1}{2^{0.5}}\textrm{,}\,\frac{1}{2^1}\textrm{,}\,\frac{1}{2^{1.5}}\textrm{,}\,\cdots\textrm{,}\,\frac{1}{2^8}$.
+
+\textbf{Rotary.} Rotary~\citep{su2024roformer} is the most adopted position encoding approach in the LLM community. It projects queries and keys into another space through rotations: 
+
+\begin{equation}
+    \langle\boldsymbol{q}_i\textrm{,}\, \boldsymbol{k}_j\rangle=\left(\boldsymbol{q}_i\boldsymbol{R}_{\Theta\textrm{,}\,-i}\right)\left( \boldsymbol{k}_j\boldsymbol{R}_{\Theta\textrm{,}\,-j}\right)^\top=\boldsymbol{q}_i\boldsymbol{R}_{\Theta\textrm{,}\,-i}\boldsymbol{R}_{\Theta\textrm{,}\,j}\boldsymbol{k}_j^\top=\boldsymbol{q}_i\boldsymbol{R}_{\Theta\textrm{,}\,j-i} \boldsymbol{k}_j^\top\textrm{,}
+\end{equation}
+where $\boldsymbol{R}_{\Theta\textrm{,}\,(\cdot)}$ is a pre-defined rotation matrix:
+\begin{equation}\boldsymbol{R}_{\Theta,m}=
+\left(
+    \begin{array}{ccccccc}
+       \cos m\omega_1  & -\sin m\omega_1 & 0 & 0 & \cdots & 0 & 0 \\
+        \sin m\omega_1  & \cos m\omega_1 & 0 & 0 & \cdots & 0 & 0 \\
+        0 & 0 & \cos m\omega_2  & -\sin m\omega_2  &\cdots & 0 & 0  \\
+        0 & 0 & \sin m\omega_2  & \cos m\omega_2  &\cdots & 0 & 0  \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 &  0 & 0 & \cdots & \cos m\omega_{d_h/2}  & -\sin m\omega_{d_h/2}\\
+         0 & 0 &  0 & 0 & \cdots &  \sin m\omega_{d_h/2}  & \cos m\omega_{d_h/2}\\
+    \end{array}
+    \right)\textrm{.}
+\end{equation}
+
+Here $\omega_i=1/\textrm{10000}^{2(i-1)/d_h}$ and $d_h=d/H$ is the hidden dimension in each head. From the above definition, it is noted that the rotation matrix $\boldsymbol{R}_{\Theta,m}^{d_h}$ satisfies $\boldsymbol{R}_{\Theta,m}^\top=\boldsymbol{R}_{\Theta,-m}$ and $\boldsymbol{R}_{\Theta,i}\boldsymbol{R}_{\Theta,j}=\boldsymbol{R}_{\Theta,i+j}$\looseness=-1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ \section{Attention sink in open-sourced LMs}
+
+\subsection{How positional embedding relates to attention sink}\label{explain_pe}
+
+In Section~\ref{section3_3}, we have shown that Mistral-7B, LLaMA2-7B Base, and LLaMA3-8B Base, which adopt rotary as PE, have no attention sink for repeated token sequences. While GPT2, which adopts learnable PE, has the attention sink in such a scenario. To further understand this, we explore how positional embedding plays a role through a theoretical perspective.
+
+\textbf{Activations.} Suppose the repeated sequence is $\boldsymbol{X}=\{\boldsymbol{x}_1\textrm{,}\,\boldsymbol{x}_2\textrm{,}\,\ldots\textrm{,}\,\boldsymbol{x}_T\}$ and each $\boldsymbol{x}_t=\boldsymbol{x}$. For LMs with NoPE/relative PE/ALiBi/Rotary, we have the initial hidden states $\boldsymbol{h}_t^{0}=\boldsymbol{x}\boldsymbol{W}_E$, which are the same among all the token positions since $\boldsymbol{P}=\boldsymbol{0}$. Then for the first transformer block $l=1$, we know that $\boldsymbol{k}_t^{1\textrm{,}h}=\textrm{LN}(\boldsymbol{h}_t^{0})\boldsymbol{W}_{K}^{1\textrm{,}h}=\textrm{LN}(\boldsymbol{x}\boldsymbol{W}_E)\boldsymbol{W}_{K}^{1\textrm{,}h}$, $\boldsymbol{q}_t^{1\textrm{,}h}=\textrm{LN}(\boldsymbol{h}_t^{0})\boldsymbol{W}_{Q}^{1\textrm{,}h}=\textrm{LN}(\boldsymbol{x}\boldsymbol{W}_E)\boldsymbol{W}_{Q}^{1\textrm{,}h}$, $\boldsymbol{v}_t^{1\textrm{,}h}=\textrm{LN}(\boldsymbol{h}_t^{0})\boldsymbol{W}_{V}^{1\textrm{,}h}=\textrm{LN}(\boldsymbol{x}\boldsymbol{W}_E)\boldsymbol{W}_{V}^{1\textrm{,}h}$. Then all tokens have the same $\boldsymbol{k}_t^{1\textrm{,}h}$, $\boldsymbol{q}_t^{1\textrm{,}h}$, and $\boldsymbol{v}_t^{1\textrm{,}h}$. Then the attention output is
+\begin{equation}
+\boldsymbol{v}_t^{\dagger 1\textrm{,}\,h}=\sum_{i=1}^t\boldsymbol{A}_{ti}^{1\textrm{,}\,h}\boldsymbol{v}_i^{1\textrm{,}\,h}=\boldsymbol{v}_t^{1\textrm{,}\,h}
+\end{equation}
+
+Then $\boldsymbol{o}_t^1=\textrm{Concat}_{h=1}^H(\boldsymbol{v}_t^{1\textrm{,}\,h})\boldsymbol{W}_O^1$, we have the hidden states after the first block:
+\begin{align}
+    \boldsymbol{h}_t^1&=\textrm{FFN}(\textrm{LN}(\boldsymbol{o}_t^1+\boldsymbol{h}_t^0))+\boldsymbol{o}_t^1+\boldsymbol{h}_t^0\\
+    &=\textrm{FFN}(\textrm{LN}(\textrm{Concat}_{h=1}^H(\boldsymbol{v}_t^{1\textrm{,}\,h})\boldsymbol{W}_O^1+\boldsymbol{h}_t^0))+\textrm{Concat}_{h=1}^H(\boldsymbol{v}_t^{1\textrm{,}\,h})\boldsymbol{W}_O^1+\boldsymbol{h}_t^0\\
+    &=\textrm{FFN}(\textrm{LN}(\textrm{Concat}_{h=1}^H(\textrm{LN}(\boldsymbol{h}_t^{0})\boldsymbol{W}_{V}^{1\textrm{,}h})\boldsymbol{W}_O^1+\boldsymbol{h}_t^0))\\
+    &+\textrm{Concat}_{h=1}^H(\textrm{LN}(\boldsymbol{h}_t^{0})\boldsymbol{W}_{V}^{1\textrm{,}h})\boldsymbol{W}_O^1+\boldsymbol{h}_t^0\textrm{.}
+\end{align}
+
+Since $\boldsymbol{h}_1^0=\boldsymbol{h}_2^0=\cdots=\boldsymbol{h}_T^0$, we have $\boldsymbol{h}_1^1=\boldsymbol{h}_2^1=\cdots=\boldsymbol{h}_T^1$ based on the above equation.  Using this induction, we could prove that
+\begin{align}
+    \boldsymbol{h}_t^l&=\textrm{FFN}(\textrm{LN}(\textrm{Concat}_{h=1}^H(\textrm{LN}(\boldsymbol{h}_t^{l-1})\boldsymbol{W}_{V}^{l\textrm{,}h})\boldsymbol{W}_O^l+\boldsymbol{h}_t^{l-1}))\\
+    &+\textrm{Concat}_{h=1}^H(\textrm{LN}(\boldsymbol{h}_t^{l-1})\boldsymbol{W}_{V}^{l\textrm{,}h})\boldsymbol{W}_O^l+\boldsymbol{h}_t^{l-1}\textrm{,}\,\,\,\,\forall\,\,\, 1\leq l\leq L\textrm{.}
+\end{align}
+
+\begin{equation}
+\boldsymbol{h}_1^l=\boldsymbol{h}_2^l=\cdots=\boldsymbol{h}_T^l\textrm{,}\,\,\,\,\forall\,\,\, 0\leq l\leq L\textrm{.}
+\end{equation}
+
+Typically, the hidden states of the first token $\boldsymbol{h}_1^l$ in specific blocks have massive activations. Due to the above equality, all the repeated tokens have massive activations. Furthermore, we could derive the closed form or upper bounds for attention scores under the repeated token sequence. 
+
+
+\begin{proposition}\label{prop1}
+    For LMs with NoPE, the attention scores for $t$ repeated tokens are $t^{-1}$ uniformly, i.e., there is no attention sink.
+\end{proposition}
+\begin{proof}
+    We have that
+    \begin{equation}
+\boldsymbol{A}_{ti}^{l\textrm{,}\,h}=\frac{e^{\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_i^{l\textrm{,}h}\rangle}}{\sum_{j=1}^t e^{\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_j^{l\textrm{,}h}\rangle}}=\frac{e^{\boldsymbol{q}_t^{l\textrm{,}h}{\boldsymbol{k}_i^{l\textrm{,}h}}^\top}}{\sum_{j=1}^te^{\boldsymbol{q}_t^{l\textrm{,}h}{\boldsymbol{k}_j^{l\textrm{,}h}}^\top}}=\frac{e^{\boldsymbol{q}^{l\textrm{,}h}{\boldsymbol{k}^{l\textrm{,}h}}^\top}}{te^{\boldsymbol{q}^{l\textrm{,}h}{\boldsymbol{k}^{l\textrm{,}h}}^\top}}=\frac{1}{t}\textrm{.}
+\end{equation}
+Therefore, the attention scores follow a uniform distribution over all previous tokens.
+\end{proof}
+
+
+\begin{proposition}\label{prop2}
+    For LMs with relative PE, there is no attention sink for $t$ repeated tokens.
+\end{proposition}
+\begin{proof}
+    For LMs with relative PE, the dot product between each query and key is
+\begin{equation}
+\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_i^{l\textrm{,}h}\rangle=\boldsymbol{q}_t^{l\textrm{,}h}{\boldsymbol{k}_i^{l\textrm{,}h}}^\top + g_{\textrm{rel}}(t-i)=\boldsymbol{q}^{l\textrm{,}h}{\boldsymbol{k}^{l\textrm{,}h}}^\top + g_{\textrm{rel}}(t-i)\textrm{,}
+\end{equation}
+then we have the attention scores
+\begin{equation}
+\boldsymbol{A}_{t\textrm{,}\,i}^{l\textrm{,}\,h}=\frac{e^{\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_i^{l\textrm{,}h}\rangle}}{\sum_{j=1}^t e^{\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_j^{l\textrm{,}h}\rangle}}=\frac{e^{\boldsymbol{q}^{l\textrm{,}h}{\boldsymbol{k}^{l\textrm{,}h}}^\top+g_{\textrm{rel}}(t-i)}}{\sum_{j=1}^te^{\boldsymbol{q}^{l\textrm{,}h}{\boldsymbol{k}^{l\textrm{,}h}}^\top+g_{\textrm{rel}}(t-j)}}=\frac{e^{g_{\textrm{rel}}(t-i)}}{\sum_{j=1}^te^{g_{\textrm{rel}}(t-j)}}\textrm{.}
+\end{equation}
+Considering $g_{\textrm{rel}}(t-i)$ is a monotonic non-increasing function of $t-i$ and $g_{\textrm{rel}}(t-i)=\mathcal{B}-1$ when $t-i>\mathcal{D}$, then $\boldsymbol{A}_{t\textrm{,}\,1}^{l\textrm{,}\,h}=\boldsymbol{A}_{t\textrm{,}\,1}^{l\textrm{,}\,h}=\cdots=\boldsymbol{A}_{t\textrm{,}\,t-\mathcal{D}}^{l\textrm{,}\,h}$ are the largest values. Therefore, there is no attention sink on the first token.
+\end{proof}
+
+
+\begin{proposition}\label{prop3}
+    For LMs with ALiBi, there is no attention sink for $t$ repeated tokens.
+\end{proposition}
+\begin{proof}
+    For LMs with ALiBi, similar to relative PE, the dot product between each query and key is
+\begin{equation}
+\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_i^{l\textrm{,}h}\rangle=\boldsymbol{q}_t^{l\textrm{,}h}{\boldsymbol{k}_i^{l\textrm{,}h}}^\top + g_{\textrm{alibi}}^h(t-i)=\boldsymbol{q}^{l\textrm{,}h}{\boldsymbol{k}^{l\textrm{,}h}}^\top + g_{\textrm{alibi}}^h(t-i)\textrm{,}
+\end{equation}
+then we have the attention scores
+\begin{equation}
+\boldsymbol{A}_{t\textrm{,}\,i}^{l\textrm{,}\,h}=\frac{e^{\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_i^{l\textrm{,}h}\rangle}}{\sum_{j=1}^t e^{\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_j^{l\textrm{,}h}\rangle}}=\frac{e^{\boldsymbol{q}^{l\textrm{,}h}{\boldsymbol{k}^{l\textrm{,}h}}^\top+g_{\textrm{alibi}}^h(t-i)}}{\sum_{j=1}^te^{\boldsymbol{q}^{l\textrm{,}h}{\boldsymbol{k}^{l\textrm{,}h}}^\top+g_{\textrm{alibi}}^h(t-j)}}=\frac{e^{g_{\textrm{alibi}}^h(t-i)}}{\sum_{j=1}^te^{g_{\textrm{alibi}}^h(t-j)}}\textrm{.}
+\end{equation}
+
+Here $g_{\textrm{alibi}}^h(t-i)$ is monotonic decreasing function of $t-i$, so there is no attention sink on the first token.\looseness=-1 
+\end{proof}
+
+\begin{proposition}\label{prop4}
+    For LMs with Rotary, there is no attention sink for $t$ repeated tokens when $t$ is large if $\|\boldsymbol{q}^{l\textrm{,}h}\|\cdot\|\boldsymbol{k}^{l\textrm{,}h}\|\leq \xi$ for a constant $\xi$.
+\end{proposition}
+\begin{proof}
+    For LMs with Rotary, the dot product between each query and key is 
+\begin{align}
+\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_i^{l\textrm{,}h}\rangle&=\boldsymbol{q}_t^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,i-t}{\boldsymbol{k}_i^{l\textrm{,}h}}^\top\\
+&=\boldsymbol{q}^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,i-t}{\boldsymbol{k}^{l\textrm{,}h}}^\top\\
+&=\left\|\boldsymbol{q}^{l\textrm{,}h}\right\|\left\|\boldsymbol{k}^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,t-i}\right\|\textrm{cos}\left(\frac{\boldsymbol{q}^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,i-t}{\boldsymbol{k}^{l\textrm{,}h}}^\top}{\left\|\boldsymbol{q}^{l\textrm{,}h}\right\|\left\|\boldsymbol{k}^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,t-i}\right\|}\right)\\
+&=\left\|\boldsymbol{q}^{l\textrm{,}h}\right\|\left\|\boldsymbol{k}^{l\textrm{,}h}\right\|\textrm{cos}(\beta_{t-i})\textrm{,}
+\end{align}
+where $\beta_{j-t}$ is the angle between the rotated query and the rotated key. Then the attention scores are
+\begin{equation}
+\boldsymbol{A}_{t\textrm{,}\,i}^{l\textrm{,}\,h}=\frac{e^{\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_i^{l\textrm{,}h}\rangle}}{\sum_{j=1}^t e^{\langle\boldsymbol{q}_t^{l\textrm{,}h}\textrm{,}\,\boldsymbol{k}_j^{l\textrm{,}h}\rangle}}=\frac{e^{\boldsymbol{q}^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,j-i}{\boldsymbol{k}^{l\textrm{,}h}}^\top}}{\sum_{j=1}^te^{\boldsymbol{q}^{l\textrm{,}h}\boldsymbol{R}_{\Theta\textrm{,}\,j-i}{\boldsymbol{k}^{l\textrm{,}h}}^\top}}=\frac{e^{\left\|\boldsymbol{q}^{l\textrm{,}h}\right\|\left\|\boldsymbol{k}^{l\textrm{,}h}\right\|\textrm{cos}(\beta_{t-i})}}{\sum_{j=1}^te^{\left\|\boldsymbol{q}^{l\textrm{,}h}\right\|\left\|\boldsymbol{k}^{l\textrm{,}h}\right\|\textrm{cos}(\beta_{t-j})}}\textrm{.}
+\end{equation}
+Suppose the norm of multiplication for query and key  $\left\|\boldsymbol{q}^{l\textrm{,}h}\right\|\left\|\boldsymbol{k}^{l\textrm{,}h}\right\|=\xi$. Considering $-1\leq\textrm{cos}(\beta_{t-j})\leq 1$, then we have
+\begin{align}
+\boldsymbol{A}_{t\textrm{,}\,i}^{l\textrm{,}\,h}&=\frac{e^{\xi\textrm{cos}(\beta_{t-i})}}{\sum_{j=1}^te^{\xi\textrm{cos}(\beta_{t-j})}}
+=\frac{1}{1+\frac{\sum_{j\neq i}e^{\xi\textrm{cos}(\beta_{t-j})}}{e^{\xi\textrm{cos}(\beta_{t-i})}}}
+\leq\frac{e^{2\xi}}{e^{2\xi}+(t-1)}
+\end{align}
+
+
+Then the attention scores for each token are upper-bounded and decrease to $0$ as $t$ grows.
+\end{proof}
+
+For LMs with absolute PE/learnable PE, the initial hidden states $\boldsymbol{h}_t^0=\boldsymbol{x}\boldsymbol{W}_E+\boldsymbol{p}_t$. Although the word embeddings are the same for repeated tokens, $\boldsymbol{p}_t$ for different token positions $t$ is different. Therefore, GPT2 models have no the above equality. From Table~\ref{input}(\emph{Left}), GPT2-XL still allocates significant attention to the first token even with repeated tokens, which motivates us to explore whether attention sink is related to these learned positional embedding vectors $\boldsymbol{p}_{1:T}$ after LM pre-training.
+
+Therefore, we conduct two experiments on GPT2-XL. Firstly, we replace the first positional embedding vector $\boldsymbol{p}_1$ with other vectors $\boldsymbol{p}_{t\neq 1}$. In Table~\ref{learnable_pe}, we find that the amplitude of attention sink on the first token is significantly reduced. Then we also consider swapping the first positional embedding vector $\boldsymbol{p}_1$ with another position $\boldsymbol{p}_{t\neq 1}$. Consequently, the $t$-th token becomes the new sink token. Therefore, attention sink in GPT2-XL is strongly attached to the first positional embedding vector $\boldsymbol{p}_1$.
+
+
+\begin{table}[htbp]
+\caption{{In GPT2-XL, replacing or swapping the first positional embedding vector $\boldsymbol{p}_1$ with another position $\boldsymbol{p}_{t\neq 1}$ significantly impact the amplitude and position of attention sink.}}
+\vspace{-.2cm}
+\begin{center}
+\begin{tabular}{l|ccccccc}
+\toprule
+Replaced position $t$ & no & 5 & 10 & 15 & 20 & 25 & 25 \\
+\midrule
+$\textrm{Sink}_1^{\epsilon}$(\%) & 62.28 & \,\,\,0.20 & \,\,\,2.36 & \,\,\,7.73 & 10.63 & 10.97 & 10.21 \\
+$\textrm{Sink}_t^{\epsilon}$(\%) & - &  \,\,\,0.00 & \,\,\,0.00 & \,\,\,0.00 & \,\,\,0.00 & \,\,\,0.00 & \,\,\,0.00\\
+\midrule
+Swapped position $t$ & no & 5 & 10 & 15 & 20 & 25 & 25 \\
+\midrule
+$\textrm{Sink}_1^{\epsilon}$(\%) & 62.28 & \,\,\,1.44 & \,\,\,3.73 & \,\,\,6.78 & \,\,\,8.95 & \,\,\,9.42 & \,\,\,9.73 \\
+$\textrm{Sink}_t^{\epsilon}$(\%) &  - & 57.63 & 54.48 & 52.81 & 51.70 & 51.13 & 50.22 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.2cm}
+\label{learnable_pe}
+\end{table}
+
+
+
+
+\subsection{Attention sink under different data domains}\label{vis_domains}
+
+There are 17 available data domains in the Pile dataset~\citep{gao2020pile}, including Pile-CC, PubMed Central, ArXiv, Github, FreeLaw, Stack Exchange, USPTO Backgrounds, Pubmed Abstracts, Gutenberg (PG-19), Wikipedia (en), DM Mathematics, Ubuntu IRC, EuroParl, HackerNews, PhilPapers, NIH ExPorter, and Enron Emails. We sample 100 data from each domain and then evaluate the attention sink metric for GPT2-XL/Mistral-7B/LLaMA2-7B Base/LLaMA3-8B base. As shown in Figure~\ref{all_domains}, the evaluated attention sink metrics $\textrm{Sink}_1^{\epsilon}$ are similar across different domains when $\epsilon=\textrm{0.2}$ and $\epsilon=\textrm{0.3}$. Small fluctuations appear when $\epsilon=\textrm{0.4}$.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/attention_sink_domains.pdf}
+\vspace{-0.2cm}
+\caption{Input domains have negligible effects on attention sink metric $\textrm{Sink}_1^{\epsilon}$ for (\emph{left}) $\epsilon=\textrm{0.2}$ and (\emph{middle}) $\epsilon=\textrm{0.3}$. There are small fluctuations for (\emph{right}) $\epsilon=\textrm{0.4}$.}
+\vspace{-0.2cm}
+\label{all_domains}
+\end{figure}
+
+
+\subsection{Attention sink under different pre-trained LMs}\label{vis_norm}
+
+\textbf{Relation to LM performance.} We leverage the platform~\citep{eval-harness} to evaluate the performance of open-sourced LMs, including LLaMA2/LLaMA3/OPT/Pythia/GPT2 families, on downstream LM task, e.g., HellaSwag~\citep{zellers2019hellaswag}. The results are visualized parallel with our attention sink metric in Figure~\ref{lm_performance}, including both accuracy (Acc) and accuracy under normalization (Acc\_Norm). We find that within the same LM family, with the increase of model scale, both attention sink amplitude and downstream LM performance are increasing. However, across different LM families, stronger attention sink does not always correlate with better performance. For instance, the OPT family has stronger attention sink than Pythia under the comparable model scale. However, the downstream LM performance is comparable. 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/hellaswag.pdf}
+\vspace{-0.2cm}
+\caption{Attention sink and downstream performance for various pre-trained LMs.}
+\vspace{-0.2cm}
+\label{lm_performance}
+\end{figure}
+
+\textbf{$\ell_2$-norm.} We first show that large $\ell_2$-norm of hidden states $\boldsymbol{h}_1^l$ and small $\ell_2$-norm of keys $\boldsymbol{k}_1^{l\textrm{,}\,h}$ and values $\boldsymbol{v}_1^{l\textrm{,}\,h}$ (especially for values) universally exist in open-sourced LMs, including LLaMA2-7B Base (Figure~\ref{appendix_l2_norm_llama2_7b}), GPT2-Large (Figure~\ref{appendix_l2_norm_gpt2_large}), Mistral-7B (Figure~\ref{appendix_l2_norm_mistral7b}), and Pythia-1B (Figure~\ref{appendix_l2_norm_pythia_1b}). It is noted that for the final transformer block $l=L$, we take the hidden states before LN. We note that different LMs may have different starting blocks where massive activations appear.\looseness=-1
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_l2_norm_llama2_7b_base.pdf}
+\caption{$\ell_2$-norm of hidden states/keys/values of the first token/other tokens in LLaMA2-7B Base.\looseness=-1}
+\label{appendix_l2_norm_llama2_7b}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_l2_norm_gpt2_large.pdf}
+\caption{$\ell_2$-norm of hidden states/keys/values of the first token/other tokens in GPT2-Large.\looseness=-1}
+\label{appendix_l2_norm_gpt2_large}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_l2_norm_mistral_7b_base.pdf}
+\caption{$\ell_2$-norm of hidden states/keys/values of the first token/other tokens in Mistral-7B.\looseness=-1}
+\label{appendix_l2_norm_mistral7b}
+\end{figure}
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_l2_norm_pythia_1b.pdf}
+\caption{$\ell_2$-norm of hidden states/keys/values of the first token/other tokens in Pythia-1B.\looseness=-1}
+\label{appendix_l2_norm_pythia_1b}
+\end{figure}
+
+
+
+\clearpage
+\textbf{QK angles.} Then we further demonstrate that QK angles contribute to attention sink through more visualizations, including LLaMA3-8B Base (Figure~\ref{appendix_qk_angle_llama3_8b}), LLaMA2-7B Base (Figure~\ref{appendix_qk_angle_llama2_7b}), Mistral-7B (Figure~\ref{appendix_qk_angle_mistral_7b}), and GPT2-Large (Figure~\ref{appendix_qk_angle_gpt2_large}).
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_qk_angle_llama3_8b_base.pdf}
+\vspace{-0.2cm}
+\caption{Cosine similarity and $\ell_2$-norm product between keys and queries in LLaMA3-8B Base.\looseness=-1}
+\vspace{-0.2cm}
+\label{appendix_qk_angle_llama3_8b}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_qk_angle_llama2_7b_base.pdf}
+\vspace{-0.2cm}
+\caption{Cosine similarity and $\ell_2$-norm product between keys and queries in LLaMA2-7B Base.\looseness=-1}
+\vspace{-0.2cm}
+\label{appendix_qk_angle_llama2_7b}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_qk_angle_mistral_7b_base.pdf}
+\vspace{-0.2cm}
+\caption{Cosine similarity and $\ell_2$-norm product between keys and queries in Mistral-7B.\looseness=-1}
+\vspace{-0.2cm}
+\label{appendix_qk_angle_mistral_7b}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_qk_angle_gpt2_large.pdf}
+\vspace{-0.2cm}
+\caption{Cosine similarity and $\ell_2$-norm product between keys and queries in GPT2-Large.\looseness=-1}
+\vspace{-0.2cm}
+\label{appendix_qk_angle_gpt2_large}
+\end{figure}
+
+\textbf{Block-wise and head-wise property.} In the main paper, we mainly discuss the ratio of heads that have attention sink in the definition of attention sink metric $\textrm{Sink}_k^{\epsilon}$. Here we visualize the locations of these attention sink heads in open-sourced LMs, including LLaMA2 family (Figure~\ref{appendix_layer_head_llama2}), LLaMA3/LLaMA3.1 family (Figure~\ref{appendix_layer_head_llama3}), Mistral family (Figure~\ref{appendix_layer_head_mistral}), GPT2 family (Figure~\ref{appendix_layer_head_gpt2}), Pythia family (Figure~\ref{appendix_layer_head_pythia}), and OPT family (Figure~\ref{appendix_layer_head_opt}). We visualize the distributions of importance scores for the first token $\alpha_1^{l\textrm{,}\,h}$ across different transformer blocks $1 \leq l \leq L$ and different heads $1 \leq h \leq H$ before computing the attention sink metric. We find that (1) different pre-trained LMs have various attention sink distributions but they tend to have less obvious attention sink in earlier transformer blocks; (2) instruction tuning does not significantly modify such attention sink distributions when comparing base versions and chat/instruct versions.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_layer_head_llama2.pdf}
+\caption{Distribution of importance scores for the first token across different blocks and heads in the LLaMA2 family.\looseness=-1}
+\label{appendix_layer_head_llama2}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_layer_head_llama3.pdf}
+\caption{Distribution of importance scores for the first token across blocks and heads in the LLaMA3/LLaMA3.1 family.\looseness=-1}
+\label{appendix_layer_head_llama3}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/appendix_layer_head_mistral.pdf}
+\caption{Distribution of importance scores for the first token across blocks and heads in the Mistral family.\looseness=-1}
+\label{appendix_layer_head_mistral}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_layer_head_gpt2.pdf}
+\caption{Distribution of importance scores for the first token across blocks and heads in the GPT2 family.\looseness=-1}
+\label{appendix_layer_head_gpt2}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_layer_head_pythia.pdf}
+\caption{Distribution of importance scores for the first token across blocks and heads in the Pythia family.\looseness=-1}
+\label{appendix_layer_head_pythia}
+\end{figure}
+
+
+\clearpage
+
+\textbf{Jamba.} Besides the auto-regressive Transformers, we also consider Jamba~\citep{lieber2024jamba,team2024jamba}, a new foundation language model. Both Jamba-v0.1~\citep{lieber2024jamba} and Jamba-1.5 Mini~\citep{team2024jamba} have 4 Jamba blocks, each of which includes 3 Mamba layers~\citep{gu2023mamba}, 4 Mamba MoE layers~\citep{shazeer2017outrageously, fedus2022switch}, and 1 Transformer layer. This adds to 32 layers (including 4 Transformer attention layers), 52B available parameters, and 12B active parameters in total. Firstly, we evaluate the attention sink metric and find that $\textrm{Sink}_1^{\epsilon}=\textrm{88.48}\%$ for Jamba-v0.1 and $\textrm{Sink}_1^{\epsilon}=\textrm{87.88}\%$ for Jamba-1.5 Mini, which indicates a strong attention sink on the first token. Then we visualize attention scores in several heads, as shown in Figure~\ref{appendix_sink_jamba_v0.1} and Figure~\ref{appendix_sink_jamba_1.5_mini}.  We also visualize the distribution of importance scores for the first token across blocks and heads in Jamba models in Figure~\ref{appendix_layer_head_jamba}. We observe that most heads have obvious attention sink, except for several heads in the 3rd Transformer layer.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/appendix_layer_head_opt.pdf}
+\caption{Distribution of importance scores for the first token across blocks and heads in the OPT family.\looseness=-1}
+\label{appendix_layer_head_opt}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/jamba_v0.1_attention.pdf}
+\caption{Attention sink in Jamba-v0.1.\looseness=-1}
+\label{appendix_sink_jamba_v0.1}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/jamba_1.5_mini_attention.pdf}
+\caption{Attention sink in Jamba-1.5 Mini.\looseness=-1}
+\label{appendix_sink_jamba_1.5_mini}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/jamba_layer_head.pdf}
+\caption{Distribution of importance scores for the first token across blocks and heads in the Jamba models.\looseness=-1}
+\label{appendix_layer_head_jamba}
+\end{figure}
+
+
+\subsection{Huggingface links for open-sourced LMs}
+
+
+
+
+\begin{table}[htbp]
+\vspace{-.2cm}
+\caption{Huggingface links for open-sourced LMs we used in this paper.\looseness=-1}
+\vspace{-.3cm}
+\begin{center}
+\begin{tabular}{l|l}
+\toprule
+Model & Huggingface link \\
+\midrule
+LLaMA2-7B Base & \href{https://huggingface.co/meta-llama/Llama-2-7b-hf}{meta-llama/Llama-2-7b-hf} \\
+LLaMA2-7B Chat & \href{https://huggingface.co/meta-llama/Llama-2-7b-chat-hf}{{meta-llama/Llama-2-7b-chat-hf}} \\
+LLaMA2-13B Base & \href{https://huggingface.co/meta-llama/Llama-2-13b-hf}{meta-llama/Llama-2-13b-hf} \\
+LLaMA2-13B Chat & \href{https://huggingface.co/meta-llama/Llama-2-13b-chat-hf}{meta-llama/Llama-2-13b-chat-hf} \\
+LLaMA3-8B Base & \href{https://huggingface.co/meta-llama/Meta-Llama-3-8B}{meta-llama/Meta-Llama-3-8B} \\
+LLaMA3-8B Instruct & \href{https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct}{meta-llama/Meta-Llama-3-8B-Instruct} \\
+LLaMA3.1-8B Base & \href{https://huggingface.co/meta-llama/Meta-Llama-3.1-8B}{meta-llama/Meta-Llama-3.1-8B} \\
+LLaMA3.1-8B Instruct & \href{https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct}{meta-llama/Meta-Llama-3.1-8B-Instruct} \\
+\midrule
+GPT2 & \href{https://huggingface.co/openai-community/gpt2}{openai-community/gpt2}\\
+GPT2-Medium &\href{https://huggingface.co/openai-community/gpt2-medium}{openai-community/gpt2-medium} \\
+GPT2-Large & \href{https://huggingface.co/openai-community/gpt2-large}{openai-community/gpt2-large}\\
+GPT2-XL & \href{https://huggingface.co/openai-community/gpt2-xl}{openai-community/gpt2-xl}\\
+\midrule
+Mistral-7B & \href{https://huggingface.co/mistralai/Mistral-7B-v0.1}{mistralai/Mistral-7B-v0.1}\\
+Mistral-7B Instruct & \href{https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1}{mistralai/Mistral-7B-Instruct-v0.1} \\
+\midrule
+Pythia-14M & \href{https://huggingface.co/EleutherAI/pythia-14m}{EleutherAI/pythia-14m} \\
+Pythia-31M & \href{https://huggingface.co/EleutherAI/pythia-31m}{EleutherAI/pythia-31m} \\
+Pythia-70M & \href{https://huggingface.co/EleutherAI/pythia-70m}{EleutherAI/pythia-70m} \\
+Pythia-160M & \href{https://huggingface.co/EleutherAI/pythia-160m}{EleutherAI/pythia-160m} \\
+Pythia-410M & \href{https://huggingface.co/EleutherAI/pythia-410m}{EleutherAI/pythia-410m} \\
+Pythia-1B & \href{https://huggingface.co/EleutherAI/pythia-1b}{EleutherAI/pythia-1b} \\
+Pythia-1.4B & \href{https://huggingface.co/EleutherAI/pythia-1.4b}{EleutherAI/pythia-1.4b} \\
+Pythia-2.8B & \href{https://huggingface.co/EleutherAI/pythia-2.8b}{EleutherAI/pythia-2.8b} \\
+Pythia-6.9B & \href{https://huggingface.co/EleutherAI/pythia-6.9b}{EleutherAI/pythia-6.9b} \\
+Pythia-12B & \href{https://huggingface.co/EleutherAI/pythia-12b}{EleutherAI/pythia-12b} \\
+\midrule
+OPT-125M & \href{https://huggingface.co/facebook/opt-125m}{facebook/opt-125m} \\
+OPT-350M & \href{https://huggingface.co/facebook/opt-350m}{facebook/opt-350m} \\
+OPT-1.3B & \href{https://huggingface.co/facebook/opt-1.3b}{facebook/opt-1.3b} \\
+OPT-2.7B & \href{https://huggingface.co/facebook/opt-2.7b}{facebook/opt-2.7b} \\
+OPT-6.7B & \href{https://huggingface.co/facebook/opt-6.7b}{facebook/opt-6.7b} \\
+OPT-13B & \href{https://huggingface.co/facebook/opt-13b}{facebook/opt-13b} \\
+\midrule
+Jamba-v0.1 &  \href{https://huggingface.co/ai21labs/Jamba-v0.1}{ai21labs/Jamba-v0.1} \\
+Jamba-1.5 Mini & \href{https://huggingface.co/ai21labs/AI21-Jamba-1.5-Mini}{ai21labs/AI21-Jamba-1.5-Mini} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{model_link}
+\end{table}
+
+
+
+
+ \clearpage
+\section{More experiments in LM pre-training}\label{appendix_model}
+
+\subsection{Optimization} 
+
+\textbf{Learning rate.} In Section~\ref{sec4}, we find that attention sink appears less obvious in LMs trained with small learning rates. This conclusion holds even if we compensate for more training steps. In our basic setup, we adopt a learning rate of 4e-4 for 20k training steps. When we scale the learning rate to half, i.e., 2e-4, we scale the training steps to 2 times, i.e., 40k.  As shown in Table~\ref{lr}, when we keep the multiply between learning rate and training steps constant (highlighted using cyan color), LMs trained with smaller learning rates tend to exhibit less obvious attention sink. Therefore, we conclude that small learning rates not only slow down the increase of attention sink but also mitigate attention sink even with longer training durations.\looseness=-1
+
+\begin{table}[htbp]
+\caption{Attention sink appears less obvious in LMs trained with small learning rates even compensating for more training steps.}
+\vspace{-.2cm}
+\begin{center}
+\begin{tabular}{c|ccc}
+\toprule
+learning rate & training steps (k) & $\textrm{Sink}_1^{\epsilon}$(\%)  & valid loss \\
+\midrule
+\rowcolor{LightCyan}
+8e-4 & 10 & 23.44 & 3.79 \\
+8e-4 & 20 & 32.23  & 3.70 \\
+\rowcolor{LightCyan}
+4e-4 & 20 & 18.18 &  3.73 \\
+2e-4 & 20 & 11.21 & 3.78 \\
+\rowcolor{LightCyan}
+2e-4 & 40 & 16.81 & 3.68 \\ 
+1e-4 & 20 & \,\,\,2.90 & 3.92\\
+\rowcolor{LightCyan}
+1e-4 & 80 & \,\,\,6.29 & 3.67 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.2cm}
+\label{lr}
+\end{table}
+
+\textbf{Batch size.} During the pre-training, we consider different batch sizes with other hyper-parameters fixed. As shown in Table~\ref{batch_fix}(\emph{Left}), batch size does not affect the emergence of attention sink.
+
+
+
+
+
+
+\subsection{Data distribution} 
+
+\textbf{Training data amount.} In Section~\ref{sec5}, we find that with less training data, attention sink also disappears. Meanwhile, LMs are also prone for overfitting. To disentangle the effects of training data amount and overfitting on attention sink, we monitor the dynamics of train/valid loss and attention sink metric during the LM pre-training in a more granular level, as present in Figure~\ref{appendix_overfit}.  With only 50M and 100M training data, LMs overfit at very early stages, between 1k and 2k steps. Meanwhile, $\textrm{Sink}_1^{\epsilon}$ maintains a very small value (less than 1\%). While for the setup of 5B training data, $\textrm{Sink}_1^{\epsilon}$ keeps increasing after a certain step. This indicates that the amount of training data, instead of overfitting, plays an important role in the emergence of attention sink.\looseness=-1
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/overfit.pdf}
+\caption{Dynamics of train/valid loss and $\textrm{Sink}_1^{\epsilon}$ during LM pre-training under different amounts of training data: (\emph{Left}) 50M; (\emph{Middle}) 100M; (\emph{Right}) 5B.\looseness=-1}
+\label{appendix_overfit}
+\end{figure}
+
+
+\textbf{Fixing token in a specific position.} During the pre-training, we consider fixing the token $\boldsymbol{x}_{\textrm{fix}}$ in the first/second/third position. Consequently, when evaluating the attention sink metric, in Table~\ref{batch_fix}(\emph{Right}), we find that attention sink appears in the appears in the fixed token instead of the first token.\looseness=-1
+
+\begin{table}[htbp]
+\caption{(\emph{Left}) Batch size has no effect on the emergence of attention sink. (\emph{Right}) Attention sink appears in the appears in the fixed token instead of the first token.\looseness=-1}
+\begin{minipage}[t]{0.52\linewidth}
+\begin{center}
+\begin{tabular}[t]{l|cccc}
+\toprule
+Batch size & 0.25M & 0.5M & 1M & 2M \\
+\midrule
+$\textrm{Sink}_1^{\epsilon}$(\%) & 16.45 & 17.19 & 18.18 & 16.19 \\
+valid loss & \,\,\,3.92 & \,\,\,3.78 & \,\,\,3.73 & \,\,\,3.68 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{center}
+\begin{tabular}[t]{l|cccc}
+\toprule  Fixed position & 1 & 2 & 3 \\
+\midrule
+$\textrm{Sink}_1^\epsilon$ (\%) & 74.11 & \,\,\,0.00 & \,\,\,0.00 \\
+$\textrm{Sink}_2^\epsilon$ (\%) & \,\,\,0.00 & 69.03 & \,\,\,0.00 \\
+$\textrm{Sink}_3^\epsilon$ (\%) & \,\,\,0.00 & \,\,\,0.00 & 69.64 \\
+$\textrm{Sink}_4^\epsilon$ (\%) & \,\,\,0.01 & \,\,\,0.01 & \,\,\,0.00 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\label{batch_fix}
+\end{table}
+
+
+
+
+\subsection{FFN design} 
+
+\textbf{Activation functions.} Since FFN in the earlier transformer block blasts off the $\ell_2$-norm of the first token, we are wondering whether the choices of activation functions in FFN will affect the attention sink. Besides the SwiGLU activations used in our default setup, we also consider other activation functions, as present in Table~\ref{activation}. We observe that different FFN designs do not affect the emergence of attention sink.\looseness=-1
+
+
+\begin{table}[htbp]
+\caption{Modifying the activation functions in FFN does not affect the emergence of attention sink.}
+\vspace{-.2cm}
+\begin{center}
+\begin{tabular}{l|lccc}
+\toprule
+Activation functions & $\boldsymbol{F}$ & $\textrm{Sink}_1^{\epsilon}$(\%)  & valid loss \\
+\midrule
+ReLU & $\textrm{ReLU}(\boldsymbol{h}\boldsymbol{W}_1)\boldsymbol{W}_2$ & 16.90 &  3.82\\
+GeLU~\citep{hendrycks2016gaussian} & $\textrm{GeLU}(\boldsymbol{h}\boldsymbol{W}_1)\boldsymbol{W}_2$ & 14.76   &  3.79 \\
+Swish~\citep{ramachandran2017searching} & $\textrm{Swish}(\boldsymbol{h}\boldsymbol{W}_1)\boldsymbol{W}_2$ &  17.89 & 3.80 \\
+ReGLU~\citep{shazeer2020glu} & $\left(\textrm{ReLU}(\boldsymbol{h}\boldsymbol{W}_1)\odot\boldsymbol{h}\boldsymbol{W}_2\right)\boldsymbol{W}_3$ & 13.88  & 3.75\\
+GeGLU~\citep{shazeer2020glu} & $\left(\textrm{GeLU}(\boldsymbol{h}\boldsymbol{W}_1)\odot\boldsymbol{h}\boldsymbol{W}_2\right)\boldsymbol{W}_3$ &  17.86 & 3.73\\
+SwiGLU~\citep{shazeer2020glu} & $\left(\textrm{Swish}(\boldsymbol{h}\boldsymbol{W}_1)\odot\boldsymbol{h}\boldsymbol{W}_2\right)\boldsymbol{W}_3$ &  18.18 & 3.73\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.2cm}
+\label{activation}
+\end{table}
+
+\subsection{Attention design}
+
+\textbf{Multi-head design in attention.} We consider two perspectives in multi-head design in attention. Firstly, we explore whether the number of heads has an impact on attention sink, especially for $H=\textrm{1}$, which refers to single-head self-attention. Second, attention output from each head is concatenated: $\boldsymbol{O}^l=\textrm{Concat}_{h=1}^H\left(\boldsymbol{A}^{l\textrm{,}h}\boldsymbol{V}^{l\textrm{,}h}\right)\boldsymbol{W}_{O}^l$. We replace such concatenation operation with addition operation: $\boldsymbol{O}^l=\sum_{h=1}^H\left(\boldsymbol{A}^{l\textrm{,}h}\boldsymbol{V}^{l\textrm{,}h}\right)\boldsymbol{W}_{O}^l$. As shown in Table~\ref{multi_head}(\emph{Left}), multi-head design does not affect the emergence of attention sink.
+
+\begin{table}[htbp]
+\caption{(\emph{Left}) Modifying multi-head design does not affect the emergence of attention sink. (\emph{Right}) Sharing KV biases across heads in each block results in attention sink shifting back to the first token from K biases.}
+\begin{minipage}[t]{0.4\linewidth}
+\begin{center}
+\begin{tabular}[t]{l|cc}
+\toprule
+Multi-head & $\textrm{Sink}_1^{\epsilon}$ (\%) & valid loss \\
+\midrule
+$H=\textrm{8}$ & 18.18 & 3.73\\
+$H=\textrm{4}$ & 10.68 & 3.74\\
+$H=\textrm{2}$ & 12.95 & 3.76\\
+$H=\textrm{1}$ & 19.50 & 3.78\\
+addition & 21.76 & 3.74\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.58\linewidth}
+\begin{center}
+\begin{tabular}[t]{l|cccc}
+\toprule
+Head-sharing & $\checkmark$ & $\checkmark$  & $\times$ & $\times$ \\
+Biases type & KV & KV & K & K \\
+\midrule
+$\textrm{Sink}_{*}^{\epsilon}$(\%)  & 72.76 & 56.61 & 73.34 & 68.31  \\
+$\textrm{Sink}_1^{\epsilon}$(\%) &   \,\,\,0.04 & 12.44 & \,\,\,0.00 & \,\,\,0.23 \\
+valid loss & \,\,\,3.72 & \,\,\,3.72 & \,\,\,3.72 & \,\,\,3.72\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\label{multi_head}
+\end{table}
+
+
+
+
+
+
+\textbf{Head-sharing K/KV biases in attention.} In the main paper, we consider both KV biases and V biases in attention. These biases are not shared by different heads in each block. We further explore whether head-sharing patterns will affect their functionality. As present in Table~\ref{multi_head}(\emph{Right}), LMs with KV biases are more likely affected by the head-sharing pattern: attention sink shifts from the K biases to the first token. While LMs with K biases are less affected. 
+
+\begin{table}[htbp]
+\vspace{-0.2cm}
+\caption{Even with very few learnable dimensions for $\boldsymbol{k}^{*l\textrm{,}h}$, large attention appears in $\boldsymbol{k}^{*l\textrm{,}h}$.\looseness=-1}
+\vspace{-.4cm}
+\begin{center}
+\begin{tabular}{l|ccccccc}
+\toprule
+$d_a$ & 1 & 2 & 4 & 8 & 16 & 32  & 64  \\
+\midrule
+$\textrm{Sink}_{*}^{\epsilon}$(\%) & 32.18 & 30.88 & 30.94 & 31.39 & 23.30 & 51.23 &  69.19 \\
+$\textrm{Sink}_{1}^{\epsilon}$(\%) & \,\,\,4.74 &  \,\,\,4.96 & \,\,\,4.39 & \,\,\,4.54 & \,\,\,2.19 & \,\,\,1.94 & \,\,\,0.04 \\
+valid loss & \,\,\,3.73 & \,\,\,3.72 & \,\,\,3.72 & \,\,\,3.73 & \,\,\,3.73 & \,\,\,3.73 & \,\,\,3.72 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.4cm}
+\label{k_low_rank}
+\end{table}
+
+\textbf{Learnable dimensions of K biases.} In the setup of K biases, we set all dimensions of $\boldsymbol{k}^{*l\textrm{,}\,h}$ as learnable weights. In Section~\ref{section3_1}, we have shown that K biases are distributed in a different manifold, with low rank. Therefore, we consider only $d_a$ dimensions of $\boldsymbol{k}^{*l\textrm{,}\,h}$ are adjustable/learnable while the other $d_h-d_a$ dimensions are zeros. As present in Table~\ref{k_low_rank}, with very few learnable dimensions, even for $d_a=\textrm{1}$, $\boldsymbol{k}^{*l\textrm{,}\,h}$ are still allocated significant attention. With more learnable dimensions, the attention sink appears more obvious. 
+
+\textbf{Scaling the normalization in softmax attention.} Before our experiments about replacing softmax attention, we first explore the effects of normalization scales in softmax attention. In the main paper, the attention output for the $i$-th output is
+\begin{equation}
+\boldsymbol{v}_i^{\dagger}=\sum_{j=1}^i\frac{\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))}{\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))}\boldsymbol{v}_j=\sum_{j=1}^i\frac{\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))}{\boldsymbol{Z}_i}\boldsymbol{v}_j\textrm{.}
+\end{equation}
+
+We consider a scale factor $\alpha$, the normalization term is $\boldsymbol{Z}_i=\frac{1}{\alpha}\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))$, and then the attention score are sum up to $\alpha$. For default setup, $\alpha=\textrm{1}$. As shown in Table~\ref{reweight}(\emph{Left}), with a smaller normalization scale, attention sink tends to appear in fewer heads. From another perspective,
+\begin{equation}
+\boldsymbol{v}_i^{\dagger}=\sum_{j=1}^i\frac{\alpha
+\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))}{\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))}\boldsymbol{v}_j=\sum_{j=1}^i\frac{
+\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))}{\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))}\boldsymbol{h}_j(\alpha\boldsymbol{W}_V)\textrm{,}
+\end{equation}
+\begin{equation}
+    \boldsymbol{o}_i'=\textrm{Concat}_{h=1}^H (\boldsymbol{v}_i^{'h})\boldsymbol{W}_O\textrm{.}
+\end{equation}
+
+Therefore, this normalization scale can be regarded as the scale for $\boldsymbol{W}_V$ or $\boldsymbol{W}_O$. We show that this normalization scaling could be implemented by scaling learning rates and initialization. We use the $s$ to represent the optimization step, and $s=\textrm{0}$ refers to the initialization. When scaling the normalization, we have the following SGD update rule (take $\boldsymbol{W}_O$ for example):
+\begin{align}
+    \boldsymbol{W}_O^{s+1}&=\boldsymbol{W}_O^{s}-\eta\nabla_{\boldsymbol{W}_O^{s}} \mathcal{L}(\alpha\boldsymbol{W}_O^{s})\\
+    &=\boldsymbol{W}_O^{s}-\alpha\eta\nabla_{\boldsymbol{W}} \mathcal{L}(\boldsymbol{W})|_{\boldsymbol{W}=\alpha\boldsymbol{W}_O^{s}}\textrm{,}
+\end{align}
+where $\eta$ is the original learning rate. Suppose we only modify the learning rate and initialization, to ensure each optimization step $\hat{\boldsymbol{W}}_O^{s}=\alpha\boldsymbol{W}_O^{s}$, we need first to ensure $\hat{\boldsymbol{W}}_O^{0}=\alpha\boldsymbol{W}_O^{0}$. Suppose that we have $\hat{\boldsymbol{W}}_O^{s}=\boldsymbol{W}_O^{s}$, then the update rule is:
+\begin{align}
+\hat{\boldsymbol{W}}_O^{s+1}&=\hat{\boldsymbol{W}}_O^{s}-\eta'\nabla_{\hat{\boldsymbol{W}}_O^{s}} \mathcal{L}(\hat{\boldsymbol{W}}_O^{s})\\
+&=\alpha\boldsymbol{W}_O^{s}-\eta'\nabla_{\boldsymbol{W}} \mathcal{L}(\boldsymbol{W})|_{\boldsymbol{W}=\alpha\boldsymbol{W}_O^{s}}\textrm{,}
+\end{align}
+
+ To ensure $\hat{\boldsymbol{W}}_O^{s+1}=\alpha\boldsymbol{W}_O^{s+1}$, we need the new learning rate $\eta'$ meets $\eta'=\alpha^2\eta$. For advanced optimization algorithms, e.g., Adam~\citep{kingma2014adam} and AdamW~\citep{loshchilov2017decoupled}. We have the following update rule (take AdamW for example, $\gamma$ refers to the weight decay ratio): 
+ \begin{align}
+\boldsymbol{g}_{s+1} &= \nabla_{\boldsymbol{W}_O^{s}} \mathcal{L}(\alpha\boldsymbol{W}_O^{s}) = \alpha\nabla_{\boldsymbol{W}} \mathcal{L}(\boldsymbol{W})|_{\boldsymbol{W}=\alpha\boldsymbol{W}_O^{s}} \\
+\boldsymbol{m}_{s+1} &= \beta_1\boldsymbol{m}_{s} + (1-\beta_1)\boldsymbol{g}_{s+1} \\
+\boldsymbol{v}_{s+1} &= \beta_2\boldsymbol{v}_{s} + (1-\beta_2)\boldsymbol{g}^2_{s+1} \\
+\boldsymbol{W}_O^{s+1}&=(1-\eta\gamma) \boldsymbol{W}_O^{s} - \eta \frac{\boldsymbol{m}_{s+1} / (1 - \beta_1^t)}{\sqrt{\boldsymbol{v}_{s+1}/ (1-\beta_2^t)} + \epsilon}
+\end{align}
+
+We denote $\hat{\boldsymbol{g}}_{s+1},\,\hat{\boldsymbol{m}}_{s+1},\,\hat{\boldsymbol{v}}_{s+1}$ represents the intermediate counterparts for update of scenario where we only modify learning rate and initialization. First, we also need to ensure the initialization $\hat{\boldsymbol{W}}_O^{0}=\alpha\boldsymbol{W}_O^{0}$. Then we assume that we have already matched $\hat{\boldsymbol{W}}_O^{s}=\alpha\boldsymbol{W}_O^{s}$. The gradient for each step is\looseness=-1
+\begin{equation}
+    \hat{\boldsymbol{g}}_{s+1} = \nabla_{\hat{\boldsymbol{W}}_O^{s}} \mathcal{L}(\hat{\boldsymbol{W}}_O^{s}) = \nabla_{\boldsymbol{W}} \mathcal{L}(\boldsymbol{W})|_{\boldsymbol{W}=\alpha\boldsymbol{W}_O^{s}}= \boldsymbol{g}_{s+1} / \alpha
+\end{equation}
+
+Then the first and second moment will be $\hat{\boldsymbol{m}}_{s+1}=\boldsymbol{m}_{s+1} / \alpha$ and  $\hat{\boldsymbol{v}}_{s+1}=\boldsymbol{v}_{s+1} / \alpha^2$. The updated weights will be 
+\begin{align}
+\hat{\boldsymbol{W}}_O^{s+1}&=(1-\eta'\gamma') \hat{\boldsymbol{W}}_O^{s} - \eta' \frac{\hat{\boldsymbol{m}}_{s+1} / (1 - \beta_1^t)}{\sqrt{\hat{\boldsymbol{v}}_{s+1}/ (1-\beta_2^t)} + \epsilon'}\\    
+&=(1-\eta'\gamma') \alpha\boldsymbol{W}_O^{s} - \eta' \frac{\boldsymbol{m}_{s+1} /\alpha(1 - \beta_1^t)}{\sqrt{\boldsymbol{v}_{s+1}/ \alpha^2(1-\beta_2^t)} + \epsilon'} 
+\end{align}
+
+Therefore, to ensure $\hat{\boldsymbol{W}}_O^{s+1}=\alpha\boldsymbol{W}_O^{s+1}$, one solution is $\eta'=\alpha\eta$ and $\epsilon'=\epsilon / \alpha$ and $\gamma'=\gamma / \alpha$.
+
+
+
+
+
+
+
+
+\begin{table}[htbp]
+\caption{(\emph{Left}) Scaling the normalization in Softmax attention to less than one can mitigate attention sink but not prevent its emergence. (\emph{Right}) LMs with sigmoid attention (without sigmoid attention) trained by different learning rates and weight decay ratios have no attention sink.}
+\begin{minipage}[t]{0.38\linewidth}
+\begin{center}
+\begin{tabular}[t]{c|cc}
+\toprule
+Scale $\alpha$ &$\textrm{Sink}_1^{\epsilon}$(\%) & valid loss\\
+\midrule
+2.0 & 29.10 & 3.72\\
+1.0 & 18.18 & 3.73\\
+0.2 & \,\,\,9.41 & 3.72\\
+0.1 & \,\,\,3.59 & 3.76\\
+0.05\,\,\, & \,\,\,4.53 & 3.78 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.60\linewidth}
+\begin{center}
+\begin{tabular}[t]{cc|cc}
+\toprule
+Learning rate & Weight decay & $\textrm{Sink}_1^{\epsilon}$(\%) & valid loss \\
+\midrule
+4e-4 & 0.0 & 0.64 & 3.77 \\
+4e-4 & 0.1 & 0.44 & 3.70 \\
+4e-4 & 0.5 & 0.18 & 3.76 \\
+4e-4 & 1.0 & 0.30 & 4.06 \\
+1e-3 & 0.1 & 0.81 & 3.68 \\
+1e-4 & 0.1 & 0.36 & 4.08\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\label{reweight}
+\end{table}
+
+
+
+
+
+
+\textbf{Normalizer.} Besides the normalizer $\boldsymbol{Z}_i=\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))$ considered in the main paper, we consider alternative normalizer: $\boldsymbol{Z}_i=\left(\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))^p\right)^{\frac{1}{p}}$, which gives us following attention operation: 
+\begin{equation}
+\boldsymbol{v}_i^{\dagger}=\frac{\sum_{j=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))\boldsymbol{v}_j}{\boldsymbol{Z}_i}=\frac{\sum_{j=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))\boldsymbol{v}_j}{\left(\sum_{j'=1}^i\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_{j'}))^p\right)^{\frac{1}{p}}}\textrm{.}
+\end{equation}
+
+
+For softmax attention, we have $\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))=\textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})$, then we can derive that
+\begin{equation}
+    \boldsymbol{v}_i^{\dagger}=\frac{\sum_{j=1}^i\textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}}))\boldsymbol{v}_j}{\left(\sum_{j'=1}^i\textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_{j'}^\top}{\sqrt{d_h}})^p\right)^{\frac{1}{p}}}=\sum_{j=1}^i \left(\frac{\textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}/p})}{\sum_{j'=1}^i\textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_{j'}^\top}{\sqrt{d_h}/p})}\right)^{\frac{1}{p}}\boldsymbol{v}_j\textrm{.}
+\end{equation}
+
+This is equivalent to adding a temperature $1/p$ into the softmax attention logits, and then taking the $p$-root of attention scores after softmax. We call this $p$-normalized softmax attention. $p=\textrm{1}$ in regular softmax attention. Similarly, we construct the LMs with $p$-normalized sigmoid attention. 
+
+We find that when $p=2$ or $p=3$ or $p=4$, pre-training of $p$-normalized softmax attention diverges and the loss goes infinity. When $p=1/2$ or $p=1/3$ or $p=1/4$, LM pre-training converges. As the attention scores are not added up to one, we investigate the massive activations instead, as visualized in Figure~\ref{appendix_normalizer}(\emph{Left}). With smaller $p$, massive activations are mitigated to some extent, but not as effective as sigmoid attention without normalization. Intuitively, smaller $p$ induces a larger temperature in softmax operation, which leads to flattened attention logits. 
+
+Afterward, we conduct experiments on $p$-normalized sigmoid attention. There is no training problem with $p$ larger than 1. As visualized in Figure~\ref{appendix_normalizer}(\emph{Right}), LMs with $p$-normalized sigmoid attention still demonstrate strong massive activations. To conclude, different normalizers may affect the amplitude of attention sink, but not stop its emergence. 
+
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/normalizer.pdf}
+\caption{$\ell_2$-norm ratio of $\boldsymbol{h}_1^l$ and mean of $\boldsymbol{h}_{t\neq 0}^l$. (\emph{Left}) $p$-normalized softmax attention and also sigmoid attention without normalization (as reference). (\emph{Right}) $p$-normalized sigmoid attention and also sigmoid attention without normalization (as reference).\looseness=-1}
+\label{appendix_normalizer}
+\end{figure}
+
+\textbf{Attention operations.} Firstly, we present all attempted attention operations in Table~\ref{appendix_operation}. It is noted that several setups lead to training failure. For LMs with sigmoid attention without normalization, we vary the learning rates or weight decay ratios $\gamma$. Consequently, as shown in Table~\ref{reweight}(\emph{Right}), the trained LMs still have no attention sink, which further confirms our conclusion in the main paper.
+
+
+
+\begin{table}[htbp]
+\caption{Normalization and selections of kernels in attention significantly affect the emergence of the attention sink. We use ``*'' to mark that the metric $\textrm{Sink}_1^{\epsilon}$ is computed by proxy attention scores. We use ``-'' to represent the training failure under the setup.}
+\vspace{-.2cm}
+\begin{center}
+\begin{tabular}{l|l|cc}
+\toprule
+  $\textrm{sim}(\varphi(\boldsymbol{q}_i)\textrm{,}\,\varphi(\boldsymbol{k}_j))$ & $\boldsymbol{Z}_i$ & $\textrm{Sink}_1^{\epsilon}$(\%) & valid loss \\
+\midrule
+ $\textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})$ & $\sum_{j'=1}^i \textrm{exp}(\frac{\boldsymbol{q}_i\boldsymbol{k}_{j'}^\top}{\sqrt{d_h}})$ & 18.18 & 3.73 \\
+ $\textrm{sigmoid}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})$ & $1$ & \,\,\,\,\,\,0.44$^*$ &  3.70 \\
+$\textrm{sigmoid}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})$ & $\sum_{j'=1}^i \textrm{sigmoid}(\frac{\boldsymbol{q}_i\boldsymbol{k}_{j'}^\top}{\sqrt{d_h}})$ & 30.24 & 3.74 \\
+ $\textrm{elu}(\frac{\boldsymbol{q}_i\boldsymbol{k}_j^\top}{\sqrt{d_h}})+1$ & $1$ & \,\,\,\,\,\,0.80$^*$ &  3.69 \\ 
+ $\textrm{elu}(\frac{\boldsymbol{q}_i\boldsymbol{k}_{j}^\top}{\sqrt{d_h}})+1$ & $\sum_{j'=1}^i \textrm{elu}(\frac{\boldsymbol{q}_i\boldsymbol{k}_{j'}^\top}{\sqrt{d_h}})+1$ & - & - \\ 
+ \midrule
+$\frac{(\textrm{elu}(\boldsymbol{q}_i)+1)(\textrm{elu}(\boldsymbol{k}_j)+1)^\top}{\sqrt{d_h}}$ & $\sum_{j'=1}^i\frac{(\textrm{elu}(\boldsymbol{q}_i)+1)(\textrm{elu}(\boldsymbol{k}_{j'})+1)^\top}{\sqrt{d_h}}$ & \,\,\,53.65$^*$ & 4.19\\ 
+$\frac{(\textrm{elu}(\boldsymbol{q}_i)+1)(\textrm{elu}(\boldsymbol{k}_j)+1)^\top}{\sqrt{d_h}}$ & $1$ & -  & - \\ 
+$\frac{\boldsymbol{q}_i\boldsymbol{k}_{j}^\top}{\sqrt{d_h}}$ &  $\textrm{max}\left(\left|\sum_{j'=1}^i\frac{\boldsymbol{q}_i\boldsymbol{k}_{j'}^\top}{\sqrt{d_h}}\right|\textrm{,}\,1\right)$ & - &  -\\
+$\frac{\boldsymbol{q}_i\boldsymbol{k}_{j}^\top}{\sqrt{d_h}}$ & $1$ & \,\,\,0.00$^*$ & 3.99 \\
+$\frac{\textrm{mlp}(\boldsymbol{q}_i)\textrm{mlp}(\boldsymbol{k}_j)^\top}{\sqrt{d_h}}$ &  $\textrm{max}\left(\left|\sum_{j'=1}^i\frac{\textrm{mlp}(\boldsymbol{q}_i)\textrm{mlp}(\boldsymbol{k}_{j'})^\top}{\sqrt{d_h}}\right|\textrm{,}\,1\right)$ & \,\,\,0.19$^*$ &  3.85\\
+$\frac{\textrm{mlp}(\boldsymbol{q}_i)\textrm{mlp}(\boldsymbol{k}_j)^\top}{\sqrt{d_h}}$ & $1$ & \,\,\,0.74$^*$ & 3.91 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-.2cm}
+\label{appendix_operation}
+\end{table} \clearpage
+\section{More experiments in LM after pre-training}\label{sft}
+
+\textbf{Training stability in supervised fine-tuning.} To investigate the long-term impacts of attention sink on model behaviors after pre-training, we conduct supervised fine-tuning (SFT) on our pre-trained 1B LMs with softmax attention and sigmoid attention without normalization. Specifically, we utilize the platform\footnote{\url{https://github.com/huggingface/alignment-handbook}} to conduct our experiments. The experimental configurations include: the UltraChat dataset (about 200k training samples)\footnote{\url{https://huggingface.co/datasets/HuggingFaceH4/ultrachat_200k}}~\citep{ding2023enhancing}, full-model fine-tuning, a learning rate of 2e-5 with cosine scheduling, batch size of 64, each of which contains 2048 tokens, one training epoch. As shown in Figure~\ref{appendix_sft}, we monitor the training loss and gradient norm of our two LMs during SFT. These two models behave similarly in terms of the above two metrics. Additionally, despite no attention sink, LMs with sigmoid attention without normalization have no issues of training stability during SFT. Though not from the attention sink perspective, a concurrent work by \citet{ramapuram2024theory} discussed the theory and practices for Transformer models with sigmoid attention in detail. We refer the readers to \citet{ramapuram2024theory} for more analyses.\looseness=-1
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/tinyllama_sft.pdf}
+\caption{The training loss and gradient norm in our 1B LMs with softmax attention and sigmoid attention without normalization in supervised fine-tuning.\looseness=-1}
+\label{appendix_sft}
+\end{figure}
+
+
+
+
+
+
+
+
+%
+ 
+\end{document}

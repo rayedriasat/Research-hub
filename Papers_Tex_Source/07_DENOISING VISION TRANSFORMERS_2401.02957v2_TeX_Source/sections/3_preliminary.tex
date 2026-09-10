@@ -1,0 +1,14 @@
+\section{Preliminaries}
+\label{sec:background}
+
+\paragraph{Forward process in ViTs.} Despite varying training approaches, the ViT architecture has mostly remained consistent with its original design as presented in \cite{dosovitskiy2021image} and \cite{vaswani2023attention}. The forward process of a ViT, depicted in \cref{fig:vit_arch}-(b), starts by converting images into 2D patches and then embedding them, followed by a forward process of Transformer blocks. Specifically, an image $\vb{x} \in \mathbb{R}^{H\times W \times C}$ is first divided into patches $\vb{x}_{p} \in \mathbb{R}^{N\times (P^2 \cdot C)}$, where $(H, W)$ denotes the image resolution, $P$ is the patch resolution, $C$ represents the number of pixel channels and $N$ is the number of total patches. These patches are then mapped to $D$ dimensions using a trainable linear projection $\vb{E} \in {\mathbb{R}^{(P^2 \cdot C)\times D}}$ to generate patch embeddings. To inject spatial information, positional embeddings, which encode patch coordinates and are denoted $\vb{E}_{pos}^{i}$, are added to the patch embeddings. Formally, the forward process of a ViT is as follows:
+\begin{align}
+    \vb{z}_0  & = [ \vb{x}_{\text{cls}} + \vb{E}_{pos}^{\text{cls}} ; \vb{x}_p^0\vb{E} + \vb{E}_{pos}^{0} ; ~\cdots ; ~\vb{x}_p^{N-1}\vb{E} + \vb{E}_{pos}^{N-1}]  \label{eq1} \\
+    \vb{z'}_l & =\text{MSA}\left( \text{LN} (\vb{z}_{l-1}) \right) + \vb{z}_{l-1}, \quad l= 1 \cdots L \label{eq2}                                                             \\
+    \vb{z}_l  & =\text{MLP}\left( \text{LN} (\vb{z'}_{l}) \right) + \vb{z'}_{l}, \quad\quad ~~l= 1 \cdots L \label{eq3}                                                        \\
+    \vb{y}    & = \text{LN} (\vb{z}_{L}) \label{eq4}
+\end{align}
+Here, $\vb{x}_{\text{cls}}$ and $\vb{E}_{pos}^{\text{cls}}$ represent the class token and its positional embedding, respectively, $L$ denotes the number of layers, and LN stands for layer normalization. Multi-head self-attention layers and multi-layer perceptron layers are termed MSA and MLP, respectively. Note how the \textit{input-independent} positional embeddings function as a spatial inductive basis, intermixing with inputs and propagating throughout ViT.
+
+
+

@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+Database file #1: myref.bib
+Warning--entry type for "ilharco_gabriel_2021_5143773" isn't style-file defined
+--line 1220 of file myref.bib
+Warning--can't use both volume and number fields in zhou2021informer
+You've used 73 entries,
+            2481 wiz_defined-function locations,
+            910 strings with 21090 characters,
+and the built_in function-call counts, 37764 in all, are:
+= -- 2791
+> -- 2883
+< -- 36
++ -- 1039
+- -- 888
+* -- 3146
+:= -- 6072
+add.period$ -- 239
+call.type$ -- 73
+change.case$ -- 146
+chr.to.int$ -- 68
+cite$ -- 74
+duplicate$ -- 1776
+empty$ -- 2969
+format.name$ -- 963
+if$ -- 8042
+int.to.chr$ -- 6
+int.to.str$ -- 74
+missing$ -- 68
+newline$ -- 380
+num.names$ -- 221
+pop$ -- 755
+preamble$ -- 1
+purify$ -- 73
+quote$ -- 0
+skip$ -- 1177
+stack$ -- 0
+substring$ -- 1524
+swap$ -- 530
+text.length$ -- 34
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 511
+warning$ -- 1
+while$ -- 251
+width$ -- 0
+write$ -- 953
+(There were 2 warnings)

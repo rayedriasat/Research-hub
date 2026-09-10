@@ -1,0 +1,130 @@
+% WACV 2025 Paper Template
+% based on the WACV 2024 template, which is
+% based on the CVPR 2023 template (https://media.icml.cc/Conferences/CVPR2023/cvpr2023-author_kit-v1_1-1.zip) with 2-track changes from the WACV 2023 template (https://github.com/wacv-pcs/WACV-2023-Author-Kit)
+% based on the CVPR template provided by Ming-Ming Cheng (https://github.com/MCG-NKU/CVPR_Template)
+% modified and extended by Stefan Roth (stefan.roth@NOSPAMtu-darmstadt.de)
+
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+%%%%%%%%% PAPER TYPE  - PLEASE UPDATE FOR FINAL VERSION
+%\usepackage[review,algorithms]{wacv}      % To produce the REVIEW version for the algorithms track
+%\usepackage[review,applications]{wacv}      % To produce the REVIEW version for the applications track
+%\usepackage{wacv}              % To produce the CAMERA-READY version
+\usepackage[pagenumbers]{wacv} % To force page numbers, e.g. for an arXiv version
+
+% Include other packages here, before hyperref.
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{times}
+\usepackage{microtype}
+\usepackage{epsfig}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{color, colortbl}
+\usepackage{stfloats}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{xstring}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{afterpage}
+\usepackage{blindtext}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{wentinn}
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+% It is strongly recommended to use hyperref, especially for the review version.
+% hyperref with option pagebackref eases the reviewers' job.
+% Please disable hyperref *only* if you encounter grave issues, e.g. with the
+% file validation for the camera-ready version.
+%
+% If you comment hyperref and then uncomment it, you should delete
+% ReviewTempalte.aux before re-running LaTeX.
+% (Or just hit 'q' on the first LaTeX run, let it finish, and you
+%  should be clear).
+\usepackage[pagebackref,breaklinks,colorlinks]{hyperref}
+
+
+% Support for easy cross-referencing
+\usepackage[capitalize]{cleveref}
+\crefname{section}{Sec.}{Secs.}
+\Crefname{section}{Section}{Sections}
+\Crefname{table}{Table}{Tables}
+\crefname{table}{Tab.}{Tabs.}
+
+
+%%%%%%%%% PAPER ID  - PLEASE UPDATE
+\def\wacvPaperID{271} % *** Enter the WACV Paper ID here
+\def\confName{WACV}
+\def\confYear{2026}
+
+
+\begin{document}
+
+%%%%%%%%% TITLE - PLEASE UPDATE
+\title{Artifacts and Attention Sinks: Structured Approximations \\ for Efficient Vision Transformers}
+
+% \author{
+% Andrew Lu \\
+% University of Pennsylvania \\
+% {\tt\small andrew.lu@seas.upenn.edu}
+% \and
+% Wentinn Liao \\
+% University of Pennsylvania \\
+% {\tt\small wentinn.liao@seas.upenn.edu}
+% \and
+% Liuhui Wang \\
+% University of Pennsylvania \\
+% {\tt\small liuhui.wang@seas.upenn.edu}
+% \and
+% Huzheng Yang \\
+% University of Pennsylvania \\
+% {\tt\small huzheng.yang@seas.upenn.edu}
+% \and
+% Jianbo Shi \\
+% University of Pennsylvania \\
+% {\tt\small jshi@seas.upenn.edu}
+% }
+
+\author{
+Andrew Lu, \, Wentinn Liao, \, Liuhui Wang, \, Huzheng Yang, \, Jianbo Shi \\
+University of Pennsylvania \\
+{\tt\small \{alu1, wenliao, wanglh, huze, jshi\}@seas.upenn.edu}
+}
+
+\maketitle
+
+\input{00_abstract}
+\input{01_intro}
+\input{02_related}
+\input{03_sinks}
+\input{04_fna}
+\input{05_masking}
+\input{06_analysis}
+\input{10_conclusion}
+
+%%%%%%%%% REFERENCES
+{\small
+\bibliographystyle{ieee_fullname}
+\bibliography{11_references}
+}
+
+
+\clearpage
+\appendix
+\input{12_appendix_1}
+\input{13_appendix_2}
+\input{14_appendix_3}
+
+
+\end{document}

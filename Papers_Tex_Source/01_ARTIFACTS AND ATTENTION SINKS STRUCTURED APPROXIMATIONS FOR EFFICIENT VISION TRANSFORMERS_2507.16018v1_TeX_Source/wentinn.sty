@@ -1,0 +1,414 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{wentinn}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Packages Needed %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithmicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{cancel}
+\usepackage{caption}
+\usepackage{circuitikz}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{comment}
+\usepackage{dsfont}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{epsf}
+\usepackage{euscript}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{forest}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{import}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{mathabx}
+\usepackage{mathptmx}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage[super]{nth}
+%\usepackage{paralist}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{times}
+\usepackage{url}
+\usetikzlibrary{automata, arrows, positioning, shapes}
+% \usepackage{hyperref}
+% \hypersetup{
+% 	colorlinks=true,
+% 	linkcolor=blue,
+% 	filecolor=magenta,      
+% 	urlcolor=cyan,
+% }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}
+\newcounter{lem}
+\newtheorem{lemma}[lem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}{Definition}[section]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\comp}{\mathsf{c}}
+\newcommand{\im}{\mathsf{i}}
+\newcommand{\sm}{\setminus}
+\newcommand{\impliessymbol}{\Rightarrow}
+\newcommand{\entails}{\models}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\lequiv}{\;\;{\Leftrightarrow}\;\;}
+\newcommand{\lequivsymbol}{\Leftrightarrow}
+\def\zero{\cb{0}}
+\newcommand{\xor}{\not\lequiv}
+\newcommand{\All}[1]{\forall\,#1\;\;}
+\newcommand{\Exi}[1]{\exists\,#1\;\;}
+\newcommand{\Exii}[1]{\exists!\,#1\;\;}% -pnorvig
+\newcommand{\Iot}[2]{\iota\,#1\,#2}
+\newcommand{\Lam}[2]{\lambda #1\;#2}
+\newcommand{\Qua}[3]{[#1\,#2\;#3]}
+\newcommand\ck[1]{\textbf{cokernel}\p{#1}}
+\newcommand\ci[1]{\textbf{coimage}\p{#1}}
+\newcommand\cd[1]{\textbf{codimension}\p{#1}}
+\newcommand\kn[1]{kernel\p{#1}}
+\newcommand\rn[1]{range\p{#1}}
+\newcommand\dn[1]{dim\p{#1}}
+\newcommand\rk[1]{\text{rk}\p{#1}}
+\newcommand{\eps}{\epsilon}
+
+
+\newcommand{\sigmax}{\sigma_{\max}}
+\newcommand{\sigmin}{\sigma_{\min}}
+
+
+\newcommand\pd[3]{
+	\ifthenelse{\equal{\detokenize{#3}}{\detokenize{1}}}{
+		\frac{\partial #1}{\partial #2}
+	}{
+		\frac{\partial^{#3} #1}{\partial #2^{#3}}
+	}
+}
+\newcommand\dv[3]{
+	\ifthenelse{\equal{\detokenize{#3}}{\detokenize{1}}}{
+		\frac{d #1}{d #2}
+	}{
+		\frac{d^{#3} #1}{d #2^{#3}}
+	}
+}
+\newcommand\cpd[3]{
+	\p{\frac{\partial #1}{\partial #2}}_{#3}
+}
+
+\newenvironment{amatrix}[1]{%
+	\left[\begin{array}{@{}*{#1}{c}|c@{}}
+	}{%
+	\end{array}\right]
+}
+
+\def\ra{\rightarrow}
+\def\Ra{\Rightarrow}
+\def\xra{\xrightarrow}
+\def\tle{\triangleleft}
+\def\tleq{\trianglelefteq}
+\def\tge{\triangleright}
+\def\tgeq{\trianglerighteq}
+\def\mO{\mc{O}}
+
+\newcommand{\dss}[2]{\sum_{#1}^{#2}}
+\newcommand{\dsp}[2]{\prod_{#1}^{#2}}
+\newcommand{\dsu}[2]{\bigcup_{#1}^{#2}}
+\newcommand{\dsdu}[2]{\bigsqcup_{#1}^{#2}}
+\newcommand{\dsi}[2]{\bigcap_{#1}^{#2}}
+\newcommand{\dsint}[2]{\displaystyle\int_{#1}^{#2}}
+\newcommand{\dsiint}[2]{\iint_{#1}^{#2}}
+\def\dsintii{\dsint{-\infty}{\infty}}
+\newcommand{\dsds}[2]{\bigoplus_{#1}^{#2}}
+\newcommand{\dscp}[2]{\prod_{#1}^{#2}}
+\newcommand{\dsl}[1]{\displaystyle\lim_{#1}}
+\newcommand{\dsli}[1]{\dsl{#1 \to \infty}}
+\newcommand{\dsmax}[1]{\displaystyle\max_{#1} \;}
+\newcommand{\dsmin}[1]{\displaystyle\min_{#1} \;}
+\newcommand{\dsargmin}[1]{\underset{#1}{\text{argmin}} \;}
+\newcommand{\dsargmax}[1]{\underset{#1}{\text{argmax}} \;}
+\newcommand{\gdecision}[2]{\mathop{\gtrless}\limits_{#2}^{#1}}
+\newcommand{\ldecision}[2]{\mathop{\lessgtr}\limits_{#2}^{#1}}
+
+\def\<{\langle}
+\def\>{\rangle}
+
+\newcommand{\union}{{\,{\cup}\,}}
+\newcommand{\elt}{{\,{\in}\,}}  %%%cuts down on spacing
+\newcommand{\eq}{{\,{=}\,}}     %%%cuts down on spacing
+\def\stimes{{\,\times\,}}       %%%cuts down on spacing
+
+\def\ceil#1{\left\lceil #1 \right\rceil}
+\def\floor#1{\left\lfloor #1 \right\rfloor}
+
+%\def\cents{\mbox{c}}
+%\AtBeginDocument{\def\cents{\hbox{\rm\rlap{\hspace{.07ex}$/$}c}}}
+\newcommand{\cents}{\text{\textcent{}}}
+\def\cons{{}\bullet{}}
+
+%%%%%% bold font in math mode; this sucks but is simplest for now
+\newcommand{\mbf}[1]{\mbox{{\bfseries #1}}}
+\newcommand{\smbf}[1]{\mbox{{\scriptsize\bfseries #1}}}
+\newcommand{\ans}[1]{\textbf{\textit{#1}}}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\msf}[1]{\mathsf{#1}}
+\newcommand{\spn}[1]{span\paren{#1}}
+\newcommand{\free}[1]{\F\vect{#1}}
+\newcommand{\indexed}[1]{(#1_i)_{i \in I}}
+\newcommand{\ch}[1]{\text{Conv}\p{#1}}
+\newcommand{\indic}[1]{\mathbbm{1}\cbn{#1}}
+
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\invsq}[1]{\frac{1}{\sqrt{#1}}}
+\newcommand{\inner}[1]{\vect{#1}}
+\newcommand{\innern}[1]{\< #1 \>}
+\newcommand{\ind}{\perp\!\!\!\!\perp} 
+\newcommand{\tr}[1]{#1^{\top}}
+\newcommand{\invtr}[1]{#1^{-\top}}
+\newcommand{\minv}[1]{#1^{-1}}
+\newcommand{\Tr}[1]{\text{Tr}\p{#1}}
+\newcommand{\Trn}[1]{\text{Tr}(#1)}
+\newcommand{\gdvec}[1]{\nabla_{\vec{#1}}}
+\newcommand{\gd}[1]{\nabla_{#1}}
+
+\newcommand{\nt}[1]{\lvert\lvert #1 \rvert\rvert_2}
+\newcommand{\diag}[1]{\text{diag}\p{#1}}
+\newcommand{\diagn}[1]{\text{diag}(#1)}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\normn}[1]{\lVert #1 \rVert}
+\newcommand{\fnorm}[1]{\left\lVert #1 \right\rVert_F}
+\newcommand{\fnormn}[1]{\lVert #1 \rVert_F}
+\newcommand{\pnorm}[2]{\lVert #1 \rVert_{#2}}
+\newcommand{\eval}[2]{\left.#1\right|_{#2}}
+\newcommand{\given}{\ \middle|\ }
+\newcommand{\where}{\ | \ }
+\newcommand{\epi}{\text{epi}}
+
+\def\bP{\mathbf{P}}
+\def\bQ{\mathbf{Q}}
+\def\C{\mathbb{C}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\X{\mbf{X}}
+\def\x{\mbf{x}}
+\def\sx{\smbf{x}}
+\def\Y{\mbf{Y}}
+\def\y{\mbf{y}}
+\def\sy{\smbf{y}}
+\def\e{\mathrm{e}}
+\def\T{\mbf{T}}
+\def\O{\textrm{O}}  % repeated below because it gets redefined by some package?
+\def\Q{\mathbb{Q}}
+\def\se{\smbf{e}}
+\def\Z{\mathbb{Z}}
+\def\z{\mbf{z}}
+\def\sz{\smbf{z}}
+\def\F{\mathbb{F}}
+\def\f{\mbf{f}}
+\def\A{\mbf{A}}
+\def\B{\mbf{B}}
+\def\b{\mbf{b}}
+% Used in, e.g. \int_0^1 x \, \D x.
+\def\D{\mathrm{d}}
+\def\m{\mbf{m}}
+\def\I{\mbf{I}}
+\def\ones{\textbf{1}}
+\def\ev{\mbf{ev}}
+\def\fv{\mbf{ev}}
+\def\sv{\mbf{sv}}
+\def\e{\mathop{\mathrm{e}}\nolimits}  % for e = 2.718...
+
+% Other math commands.
+\DeclareMathOperator\cov{cov}
+\DeclareMathOperator\egcd{egcd}
+\DeclareMathOperator\Bin{Binomial}
+\DeclareMathOperator\E{\mathbb{E}}
+\DeclareMathOperator\Expo{Exponential}
+\DeclareMathOperator\Geom{Geometric}
+\DeclareMathOperator\GF{GF}
+\DeclareMathOperator\Pois{Poisson}
+\DeclareMathOperator\Unif{Uniform}
+\def\Poiss{\text{Poiss}}
+\def\Exp{\text{Exp}}
+\def\Norm{\mathcal{N}}
+\def\Bern{\text{Bernoulli}}
+\def\Erl{\text{Erlang}}
+\renewcommand{\Pr}[1]{\mathbb{P}\p{#1}}
+\newcommand{\Prn}[1]{\mathbb{P}(#1)}
+\newcommand{\Prwrt}[2]{\mathbb{P}_{#2}\p{#1}}
+\newcommand{\Prnwrt}[2]{\mathbb{P}_{#2}(#1)}
+\def\iid{\overset{i.i.d.}{\sim}}
+\def\VarOmega{\mathchar"10A }
+\def\Ex#1{\operatorname{\mathbb{E}}\hb{#1}}
+\def\Exn#1{\operatorname{\mathbb{E}}[#1]}
+\newcommand\Exwrt[2]{\mathbb{E}_{#2}\hb{#1}}
+\newcommand\Exwrtn[2]{\mathbb{E}_{#2}[#1]}
+\newcommand\LL[1]{L\hb{#1}}
+\newcommand\QQ[1]{Q\hb{#1}}
+\def\Var#1{\operatorname{Var}\p{#1}}
+\def\Varn#1{\operatorname{Var}(#1)}
+\newcommand\Varwrt[2]{\operatorname{Var}_{#2}\p{#1}}
+\newcommand\Covwrt[2]{\operatorname{Cov}_{#2}\p{#1}}
+\def\Cov#1{\operatorname{Cov}\p{#1}}
+\def\var{\operatorname{Var}}
+\def\Aset{{\cal A}}
+\def\Bset{{\cal B}}
+
+% \DeclarePairedDelimiter\paren{\lparen}{\rparen}
+% \DeclarePairedDelimiter\brac{\lbrack}{\rbrack}
+\newcommand\paren[1]{\left( #1 \right)}
+\def\p{\paren}
+\newcommand\hb[1]{\left\lbrack #1 \right\rbrack}
+\newcommand\hbn[1]{[#1]}
+\newcommand\cb[1]{\left\{ #1 \right\}}
+\newcommand\cbn[1]{\{#1\}}
+\newcommand\pfrac[2]{\p{\frac{#1}{#2}}}
+
+\newcommand\vect[1]{\left\< #1 \right\>}
+\def\con{\overline}
+\newcommand\one{\mathbbm{1}}
+\newcommand\mmid{\mathbin{\|}}
+
+\def\subspace{\sqsubset}
+\def\subspaceeq{\sqsubseteq}
+\def\subspaceneq{\sqsubsetneq}
+\def\supspace{\sqsupset}
+\def\supspaceeq{\sqsupseteq}
+\def\supspaceneq{\sqsupsetneq}
+
+
+
+
+% Machine Learning paper shortcuts
+\newcommand{\emb}[2]{x^{(#1)}_{#2}}
+\newcommand{\Emb}[1]{X^{(#1)}}
+\newcommand{\Embp}[1]{X'^{(#1)}}
+\def\sf{\texttt{SF}}
+\def\sfm{\texttt{SF}_{mask}}
+\def\sfs{\texttt{SF}_{sink}}
+\newcommand{\attn}[1]{\texttt{ATTN}^{(#1)}}
+\newcommand{\attnm}[1]{\texttt{ATTN}^{(#1)}_{mask}}
+\newcommand{\attns}[1]{\texttt{ATTN}^{(#1)}_{sink}}
+\newcommand{\mlp}[1]{\texttt{MLP}^{(#1)}}
+\newcommand{\lyn}[2]{\texttt{LN#1}^{(#2)}}
+\newcommand{\out}[1]{\mbf{OUT}^{(#1)}}
+\newcommand{\lyr}[1]{\texttt{LAYER}^{(#1)}}
+\newcommand{\lyrm}[1]{\texttt{LAYER}^{(#1)}_{mask}}
+\newcommand{\lyrs}[1]{\texttt{LAYER}^{(#1)}_{sink}}
+\newcommand{\fpsl}[1]{\texttt{FPS}^{(#1)}}
+\newcommand{\Ql}[1]{\mbf{Q}^{(#1)}}
+\newcommand{\ql}[1]{q^{(#1)}}
+\newcommand{\Kl}[1]{\mbf{K}^{(#1)}}
+\newcommand{\kl}[1]{k^{(#1)}}
+\newcommand{\Vl}[1]{\mbf{V}^{(#1)}}
+\newcommand{\vl}[1]{v^{(#1)}}
+\newcommand{\Olw}[2]{\mbf{O}^{(#1)}_{#2, weight}}
+\newcommand{\Olb}[1]{\mbf{O}^{(#1)}_{bias}}
+\newcommand{\Al}[1]{A^{(#1)}}
+\newcommand{\Wl}[1]{W^{(#1)}}
+\newcommand{\Sl}[1]{\mc{S}^{(#1)}}
+\newcommand{\Ll}[1]{L^{(#1)}}
+\newcommand{\Rl}[1]{R^{(#1)}}
+
+\def\ld{\ell_{detection}}
+\def\lm{\ell_{mask}}
+
+
+
+
+\newcommand{\mymod}{\textup{mod}}
+
+\graphicspath{{figures/}}
+
+\usepackage[T1]{fontenc} % to get proper curly braces with \tt
+
+\def\O{\textrm{O}}  % repeated here because it gets redefined by some package?
+
+\newcounter{resumer}
+\setcounter{resumer}{0}
+\newcommand{\Question}[1]{\section{#1}}
+\newenvironment{Parts}{
+	\setcounter{resumer}{0}
+	\begin{enumerate}[label=(\alpha*)]
+		\setlength{\itemindent}{12pt}
+		\newcommand\Part{\item}}{\setcounter{resumer}{\value{enumi}}\end{enumerate}}
+
+\newenvironment{ResumeParts}{
+	\begin{enumerate}[label=(\alpha*)]
+		\setcounter{enumi}{\value{resumer}}
+		\setlength{\itemindent}{12pt}
+		\newcommand\Part{\item}}{
+		\setcounter{resumer}{\value{enumi}}\end{enumerate}}
+\newenvironment{solution}{\color{blue} \smallskip \textbf{Solution:}}{}
+
+\renewcommand\solution{\medbreak\textbf{Solution. }}
+
+%%%%%% Sev's commands
+\newcommand{\snote}[1]{\textcolor{red}{ {\textbf{(Sev: }#1\textbf{) }}}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\absn}[1]{\lvert #1 \rvert}
+\newcommand{\lra}{\ \Leftrightarrow \ }
+\newcommand{\set}[1]{{\left\{#1\right\}}}    % braces for set notation
+\newcommand{\cycs}{\displaystyle\sum_{cyc}}
+\newcommand{\sanity}[1]{
+	\vspace{5mm}
+	\hrule
+	\emph{Sanity check!} #1\vspace{2mm}
+	\hrule
+	\vspace{5mm}
+}
+\newcommand{\life}[1]{
+	\vspace{5mm}
+	\hrule
+	\emph{Life lesson.} #1\vspace{2mm}
+	\hrule
+	\vspace{5mm}
+}
+\newcommand{\exercise}[1]{
+	\vspace{5mm}
+	\hrule
+	\emph{Exercise.} #1\vspace{2mm}
+	\hrule
+	\vspace{5mm}
+}
+
+%%% Solutions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif\ifsol
+\newif\ifnosol
+\newcommand\nosolspace[1]{\ifnosol\vspace{#1}\fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Shapes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=1](char) {#1};}}
+
+
+%%% Backwards Compatibility %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\noanswer}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

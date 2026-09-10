@@ -1,0 +1,24 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\renewcommand{\arraystretch}{1.2}
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Open-vocabulary Semantic Segmentation Quantitative Evaluation Results on 8 Benchmarks.} While the first 3 benchmarks (VOC21, PC60 and Obejct) include a background class, the remaining benchmarks do not. We report the mean Intersection over Union (mIoU, \%) metric, where higher values indicate better performance, for our method and all baseline models. The best result for each dataset is highlighted in \textbf{bolded}. Additional results are provided in the supplementary material.}
+\vspace{.1cm}
+\resizebox{1.0\columnwidth}{!}{%
+\begin{tabular}{l|ccccccccc}
+\hline
+Method         & VOC21 & PC60 & Object & VOC20 & PC59 & Stuff & City & ADE & Avg.  \\ \hline
+CLIP~\citep{Radford2021LearningTV}           & 18.60  & 7.84      & 6.50         & 49.05 & 11.17     & 7.19       & 6.65      & 3.16   & 13.77 \\
+MaskCLIP~\citep{zhou2022extract}       & 49.27 & 25.46     & 26.94       & 66.56 & 28.62     & 18.80       & 28.33     & 13.70   & 32.21 \\
+SCLIP~\citep{wang2024scliprethinkingselfattentiondense}          & 59.62 & 31.74     & 33.52       & 81.53 & 34.46     & 22.65      & 32.34     & 16.45  & 40.08 \\
+ClearCLIP~\citep{lan2024clearclip}      & 59.76 & 32.56     & 32.77       & \textbf{84.56} & 35.91     & 23.89      & 30.04     & 16.65  & 39.52 \\
+NACLIP~\citep{hajimiri2025naclip}         & 58.88 & 32.20      & 33.15       & 79.70  & 35.16     & 23.30       & 35.48     & 17.42  & 39.41 \\ \hline
+MaskCLIP + DVT~\citep{zhou2022extract,yang2024denoising} & 44.29 & 25.08     & 20.89       & 65.88 & 29.50      & 17.10       & 30.89     & 14.06  & 30.96 \\
+NACLIP + DVT~\citep{hajimiri2025naclip, yang2024denoising}   & 60.25 & 32.73     & 32.89       & 80.26 & 35.91     & 23.41      & 36.31     & 17.54  & 39.91 \\
+Ours (PH-Reg)  & \textbf{63.01} & \textbf{34.52}     & \textbf{35.27}       & 83.05 & \textbf{37.88}     & \textbf{24.66}      & \textbf{37.17}     & \textbf{19.22}  & \textbf{41.85} \\ \hline
+\end{tabular}%
+}
+\vspace{-.2cm}
+\label{tab:ovss}
+\end{table*}

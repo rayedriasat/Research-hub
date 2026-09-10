@@ -1,0 +1,554 @@
+\begin{thebibliography}{73}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Parmar et~al.(2018)Parmar, Vaswani, Uszkoreit, Kaiser, Shazeer, Ku,
+  and Tran]{parmar2018image}
+Niki Parmar, Ashish Vaswani, Jakob Uszkoreit, Lukasz Kaiser, Noam Shazeer,
+  Alexander Ku, and Dustin Tran.
+\newblock Image transformer.
+\newblock In \emph{International conference on machine learning}, pages
+  4055--4064. PMLR, 2018.
+
+\bibitem[Child et~al.(2019)Child, Gray, Radford, and
+  Sutskever]{child2019generating}
+Rewon Child, Scott Gray, Alec Radford, and Ilya Sutskever.
+\newblock Generating long sequences with sparse transformers.
+\newblock \emph{arXiv preprint arXiv:1904.10509}, 2019.
+
+\bibitem[Chang et~al.(2022)Chang, Zhang, Jiang, Liu, and
+  Freeman]{chang2022maskgit}
+Huiwen Chang, Han Zhang, Lu~Jiang, Ce~Liu, and William~T Freeman.
+\newblock Maskgit: Masked generative image transformer.
+\newblock In \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}, pages 11315--11325, 2022.
+
+\bibitem[Ramachandran et~al.(2019)Ramachandran, Parmar, Vaswani, Bello,
+  Levskaya, and Shlens]{ramachandran2019stand}
+Prajit Ramachandran, Niki Parmar, Ashish Vaswani, Irwan Bello, Anselm Levskaya,
+  and Jon Shlens.
+\newblock Stand-alone self-attention in vision models.
+\newblock \emph{Advances in neural information processing systems}, 32, 2019.
+
+\bibitem[Cordonnier et~al.(2019)Cordonnier, Loukas, and
+  Jaggi]{cordonnier2019relationship}
+Jean-Baptiste Cordonnier, Andreas Loukas, and Martin Jaggi.
+\newblock On the relationship between self-attention and convolutional layers.
+\newblock \emph{arXiv preprint arXiv:1911.03584}, 2019.
+
+\bibitem[Dosovitskiy et~al.(2020)Dosovitskiy, Beyer, Kolesnikov, Weissenborn,
+  Zhai, Unterthiner, Dehghani, Minderer, Heigold, Gelly,
+  et~al.]{dosovitskiy2020image}
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn,
+  Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg
+  Heigold, Sylvain Gelly, et~al.
+\newblock An image is worth 16x16 words: Transformers for image recognition at
+  scale.
+\newblock \emph{arXiv preprint arXiv:2010.11929}, 2020.
+
+\bibitem[Nauen et~al.(2025)Nauen, Palacio, Raue, and
+  Dengel]{nauen2025transformer}
+Tobias~Christian Nauen, Sebastian Palacio, Federico Raue, and Andreas Dengel.
+\newblock Which transformer to favor: A comparative analysis of efficiency in
+  vision transformers.
+\newblock In \emph{2025 IEEE/CVF Winter Conference on Applications of Computer
+  Vision (WACV)}, pages 6955--6966. IEEE, 2025.
+
+\bibitem[Vaswani et~al.(2021)Vaswani, Ramachandran, Srinivas, Parmar, Hechtman,
+  and Shlens]{vaswani2021scaling}
+Ashish Vaswani, Prajit Ramachandran, Aravind Srinivas, Niki Parmar, Blake
+  Hechtman, and Jonathon Shlens.
+\newblock Scaling local self-attention for parameter efficient visual
+  backbones.
+\newblock In \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}, pages 12894--12904, 2021.
+
+\bibitem[Tolstikhin et~al.(2021)Tolstikhin, Houlsby, Kolesnikov, Beyer, Zhai,
+  Unterthiner, Yung, Steiner, Keysers, Uszkoreit, et~al.]{tolstikhin2021mlp}
+Ilya~O Tolstikhin, Neil Houlsby, Alexander Kolesnikov, Lucas Beyer, Xiaohua
+  Zhai, Thomas Unterthiner, Jessica Yung, Andreas Steiner, Daniel Keysers,
+  Jakob Uszkoreit, et~al.
+\newblock Mlp-mixer: An all-mlp architecture for vision.
+\newblock \emph{Advances in neural information processing systems},
+  34:\penalty0 24261--24272, 2021.
+
+\bibitem[Bello(2021)]{bello2021lambdanetworks}
+Irwan Bello.
+\newblock Lambdanetworks: Modeling long-range interactions without attention.
+\newblock \emph{arXiv preprint arXiv:2102.08602}, 2021.
+
+\bibitem[Tay et~al.(2021)Tay, Bahri, Metzler, Juan, Zhao, and
+  Zheng]{tay2021synthesizer}
+Yi~Tay, Dara Bahri, Donald Metzler, Da-Cheng Juan, Zhe Zhao, and Che Zheng.
+\newblock Synthesizer: Rethinking self-attention for transformer models.
+\newblock In \emph{International conference on machine learning}, pages
+  10183--10192. PMLR, 2021.
+
+\bibitem[Touvron et~al.(2021{\natexlab{a}})Touvron, Cord, Sablayrolles,
+  Synnaeve, and J{\'e}gou]{touvron2021going}
+Hugo Touvron, Matthieu Cord, Alexandre Sablayrolles, Gabriel Synnaeve, and
+  Herv{\'e} J{\'e}gou.
+\newblock Going deeper with image transformers.
+\newblock In \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}, pages 32--42, 2021{\natexlab{a}}.
+
+\bibitem[Touvron et~al.(2021{\natexlab{b}})Touvron, Cord, Douze, Massa,
+  Sablayrolles, and Jegou]{pmlr-v139-touvron21a}
+Hugo Touvron, Matthieu Cord, Matthijs Douze, Francisco Massa, Alexandre
+  Sablayrolles, and Herve Jegou.
+\newblock Training data-efficient image transformers \& distillation through
+  attention.
+\newblock In \emph{International Conference on Machine Learning}, volume 139,
+  pages 10347--10357, July 2021{\natexlab{b}}.
+
+\bibitem[Tay et~al.(2020)Tay, Bahri, Yang, Metzler, and Juan]{tay2020sparse}
+Yi~Tay, Dara Bahri, Liu Yang, Donald Metzler, and Da-Cheng Juan.
+\newblock Sparse sinkhorn attention.
+\newblock In \emph{International conference on machine learning}, pages
+  9438--9447. PMLR, 2020.
+
+\bibitem[Choromanski et~al.(2020)Choromanski, Likhosherstov, Dohan, Song, Gane,
+  Sarlos, Hawkins, Davis, Mohiuddin, Kaiser, et~al.]{choromanski2020rethinking}
+Krzysztof Choromanski, Valerii Likhosherstov, David Dohan, Xingyou Song,
+  Andreea Gane, Tamas Sarlos, Peter Hawkins, Jared Davis, Afroz Mohiuddin,
+  Lukasz Kaiser, et~al.
+\newblock Rethinking attention with performers.
+\newblock \emph{arXiv preprint arXiv:2009.14794}, 2020.
+
+\bibitem[Liu et~al.(2021)Liu, Lin, Cao, Hu, Wei, Zhang, Lin, and
+  Guo]{liu2021swin}
+Ze~Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and
+  Baining Guo.
+\newblock Swin transformer: Hierarchical vision transformer using shifted
+  windows.
+\newblock In \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}, pages 10012--10022, 2021.
+
+\bibitem[Ali et~al.(2021)Ali, Touvron, Caron, Bojanowski, Douze, Joulin,
+  Laptev, Neverova, Synnaeve, Verbeek, et~al.]{ali2021xcit}
+Alaaeldin Ali, Hugo Touvron, Mathilde Caron, Piotr Bojanowski, Matthijs Douze,
+  Armand Joulin, Ivan Laptev, Natalia Neverova, Gabriel Synnaeve, Jakob
+  Verbeek, et~al.
+\newblock Xcit: Cross-covariance image transformers.
+\newblock \emph{Advances in neural information processing systems},
+  34:\penalty0 20014--20027, 2021.
+
+\bibitem[Roy et~al.(2021)Roy, Saffar, Vaswani, and Grangier]{roy2021efficient}
+Aurko Roy, Mohammad Saffar, Ashish Vaswani, and David Grangier.
+\newblock Efficient content-based sparse attention with routing transformers.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  9:\penalty0 53--68, 2021.
+
+\bibitem[Zhou et~al.(2021)Zhou, Zhang, Peng, Zhang, Li, Xiong, and
+  Zhang]{zhou2021informer}
+Haoyi Zhou, Shanghang Zhang, Jieqi Peng, Shuai Zhang, Jianxin Li, Hui Xiong,
+  and Wancai Zhang.
+\newblock Informer: Beyond efficient transformer for long sequence time-series
+  forecasting.
+\newblock In \emph{Proceedings of the AAAI conference on artificial
+  intelligence}, volume~35, pages 11106--11115, 2021.
+
+\bibitem[Yin et~al.(2022)Yin, Vahdat, Alvarez, Mallya, Kautz, and
+  Molchanov]{yin2022vit}
+Hongxu Yin, Arash Vahdat, Jose~M Alvarez, Arun Mallya, Jan Kautz, and Pavlo
+  Molchanov.
+\newblock A-vit: Adaptive tokens for efficient vision transformer.
+\newblock In \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}, pages 10809--10818, 2022.
+
+\bibitem[Yao et~al.(2022)Yao, Pan, Li, Ngo, and Mei]{yao2022wave}
+Ting Yao, Yingwei Pan, Yehao Li, Chong-Wah Ngo, and Tao Mei.
+\newblock Wave-vit: Unifying wavelet and transformers for visual representation
+  learning.
+\newblock In \emph{European conference on computer vision}, pages 328--345.
+  Springer, 2022.
+
+\bibitem[Liang et~al.(2022)Liang, Ge, Tong, Song, Wang, and Xie]{liang2022not}
+Youwei Liang, Chongjian Ge, Zhan Tong, Yibing Song, Jue Wang, and Pengtao Xie.
+\newblock Not all patches are what you need: Expediting vision transformers via
+  token reorganizations.
+\newblock \emph{arXiv preprint arXiv:2202.07800}, 2022.
+
+\bibitem[Wu et~al.(2021)Wu, Xiao, Codella, Liu, Dai, Yuan, and
+  Zhang]{wu2021cvt}
+Haiping Wu, Bin Xiao, Noel Codella, Mengchen Liu, Xiyang Dai, Lu~Yuan, and Lei
+  Zhang.
+\newblock Cvt: Introducing convolutions to vision transformers.
+\newblock In \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}, pages 22--31, 2021.
+
+\bibitem[Yuan et~al.(2021)Yuan, Chen, Wang, Yu, Shi, Jiang, Tay, Feng, and
+  Yan]{yuan2021tokens}
+Li~Yuan, Yunpeng Chen, Tao Wang, Weihao Yu, Yujun Shi, Zi-Hang Jiang,
+  Francis~EH Tay, Jiashi Feng, and Shuicheng Yan.
+\newblock Tokens-to-token vit: Training vision transformers from scratch on
+  imagenet.
+\newblock In \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}, pages 558--567, 2021.
+
+\bibitem[Chen et~al.(2021{\natexlab{a}})Chen, Xie, Niu, Liu, Wei, and
+  Tian]{chen2021visformer}
+Zhengsu Chen, Lingxi Xie, Jianwei Niu, Xuefeng Liu, Longhui Wei, and Qi~Tian.
+\newblock Visformer: The vision-friendly transformer.
+\newblock In \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}, pages 589--598, 2021{\natexlab{a}}.
+
+\bibitem[Chen et~al.(2021{\natexlab{b}})Chen, Fan, and Panda]{chen2021crossvit}
+Chun-Fu~Richard Chen, Quanfu Fan, and Rameswar Panda.
+\newblock Crossvit: Cross-attention multi-scale vision transformer for image
+  classification.
+\newblock In \emph{Proceedings of the IEEE/CVF international conference on
+  computer vision}, pages 357--366, 2021{\natexlab{b}}.
+
+\bibitem[Gehring et~al.(2017)Gehring, Auli, Grangier, Yarats, and
+  Dauphin]{gehring2017convolutional}
+Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, and Yann~N Dauphin.
+\newblock Convolutional sequence to sequence learning.
+\newblock In \emph{International conference on machine learning}, pages
+  1243--1252. PMLR, 2017.
+
+\bibitem[Su et~al.(2024)Su, Ahmed, Lu, Pan, Bo, and Liu]{su2024roformer}
+Jianlin Su, Murtadha Ahmed, Yu~Lu, Shengfeng Pan, Wen Bo, and Yunfeng Liu.
+\newblock Roformer: Enhanced transformer with rotary position embedding.
+\newblock \emph{Neurocomputing}, 568:\penalty0 127063, 2024.
+
+\bibitem[Fang et~al.(2024)Fang, Sun, Wang, Huang, Wang, and Cao]{fang2024eva}
+Yuxin Fang, Quan Sun, Xinggang Wang, Tiejun Huang, Xinlong Wang, and Yue Cao.
+\newblock Eva-02: A visual representation for neon genesis.
+\newblock \emph{Image and Vision Computing}, 149:\penalty0 105171, 2024.
+
+\bibitem[Lu et~al.(2024{\natexlab{a}})Lu, Wang, Huang, Wu, Liu, Ouyang, and
+  Bai]{lu2024fit}
+Zeyu Lu, Zidong Wang, Di~Huang, Chengyue Wu, Xihui Liu, Wanli Ouyang, and Lei
+  Bai.
+\newblock Fit: Flexible vision transformer for diffusion model.
+\newblock \emph{arXiv preprint arXiv:2402.12376}, 2024{\natexlab{a}}.
+
+\bibitem[Lu et~al.(2024{\natexlab{b}})Lu, Clark, Lee, Zhang, Khosla, Marten,
+  Hoiem, and Kembhavi]{lu2024unified}
+Jiasen Lu, Christopher Clark, Sangho Lee, Zichen Zhang, Savya Khosla, Ryan
+  Marten, Derek Hoiem, and Aniruddha Kembhavi.
+\newblock Unified-io 2: Scaling autoregressive multimodal models with vision
+  language audio and action.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}, pages 26439--26455, 2024{\natexlab{b}}.
+
+\bibitem[Kim et~al.(2023)Kim, Angelova, and Kuo]{kim2023region}
+Dahun Kim, Anelia Angelova, and Weicheng Kuo.
+\newblock Region-aware pretraining for open-vocabulary object detection with
+  vision transformers.
+\newblock In \emph{Proceedings of the IEEE/CVF conference on computer vision
+  and pattern recognition}, pages 11144--11154, 2023.
+
+\bibitem[Yang et~al.(2024)Yang, Luo, Li, Deng, Guibas, Krishnan, Weinberger,
+  Tian, and Wang]{yang2024denoising}
+Jiawei Yang, Katie~Z Luo, Jiefeng Li, Congyue Deng, Leonidas Guibas, Dilip
+  Krishnan, Kilian~Q Weinberger, Yonglong Tian, and Yue Wang.
+\newblock Denoising vision transformers.
+\newblock In \emph{European Conference on Computer Vision}, pages 453--469.
+  Springer, 2024.
+
+\bibitem[Radford et~al.(2021)Radford, Kim, Hallacy, Ramesh, Goh, Agarwal,
+  Sastry, Askell, Mishkin, Clark, Krueger, and
+  Sutskever]{Radford2021LearningTV}
+Alec Radford, Jong~Wook Kim, Chris Hallacy, A.~Ramesh, Gabriel Goh, Sandhini
+  Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen
+  Krueger, and Ilya Sutskever.
+\newblock Learning transferable visual models from natural language
+  supervision.
+\newblock In \emph{ICML}, 2021.
+
+\bibitem[Yu et~al.(2022)Yu, Wang, Vasudevan, Yeung, Seyedhosseini, and
+  Wu]{yu2022coca}
+Jiahui Yu, Zirui Wang, Vijay Vasudevan, Legg Yeung, Mojtaba Seyedhosseini, and
+  Yonghui Wu.
+\newblock Coca: Contrastive captioners are image-text foundation models.
+\newblock \emph{Transactions on Machine Learning Research}, 2022.
+\newblock ISSN 2835-8856.
+\newblock URL \url{https://openreview.net/forum?id=Ee277P3AYC}.
+
+\bibitem[Caron et~al.(2021)Caron, Touvron, Misra, J\'egou, Mairal, Bojanowski,
+  and Joulin]{caron2021emerging}
+Mathilde Caron, Hugo Touvron, Ishan Misra, Herv\'e J\'egou, Julien Mairal,
+  Piotr Bojanowski, and Armand Joulin.
+\newblock Emerging properties in self-supervised vision transformers.
+\newblock In \emph{Proceedings of the International Conference on Computer
+  Vision (ICCV)}, 2021.
+
+\bibitem[Chen* et~al.(2021)Chen*, Xie*, and He]{chen2021mocov3}
+Xinlei Chen*, Saining Xie*, and Kaiming He.
+\newblock An empirical study of training self-supervised vision transformers.
+\newblock \emph{arXiv preprint arXiv:2104.02057}, 2021.
+
+\bibitem[Li et~al.(2022)Li, Yang, Zhang, Gao, Xiao, Dai, Yuan, and
+  Gao]{li2021esvit}
+Chunyuan Li, Jianwei Yang, Pengchuan Zhang, Mei Gao, Bin Xiao, Xiyang Dai,
+  Lu~Yuan, and Jianfeng Gao.
+\newblock Efficient self-supervised vision transformers for representation
+  learning.
+\newblock \emph{International Conference on Learning Representations (ICLR)},
+  2022.
+
+\bibitem[Trinh et~al.(2019)Trinh, Luong, and
+  Le]{trinh2019selfieselfsupervisedpretrainingimage}
+Trieu~H. Trinh, Minh-Thang Luong, and Quoc~V. Le.
+\newblock Selfie: Self-supervised pretraining for image embedding, 2019.
+\newblock URL \url{https://arxiv.org/abs/1906.02940}.
+
+\bibitem[Chen et~al.(2020)Chen, Radford, Child, Wu, Jun, Luan, and
+  Sutskever]{pmlr-v119-chen20s}
+Mark Chen, Alec Radford, Rewon Child, Jeffrey Wu, Heewoo Jun, David Luan, and
+  Ilya Sutskever.
+\newblock Generative pretraining from pixels.
+\newblock In Hal~Daumé III and Aarti Singh, editors, \emph{Proceedings of the
+  37th International Conference on Machine Learning}, volume 119 of
+  \emph{Proceedings of Machine Learning Research}, pages 1691--1703. PMLR,
+  13--18 Jul 2020.
+\newblock URL \url{https://proceedings.mlr.press/v119/chen20s.html}.
+
+\bibitem[Xie et~al.(2022)Xie, Zhang, Cao, Lin, Bao, Yao, Dai, and
+  Hu]{xie2021simmim}
+Zhenda Xie, Zheng Zhang, Yue Cao, Yutong Lin, Jianmin Bao, Zhuliang Yao,
+  Qi~Dai, and Han Hu.
+\newblock Simmim: A simple framework for masked image modeling.
+\newblock In \emph{International Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2022.
+
+\bibitem[He et~al.(2021)He, Chen, Xie, Li, Doll{\'a}r, and
+  Girshick]{MaskedAutoencoders2021}
+Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Doll{\'a}r, and Ross
+  Girshick.
+\newblock Masked autoencoders are scalable vision learners.
+\newblock \emph{arXiv:2111.06377}, 2021.
+
+\bibitem[Zhou et~al.(2022{\natexlab{a}})Zhou, Wei, Wang, Shen, Xie, Yuille, and
+  Kong]{zhou2021ibot}
+Jinghao Zhou, Chen Wei, Huiyu Wang, Wei Shen, Cihang Xie, Alan Yuille, and Tao
+  Kong.
+\newblock ibot: Image bert pre-training with online tokenizer.
+\newblock \emph{International Conference on Learning Representations (ICLR)},
+  2022{\natexlab{a}}.
+
+\bibitem[Bao et~al.(2022)Bao, Dong, Piao, and Wei]{bao2022beit}
+Hangbo Bao, Li~Dong, Songhao Piao, and Furu Wei.
+\newblock {BE}it: {BERT} pre-training of image transformers.
+\newblock In \emph{International Conference on Learning Representations}, 2022.
+\newblock URL \url{https://openreview.net/forum?id=p-BhZSz59o4}.
+
+\bibitem[Assran et~al.(2023)Assran, Duval, Misra, Bojanowski, Vincent, Rabbat,
+  LeCun, and Ballas]{assran2023self}
+Mahmoud Assran, Quentin Duval, Ishan Misra, Piotr Bojanowski, Pascal Vincent,
+  Michael Rabbat, Yann LeCun, and Nicolas Ballas.
+\newblock Self-supervised learning from images with a joint-embedding
+  predictive architecture.
+\newblock \emph{arXiv preprint arXiv:2301.08243}, 2023.
+
+\bibitem[Oquab et~al.(2023)Oquab, Darcet, Moutakanni, Vo, Szafraniec, Khalidov,
+  Fernandez, Haziza, Massa, El-Nouby, et~al.]{oquab2023dinov2}
+Maxime Oquab, Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Huy Vo, Marc
+  Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa,
+  Alaaeldin El-Nouby, et~al.
+\newblock Dinov2: Learning robust visual features without supervision.
+\newblock \emph{arXiv preprint arXiv:2304.07193}, 2023.
+
+\bibitem[Zhou et~al.(2022{\natexlab{b}})Zhou, Loy, and Dai]{zhou2022extract}
+Chong Zhou, Chen~Change Loy, and Bo~Dai.
+\newblock Extract free dense labels from clip.
+\newblock In \emph{European Conference on Computer Vision}, pages 696--712.
+  Springer, 2022{\natexlab{b}}.
+
+\bibitem[Amir et~al.(2022)Amir, Gandelsman, Bagon, and Dekel]{amir2021deep}
+Shir Amir, Yossi Gandelsman, Shai Bagon, and Tali Dekel.
+\newblock Deep vit features as dense visual descriptors.
+\newblock \emph{ECCVW What is Motion For?}, 2022.
+
+\bibitem[Ranzinger et~al.(2024)Ranzinger, Heinrich, Kautz, and
+  Molchanov]{Ranzinger_2024_CVPR}
+Mike Ranzinger, Greg Heinrich, Jan Kautz, and Pavlo Molchanov.
+\newblock Am-radio: Agglomerative vision foundation model reduce all domains
+  into one.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pages 12490--12500, June 2024.
+
+\bibitem[Darcet et~al.(2023)Darcet, Oquab, Mairal, and
+  Bojanowski]{darcet2023vision}
+Timoth{\'e}e Darcet, Maxime Oquab, Julien Mairal, and Piotr Bojanowski.
+\newblock Vision transformers need registers.
+\newblock \emph{arXiv preprint arXiv:2309.16588}, 2023.
+
+\bibitem[Burtsev et~al.(2020)Burtsev, Kuratov, Peganov, and
+  Sapunov]{burtsev2020memory}
+Mikhail~S Burtsev, Yuri Kuratov, Anton Peganov, and Grigory~V Sapunov.
+\newblock Memory transformer.
+\newblock \emph{arXiv preprint arXiv:2006.11527}, 2020.
+
+\bibitem[Xiao et~al.(2023)Xiao, Tian, Chen, Han, and Lewis]{xiao2023efficient}
+Guangxuan Xiao, Yuandong Tian, Beidi Chen, Song Han, and Mike Lewis.
+\newblock Efficient streaming language models with attention sinks.
+\newblock \emph{arXiv preprint arXiv:2309.17453}, 2023.
+
+\bibitem[Jiang et~al.(2025)Jiang, Dravid, Efros, and
+  Gandelsman]{jiang2025vision}
+Nick Jiang, Amil Dravid, Alexei Efros, and Yossi Gandelsman.
+\newblock Vision transformers don't need trained registers.
+\newblock \emph{arXiv preprint arXiv:2506.08010}, 2025.
+
+\bibitem[Wang et~al.(2024{\natexlab{a}})Wang, Zhang, and
+  Salzmann]{wang2024sinder}
+Haoqi Wang, Tong Zhang, and Mathieu Salzmann.
+\newblock Sinder: Repairing the singular defects of dinov2.
+\newblock In \emph{European Conference on Computer Vision}, pages 20--35.
+  Springer, 2024{\natexlab{a}}.
+
+\bibitem[Lappe and Giese(2025)]{lappe2025registerclstokensyield}
+Alexander Lappe and Martin~A. Giese.
+\newblock Register and cls tokens yield a decoupling of local and global
+  features in large vits, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.05892}.
+
+\bibitem[Yang et~al.(2023)Yang, Ivanovic, Litany, Weng, Kim, Li, Che, Xu,
+  Fidler, Pavone, et~al.]{yang2023emernerf}
+Jiawei Yang, Boris Ivanovic, Or~Litany, Xinshuo Weng, Seung~Wook Kim, Boyi Li,
+  Tong Che, Danfei Xu, Sanja Fidler, Marco Pavone, et~al.
+\newblock Emernerf: Emergent spatial-temporal scene decomposition via
+  self-supervision.
+\newblock \emph{arXiv preprint arXiv:2311.02077}, 2023.
+
+\bibitem[Luo et~al.(2024)Luo, Yeung, Zawar, Dewan, Henderson, Wehbe, and
+  Tarr]{luo2024brain}
+Andrew~F Luo, Jacob Yeung, Rushikesh Zawar, Shaurya Dewan, Margaret~M
+  Henderson, Leila Wehbe, and Michael~J Tarr.
+\newblock Brain mapping with dense features: Grounding cortical semantic
+  selectivity in natural images with vision transformers.
+\newblock \emph{arXiv preprint arXiv:2410.05266}, 2024.
+
+\bibitem[Li et~al.(2025)Li, Wang, Duan, Zhang, and Li]{LI2025111409}
+Yi~Li, Hualiang Wang, Yiqun Duan, Jiheng Zhang, and Xiaomeng Li.
+\newblock A closer look at the explainability of contrastive language-image
+  pre-training.
+\newblock \emph{Pattern Recognition}, 162:\penalty0 111409, 2025.
+\newblock ISSN 0031-3203.
+\newblock \doi{https://doi.org/10.1016/j.patcog.2025.111409}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S003132032500069X}.
+
+\bibitem[Wang et~al.(2024{\natexlab{b}})Wang, Mei, and
+  Yuille]{wang2024scliprethinkingselfattentiondense}
+Feng Wang, Jieru Mei, and Alan Yuille.
+\newblock Sclip: Rethinking self-attention for dense vision-language inference,
+  2024{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2312.01597}.
+
+\bibitem[Bousselham et~al.(2023)Bousselham, Petersen, Ferrari, and
+  Kuehne]{bousselham2023groundingeverythingemerginglocalization}
+Walid Bousselham, Felix Petersen, Vittorio Ferrari, and Hilde Kuehne.
+\newblock Grounding everything: Emerging localization properties in
+  vision-language transformers, 2023.
+\newblock URL \url{https://arxiv.org/abs/2312.00878}.
+
+\bibitem[Lan et~al.(2024)Lan, Chen, Ke, Wang, Feng, and
+  Zhang]{lan2024clearclip}
+Mengcheng Lan, Chaofeng Chen, Yiping Ke, Xinjiang Wang, Litong Feng, and Wayne
+  Zhang.
+\newblock Clearclip: Decomposing clip representations for dense vision-language
+  inference.
+\newblock In \emph{European Conference on Computer Vision}, pages 143--160.
+  Springer, 2024.
+
+\bibitem[Hajimiri et~al.(2025)Hajimiri, Ben~Ayed, and Dolz]{hajimiri2025naclip}
+Sina Hajimiri, Ismail Ben~Ayed, and Jose Dolz.
+\newblock Pay attention to your neighbours: Training-free open-vocabulary
+  semantic segmentation.
+\newblock In \emph{Proceedings of the IEEE/CVF Winter Conference on
+  Applications of Computer Vision}, 2025.
+
+\bibitem[Everingham et~al.(2015)Everingham, Eslami, Van~Gool, Williams, Winn,
+  and Zisserman]{everingham2015pascal}
+Mark Everingham, SM~Ali Eslami, Luc Van~Gool, Christopher~KI Williams, John
+  Winn, and Andrew Zisserman.
+\newblock The pascal visual object classes challenge: A retrospective.
+\newblock \emph{International journal of computer vision}, 111:\penalty0
+  98--136, 2015.
+
+\bibitem[Mottaghi et~al.(2014)Mottaghi, Chen, Liu, Cho, Lee, Fidler, Urtasun,
+  and Yuille]{context}
+Roozbeh Mottaghi, Xianjie Chen, Xiaobai Liu, Nam-Gyu Cho, Seong-Whan Lee, Sanja
+  Fidler, Raquel Urtasun, and Alan Yuille.
+\newblock The role of context for object detection and semantic segmentation in
+  the wild.
+\newblock In \emph{Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 891--898, 2014.
+
+\bibitem[Lin et~al.(2014)Lin, Maire, Belongie, Hays, Perona, Ramanan,
+  Doll{\'a}r, and Zitnick]{cocoobjects}
+Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva
+  Ramanan, Piotr Doll{\'a}r, and C~Lawrence Zitnick.
+\newblock Microsoft coco: Common objects in context.
+\newblock In \emph{Computer vision--ECCV 2014: 13th European conference,
+  zurich, Switzerland, September 6-12, 2014, proceedings, part v 13}, pages
+  740--755. Springer, 2014.
+
+\bibitem[Caesar et~al.(2018)Caesar, Uijlings, and Ferrari]{caesar2018coco}
+Holger Caesar, Jasper Uijlings, and Vittorio Ferrari.
+\newblock Coco-stuff: Thing and stuff classes in context.
+\newblock In \emph{Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 1209--1218, 2018.
+
+\bibitem[Cordts et~al.(2016)Cordts, Omran, Ramos, Rehfeld, Enzweiler, Benenson,
+  Franke, Roth, and Schiele]{cordts2016cityscapes}
+Marius Cordts, Mohamed Omran, Sebastian Ramos, Timo Rehfeld, Markus Enzweiler,
+  Rodrigo Benenson, Uwe Franke, Stefan Roth, and Bernt Schiele.
+\newblock The cityscapes dataset for semantic urban scene understanding.
+\newblock In \emph{Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 3213--3223, 2016.
+
+\bibitem[Zhou et~al.(2019)Zhou, Zhao, Puig, Xiao, Fidler, Barriuso, and
+  Torralba]{ade20k}
+Bolei Zhou, Hang Zhao, Xavier Puig, Tete Xiao, Sanja Fidler, Adela Barriuso,
+  and Antonio Torralba.
+\newblock Semantic understanding of scenes through the ade20k dataset.
+\newblock \emph{International Journal of Computer Vision}, 127:\penalty0
+  302--321, 2019.
+
+\bibitem[Silberman et~al.(2012)Silberman, Hoiem, Kohli, and
+  Fergus]{silberman2012nyu}
+Nathan Silberman, Derek Hoiem, Pushmeet Kohli, and Rob Fergus.
+\newblock Indoor segmentation and support inference from rgbd images.
+\newblock In \emph{Computer Vision--ECCV 2012: 12th European Conference on
+  Computer Vision, Florence, Italy, October 7-13, 2012, Proceedings, Part V
+  12}, pages 746--760. Springer, 2012.
+
+\bibitem[Ilharco et~al.(2021)Ilharco, Wortsman, Wightman, Gordon, Carlini,
+  Taori, Dave, Shankar, Namkoong, Miller, Hajishirzi, Farhadi, and
+  Schmidt]{ilharco_gabriel_2021_5143773}
+Gabriel Ilharco, Mitchell Wortsman, Ross Wightman, Cade Gordon, Nicholas
+  Carlini, Rohan Taori, Achal Dave, Vaishaal Shankar, Hongseok Namkoong, John
+  Miller, Hannaneh Hajishirzi, Ali Farhadi, and Ludwig Schmidt.
+\newblock Openclip, July 2021.
+
+\bibitem[Fang et~al.(2023)Fang, Jose, Jain, Schmidt, Toshev, and
+  Shankar]{fang2023data}
+Alex Fang, Albin~Madappally Jose, Amit Jain, Ludwig Schmidt, Alexander Toshev,
+  and Vaishaal Shankar.
+\newblock Data filtering networks.
+\newblock \emph{arXiv preprint arXiv:2309.17425}, 2023.
+
+\bibitem[Farooq~Bhat et~al.(2021)Farooq~Bhat, Alhashim, and
+  Wonka]{Bhat2021adabins}
+Shariq Farooq~Bhat, Ibraheem Alhashim, and Peter Wonka.
+\newblock Adabins: Depth estimation using adaptive bins.
+\newblock In \emph{2021 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 4008--4017, 2021.
+\newblock \doi{10.1109/CVPR46437.2021.00400}.
+
+\bibitem[Chen et~al.(2015)Chen, Fang, Lin, Vedantam, Gupta, Doll{\'a}r, and
+  Zitnick]{chen2015microsoft}
+Xinlei Chen, Hao Fang, Tsung-Yi Lin, Ramakrishna Vedantam, Saurabh Gupta, Piotr
+  Doll{\'a}r, and C~Lawrence Zitnick.
+\newblock Microsoft coco captions: Data collection and evaluation server.
+\newblock \emph{arXiv preprint arXiv:1504.00325}, 2015.
+
+\end{thebibliography}

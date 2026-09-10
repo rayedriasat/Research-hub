@@ -1,0 +1,27 @@
+\section{Introduction}
+
+
+% Large Language Models (LLMs) have been widely adopted in various domains due to their remarkable capabilities. As one of the key components for their success, self-attention has attracted significant research interest. In this direction,
+
+\citet{xiao2023efficient} showed that Large Language models (LLMs) allocate significant attention to the initial tokens, irrespective of their semantic relevance. This interesting phenomenon is termed as \textbf{attention sink} and has widespread applications, including streaming/long context generation~\citep{xiao2023efficient,han2024lm,yang2024seed}, KV cache optimization~\citep{ge2023model,wan2024look,wu2024layer}, efficient inference~\citep{zhang2024q,chen2024image}, model quantization~\citep{liu2024intactkv,huang2024slim}, and others.\looseness=-1
+
+% Due to its intriguing properties and significant application potential, 
+
+A seminal of works attempted to understand attention sink. Among them, \citet{cancedda2024spectral} clarified that attention sink primarily appears only on the first token. They attributed the phenomenon to the large norm of hidden states of the first token. This is referred to as \textit{massive activations} (very few activations exhibit extremely large values compared to others) in \citet{sun2024massive}. Besides, \citet{sun2024massive,yu2024unveiling} observed that attention sink may also appear in several word tokens carrying limited semantic information and having no fixed position. Despite the above research efforts, a deep understanding of attention sink is still absent. Therefore, we conduct a comprehensive study to investigate when attention sink emerges. We defer full discussions on related work to Appendix~\ref{related_work}.\looseness=-1
+
+% Besides, \citet{sun2024massive,yu2024unveiling} observed that attention sink may also appear in several word tokens carrying limited semantic information and having no fixed position.
+
+Based on open-sourced auto-regressive LMs, we show that the first token acts as biases: the angles between the first key and queries of other tokens are typically small, leading to attention sink. Then we find that attention sink universally exists in auto-regressive LMs across different inputs, even in the small models or with random token sequences. Additionally, attention sink is observed to emerge during the LM pre-training before continual instruction tuning~\citep{ouyang2022training}. This motivates us to focus on the LM pre-training, whose objective can be formulated as:\looseness=-1
+\begin{equation}
+{\color{cc1}\min_{\theta}}\hspace{0.05cm}\mathbb{E}_{{\boldsymbol{X}\sim\color{cc2} p_{\textrm{data}}}}\left[{\color{cc3}\mathcal{L}}\left({\color{cc4}p_{\theta}}(\boldsymbol{X})\right)\right]\textrm{.}
+\end{equation}
+In the remaining part of this paper, we investigate how the {\color{cc1}optimization} (Section~\ref{sec4}), {\color{cc2}data distribution} (Section~\ref{sec5}), {\color{cc3}loss function} (Section~\ref{sec6}), and {\color{cc4}model architecture} (Section~\ref{sec7}) influence the emergence of attention sink. We have the following conclusions: 
+\begin{itemize}
+    \item Attention sink emerges after LMs are trained effectively on sufficient training data. It appears less obvious in LMs trained with small learning rates. While weight decay encourages the emergence of attention sink. 
+    \item The sink position is highly related to the loss function and data distribution and can be shifted to other positions rather than the first token.  
+    \item Attention sink acts more like key biases, storing extra attention and meanwhile not contributing to the value computation. This phenomenon (at least partially) stems from tokens' inner dependence on attention scores due to the softmax normalization. After relaxing such dependence by replacing softmax attention with other attention operations, e.g., sigmoid attention without normalization, attention sinks do not emerge in LMs up to 1B parameters.\looseness=-1
+\end{itemize}
+ 
+
+
+% Since pre-trained LLMs have different optimization algorithms, training data, training objectives, model parameterizations, and optimization algorithms. It is intractable to analyze when attention sink emerges and how the above factors affect attention sink based on these pre-trained models. This motivates us to pre-train LLMs from scratch and analyze the attention sink of these models. The training objective of LLMs can be generally formulated as:

@@ -1,0 +1,127 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\renewcommand{\arraystretch}{1.2}
+
+
+In this section, we provide a detailed overview of how we implement self-distillation in PH-Reg. Our self-distillation framework consists of one teacher model and one student model. While both the teacher and student model are initialized from the same weights, the teacher is frozen, while additional register parameters are added to the student network. 
+
+ Our codes and weights are avaible in \hyperlink{https://github.com/0raiser0/PH-Reg.git}{https://github.com/0raiser0/PH-Reg.git}. 
+
+
+\subsection{Model Architectures}
+\label{model}
+\textbf{Teacher Model Architecture.}
+For CLIP based models, since we focus on zero-shot open-vocabulary segmentation, we utilize the NACLIP modification to the final layer. This modification does not introduce any additional weights to the teacher network, and is training-free. Our empirical analysis in Section~\ref{pearson} shows that NACLIP's neighborhood attention mechanism improves feature consistency. For DINOv2, we directly use the final output layer, without any modification to the teacher network.
+
+
+\textbf{Student Model Architecture.}
+Based on the results from the ablation studies we integrate 16 register tokens into the student model. For the CLIP based student, to ensure representational alignment we directly take the \emph{v} head from the output layer (the MaskCLIP output). For DINO based students, we do not apply such modifications. We bicubicly upsample the positional embedding so it matches the input image. Unless otherwise specified, this modification is applied consistently, while all other layers remain unchanged.
+
+%-----------------------
+\subsection{Model Implementation}
+\label{weights}
+
+\begin{table*}[htbp]
+\centering
+\caption{\textbf{Model Implementation Libraries and Weights.} We compare models trained using different datasets and objectives.}
+\vspace{.1cm}
+\label{tab:weights}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{l|l|l}
+\hline
+Model    & Library                   & Weight                                       \\ \hline
+CLIP     & clip (OpenAI)             & ViT-B-16                                     \\
+OpenCLIP & open\_clip                & hf-hub:laion/CLIP-ViT-B-16-laion2B-s34B-b88K \\
+DFN-CLIP & open\_clip                & hf-hub:apple/DFN2B-CLIP-ViT-B-16             \\
+DINOv2   & transformers (Hugging Face) & facebook/dinov2-base                         \\ \hline
+\end{tabular}%
+}
+\end{table*}
+
+We provide the model weights and the corresponding implementation libraries in Table~\ref{tab:weights}. 
+
+
+\subsection{Optimization}
+\label{opt}
+In the distillation process, the shorter side of each input image is resized using bicubic interpolation to 448 for CLIP-based models and 518 for DINOv2. The resized image is then randomly cropped into a square of size (448, 448) or (518, 518), respectively. For each input image, we generate $N = 10$ augmentations using random shifts and horizontal flips. Assuming an image length of 1, we uniformly sample the shift for both the horizontal and vertical axes from $[-0.15, 0.15]$. While the horizontal flip is sampled with probability 0.5. To ensure each patch is covered, we do not apply any augmentation to the first image of the 10.  All shifted images are concatenated and fed into the teacher model, while the original (unshifted) images are used as input to the student model. The target feature is computed as the average of these 10 augmentations. To accommodate the resized input images for both the teacher and student models, we consistently resize the positional embeddings using bicubic interpolation. During training, the weights of the teacher model are frozen. In the student model, we allow updates to registers, the positional embeddings, the convolutional patch embedding layer, and the final transformer layer containing the self-attention mechanism.
+
+The distillation framework is implemented in PyTorch, with distributed training managed via PyTorch Accelerate. Training is conducted on 4 NVIDIA Ada 6000 GPUs, with mixed-precision optimization to balance computational efficiency and numerical stability. Detailed training configurations are provided in Table~\ref{tab:clip_cfg} and Table~\ref{tab:dino_cfg}.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\renewcommand{\arraystretch}{1.2}
+\begin{table*}[t]
+\centering
+
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\caption{Configs for CLIP-based models.}
+\vspace{.1cm}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l}
+\hline
+Config & Value \\ \hline
+optimizer & AdamW \\
+initial learning rate & 3e-4 \\
+final learning rate & 1e-5 \\
+weight decay & 1e-2 \\
+optimizer momentum ($\beta_1, \beta_2$) & (0.9, 0.999) \\
+learning rate scheduler & Exponential Scheduler \\
+batch size & 16 \\
+training epochs & 100 \\
+augmentation & RandomSquareCrop \\ \hline
+\end{tabular}%
+}
+\label{tab:clip_cfg}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\caption{Configs for DINOv2.}
+\vspace{.1cm}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l}
+\hline
+Config & Value \\ \hline
+optimizer & AdamW \\
+initial learning rate & 1e-4 \\
+final learning rate & 5e-6 \\
+weight decay & 1e-2 \\
+optimizer momentum ($\beta_1, \beta_2$) & (0.9, 0.999) \\
+learning rate scheduler & Exponential Scheduler \\
+batch size & 8 \\
+training epochs & 100 \\
+augmentation & RandomSquareCrop \\ \hline
+\end{tabular}%
+}
+\label{tab:dino_cfg}
+\end{minipage}
+
+\end{table*}
+
+
+\subsection{Pearson Analysis of Open-vocabulary Segmentation}\label{pearson}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{table*}[h]
+\centering
+\caption{\textbf{Open-vocabulary Semantic Segmentation Quantitative Comparison on 7 datasets.} We report the Pearson correlation coefficient for the zero-shot query against the one-hot ground truth labels. The results are averaged within each image, then averaged across images. Compared to mIoU, pearson does not require knowledge of all of the categories present an image (via softmax). The value ranges from -1 to 1, where 1 = perfect positive correlation, -1 = perfect negative correlation, and 0 = no linear correlation. The best result for each dataset is highlighted in \textbf{bolded}.}
+\vspace{.1cm}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{l|ccccccccc}
+\hline
+Method        & VOC21          & PC60                    & VOC20          & PC59           & Stuff          & City           & ADE20k            & Avg.           \\ \hline
+SCLIP         & -0.005         & 0.349                   & 0.409          & 0.443          & 0.323          & 0.291          & 0.308          & 0.303          \\
+ClearCLIP     & 0.012          & 0.428                   & 0.489          & 0.543          & 0.393          & 0.336          & 0.418          & 0.374          \\
+NACLIP      & 0.011          & 0.422                   & 0.470          & 0.543          & 0.392          & 0.363          & 0.425          & 0.375          \\
+NACLIP+DVT    & 0.003          & 0.438                   & 0.487          & 0.551          & 0.395          & 0.367          & 0.427          & 0.381         \\
+Ours (PH-Reg) & \textbf{0.013} & \textbf{0.468}          & \textbf{0.494} & \textbf{0.590} & \textbf{0.424} & \textbf{0.381} & \textbf{0.461} & \textbf{0.404} \\ \hline
+\end{tabular}%
+}
+\vspace{-.2cm}
+\label{tab:pearson}
+\end{table*}
+In this section we present additional evaluation results on open-vocabulary semantic segmentation via the pearson metric. Results are illustrated in Table~\ref{tab:pearson}. Overall, PH-Reg CLIP significantly outperforms the baseline models on 7 datasets. Even in the absence of prior category knowledge, PH-Reg CLIP achieves an average performance of 0.404, representing a clear improvement over the second-best method, DVT enhanced NACLIP, with an average performance of 0.381. 
+These results highlight that our approach improves the consistency of dense feature representations by reducing artifact tokens, thereby offering a robust and generalizable enhancement over existing methods.
+
+We further observe that both ClearCLIP and NACLIP achieve competitive results; however, NACLIP significantly outperforms ClearCLIP on ADE20K and Cityscapes. The former requires the model to handle a large number of categories, while the latter demands fine-grained localization of small objects. Based on this observation, we choose NACLIP as our primary teacher model, leveraging its neighbor attention mechanism to enhance the student model's performance on these challenging tasks.
