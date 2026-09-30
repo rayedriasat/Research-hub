@@ -1,0 +1,165 @@
+#### facebook/hubert-large-ll60k
+== facebook/hubert-large-ll60k  layers=24  tokens=492
+L00 massive=   68.4 max/med=   1.21  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[292, 143, 152, 167]  noise_ratio=1.02
+L01 massive=   72.4 max/med=   1.23  out>10x= 0.00%  argmax_in_sil=0.17  argmax_pos=[178, 308, 399, 166]  noise_ratio=1.15 sink=1.9x sinkpos=[340, 225, 348, 288] sink_in_sil=0.00 top1%mass=0.01 | silmid: sinkpos=[70, 125, 339] in_mid_sil=0.00 sink=1.8x | speechonly: sinkpos=[226, 160, 217]/241 sink=1.7x
+L02 massive=   60.3 max/med=   1.22  out>10x= 0.00%  argmax_in_sil=0.17  argmax_pos=[178, 307, 399, 166]  noise_ratio=1.22 sink=3.6x sinkpos=[173, 257, 131, 131] sink_in_sil=0.00 top1%mass=0.03 | silmid: sinkpos=[331, 180, 31] in_mid_sil=0.00 sink=3.0x | speechonly: sinkpos=[45, 130, 89]/241 sink=2.2x
+L03 massive=   53.0 max/med=   1.26  out>10x= 0.00%  argmax_in_sil=0.83  argmax_pos=[178, 340, 399, 399]  noise_ratio=1.24 sink=3.1x sinkpos=[128, 256, 379, 166] sink_in_sil=0.00 top1%mass=0.02 | silmid: sinkpos=[28, 361, 300] in_mid_sil=0.00 sink=2.5x | speechonly: sinkpos=[55, 129, 248]/241 sink=1.9x
+L04 massive=   49.9 max/med=   1.24  out>10x= 0.00%  argmax_in_sil=0.67  argmax_pos=[361, 340, 399, 399]  noise_ratio=1.29 sink=3.7x sinkpos=[169, 225, 329, 211] sink_in_sil=0.00 top1%mass=0.02 | silmid: sinkpos=[69, 125, 60] in_mid_sil=0.00 sink=4.1x | speechonly: sinkpos=[119, 98, 29]/241 sink=3.2x
+L05 massive=   48.6 max/med=   1.28  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[392, 340, 399, 399]  noise_ratio=1.27 sink=2.8x sinkpos=[352, 250, 331, 215] sink_in_sil=0.00 top1%mass=0.02 | silmid: sinkpos=[136, 411, 435] in_mid_sil=0.00 sink=2.6x | speechonly: sinkpos=[224, 152, 7]/241 sink=2.1x
+L06 massive=   47.5 max/med=   1.27  out>10x= 0.00%  argmax_in_sil=0.50  argmax_pos=[360, 320, 399, 399]  noise_ratio=1.34 sink=4.1x sinkpos=[258, 225, 160, 211] sink_in_sil=0.00 top1%mass=0.03 | silmid: sinkpos=[158, 125, 60] in_mid_sil=0.00 sink=3.1x | speechonly: sinkpos=[53, 102, 298]/241 sink=2.8x
+L07 massive=   50.1 max/med=   1.24  out>10x= 0.00%  argmax_in_sil=0.67  argmax_pos=[491, 439, 399, 146]  noise_ratio=1.42 sink=2.5x sinkpos=[177, 257, 131, 132] sink_in_sil=0.00 top1%mass=0.02 | silmid: sinkpos=[74, 157, 31] in_mid_sil=0.00 sink=2.4x | speechonly: sinkpos=[46, 130, 103]/241 sink=2.0x
+L08 massive=   49.8 max/med=   1.28  out>10x= 0.00%  argmax_in_sil=0.50  argmax_pos=[491, 320, 180, 399]  noise_ratio=1.50 sink=2.9x sinkpos=[491, 439, 180, 498] sink_in_sil=0.83 top1%mass=0.02 | silmid: sinkpos=[199, 461, 80] in_mid_sil=0.00 sink=2.6x | speechonly: sinkpos=[176, 103, 49]/241 sink=2.4x
+L09 massive=   55.0 max/med=   1.32  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[491, 439, 498, 399]  noise_ratio=1.66 sink=4.3x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.03 | silmid: sinkpos=[346, 461, 80] in_mid_sil=0.00 sink=3.8x | speechonly: sinkpos=[176, 103, 58]/241 sink=3.7x
+L10 massive=   60.9 max/med=   1.38  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[491, 439, 498, 498]  noise_ratio=1.77 sink=5.2x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.03 | silmid: sinkpos=[346, 461, 80] in_mid_sil=0.00 sink=3.5x | speechonly: sinkpos=[176, 103, 49]/241 sink=2.9x
+L11 massive=   61.4 max/med=   1.39  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[491, 439, 498, 498]  noise_ratio=1.68 sink=5.6x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.03 | silmid: sinkpos=[346, 461, 80] in_mid_sil=0.00 sink=3.7x | speechonly: sinkpos=[176, 103, 49]/241 sink=3.2x
+L12 massive=   62.0 max/med=   1.46  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=1.60 sink=8.0x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.05 | silmid: sinkpos=[346, 461, 80] in_mid_sil=0.00 sink=5.8x | speechonly: sinkpos=[176, 103, 49]/241 sink=5.4x
+L13 massive=  486.2 max/med=   9.50  out>10x= 0.07%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=8.60 sink=14.6x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.06 | silmid: sinkpos=[184, 461, 80] in_mid_sil=0.00 sink=5.5x | speechonly: sinkpos=[176, 103, 58]/241 sink=4.3x
+L14 massive=  468.0 max/med=   9.43  out>10x= 0.07%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=8.58 sink=19.9x sinkpos=[284, 130, 102, 319] sink_in_sil=0.00 top1%mass=0.08 | silmid: sinkpos=[184, 457, 388] in_mid_sil=0.00 sink=17.5x | speechonly: sinkpos=[156, 3, 75]/241 sink=10.2x
+L15 massive=  437.3 max/med=   8.96  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=7.75 sink=16.4x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.08 | silmid: sinkpos=[184, 457, 388] in_mid_sil=0.00 sink=10.2x | speechonly: sinkpos=[156, 3, 75]/241 sink=7.9x
+L16 massive=  400.1 max/med=   8.08  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=6.73 sink=55.8x sinkpos=[284, 130, 102, 319] sink_in_sil=0.00 top1%mass=0.18 | silmid: sinkpos=[184, 457, 388] in_mid_sil=0.00 sink=47.8x | speechonly: sinkpos=[156, 3, 75]/241 sink=26.0x
+L17 massive=  358.1 max/med=   7.15  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=6.05 sink=29.7x sinkpos=[284, 130, 102, 319] sink_in_sil=0.00 top1%mass=0.11 | silmid: sinkpos=[184, 457, 388] in_mid_sil=0.00 sink=26.8x | speechonly: sinkpos=[156, 3, 75]/241 sink=15.2x
+L18 massive=  332.7 max/med=   6.61  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=5.61 sink=27.2x sinkpos=[284, 130, 102, 319] sink_in_sil=0.00 top1%mass=0.13 | silmid: sinkpos=[184, 457, 388] in_mid_sil=0.00 sink=18.0x | speechonly: sinkpos=[156, 3, 75]/241 sink=7.7x
+L19 massive=  317.6 max/med=   6.05  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=5.30 sink=30.4x sinkpos=[284, 130, 189, 319] sink_in_sil=0.00 top1%mass=0.18 | silmid: sinkpos=[184, 457, 388] in_mid_sil=0.00 sink=22.1x | speechonly: sinkpos=[156, 3, 75]/241 sink=11.5x
+L20 massive=  298.3 max/med=   5.63  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=5.29 sink=21.4x sinkpos=[360, 230, 189, 276] sink_in_sil=0.00 top1%mass=0.12 | silmid: sinkpos=[346, 461, 89] in_mid_sil=0.00 sink=15.8x | speechonly: sinkpos=[176, 36, 49]/241 sink=9.7x
+L21 massive=  219.4 max/med=   4.57  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=4.05 sink=26.4x sinkpos=[360, 230, 189, 276] sink_in_sil=0.00 top1%mass=0.14 | silmid: sinkpos=[346, 367, 89] in_mid_sil=0.00 sink=18.8x | speechonly: sinkpos=[176, 36, 49]/241 sink=11.6x
+L22 massive=  118.6 max/med=   2.96  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=2.77 sink=17.9x sinkpos=[284, 130, 189, 319] sink_in_sil=0.00 top1%mass=0.10 | silmid: sinkpos=[184, 457, 60] in_mid_sil=0.00 sink=14.0x | speechonly: sinkpos=[119, 98, 49]/241 sink=8.8x
+L23 massive=   90.9 max/med=   2.25  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=1.85 sink=54.0x sinkpos=[284, 130, 102, 319] sink_in_sil=0.00 top1%mass=0.15 | silmid: sinkpos=[184, 457, 388] in_mid_sil=0.00 sink=48.6x | speechonly: sinkpos=[156, 3, 75]/241 sink=20.9x
+L24 massive=   62.6 max/med=   1.63  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[284, 130, 102, 319]  noise_ratio=1.52 sink=109.9x sinkpos=[284, 130, 102, 319] sink_in_sil=0.00 top1%mass=0.37 | silmid: sinkpos=[184, 457, 388] in_mid_sil=0.00 sink=84.6x | speechonly: sinkpos=[176, 3, 75]/241 sink=30.8x
+#### microsoft/wavlm-base-plus
+  key_padding_mask = _canonical_mask(
+== microsoft/wavlm-base-plus  layers=12  tokens=492
+L00 massive=   16.4 max/med=   1.18  out>10x= 0.00%  argmax_in_sil=0.67  argmax_pos=[392, 154, 399, 399]  noise_ratio=1.05
+L01 massive=   24.7 max/med=   1.14  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[151, 243, 382, 328]  noise_ratio=1.07 sink=2.4x sinkpos=[137, 305, 399, 399] sink_in_sil=0.67 top1%mass=0.02 | silmid: sinkpos=[199, 199, 299] in_mid_sil=0.00 sink=2.2x | speechonly: sinkpos=[10, 129, 2]/241 sink=1.8x
+L02 massive=   27.8 max/med=   1.09  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[317, 316, 296, 384]  noise_ratio=1.07 sink=2.3x sinkpos=[99, 165, 183, 166] sink_in_sil=0.33 top1%mass=0.02 | silmid: sinkpos=[199, 361, 299] in_mid_sil=0.00 sink=2.0x | speechonly: sinkpos=[196, 180, 0]/241 sink=1.8x
+L03 massive=   28.5 max/med=   1.09  out>10x= 0.00%  argmax_in_sil=0.50  argmax_pos=[82, 316, 105, 83]  noise_ratio=1.09 sink=3.0x sinkpos=[392, 229, 399, 0] sink_in_sil=0.83 top1%mass=0.02 | silmid: sinkpos=[200, 0, 299] in_mid_sil=0.33 sink=3.0x | speechonly: sinkpos=[1, 102, 0]/241 sink=1.8x
+L04 massive=   24.8 max/med=   1.08  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[144, 110, 392, 308]  noise_ratio=1.10 sink=6.2x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.03 | silmid: sinkpos=[0, 199, 0] in_mid_sil=0.00 sink=3.6x | speechonly: sinkpos=[0, 0, 0]/241 sink=3.2x
+L05 massive=   23.7 max/med=   1.10  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[144, 111, 106, 369]  noise_ratio=1.11 sink=4.9x sinkpos=[392, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.03 | silmid: sinkpos=[0, 0, 0] in_mid_sil=0.00 sink=4.2x | speechonly: sinkpos=[0, 0, 0]/241 sink=3.4x
+L06 massive=   22.7 max/med=   1.16  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[382, 123, 106, 125]  noise_ratio=1.10 sink=6.9x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.04 | silmid: sinkpos=[199, 0, 0] in_mid_sil=0.00 sink=3.8x | speechonly: sinkpos=[240, 0, 0]/241 sink=3.4x
+L07 massive=   22.2 max/med=   1.11  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[382, 101, 377, 125]  noise_ratio=1.09 sink=10.4x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.07 | silmid: sinkpos=[498, 0, 0] in_mid_sil=0.00 sink=7.8x | speechonly: sinkpos=[0, 0, 0]/241 sink=8.2x
+L08 massive=   23.8 max/med=   1.13  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[100, 106, 105, 101]  noise_ratio=1.06 sink=17.8x sinkpos=[111, 333, 297, 116] sink_in_sil=0.00 top1%mass=0.12 | silmid: sinkpos=[316, 10, 17] in_mid_sil=0.00 sink=14.2x | speechonly: sinkpos=[240, 88, 166]/241 sink=8.2x
+L09 massive=   23.5 max/med=   1.11  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[100, 106, 105, 101]  noise_ratio=1.05 sink=16.0x sinkpos=[111, 110, 297, 116] sink_in_sil=0.17 top1%mass=0.11 | silmid: sinkpos=[316, 307, 17] in_mid_sil=0.00 sink=12.7x | speechonly: sinkpos=[0, 88, 166]/241 sink=10.4x
+L10 massive=   22.8 max/med=   1.11  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[100, 106, 102, 207]  noise_ratio=1.04 sink=37.7x sinkpos=[375, 333, 297, 386] sink_in_sil=0.00 top1%mass=0.26 | silmid: sinkpos=[316, 307, 17] in_mid_sil=0.00 sink=33.3x | speechonly: sinkpos=[135, 88, 166]/241 sink=24.7x
+L11 massive=   36.0 max/med=   1.15  out>10x= 0.00%  argmax_in_sil=0.33  argmax_pos=[294, 319, 482, 112]  noise_ratio=1.05 sink=16.6x sinkpos=[111, 121, 297, 264] sink_in_sil=0.00 top1%mass=0.13 | silmid: sinkpos=[316, 307, 66] in_mid_sil=0.00 sink=15.7x | speechonly: sinkpos=[135, 88, 166]/241 sink=15.7x
+L12 massive=   38.4 max/med=   1.34  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[153, 215, 165, 310]  noise_ratio=1.07 sink=10.9x sinkpos=[111, 121, 0, 124] sink_in_sil=0.33 top1%mass=0.08 | silmid: sinkpos=[2, 0, 3] in_mid_sil=0.00 sink=14.4x | speechonly: sinkpos=[0, 0, 166]/241 sink=14.5x
+#### microsoft/wavlm-large
+  key_padding_mask = _canonical_mask(
+== microsoft/wavlm-large  layers=24  tokens=492
+L00 massive=   55.1 max/med=   1.22  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[291, 310, 152, 151]  noise_ratio=1.03
+L01 massive=   71.5 max/med=   1.20  out>10x= 0.00%  argmax_in_sil=0.17  argmax_pos=[178, 340, 136, 321]  noise_ratio=1.11 sink=2.5x sinkpos=[137, 305, 399, 131] sink_in_sil=0.17 top1%mass=0.02 | silmid: sinkpos=[199, 451, 33] in_mid_sil=0.00 sink=2.1x | speechonly: sinkpos=[0, 178, 298]/241 sink=2.2x
+L02 massive=   53.3 max/med=   1.34  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[392, 340, 399, 399]  noise_ratio=1.23 sink=2.6x sinkpos=[132, 168, 139, 141] sink_in_sil=0.00 top1%mass=0.02 | silmid: sinkpos=[32, 451, 77] in_mid_sil=0.00 sink=2.3x | speechonly: sinkpos=[177, 21, 89]/241 sink=1.9x
+L03 massive=   40.6 max/med=   1.35  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[392, 340, 399, 399]  noise_ratio=1.17 sink=2.9x sinkpos=[99, 0, 219, 0] sink_in_sil=0.83 top1%mass=0.02 | silmid: sinkpos=[0, 498, 0] in_mid_sil=0.00 sink=2.8x | speechonly: sinkpos=[0, 0, 0]/241 sink=2.7x
+L04 massive=   40.7 max/med=   1.39  out>10x= 0.00%  argmax_in_sil=0.67  argmax_pos=[392, 340, 335, 399]  noise_ratio=1.29 sink=2.6x sinkpos=[178, 309, 220, 312] sink_in_sil=0.17 top1%mass=0.02 | silmid: sinkpos=[78, 157, 120] in_mid_sil=0.00 sink=2.4x | speechonly: sinkpos=[50, 130, 89]/241 sink=2.1x
+L05 massive=   35.7 max/med=   1.40  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 399]  noise_ratio=1.54 sink=3.4x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.02 | silmid: sinkpos=[498, 199, 373] in_mid_sil=0.00 sink=2.4x | speechonly: sinkpos=[50, 130, 298]/241 sink=2.1x
+L06 massive=   32.0 max/med=   1.31  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[99, 99, 99, 399]  noise_ratio=1.54 sink=3.1x sinkpos=[129, 268, 376, 243] sink_in_sil=0.00 top1%mass=0.02 | silmid: sinkpos=[443, 498, 389] in_mid_sil=0.00 sink=3.0x | speechonly: sinkpos=[61, 0, 199]/241 sink=2.0x
+L07 massive=   32.4 max/med=   1.37  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.54 sink=4.5x sinkpos=[491, 439, 498, 498] sink_in_sil=0.83 top1%mass=0.03 | silmid: sinkpos=[299, 300, 300] in_mid_sil=0.00 sink=2.6x | speechonly: sinkpos=[94, 172, 20]/241 sink=1.6x
+L08 massive=   39.9 max/med=   1.43  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 399]  noise_ratio=1.54 sink=3.0x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.02 | silmid: sinkpos=[416, 498, 408] in_mid_sil=0.00 sink=2.5x | speechonly: sinkpos=[0, 0, 298]/241 sink=1.9x
+L09 massive=   42.5 max/med=   1.55  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.63 sink=5.9x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.03 | silmid: sinkpos=[498, 498, 498] in_mid_sil=0.00 sink=5.7x | speechonly: sinkpos=[240, 0, 298]/241 sink=4.2x
+L10 massive=   48.2 max/med=   1.72  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.79 sink=7.6x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.04 | silmid: sinkpos=[498, 498, 498] in_mid_sil=0.00 sink=4.6x | speechonly: sinkpos=[0, 0, 298]/241 sink=3.4x
+L11 massive=   53.5 max/med=   1.87  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[491, 439, 498, 0]  noise_ratio=2.06 sink=9.7x sinkpos=[383, 336, 0, 0] sink_in_sil=0.50 top1%mass=0.05 | silmid: sinkpos=[7, 0, 324] in_mid_sil=0.00 sink=11.1x | speechonly: sinkpos=[231, 164, 246]/241 sink=7.0x
+L12 massive=   60.4 max/med=   1.91  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[491, 439, 498, 498]  noise_ratio=2.20 sink=9.6x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.05 | silmid: sinkpos=[0, 0, 0] in_mid_sil=0.00 sink=6.7x | speechonly: sinkpos=[0, 0, 0]/241 sink=5.3x
+L13 massive=   79.2 max/med=   1.88  out>10x= 0.00%  argmax_in_sil=0.83  argmax_pos=[491, 439, 498, 221]  noise_ratio=2.17 sink=24.6x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.07 | silmid: sinkpos=[498, 498, 498] in_mid_sil=0.00 sink=12.2x | speechonly: sinkpos=[140, 186, 298]/241 sink=4.1x
+L14 massive=  158.4 max/med=   3.14  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[219, 297, 135, 221]  noise_ratio=2.00 sink=8.4x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.04 | silmid: sinkpos=[0, 498, 0] in_mid_sil=0.00 sink=5.8x | speechonly: sinkpos=[0, 0, 0]/241 sink=5.6x
+L15 massive=  166.0 max/med=   3.27  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[219, 297, 135, 221]  noise_ratio=1.78 sink=6.6x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.04 | silmid: sinkpos=[498, 498, 498] in_mid_sil=0.00 sink=6.7x | speechonly: sinkpos=[240, 186, 298]/241 sink=5.4x
+L16 massive=  179.8 max/med=   3.38  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[219, 297, 135, 221]  noise_ratio=1.86 sink=15.0x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.06 | silmid: sinkpos=[0, 0, 0] in_mid_sil=0.00 sink=4.9x | speechonly: sinkpos=[240, 186, 298]/241 sink=3.2x
+L17 massive=  189.7 max/med=   3.33  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[219, 297, 135, 221]  noise_ratio=1.73 sink=9.9x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.06 | silmid: sinkpos=[0, 498, 0] in_mid_sil=0.00 sink=5.4x | speechonly: sinkpos=[0, 0, 0]/241 sink=4.5x
+L18 massive=  174.8 max/med=   3.06  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[219, 297, 135, 221]  noise_ratio=1.93 sink=9.7x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.06 | silmid: sinkpos=[0, 498, 0] in_mid_sil=0.00 sink=5.6x | speechonly: sinkpos=[0, 0, 0]/241 sink=4.6x
+L19 massive=  167.1 max/med=   2.73  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[219, 297, 135, 221]  noise_ratio=2.16 sink=5.7x sinkpos=[219, 130, 135, 221] sink_in_sil=0.00 top1%mass=0.04 | silmid: sinkpos=[119, 498, 498] in_mid_sil=0.00 sink=4.5x | speechonly: sinkpos=[240, 186, 0]/241 sink=3.6x
+L20 massive=  133.1 max/med=   2.49  out>10x= 0.00%  argmax_in_sil=0.67  argmax_pos=[0, 0, 135, 221]  noise_ratio=2.35 sink=8.8x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.05 | silmid: sinkpos=[0, 0, 0] in_mid_sil=0.00 sink=7.0x | speechonly: sinkpos=[0, 0, 0]/241 sink=5.7x
+L21 massive=   91.0 max/med=   2.10  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.88 sink=12.3x sinkpos=[0, 0, 0, 0] sink_in_sil=1.00 top1%mass=0.06 | silmid: sinkpos=[0, 0, 0] in_mid_sil=0.00 sink=8.7x | speechonly: sinkpos=[0, 0, 0]/241 sink=7.4x
+L22 massive=   48.0 max/med=   1.59  out>10x= 0.00%  argmax_in_sil=0.50  argmax_pos=[0, 221, 217, 0]  noise_ratio=1.23 sink=14.0x sinkpos=[491, 439, 498, 498] sink_in_sil=1.00 top1%mass=0.07 | silmid: sinkpos=[0, 0, 199] in_mid_sil=0.00 sink=12.2x | speechonly: sinkpos=[240, 186, 298]/241 sink=10.3x
+L23 massive=   41.0 max/med=   1.38  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[217, 131, 137, 290]  noise_ratio=1.15 sink=16.7x sinkpos=[0, 0, 135, 221] sink_in_sil=0.67 top1%mass=0.11 | silmid: sinkpos=[421, 0, 0] in_mid_sil=0.00 sink=13.9x | speechonly: sinkpos=[240, 186, 298]/241 sink=9.1x
+L24 massive=   21.2 max/med=   1.21  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1, 1, 1, 1]  noise_ratio=1.07 sink=38.9x sinkpos=[383, 336, 376, 312] sink_in_sil=0.00 top1%mass=0.17 | silmid: sinkpos=[23, 439, 324] in_mid_sil=0.00 sink=35.9x | speechonly: sinkpos=[136, 102, 176]/241 sink=20.7x
+#### openai/whisper-base
+speech+sil input frames with audio: 493 of 1500
+speech+sil input frames with audio: 441 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+speech_only input frames with audio: 242 of 1500
+speech_only input frames with audio: 188 of 1500
+speech_only input frames with audio: 300 of 1500
+white_noise input frames with audio: 300 of 1500
+== openai/whisper-base  layers=5  tokens=1500
+L00 massive=    7.4 max/med=   1.12  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.14
+L01 massive=   11.6 max/med=   1.39  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.33 sink=7.2x sinkpos=[286, 309, 400, 178] sink_in_sil=0.17 top1%mass=0.05 | silmid: sinkpos=[500, 66, 500] in_mid_sil=0.00 sink=7.8x | speechonly: sinkpos=[10, 33, 201]/1500 sink=7.5x
+L02 massive=   12.5 max/med=   1.46  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1499, 0, 1499, 1499]  noise_ratio=1.43 sink=7.0x sinkpos=[1499, 1499, 132, 1499] sink_in_sil=0.67 top1%mass=0.05 | silmid: sinkpos=[1499, 1499, 32] in_mid_sil=0.00 sink=6.1x | speechonly: sinkpos=[1499, 1499, 288]/1500 sink=8.5x
+L03 massive=   60.9 max/med=   3.57  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1453, 1453, 1453, 1453]  noise_ratio=3.64 sink=5.5x sinkpos=[129, 308, 137, 167] sink_in_sil=0.00 top1%mass=0.04 | silmid: sinkpos=[367, 65, 37] in_mid_sil=0.00 sink=5.1x | speechonly: sinkpos=[27, 54, 6]/1500 sink=5.7x
+L04 massive= 1116.8 max/med=  34.24  out>10x= 2.06%  argmax_in_sil=1.00  argmax_pos=[1453, 1453, 1453, 1453]  noise_ratio=33.91 sink=8.9x sinkpos=[281, 1499, 1499, 1499] sink_in_sil=0.50 top1%mass=0.06 | silmid: sinkpos=[142, 1499, 442] in_mid_sil=0.00 sink=7.4x | speechonly: sinkpos=[115, 1499, 1499]/1500 sink=9.8x
+L05 massive=  775.8 max/med=  19.93  out>10x= 1.42%  argmax_in_sil=1.00  argmax_pos=[1453, 1453, 1453, 1453]  noise_ratio=19.15 sink=17.0x sinkpos=[0, 0, 0, 1499] sink_in_sil=1.00 top1%mass=0.09 | silmid: sinkpos=[1499, 1499, 1499] in_mid_sil=0.00 sink=10.3x | speechonly: sinkpos=[1499, 1499, 1499]/1500 sink=11.3x
+#### openai/whisper-base
+speech+sil input frames with audio: 493 of 1500
+speech+sil input frames with audio: 441 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+speech_only input frames with audio: 242 of 1500
+speech_only input frames with audio: 188 of 1500
+speech_only input frames with audio: 300 of 1500
+white_noise input frames with audio: 300 of 1500
+== openai/whisper-base  layers=5  tokens=1500
+L00 massive=    7.4 max/med=   1.12  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.14
+L01 massive=   11.6 max/med=   1.39  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.33 sink=7.2x sinkpos=[286, 309, 400, 178] sink_in_sil=0.17 top1%mass=0.05 | silmid: sinkpos=[500, 66, 500] in_mid_sil=0.00 sink=7.8x | speechonly: sinkpos=[10, 33, 201]/1500 sink=7.5x
+L02 massive=   12.5 max/med=   1.46  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1499, 0, 1499, 1499]  noise_ratio=1.43 sink=7.0x sinkpos=[1499, 1499, 132, 1499] sink_in_sil=0.67 top1%mass=0.05 | silmid: sinkpos=[1499, 1499, 32] in_mid_sil=0.00 sink=6.1x | speechonly: sinkpos=[1499, 1499, 288]/1500 sink=8.5x
+L03 massive=   60.9 max/med=   3.57  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1453, 1453, 1453, 1453]  noise_ratio=3.64 sink=5.5x sinkpos=[129, 308, 137, 167] sink_in_sil=0.00 top1%mass=0.04 | silmid: sinkpos=[367, 65, 37] in_mid_sil=0.00 sink=5.1x | speechonly: sinkpos=[27, 54, 6]/1500 sink=5.7x
+L04 massive= 1116.8 max/med=  34.24  out>10x= 2.06%  argmax_in_sil=1.00  argmax_pos=[1453, 1453, 1453, 1453]  noise_ratio=33.91 sink=8.9x sinkpos=[281, 1499, 1499, 1499] sink_in_sil=0.50 top1%mass=0.06 | silmid: sinkpos=[142, 1499, 442] in_mid_sil=0.00 sink=7.4x | speechonly: sinkpos=[115, 1499, 1499]/1500 sink=9.8x
+L05 massive=  775.8 max/med=  19.93  out>10x= 1.42%  argmax_in_sil=1.00  argmax_pos=[1453, 1453, 1453, 1453]  noise_ratio=19.15 sink=17.0x sinkpos=[0, 0, 0, 1499] sink_in_sil=1.00 top1%mass=0.09 | silmid: sinkpos=[1499, 1499, 1499] in_mid_sil=0.00 sink=10.3x | speechonly: sinkpos=[1499, 1499, 1499]/1500 sink=11.3x
+#### openai/whisper-small
+speech+sil input frames with audio: 493 of 1500
+speech+sil input frames with audio: 441 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+speech+sil input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+sil_mid input frames with audio: 500 of 1500
+speech_only input frames with audio: 242 of 1500
+speech_only input frames with audio: 188 of 1500
+speech_only input frames with audio: 300 of 1500
+white_noise input frames with audio: 300 of 1500
+== openai/whisper-small  layers=11  tokens=1500
+L00 massive=    9.2 max/med=   1.10  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.14
+L01 massive=    9.7 max/med=   1.41  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[2, 2, 2, 2]  noise_ratio=1.39 sink=15.3x sinkpos=[177, 232, 329, 347] sink_in_sil=0.00 top1%mass=0.07 | silmid: sinkpos=[47, 493, 84] in_mid_sil=0.00 sink=10.3x | speechonly: sinkpos=[19, 153, 294]/1500 sink=15.5x
+L02 massive=    9.5 max/med=   1.34  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 2, 2, 2]  noise_ratio=1.32 sink=7.4x sinkpos=[250, 228, 219, 167] sink_in_sil=0.00 top1%mass=0.06 | silmid: sinkpos=[150, 383, 119] in_mid_sil=0.00 sink=6.4x | speechonly: sinkpos=[158, 181, 221]/1500 sink=7.0x
+L03 massive=   10.9 max/med=   1.32  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 2, 3, 2]  noise_ratio=1.30 sink=7.4x sinkpos=[157, 167, 401, 152] sink_in_sil=0.17 top1%mass=0.04 | silmid: sinkpos=[501, 501, 501] in_mid_sil=0.00 sink=13.2x | speechonly: sinkpos=[243, 189, 301]/1500 sink=20.1x
+L04 massive=   12.2 max/med=   1.31  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[0, 0, 0, 0]  noise_ratio=1.31 sink=5.6x sinkpos=[346, 256, 137, 167] sink_in_sil=0.00 top1%mass=0.04 | silmid: sinkpos=[367, 496, 37] in_mid_sil=0.00 sink=5.1x | speechonly: sinkpos=[218, 129, 6]/1500 sink=6.1x
+L05 massive=   20.7 max/med=   1.60  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1473, 1473, 1473, 1473]  noise_ratio=1.76 sink=7.2x sinkpos=[100, 100, 100, 166] sink_in_sil=0.00 top1%mass=0.05 | silmid: sinkpos=[366, 499, 36] in_mid_sil=0.00 sink=5.5x | speechonly: sinkpos=[9, 54, 6]/1500 sink=7.5x
+L06 massive=   36.3 max/med=   3.69  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1473, 1473, 1473, 1473]  noise_ratio=3.26 sink=6.0x sinkpos=[100, 341, 100, 167] sink_in_sil=0.33 top1%mass=0.04 | silmid: sinkpos=[201, 300, 300] in_mid_sil=0.33 sink=5.8x | speechonly: sinkpos=[5, 5, 6]/1500 sink=6.1x
+L07 massive= 1745.1 max/med=  59.45  out>10x= 3.29%  argmax_in_sil=1.00  argmax_pos=[537, 16, 15, 15]  noise_ratio=58.00 sink=16.4x sinkpos=[1499, 1499, 405, 1499] sink_in_sil=1.00 top1%mass=0.07 | silmid: sinkpos=[1499, 1499, 1499] in_mid_sil=0.00 sink=14.0x | speechonly: sinkpos=[1499, 1499, 305]/1500 sink=18.4x
+L08 massive= 1663.8 max/med=  54.27  out>10x= 3.20%  argmax_in_sil=1.00  argmax_pos=[537, 16, 15, 15]  noise_ratio=53.25 sink=12.8x sinkpos=[394, 66, 402, 401] sink_in_sil=1.00 top1%mass=0.09 | silmid: sinkpos=[502, 503, 504] in_mid_sil=0.00 sink=12.3x | speechonly: sinkpos=[246, 190, 304]/1500 sink=17.9x
+L09 massive= 1558.7 max/med=  49.62  out>10x= 3.17%  argmax_in_sil=1.00  argmax_pos=[537, 16, 15, 15]  noise_ratio=49.09 sink=12.0x sinkpos=[1473, 1473, 1473, 1473] sink_in_sil=1.00 top1%mass=0.10 | silmid: sinkpos=[1473, 1473, 1473] in_mid_sil=0.00 sink=12.1x | speechonly: sinkpos=[1473, 1473, 1473]/1500 sink=13.3x
+L10 massive= 1425.5 max/med=  42.10  out>10x= 3.09%  argmax_in_sil=1.00  argmax_pos=[537, 16, 15, 15]  noise_ratio=41.49 sink=13.7x sinkpos=[443, 443, 443, 443] sink_in_sil=1.00 top1%mass=0.13 | silmid: sinkpos=[286, 286, 286] in_mid_sil=1.00 sink=13.7x | speechonly: sinkpos=[286, 286, 443]/1500 sink=15.8x
+L11 massive= 1268.1 max/med=  34.91  out>10x= 3.00%  argmax_in_sil=1.00  argmax_pos=[537, 16, 15, 15]  noise_ratio=34.56 sink=14.5x sinkpos=[66, 66, 66, 15] sink_in_sil=1.00 top1%mass=0.14 | silmid: sinkpos=[285, 286, 285] in_mid_sil=1.00 sink=14.4x | speechonly: sinkpos=[286, 223, 342]/1500 sink=16.1x
+#### MIT/ast-finetuned-audioset-10-10-0.4593
+[transformers] [1mASTModel LOAD REPORT[0m from: MIT/ast-finetuned-audioset-10-10-0.4593
+Key                         | Status     |  | 
+----------------------------+------------+--+-
+classifier.dense.bias       | UNEXPECTED |  | 
+classifier.layernorm.weight | UNEXPECTED |  | 
+classifier.layernorm.bias   | UNEXPECTED |  | 
+classifier.dense.weight     | UNEXPECTED |  | 
+
+Notes:
+== MIT/ast-finetuned-audioset-10-10-0.4593  layers=12  tokens=1212
+L00 massive=   51.1 max/med=   1.29  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[199, 1198, 200, 200]  noise_ratio=1.13 cls/med=1.05 dist/med=1.66
+L01 massive=   27.6 max/med=   1.28  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1209, 1198, 200, 200]  noise_ratio=1.20 cls/med=1.53 dist/med=2.14 sink=1.1x sinkpos=[1130, 1130, 1130, 1130] sink_in_sil=1.00 top1%mass=0.01 attn->cls/dist=0.172 | silmid: sinkpos=[1015, 1170, 1170] in_mid_sil=0.00 sink=1.1x | speechonly: sinkpos=[1017, 1211, 1113]/1212 sink=1.1x
+L02 massive=   26.4 max/med=   1.29  out>10x= 0.00%  argmax_in_sil=0.83  argmax_pos=[257, 1198, 1089, 200]  noise_ratio=1.19 cls/med=1.74 dist/med=2.50 sink=2.1x sinkpos=[300, 1140, 301, 301] sink_in_sil=0.83 top1%mass=0.02 attn->cls/dist=0.040 | silmid: sinkpos=[510, 496, 209] in_mid_sil=0.00 sink=1.9x | speechonly: sinkpos=[1118, 1115, 118]/1212 sink=2.1x
+L03 massive=   21.4 max/med=   1.25  out>10x= 0.00%  argmax_in_sil=0.50  argmax_pos=[257, 431, 577, 515]  noise_ratio=1.25 cls/med=1.71 dist/med=2.40 sink=3.2x sinkpos=[98, 1161, 827, 99] sink_in_sil=0.83 top1%mass=0.03 attn->cls/dist=0.052 | silmid: sinkpos=[968, 968, 867] in_mid_sil=0.00 sink=3.2x | speechonly: sinkpos=[414, 1115, 1116]/1212 sink=4.1x
+L04 massive=   19.4 max/med=   1.29  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[515, 515, 515, 515]  noise_ratio=1.32 cls/med=1.50 dist/med=2.04 sink=5.6x sinkpos=[70, 1161, 27, 26] sink_in_sil=0.33 top1%mass=0.04 attn->cls/dist=0.066 | silmid: sinkpos=[66, 1141, 7] in_mid_sil=0.00 sink=4.7x | speechonly: sinkpos=[1158, 1136, 1]/1212 sink=6.3x
+L05 massive=   15.9 max/med=   1.33  out>10x= 0.00%  argmax_in_sil=1.00  argmax_pos=[1208, 515, 515, 1121]  noise_ratio=1.26 cls/med=1.24 dist/med=1.65 sink=6.6x sinkpos=[1184, 1161, 1156, 75] sink_in_sil=0.00 top1%mass=0.05 attn->cls/dist=0.110 | silmid: sinkpos=[218, 1192, 1136] in_mid_sil=0.00 sink=6.4x | speechonly: sinkpos=[1158, 541, 261]/1212 sink=8.1x
+L06 massive=   16.3 max/med=   1.30  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[761, 333, 679, 431]  noise_ratio=1.69 cls/med=0.95 dist/med=1.20 sink=8.6x sinkpos=[929, 1140, 62, 1147] sink_in_sil=0.00 top1%mass=0.05 attn->cls/dist=0.176 | silmid: sinkpos=[909, 1192, 1139] in_mid_sil=0.00 sink=7.6x | speechonly: sinkpos=[200, 200, 200]/1212 sink=9.3x
+L07 massive=   20.4 max/med=   1.52  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[750, 333, 679, 431]  noise_ratio=1.67 cls/med=0.82 dist/med=1.00 sink=16.2x sinkpos=[200, 200, 1150, 26] sink_in_sil=0.33 top1%mass=0.07 attn->cls/dist=0.280 | silmid: sinkpos=[1048, 1192, 98] in_mid_sil=0.00 sink=13.0x | speechonly: sinkpos=[200, 201, 201]/1212 sink=37.3x
+L08 massive=   27.6 max/med=   1.59  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[750, 333, 679, 431]  noise_ratio=1.80 cls/med=0.71 dist/med=0.88 sink=26.0x sinkpos=[200, 200, 1030, 583] sink_in_sil=0.33 top1%mass=0.09 attn->cls/dist=0.327 | silmid: sinkpos=[1048, 565, 767] in_mid_sil=0.00 sink=8.7x | speechonly: sinkpos=[200, 201, 200]/1212 sink=62.4x
+L09 massive=   30.2 max/med=   1.59  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[750, 333, 679, 431]  noise_ratio=1.62 cls/med=0.56 dist/med=0.66 sink=47.7x sinkpos=[200, 200, 129, 26] sink_in_sil=0.33 top1%mass=0.11 attn->cls/dist=0.448 | silmid: sinkpos=[113, 270, 210] in_mid_sil=0.00 sink=7.8x | speechonly: sinkpos=[200, 200, 200]/1212 sink=108.1x
+L10 massive=   35.1 max/med=   1.59  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[750, 1051, 1074, 980]  noise_ratio=1.53 cls/med=0.38 dist/med=0.42 sink=28.8x sinkpos=[200, 200, 38, 26] sink_in_sil=0.33 top1%mass=0.07 attn->cls/dist=0.404 | silmid: sinkpos=[1172, 565, 767] in_mid_sil=0.00 sink=5.4x | speechonly: sinkpos=[200, 200, 200]/1212 sink=88.6x
+L11 massive=   42.8 max/med=   1.76  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[761, 1051, 1074, 980]  noise_ratio=1.63 cls/med=0.43 dist/med=0.44 sink=9.8x sinkpos=[200, 200, 38, 582] sink_in_sil=0.33 top1%mass=0.03 attn->cls/dist=0.202 | silmid: sinkpos=[1172, 566, 565] in_mid_sil=0.00 sink=4.6x | speechonly: sinkpos=[200, 200, 200]/1212 sink=27.3x
+L12 massive=   41.9 max/med=   1.66  out>10x= 0.00%  argmax_in_sil=0.00  argmax_pos=[761, 1051, 1074, 980]  noise_ratio=1.54 cls/med=0.47 dist/med=0.52 sink=7.9x sinkpos=[582, 527, 565, 582] sink_in_sil=0.17 top1%mass=0.05 attn->cls/dist=0.046 | silmid: sinkpos=[1172, 566, 969] in_mid_sil=0.00 sink=9.9x | speechonly: sinkpos=[947, 1120, 36]/1212 sink=12.9x
+ALLDONE

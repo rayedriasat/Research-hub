@@ -1,0 +1,279 @@
+
+### all:"register tokens" AND (cat:cs.SD OR cat:eess.AS)  -> 2
+  2026-08-07 2609.20849v1 Enhancing Audio Reasoning via Semantic Summary Prediction
+  2025-05-02 2505.01237v2 CAV-MAE Sync: Improving Contrastive Audio-Visual Mask Autoencoders via Fine-Grained Alignment
+
+### all:registers AND (cat:cs.SD OR cat:eess.AS)  -> 60
+  2026-09-25 2609.32016v1 VoiceNet: Fine-Grained Voice Understanding Beyond Emotion at Scale
+  2026-09-13 2609.14542v1 Neyshekar: An Open Persian Read-Speech Corpus for Automatic Speech Recognition
+  2026-09-11 2609.13498v1 Building a Production Greek-English Speech Recognizer
+  2026-09-07 2609.07981v1 Clean Accuracy Does Not Guarantee Provenance Robustness: A Prospective Codec-Stress Evaluation of Audio Attribution
+  2026-08-18 2608.17972v1 Target Speaker Identification: A Low-Latency Streaming Pipeline
+  2026-08-15 2608.15369v1 AudioTQ: A Data-Oblivious 6-Bit CPU Audio Codec via Randomized Hadamard Rotation and Lloyd-Max Quantization
+  2026-08-10 2609.26182v1 Modality-Gated Deep Adapters: Adding a Modality to a Frozen Embedding Model with Exact Preservation
+  2026-08-07 2609.20849v1 Enhancing Audio Reasoning via Semantic Summary Prediction
+  2026-08-06 2608.06638v1 MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering
+  2026-08-04 2608.03999v1 Agogic: Performance-Timed Music Tokens for LLM-Native Text-to-Symbolic-Music Generation
+  2026-08-03 2608.01796v1 Multi-Backbone Self-Supervised Ensembles for Audio Deepfake Detection and a Cross-Track Analysis of Generation-Detection Asymmetry
+  2026-07-21 2607.18922v2 Towards a reproducible cross-venue method for quantifying crowd noise in stadiums
+  2026-07-16 2607.14537v1 MIDI-RAE-JEPA: Hierarchical Representation Learning and Generation for Symbolic Music
+  2026-07-04 2609.04222v1 GEPARD - Generative, Prosody-aware, Autoregressive text-to-speech model for Realtime Dialogue
+  2026-06-23 2606.24216v1 Digital Revival: Acoustic Documentation and Digital Reactivation of Historical Woodwind Instruments
+  2026-06-19 2606.21268v1 Online Predictive Coding for Dual-Mode Self-Supervised Speech Model
+  2026-05-21 2605.22120v1 Effective User-defined Keyword Spotting with Dual-stage Matching, Multi-modal Enrollment, and Continual Adaptation
+  2026-05-04 2605.03073v1 The TTS-STT Flywheel: Synthetic Entity-Dense Audio Closes the Indic ASR Gap Where Commercial and Open-Source Systems Fail
+  2026-03-31 2603.29710v1 A Comprehensive Corpus of Biomechanically Constrained Piano Chords: Generation, Analysis, and Implications for Voicing and Psychoacoustics
+  2026-03-17 2603.16966v1 CineSRD: Leveraging Visual, Acoustic, and Linguistic Cues for Open-World Visual Media Speaker Diarization
+  2026-03-15 2603.15685v2 DASH: Dynamic Audio-Driven Semantic Chunking for Efficient Omnimodal Token Compression
+  2026-03-15 2603.14180v1 Semi-Automatic Flute Robot and Its Acoustic Sensing
+  2026-03-13 2603.12565v1 Speech-Worthy Alignment for Japanese SpeechLLMs via Direct Preference Optimization
+  2026-03-05 2603.04865v4 The First Environmental Sound Deepfake Detection Challenge: Benchmarking Robustness, Evaluation, and Insights
+  2026-03-02 2603.01894v1 VietSuperSpeech: A Large-Scale Vietnamese Conversational Speech Dataset for ASR Fine-Tuning in Chatbot, Customer Support, and Call Center Applications
+  2026-02-28 2603.16890v2 Amanous: Distribution-Switching for Superhuman Piano Density on Disklavier
+  2026-02-27 2602.23702v1 Online Register for Dual-Mode Self-Supervised Speech Models: Mitigating The Lack of Future Context
+  2025-12-29 2512.23686v1 PROFASR-BENCH: A Benchmark for Context-Conditioned ASR in High-Stakes Professional Speech
+  2025-12-20 2512.18162v1 Influence of string register locations on vibratos among violoncellists
+  2025-09-02 2509.02038v2 NADI 2025: The First Multidialectal Arabic Speech Processing Shared Task
+  2025-08-08 2508.06372v3 SpeakerLM: End-to-End Versatile Speaker Diarization and Recognition with Multimodal Large Language Models
+  2025-05-16 2505.11378v2 Machine Learning Approaches to Vocal Register Classification in Contemporary Male Pop Music
+  2025-05-02 2505.01237v2 CAV-MAE Sync: Improving Contrastive Audio-Visual Mask Autoencoders via Fine-Grained Alignment
+  2025-02-11 2502.07524v2 Harmonic and transposition constraints arising from the use of the Roland TR-808 bass drum
+  2024-12-25 2412.18913v1 Robust Target Speaker Direction of Arrival Estimation
+  2024-12-15 2412.11325v3 Sonicmesh: Enhancing 3D Human Mesh Reconstruction in Vision-Impaired Environments With Acoustic Signals
+  2024-09-09 2409.05750v1 A Toolkit for Joint Speaker Diarization and Identification with Application to Speaker-Attributed ASR
+  2024-07-01 2407.12038v2 ICAGC 2024: Inspirational and Convincing Audio Generation Challenge 2024
+  2024-06-11 2406.07198v1 Target Speech Diarization with Multimodal Prompts
+  2024-04-24 2404.16104v1 Evolution of Voices in French Audiovisual Media Across Genders and Age in a Diachronic Perspective
+  2023-10-11 2310.07284v4 Typing to Listen at the Cocktail Party: Text-Guided Target Speaker Extraction
+  2023-05-30 2305.18881v1 MERLIon CCS Challenge: A English-Mandarin code-switching child-directed speech corpus for language identification and diarization
+  2023-05-23 2305.13596v1 Multimodal sensor fusion for real-time location-dependent defect detection in laser-directed energy deposition
+  2023-04-10 2304.04598v1 In-situ crack and keyhole pore detection in laser directed energy deposition through acoustic signal and deep learning
+  2023-04-06 2304.03416v1 To Wake-up or Not to Wake-up: Reducing Keyword False Alarm by Successive Refinement
+  2023-02-27 2302.13678v1 A Comparative Analysis Of Latent Regressor Losses For Singing Voice Conversion
+  2022-11-13 2211.06982v2 FullPack: Full Vector Utilization for Sub-Byte Quantized Inference on General Purpose CPUs
+  2022-11-11 2211.05944v1 A Gait Triaging Toolkit for Overlapping Acoustic Events in Indoor Environments
+  2022-10-29 2210.16472v1 Learning Audio-Visual Dynamics Using Scene Graphs for Audio Source Separation
+  2022-10-24 2210.13248v3 Brouhaha: multi-task training for voice activity detection, speech-to-noise ratio, and C50 room acoustics estimation
+  2022-04-01 2204.00331v2 Using segment-based features of jaw movements to recognize foraging activities in grazing cattle
+  2021-11-16 2111.08196v1 An Exploratory Study on Perceptual Spaces of the Singing Voice
+  2021-11-11 2111.06046v1 Music Score Expansion with Variable-Length Infilling
+  2020-11-13 2011.06724v2 The SLT 2021 children speech recognition challenge: Open datasets, rules and baselines
+  2020-10-12 2010.06047v1 Artificial Intelligence, speech and language processing approaches to monitoring Alzheimer's Disease: a systematic review
+  2020-06-19 2006.11140v2 Clarity: Machine Learning Challenges to Revolutionise Hearing Device Processing
+  2020-03-24 2003.11117v1 COVID-19 and Computer Audition: An Overview on What Speech & Sound Analysis Could Contribute in the SARS-CoV-2 Corona Crisis
+  2019-07-11 1907.05351v1 Optimized Sharing of Coefficients in Parallel Filter Banks
+  2018-10-30 1810.12614v2 The Airbus Air Traffic Control speech recognition 2018 challenge: towards ATC automatic transcription and call sign detection
+  2018-02-10 1802.03581v1 2-gram-based Phonetic Feature Generation for Convolutional Neural Network in Assessment of Trademark Similarity
+
+### all:"attention sink" AND (cat:cs.SD OR cat:eess.AS)  -> 5
+  2026-08-24 2608.22704v2 WnW: Waxing-and-Waning KV Cache for Long-Form Speech LLMs
+  2026-07-02 2607.02640v1 Metronome: Bound the Cache, Keep the Beat for Real-Time Interaction Model Serving
+  2025-10-29 2510.25745v1 Efficient Vocal Source Separation Through Windowed Sink Attention
+  2025-10-26 2510.22603v3 Mitigating Attention Sinks and Massive Activations in Audio-Visual Speech Recognition with LLMs
+  2024-07-05 2407.04439v2 XLSR-Transducer: Streaming ASR for Self-Supervised Pretrained Models
+
+### all:"attention sinks" AND (cat:cs.SD OR cat:eess.AS)  -> 5
+  2026-08-24 2608.22704v2 WnW: Waxing-and-Waning KV Cache for Long-Form Speech LLMs
+  2026-07-02 2607.02640v1 Metronome: Bound the Cache, Keep the Beat for Real-Time Interaction Model Serving
+  2025-10-29 2510.25745v1 Efficient Vocal Source Separation Through Windowed Sink Attention
+  2025-10-26 2510.22603v3 Mitigating Attention Sinks and Massive Activations in Audio-Visual Speech Recognition with LLMs
+  2024-07-05 2407.04439v2 XLSR-Transducer: Streaming ASR for Self-Supervised Pretrained Models
+
+### all:"massive activations" AND (cat:cs.SD OR cat:eess.AS OR all:audio OR all:speech)  -> 1
+  2025-10-26 2510.22603v3 Mitigating Attention Sinks and Massive Activations in Audio-Visual Speech Recognition with LLMs
+
+### all:"high-norm" AND (all:audio OR all:speech)  -> 0
+
+### all:"outlier tokens" AND (all:audio OR all:speech)  -> 0
+
+### all:"artifact" AND all:"register" AND (all:audio OR all:speech)  -> 4
+  2026-09-25 2609.31847v1 Omni-IO Skills: Harnessing Your Agent Omni-Native
+  2026-09-06 2609.22261v1 Used, Mentioned, or Condemned? A Controlled Contrast-Set Diagnostic for the Use-Mention Distinction in Code-Mixed Hinglish Misogyny Detection
+  2026-08-04 2608.03999v1 Agogic: Performance-Timed Music Tokens for LLM-Native Text-to-Symbolic-Music Generation
+  2026-06-23 2606.24216v1 Digital Revival: Acoustic Documentation and Digital Reactivation of Historical Woodwind Instruments
+
+### all:"test-time registers"  -> 3
+  2026-07-18 2607.16824v2 Test-Time Registers as Global Priors for Tokenized Image Generation
+  2026-05-06 2605.05206v1 Taming Outlier Tokens in Diffusion Transformers
+  2025-06-09 2506.08010v5 Vision Transformers Don't Need Trained Registers
+
+### all:"register neurons"  -> 1
+  2025-06-09 2506.08010v5 Vision Transformers Don't Need Trained Registers
+
+### all:"outlier" AND all:HuBERT  -> 30
+  2026-08-24 2608.23116v1 Probing the transport properties of Cantor-Wu alloys by means of femtosecond and nanosecond laser ablation
+  2026-05-28 2605.30178v1 Cellwise Robust Discriminant Analysis
+  2026-05-08 2605.08002v1 Cellwise and Casewise Robust Multivariate Regression with Inference
+  2026-03-31 2604.14182v2 Cellwise Outliers
+  2026-03-26 2603.25911v1 Robust Tensor-on-Tensor Regression
+  2026-03-01 2603.01237v1 Robust measures of dispersion for circular data with an anomaly detection rule
+  2025-06-28 2506.22994v1 Kernel Outlier Detection
+  2025-05-26 2505.19925v2 Cellwise and Casewise Robust Covariance in High Dimensions
+  2025-03-10 2503.07327v2 Casewise and Cellwise Robust Multilinear Principal Component Analysis
+  2024-08-28 2408.15701v1 Robust discriminant analysis
+  2024-08-24 2408.13596v2 Robust Principal Components by Casewise and Cellwise Weighting
+  2023-12-02 2312.01168v2 MacroPARAFAC for handling rowwise and cellwise outliers in incomplete multi-way data
+  2023-10-02 2310.01182v1 Multivariate Singular Spectrum Analysis by Robust Diagonalwise Low-Rank Approximation
+  2022-08-17 2208.08509v1 Analyzing Robustness of End-to-End Neural Models for Automatic Speech Recognition
+  2022-03-08 2203.03874v3 Detection and treatment of outliers for multivariate robust loss reserving
+  2020-08-29 2008.12974v2 Real-time discriminant analysis in the presence of label and measurement noise
+  2020-08-05 2008.02046v2 Outlier detection in non-elliptical data by kernel MRCD
+  2019-10-12 1910.05615v2 Real-time outlier detection for large datasets by RT-DetMCD
+  2018-06-04 1806.00954v3 MacroPCA: An all-in-one PCA method allowing for missing values as well as cellwise and rowwise outliers
+  2017-09-20 1709.07045v1 Minimum Covariance Determinant and Extensions
+  2017-08-28 1708.08268v4 Robust Monitoring of Time Series with Application to Fraud Detection
+  2017-08-04 1708.01550v1 Local projections for high-dimensional outlier detection
+  2017-07-31 1707.09752v2 Anomaly Detection by Robust Statistics
+  2017-01-14 1701.03935v1 Analysis of travel activity determinants using robust statistics
+  2016-08-17 1608.05012v2 A Measure of Directional Outlyingness with Applications to Image Data and Video
+  2016-01-29 1601.08133v1 Finding Outliers in Surface Data and Video
+  2015-04-05 1504.01128v3 Multivariate and functional classification using depth and distance
+  2013-07-10 1307.2669v1 Text Categorization via Similarity Search: An Efficient and Effective Novel Algorithm
+  2008-08-05 0808.0657v1 High-Breakdown Robust Multivariate Methods
+  2007-08-08 0708.1107v1 Functional analysis via extensions of the band depth
+
+### all:"outlier" AND all:WavLM  -> 0
+
+### all:"attention sink" AND all:Whisper  -> 1
+  2024-07-05 2407.04439v2 XLSR-Transducer: Streaming ASR for Self-Supervised Pretrained Models
+
+### all:"attention sink" AND all:speech  -> 3
+  2026-08-24 2608.22704v2 WnW: Waxing-and-Waning KV Cache for Long-Form Speech LLMs
+  2025-10-26 2510.22603v3 Mitigating Attention Sinks and Massive Activations in Audio-Visual Speech Recognition with LLMs
+  2024-07-05 2407.04439v2 XLSR-Transducer: Streaming ASR for Self-Supervised Pretrained Models
+
+### all:"registers" AND all:BEATs  -> 57
+  2026-09-28 2609.34103v1 A Differentiable Optimization Framework for Registering Sequential Bounding Boxes with Point Cloud Stream
+  2026-09-26 2609.32825v1 The Decomposition Tax: LLM Pipelines Lose Up to 40 Accuracy Points at Their Own Interfaces
+  2026-09-26 2609.32802v1 Re-derivability Decides What a Staged Agent Pipeline Recovers After an Upstream Fault
+  2026-09-26 2609.32237v1 Bandwidth, Not FLOPS: FFT Kernels, Matrix Units and SAR Imaging on Apple M6
+  2026-09-25 2609.31234v1 WeaveAgent: A Two-Stage Tool-Routing Agent for Ultra-High-Resolution Remote Sensing Imagery
+  2026-09-25 2609.31141v1 Unknown-Traffic Detection, Calibration and Shortcut Reliance in Distilled Encrypted-Traffic Classifiers over One Year
+  2026-09-24 2609.30536v1 FOTO: Figure-Level Semantic Search for Astronomy
+  2026-09-24 2609.29952v1 Augur: A Synthetic Decision Lab for Rehearsing Reactions to Product and Policy Changes
+  2026-09-24 2609.35834v1 A Leakage-Safe, Cost-Aware Regression Testing Methodology for the Quantum Transpiler
+  2026-09-21 2609.24628v1 Bridging the Vendor Gap: Enabling AMD GPU Support for Awkward Array via ROCm/HIP for the HL-LHC Era
+  2026-09-14 2609.15130v1 woma: a real-time foundation model and its fine-tuned models for endoscopy
+  2026-09-09 2609.09776v1 Proof-Carrying Cognition: Closing the Verification Gap with Reality-Settled Reward
+  2026-09-06 2609.06816v1 Unsound Search with Policy and Value Networks in Legends of Code and Magic
+  2026-09-03 2609.03436v1 It's the Problem, Not the Path: Budget and Difficulty Confounds in LLM Reasoning Trajectories
+  2026-09-02 2609.13237v1 Occlusal Geometry in Closed Form for Orthodontic Report Generation
+  2026-09-02 2609.02417v1 Coverage, Not Targeting: A Structural Regime in Multi-Turn Agent Credit Assignment
+  2026-09-01 2609.01194v1 Births are difficult to predict even with rich survey and full-population register data
+  2026-08-29 2608.29411v1 Where Induction Runs Out: Description-Length Difficulty and the Memorisation Gap in Integer-Sequence Benchmarks
+  2026-08-26 2608.28685v1 Data Diversity, Not Frequency Invariance: A Controlled and Self-Audited Study of Compression-Robust Deepfake Detection
+  2026-08-26 2608.25483v1 Gaussian Splatting Underwater: A Controlled Cross-Regime Study
+  2026-08-25 2608.23941v1 More Rejective, Not More Discriminative: The Unit of Verification in Pre-Execution LLM Oversight
+  2026-08-18 2608.19266v1 Incident-Data Robustness Analysis of the OWASP Top 10 for LLM Applications (2026): How a Community-Expert Ranking Holds Up Against a Large-Scale LLM Incident Corpus
+  2026-08-17 2608.16852v1 What Do Compliance Detectors Read? An Audit of Activation Probes and Guard Models
+  2026-08-17 2608.16848v1 Topology-Aware Differentiable Triangle-Soup Reconstruction via Persistent Homology
+  2026-08-08 2608.10010v2 CurveFP: Co-Designing Numerical Representation and Product Arithmetic for Language Models
+  2026-08-04 2608.03999v1 Agogic: Performance-Timed Music Tokens for LLM-Native Text-to-Symbolic-Music Generation
+  2026-08-04 2608.04066v1 The LLM Proposes, the Executive Disposes: A Self-Verifying Agent Instrument that Dissociates Commitment Drift from Binding Drift in Long-Horizon Agents
+  2026-08-03 2608.01704v1 Floor, Ceiling, and the Fusion Gap: How Much of Crowd Reading Attention Can Machines Predict?
+  2026-08-02 2608.01494v1 Conformal Kelly: Conformal Prediction Intervals as the Scale in Fractional Kelly Position Sizing
+  2026-07-27 2608.00058v2 Automated ECG Interval Measurement and Wave Delineation Using Fast Fourier Convolution ResNet
+  2026-07-21 2608.26170v1 Pre-Registered External Evaluation Yields a Consistent Partial-Replication Category across Three Transcriptomic Foundation Models
+  2026-07-21 2608.07528v1 The Knowing-Saying Gap: When Probes See Errors that Confidence Misses
+  2026-07-16 2607.14516v1 Adaptive Runge-Kutta Step Control Buys Training Loss, Not Generalization: An Honest Compute-Matched Study of RK-Adam Optimizers
+  2026-07-10 2607.09156v3 Activation Steering Transfer to Agents: One Gain Ratio Does Not Identify Potency and Efficacy
+  2026-07-01 2607.01182v2 The Decode-Work Law: Margin-Governed, Provably-Exact Spatial Joins over Compressed Geometry
+  2026-06-29 2606.29771v3 CLQT: A Closed-Loop, Cost-Aware, Strategy-Consistent Benchmark for Diagnostic Evaluation of LLM Portfolio-Management Agents
+  2026-06-28 2606.29119v1 Knowing in Advance When an Evolutionary Outer Loop Will Not Help: A Pre-Registered Cheap-Baseline Screening Rule
+  2026-06-27 2606.29024v1 Conversational Domain Adaptation of IndicTrans2 across 21 Indic Languages via Experience Replay and Model Soups
+  2026-06-10 2606.11654v2 The Long Tail, Not the Front Page: Cold-Start Prediction of Crowd Highlight Salience
+  2026-06-04 2606.06454v1 Scaffold, Not Vocabulary? A Controlled, Two-Tier, Pre-Registered Study of a Popperian Code-Generation Skill
+  2026-05-27 2605.27789v1 A Fixed-Budget, Cluster-Aware Standard for LLM-as-a-Judge Evaluation: A Multi-Hop RAG Stress Test
+  2026-05-25 2605.25988v1 What Makes a Medical Checker Trainable? Diagnosing Signal Collapse and Reward Hacking in Checker-Guided RAG for Biomedical QA
+  2026-05-24 2605.24991v1 HHK: A Hardware-Oriented Cross-Location PPG Key Generation Architecture for Body Area Networks
+  2026-05-20 2605.21379v3 How to Build Marcus's Algebraic Mind: Algebro-Deterministic Substrate over Galois Fields
+  2026-05-14 2605.14292v2 Minimal-Intervention KV Retention via Set-Conditioned Diversity
+  2026-04-08 2604.06911v1 Physics-driven Sonification for Improving Multisensory Needle Guidance in Percutaneous Epicardial Access
+  2026-03-29 2603.27569v1 Beating vDSP: A 138 GFLOPS Radix-8 Stockham FFT on Apple Silicon via Two-Tier Register-Threadgroup Memory Decomposition
+  2023-08-18 2308.09386v1 DReg-NeRF: Deep Registration for Neural Radiance Fields
+  2023-05-24 2305.14673v2 ORRN: An ODE-based Recursive Registration Network for Deformable Respiratory Motion Estimation with Lung 4DCT Images
+  2021-10-05 2110.02046v3 Beating the thermal limit of qubit initialization with a Bayesian Maxwell's demon
+  2021-07-28 2107.13518v3 0D-2D Heterostructure for making very Large Quantum Registers using itinerant Bose-Einstein Condensate of Excitons
+  2021-01-14 2101.05849v1 Lost photon enhances superresolution
+  2020-09-17 2009.08116v3 Lensing rates of gravitational wave signals displaying beat patterns detectable by DECIGO and B-DECIGO
+  2019-02-15 1902.05845v1 Assessing the Level of Autonomic Nervous Activity for Effective Biofeedback Training
+  2018-04-19 1804.07236v1 Multiprecision Arithmetic for Cryptology in C++ - Compile-Time Computations and Beating the Performance of Hand-Optimized Assembly at Run-Time
+  2015-01-07 1501.01409v2 Identification of weakly coupled multiphysics problems. Application to the inverse problem of electrocardiography
+  2013-07-01 1307.0257v2 Characterization of hyperfine interaction between single electron and single nuclear spins in diamond assisted by quantum beat from the nuclear spin
+
+### all:"registers" AND all:"audio spectrogram transformer"  -> 0
+
+### all:"attention artifacts" AND (all:audio OR all:speech)  -> 0
+
+### all:"massive activations" AND all:encoder AND all:speech  -> 0
+
+### all:"sink" AND all:"self-supervised" AND all:speech  -> 1
+  2024-07-05 2407.04439v2 XLSR-Transducer: Streaming ASR for Self-Supervised Pretrained Models
+
+### ti:registers AND submittedDate:[202607010000 TO 202610010000]  -> 60
+  2026-09-28 2609.36277v1 From Surfaces to Volumes: Registered Geometry for Protein Representation Learning
+  2026-09-28 2609.36111v1 Automated Pre-Silicon Verification of High-Speed DDR5 and LPDDR5/6 Memory Controllers: Closed-Loop Timing, Mode Register, and PHY Synchronization in UVM
+  2026-09-28 2609.34292v1 Pre-registered tests of solid-state-physics-inspired LLM compression: a cluster-level negative result at small-language-model scale
+  2026-09-28 2609.34227v1 When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model
+  2026-09-28 2609.34103v1 A Differentiable Optimization Framework for Registering Sequential Bounding Boxes with Point Cloud Stream
+  2026-09-27 2609.33567v1 Terminal-Register Certification for Finite-Measurement Learning of Multiscale Quantum States
+  2026-09-27 2609.33370v1 The Selection Rule Decides the Winner: A Pre-Registered Audit of Open-Set Graph Anomaly Detection
+  2026-09-27 2609.33054v1 Pre-registered spectral and certified mixing analysis of the male Drosophila central nervous system connectome
+  2026-09-23 2609.27655v1 Shift-register synchronization of dual-wavelength pulse trains in resonators with quadratic nonlinearity
+  2026-09-22 2609.28519v2 BRiDCT: Fast Two-Dimensional DCTs Using SIMD: SIMD Organization, Register Blocking, and Numerical Verification
+  2026-09-21 2609.24883v1 A Global Comparison of Schemas, Transparency, and Interoperability in Public-Sector AI Registers and Inventories
+  2026-09-20 2609.23270v1 Specification Before Generation: A Pre-Registered, Five-Model Paired Evaluation of a Specification Frame for LLM-Generated Code in Money, Time, Idempotency, and Access Tasks
+  2026-09-19 2609.23050v1 A Coherent Memory Register for Sequential Quantum Generative Modeling, with Application to Calorimeter Showers
+  2026-09-18 2609.21486v1 Driving on Registers, Reasoning on Risk: Risk-Aware Occupancy for Register-Based End-to-End Autonomous Driving
+  2026-09-17 2609.20712v1 Summarization Bias: The Directional Collapse of Objective Projection into Told-Mode Labels in Large Language Models --- A Conceptual Framework and Registered Test Protocol
+  2026-09-17 2609.20684v1 HerHealthEval: Evaluating Multilingual and Register-Sensitive Understanding of Women's Health Communication
+  2026-09-16 2609.18692v1 An Operator Approach to Register Programs for Catalytic Computing
+  2026-09-14 2609.16372v1 Register Tokens for Bounded-State Reasoning in Diffusion Language Models
+  2026-09-14 2609.16152v1 Two preregistered datasets on production-type labelling in the ENTSO-E Transparency Platform: multi-fuel reporting, register vintages, persistent misclassification, and cross-product consistency
+  2026-09-14 2609.15887v1 The Model Proposes, the Code Disposes: A Pre-Registered Ablation of a Verifier-and-Acceptance Stage in an LLM-Orchestrated Offensive-Security Agent
+  2026-09-08 2609.10614v1 Generating is not discovering: a pre-registered physics judge for AI-proposed superconductors, calibrated on six known superconductors and one negative control
+  2026-09-07 2609.07754v1 Do AI Coding Assistants Check Before They Install? A Pre-Registered Demand-Side Audit of Trust Signals in the Research Software Supply Chain
+  2026-09-07 2609.07447v1 An LLM-Associated Register Shift in Korean Journal Abstracts: A Morphology-Aware Excess-Vocabulary Study, 2018-2026
+  2026-09-03 2609.03865v1 A regenerating free-energy register for protein-templated period-2 DNA synthesis by Drt3b
+  2026-09-01 2609.01361v1 Investigating Linear Probe Robustness to Linguistic Register, Medical Specialty, and Corpus Shifts in Medical QA
+  2026-09-01 2609.01194v1 Births are difficult to predict even with rich survey and full-population register data
+  2026-08-30 2608.29517v1 LLM Judges as Raters: A Pre-Registered Audit of Severity, Halo, Reliability, and Version Instability in LLM Essay Scoring on Public Corpora
+  2026-08-28 2609.01645v1 The Vocabulary Gap Is an Equity Gap: Register Mismatch in Retrieval Systems for Public-Benefits Access
+  2026-08-28 2608.28151v1 Nested Byte-Level Vocabularies Are Cheap to Deploy and Expensive to Share: A Pre-Registered Negative Result
+  2026-08-27 2608.27309v2 Difference-in-Differences on a Censored Rating Scale Can Manufacture an Effect: Evidence from a Pre-Registered LLM-Judge Audit
+  2026-08-25 2608.24556v1 Estimator forensics for the wide-binary gravity test: the eccentricity-triple coupling manufactures a pseudo-signal, and a pre-registered protocol for Gaia DR4
+  2026-08-24 2608.22975v1 Budget-Constrained Embodied Perception: Four Resource Walls and a Pre-Registered Evaluation of Access-Structured Perception on Open Models at less than 31B
+  2026-08-23 2608.22335v1 Register Shifts Break LLM Safety: A Bengali Benchmark with Culturally Grounded Harms
+  2026-08-22 2608.22030v2 A Cavity-Interfaced Register of Trapped-Ion Qubits with Multi-Second Coherence
+  2026-08-20 2608.19823v1 Simultaneous 3D co-registered perfusion and oxygenation with ULM, photoacoustic imaging, and a planar matrix array
+  2026-08-20 2608.19628v1 A Thread-Register Decoupled GPU Execution Model for Efficient Tensor Computation
+  2026-08-19 2608.19167v1 Upper and Lower Bounds on the Space Complexity of Multi-word Single-Writer Registers
+  2026-08-19 2608.18765v1 Learning Canonical Register Automata over Ordered Data Domains
+  2026-08-18 2608.18261v1 Cacheable by Design? Training Mixture-of-Experts Routers for Locality Against the Edge Memory-Bandwidth Wall: A Pre-Registered Negative Result with a Systems Measurement Study
+  2026-08-18 2608.17842v1 Accurately simulating gain and clock-induced charge production in the EMCCD gain register
+  2026-08-18 2608.17269v1 Task-Based Evaluation of Raw Radar Data Compression: A Pre-Registered Study of Where Classical Codecs Fail to Preserve Target Detection, and Why
+  2026-08-16 2608.15655v1 Rand-SEMI-QAOA: Finite-Budget Depth-One MaxCut Ensembles on Compressed Quantum Registers
+  2026-08-13 2608.12988v1 Machine learning correction of satellite precipitation is governed by mechanism purity, not algorithmic complexity: a proof-of-concept study in Hunan, China, with pre-registered cross-regional validation
+  2026-08-12 2608.12166v1 Co-constructing sociotechnical AI governance: participatory system mapping using algorithm registers
+  2026-08-12 2608.12021v1 Efficient Assembly of a Defect-Free Quantum Register of 1024 Neutral-Atom Qubits
+  2026-08-11 2608.11503v2 Orbit-resolved spectra and dynamical accessibility in multi-register covering Hamiltonians
+  2026-08-11 2608.10989v1 Putting Registers to Work: Task Registers for Token Pruning in Vision Transformers
+  2026-08-11 2608.10946v1 MARS: A framework for modelling register-based social networks
+  2026-08-11 2608.10858v1 Auditable AI-Assisted Research Writing: An Engineering Discipline with Pre-Registered Process Observation
+  2026-08-10 2608.09018v1 The Magic Scroll: Leveraging biased noise to improve magic state cultivation in register-based architectures
+  2026-08-06 2608.05638v1 Zero-Instruction Sensor Reads: Register-Mapped Peripherals and Hardware PWM on a Five-Stage Soft Processor
+  2026-08-05 2608.04833v1 RegisterBridgeMM: A Register-Centric Framework for RGB-Infrared Object Detection
+  2026-08-04 2608.03929v3 Latent Reward Registers for Diffusion Preference Alignment
+  2026-08-04 2608.03873v1 High-level quantum structured programs as quantum registers compositions
+  2026-08-03 2608.01813v1 Dual-Mode Exciton Coupling in Epitaxially Registered Organic-Inorganic 2D Heterocrystals
+  2026-07-30 2607.28751v1 ReLoop-UME: Recurrent Depth with Learnable Retrieval Registers for Universal Multimodal Embedding
+  2026-07-30 2607.28128v2 Rethinking LLM-Judged Helpfulness as a Pedagogy Signal: A Pre-Registered Audit Across Tutor Models
+  2026-07-25 2607.23002v1 Adversarial Test-Hardening for AI-Written Code: An Instrument Autopsy and a Pre-Registered Causal Estimate of the Critic Loop
+  2026-07-23 2607.21594v1 Streaming Multi-Agent Autoregressive Diffusion Model with World State Registers
+  2026-07-23 2607.20998v1 A Quantum Interface Between Neutral-Atoms and Trapped-Ions Quantum Registers
+
+### ti:"attention sink" AND submittedDate:[202607010000 TO 202610010000]  -> 2
+  2026-09-08 2609.08574v2 Do New Attention Mechanisms Actually Fix Attention Sinks at Million-Token Context?
+  2026-09-01 2609.00746v1 Text Capability Loss in Vision-Language Adaptation: An Attention-Sink Diagnosis
+
+### ti:"high-norm" AND submittedDate:[202601010000 TO 202610010000]  -> 0
