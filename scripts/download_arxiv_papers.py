@@ -98,7 +98,7 @@ def discover_existing_prefixes() -> set[int]:
         if not base.exists():
             continue
         for path in base.iterdir():
-            match = re.match(r"^(\d+)\s", path.name)
+            match = re.match(r"^(\d+)[_\s]", path.name)
             if match:
                 prefixes.add(int(match.group(1)))
     return prefixes

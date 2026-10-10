@@ -1,0 +1,38 @@
+
+### (abs:"text-to-speech" OR abs:TTS OR abs:"audio generation" OR abs:"music generation") AND (abs:"massive activations" OR abs:"attention sink" OR abs:"attention sinks" OR abs:registers OR abs:"outlier tokens") -> 22
+  2026-10-06 2610.09211v1 BanglaBox: A Phonetically-Balanced Corpus and Data-Efficient Foundation-Model Adaptation for Bangla Text-to-Speech with Zero-Shot Voice Cloning
+  2026-10-04 2610.05366v2 The ÌròyìnSpeech Text Corpus: 24,905 Curated Yorùbá Sentences for Speech and Language Technology
+  2026-08-31 2608.30954v1 Clock-Gating Insertion Strategies on an Open-Source MSP430 Core: A Reproducible PPA Study and a Gate-Level Simulation Caveat
+  2026-08-06 2608.06638v1 MI-MIDI: Mechanistic Interpretability of Text-to-MIDI Generation Models via Probing, Lenses and Steering
+  2026-08-03 2608.01796v1 Multi-Backbone Self-Supervised Ensembles for Audio Deepfake Detection and a Cross-Track Analysis of Generation-Detection Asymmetry
+  2026-07-04 2609.04222v1 GEPARD - Generative, Prosody-aware, Autoregressive text-to-speech model for Realtime Dialogue
+  2026-05-31 2606.01473v1 A Minimalist Brain-Computer Musical Interface for Real-Time Emotion-Driven Sonification: System Design and Preliminary Evaluation
+  2026-05-04 2605.03073v1 The TTS-STT Flywheel: Synthetic Entity-Dense Audio Closes the Indic ASR Gap Where Commercial and Open-Source Systems Fail
+  2026-03-13 2603.12565v1 Speech-Worthy Alignment for Japanese SpeechLLMs via Direct Preference Optimization
+  2026-03-05 2603.04865v4 The First Environmental Sound Deepfake Detection Challenge: Benchmarking Robustness, Evaluation, and Insights
+  2025-08-05 2508.03900v1 TROOP: At-the-Roofline Performance for Vector Processors on Low Operational Intensity Workloads
+  2025-07-09 2507.06483v2 Animating Language Practice: Engagement with Stylized Conversational Agents in Japanese Learning
+  2025-01-17 2501.10301v1 AraXL: A Physically Scalable, Ultra-Wide RISC-V Vector Processor Design for Fast and Efficient Computation on Long Vectors
+  2024-07-01 2407.12038v2 ICAGC 2024: Inspirational and Convincing Audio Generation Challenge 2024
+  2024-02-20 2402.12986v2 Enabling Efficient Hybrid Systolic Computation in Shared L1-Memory Manycore Clusters
+  2023-09-18 2309.10137v2 Spatz: Clustering Compact RISC-V-Based Vector Units to Maximize Computing Efficiency
+  2023-04-11 2304.05342v1 TT-SDF2PC: Registration of Point Cloud and Compressed SDF Directly in the Memory-Efficient Tensor Train Domain
+  2022-02-25 2202.12883v4 Human Detection of Political Speech Deepfakes across Transcripts, Audio, and Video
+  2020-08-27 2008.11897v1 Automatic Speech Summarisation: A Scoping Review
+  2019-06-02 1906.00478v3 Ara: A 1 GHz+ Scalable and Energy-Efficient RISC-V Vector Processor with Multi-Precision Floating Point Support in 22 nm FD-SOI
+  2017-10-27 1710.10319v2 Identifying overlapping terrorist cells from the Noordin Top actor-event network
+  2014-09-30 1409.8360v1 Strong gravitational lensing of gravitational waves from double compact binaries - perspectives for the Einstein Telescope
+
+### (abs:"speech" OR abs:"audio") AND abs:"test-time registers" -> 0
+
+### (abs:hubert OR abs:wavlm OR abs:wav2vec OR abs:"self-supervised speech") AND (abs:"attention sink" OR abs:"high-norm" OR abs:"massive activation" OR abs:"outlier" OR abs:artifact OR abs:artifacts) AND abs:token -> 2
+  2026-08-29 2608.29021v1 Beyond Speech: Dual-Domain SSL Fusion for Unified All-Type Audio Deepfake Detection
+  2026-08-05 2608.05218v1 PD-GS: Phoneme-Driven 3DGS for Audio-Driven Talking Heads
+
+### abs:whisper AND (abs:"attention sink" OR abs:"high-norm" OR abs:"massive activation" OR abs:"register" OR abs:"registers" OR abs:"outlier token") -> 6
+  2026-09-13 2609.14542v1 Neyshekar: An Open Persian Read-Speech Corpus for Automatic Speech Recognition
+  2026-08-10 2609.26182v1 Modality-Gated Deep Adapters: Adding a Modality to a Frozen Embedding Model with Exact Preservation
+  2026-05-04 2605.03073v1 The TTS-STT Flywheel: Synthetic Entity-Dense Audio Closes the Indic ASR Gap Where Commercial and Open-Source Systems Fail
+  2025-12-29 2512.23686v1 PROFASR-BENCH: A Benchmark for Context-Conditioned ASR in High-Stakes Professional Speech
+  2024-07-05 2407.04439v2 XLSR-Transducer: Streaming ASR for Self-Supervised Pretrained Models
+  2022-10-24 2210.13248v3 Brouhaha: multi-task training for voice activity detection, speech-to-noise ratio, and C50 room acoustics estimation

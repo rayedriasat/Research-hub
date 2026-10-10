@@ -1,0 +1,162 @@
+\documentclass[
+  aps,
+  pra,
+  reprint,
+  superscriptaddress,
+  longbibliography,
+  nofootinbib
+]{revtex4-2}
+
+% ============================================================
+% Encoding and typography
+% ============================================================
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+
+% ============================================================
+% Mathematics
+% ============================================================
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+
+% ============================================================
+% Figures, tables, and floats
+% ============================================================
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{placeins}
+
+% ============================================================
+% Table rule styling
+% ============================================================
+% Every table defines its own font size, column padding, row spacing, and
+% resize target locally. Keeping those controls beside each table makes the
+% layout easy to tune without hidden global sizing behavior.
+\setlength{\heavyrulewidth}{0.10pt}
+\setlength{\lightrulewidth}{0.10pt}
+\setlength{\cmidrulewidth}{0.10pt}
+\setlength{\arrayrulewidth}{0.10pt}
+\setlength{\aboverulesep}{1pt}
+\setlength{\belowrulesep}{1pt}
+
+% ============================================================
+% Algorithms and code
+% ============================================================
+\usepackage{algpseudocode}
+
+% ============================================================
+% Units, colors, links, and references
+% ============================================================
+\usepackage[table,dvipsnames]{xcolor}
+
+% Table-only colors. Keep fills deliberately light for print readability.
+% The proposed method is highlighted cell-by-cell (not with \rowcolor), so
+% the tint cannot leak into following rows or obscure group labels.
+\definecolor{proposedrow}{RGB}{234,242,250}
+\definecolor{gaincol}{RGB}{137,190,132}
+\definecolor{losscol}{RGB}{224,132,132}
+\definecolor{neutralcol}{RGB}{242,242,242}
+\newcommand{\proposedcell}[1]{\cellcolor{proposedrow}#1}
+\newcommand{\proposedbest}[1]{\cellcolor{proposedrow}\textbf{#1}}
+\usepackage{xurl}
+
+% REVTeX 4.2 redefines \label. Modern nameref (loaded by hyperref)
+% detects and repairs that definition, but emits a known compatibility warning.
+% Silence only that specific warning; all other warnings remain visible.
+\usepackage{silence}
+\WarningFilter{nameref}{The definition of \label has changed}
+
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+\setcitestyle{numbers,square,comma}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=MidnightBlue,
+  citecolor=MidnightBlue,
+  urlcolor=MidnightBlue,
+  pdfauthor={Research Hub team},
+  pdftitle={Listening to Silence: Attention Sinks, Registers, and the Hidden Work of Padding in Speech Transformers}
+}
+
+% ============================================================
+% Convenience macros
+% ============================================================
+\newcommand{\method}{\textsc{SilenceCache}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\secref}[1]{\hyperref[#1]{\S\ref*{#1}}}
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\eqnref}[1]{Eq.~\eqref{#1}}
+\newcommand{\appref}[1]{\hyperref[#1]{\S\ref*{#1}}}
+\newcommand{\guide}[1]{\par\noindent\textit{Writing guide.}~#1\par}
+
+% Theorem-style environments in REVTeX
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newenvironment{proof}{\par\noindent\textit{Proof.}\ }{\hfill$\square$\par}
+
+\begin{document}
+
+% ============================================================
+% Title block -- full width above the two-column body
+% ============================================================
+\title{Listening to Silence: Attention Sinks, Registers, and the Hidden Work of Padding in Speech Transformers}
+
+% Author block: placeholders -- fill in names, e-mails and affiliations before sharing.
+\author{Author One}
+\email{author.one@example.edu}
+\affiliation{Department, Institution, City, Country}
+
+\author{Author Two}
+\affiliation{Department, Institution, City, Country}
+
+\author{Author Three}
+\affiliation{Department, Institution, City, Country}
+
+
+\begin{abstract}
+Whisper, the most widely deployed speech recognizer and the audio encoder inside many audio language models, always pads its input to 30\,s, and it fails when the padding is removed: in our pilot, word error rate (WER) on short LibriSpeech utterances rises from 5.3\% to 373\% for Whisper-base and from 2.0\% to 428\% for Whisper-large-v3-turbo, mostly through runaway repetition. Existing fixes retrain the model or a learned input segment, and the role of the silent frames is not understood. We study what speech transformers do with silence through the lens of attention sinks, massive activations and register tokens---phenomena with competing 2026 theories that have been examined in language and vision models but not in speech encoders. In three Whisper sizes the encoder forms textbook high-norm, massive-activation tokens on the padding, yet these tokens are dispensable for recognition: masking or removing them leaves WER unchanged. What Whisper needs is silence used in two ways: decoder cross-attention to silent encoder states as end-of-speech evidence, and encoder self-attention to a few position-anchored sink frames at the edges of the 30\,s window. In large-v3-turbo, 16 cached high-attention silence frames give 2.6\% WER versus 17.5\% for 16 random ones. Building on this, \method{} precomputes silence keys, values and outputs once and encodes only the speech; it matches or improves full-padding WER (5.1/2.6/1.7\% vs.\ 5.3/2.6/2.0\%) at 0.16$\times$ the encoder FLOPs, without any training. These numbers come from a 100-utterance pilot; the full evaluation is specified in Sec.~\ref{sec:evaluation}.
+\end{abstract}
+
+\maketitle
+
+% ============================================================
+% Paper body -- each major section is maintained separately
+% ============================================================
+\input{01.introduction}
+\input{02a.background}
+\input{02b.related-work}
+\input{03.method}
+\input{04.evaluation}
+\input{05.discussion}
+\input{06.conclusion}
+
+% ============================================================
+% Optional acknowledgments
+% ============================================================
+\begin{acknowledgments}
+To be completed. Pilot experiments ran on a single NVIDIA RTX 3050 Laptop GPU (4\,GB); full-scale experiments are planned on Kaggle T4 GPUs.
+\end{acknowledgments}
+
+% ============================================================
+% Bibliography
+% ============================================================
+\bibliographystyle{apsrev4-2}
+\bibliography{ref}
+
+% ============================================================
+% Optional appendices kept in a separate file as well
+% ============================================================
+\input{07.appendix}
+
+\end{document}

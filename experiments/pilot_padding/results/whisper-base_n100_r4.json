@@ -1,0 +1,1629 @@
+{
+ "model": "openai/whisper-base",
+ "n": 100,
+ "regs": 4,
+ "emergence_layer": 4,
+ "ref_register_frames": [
+  1445,
+  1446,
+  1453,
+  1454
+ ],
+ "ref_utt": "4446-2271-0008.flac",
+ "stats_ref": [
+  {
+   "layer": 0,
+   "norm_ratio": 1.11,
+   "psi": 7.4,
+   "max_abs": 5.2,
+   "n_out10": 0,
+   "top": 0,
+   "top_in_pad": false
+  },
+  {
+   "layer": 1,
+   "norm_ratio": 1.31,
+   "psi": 12.3,
+   "max_abs": 5.0,
+   "n_out10": 0,
+   "top": 0,
+   "top_in_pad": false
+  },
+  {
+   "layer": 2,
+   "norm_ratio": 1.44,
+   "psi": 13.0,
+   "max_abs": 5.2,
+   "n_out10": 0,
+   "top": 1499,
+   "top_in_pad": true
+  },
+  {
+   "layer": 3,
+   "norm_ratio": 3.54,
+   "psi": 62.0,
+   "max_abs": 25.1,
+   "n_out10": 0,
+   "top": 1453,
+   "top_in_pad": true
+  },
+  {
+   "layer": 4,
+   "norm_ratio": 33.85,
+   "psi": 1121.9,
+   "max_abs": 501.4,
+   "n_out10": 31,
+   "top": 1453,
+   "top_in_pad": true
+  },
+  {
+   "layer": 5,
+   "norm_ratio": 19.67,
+   "psi": 764.2,
+   "max_abs": 510.8,
+   "n_out10": 25,
+   "top": 1453,
+   "top_in_pad": true
+  },
+  {
+   "layer": 6,
+   "norm_ratio": 15.22,
+   "psi": 674.7,
+   "max_abs": 531.4,
+   "n_out10": 20,
+   "top": 1453,
+   "top_in_pad": true
+  }
+ ],
+ "census_first20": [
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.15,
+    "psi": 7.2,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.36,
+    "psi": 12.9,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.42,
+    "psi": 12.2,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.49,
+    "psi": 60.4,
+    "max_abs": 24.9,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.17,
+    "psi": 1124.5,
+    "max_abs": 505.7,
+    "n_out10": 28,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.91,
+    "psi": 767.9,
+    "max_abs": 515.1,
+    "n_out10": 20,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.32,
+    "psi": 663.2,
+    "max_abs": 535.4,
+    "n_out10": 16,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.11,
+    "psi": 7.3,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.33,
+    "psi": 13.2,
+    "max_abs": 5.4,
+    "n_out10": 0,
+    "top": 1198,
+    "top_in_pad": true
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.46,
+    "psi": 12.5,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.54,
+    "psi": 61.3,
+    "max_abs": 25.2,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.28,
+    "psi": 1131.3,
+    "max_abs": 508.1,
+    "n_out10": 30,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 20.02,
+    "psi": 769.9,
+    "max_abs": 517.5,
+    "n_out10": 23,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 14.99,
+    "psi": 647.9,
+    "max_abs": 537.7,
+    "n_out10": 17,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.12,
+    "psi": 7.6,
+    "max_abs": 5.4,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.33,
+    "psi": 12.3,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.42,
+    "psi": 12.5,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.49,
+    "psi": 60.1,
+    "max_abs": 24.6,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.13,
+    "psi": 1124.1,
+    "max_abs": 500.9,
+    "n_out10": 29,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.85,
+    "psi": 772.3,
+    "max_abs": 510.2,
+    "n_out10": 22,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.28,
+    "psi": 674.3,
+    "max_abs": 530.7,
+    "n_out10": 17,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.11,
+    "psi": 7.3,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.28,
+    "psi": 12.4,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.45,
+    "psi": 12.7,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.51,
+    "psi": 62.8,
+    "max_abs": 25.4,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.69,
+    "psi": 1119.6,
+    "max_abs": 493.5,
+    "n_out10": 34,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.1,
+    "psi": 749.0,
+    "max_abs": 503.0,
+    "n_out10": 27,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.1,
+    "psi": 687.2,
+    "max_abs": 524.3,
+    "n_out10": 21,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.11,
+    "psi": 7.4,
+    "max_abs": 5.3,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.34,
+    "psi": 11.6,
+    "max_abs": 4.7,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.42,
+    "psi": 12.5,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.53,
+    "psi": 61.0,
+    "max_abs": 25.0,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.38,
+    "psi": 1126.7,
+    "max_abs": 504.4,
+    "n_out10": 27,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.94,
+    "psi": 776.0,
+    "max_abs": 513.8,
+    "n_out10": 21,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.4,
+    "psi": 685.3,
+    "max_abs": 534.3,
+    "n_out10": 17,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.12,
+    "psi": 7.4,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.35,
+    "psi": 10.9,
+    "max_abs": 4.5,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.43,
+    "psi": 11.7,
+    "max_abs": 4.8,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.47,
+    "psi": 59.7,
+    "max_abs": 24.4,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.89,
+    "psi": 1109.2,
+    "max_abs": 496.0,
+    "n_out10": 30,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.45,
+    "psi": 759.0,
+    "max_abs": 505.2,
+    "n_out10": 22,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.06,
+    "psi": 680.1,
+    "max_abs": 525.9,
+    "n_out10": 17,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.13,
+    "psi": 7.1,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.27,
+    "psi": 13.1,
+    "max_abs": 5.3,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.43,
+    "psi": 13.1,
+    "max_abs": 5.3,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.51,
+    "psi": 63.1,
+    "max_abs": 25.8,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.68,
+    "psi": 1122.0,
+    "max_abs": 501.3,
+    "n_out10": 30,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.62,
+    "psi": 767.5,
+    "max_abs": 510.7,
+    "n_out10": 21,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.29,
+    "psi": 692.6,
+    "max_abs": 531.8,
+    "n_out10": 19,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.13,
+    "psi": 7.0,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.33,
+    "psi": 10.5,
+    "max_abs": 4.3,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.45,
+    "psi": 11.8,
+    "max_abs": 4.9,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.41,
+    "psi": 58.4,
+    "max_abs": 24.1,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.11,
+    "psi": 1081.9,
+    "max_abs": 487.2,
+    "n_out10": 33,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.07,
+    "psi": 743.8,
+    "max_abs": 496.6,
+    "n_out10": 25,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 14.86,
+    "psi": 667.7,
+    "max_abs": 517.8,
+    "n_out10": 22,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.14,
+    "psi": 7.4,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.33,
+    "psi": 12.2,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.46,
+    "psi": 12.9,
+    "max_abs": 5.3,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.54,
+    "psi": 62.0,
+    "max_abs": 25.5,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.21,
+    "psi": 1127.5,
+    "max_abs": 504.6,
+    "n_out10": 30,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.91,
+    "psi": 772.8,
+    "max_abs": 513.9,
+    "n_out10": 22,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 14.99,
+    "psi": 671.8,
+    "max_abs": 534.6,
+    "n_out10": 18,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.14,
+    "psi": 7.1,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.31,
+    "psi": 12.6,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.43,
+    "psi": 12.9,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.56,
+    "psi": 62.9,
+    "max_abs": 25.9,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.69,
+    "psi": 1117.9,
+    "max_abs": 501.0,
+    "n_out10": 31,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.56,
+    "psi": 766.4,
+    "max_abs": 510.4,
+    "n_out10": 23,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.02,
+    "psi": 676.8,
+    "max_abs": 531.1,
+    "n_out10": 18,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.11,
+    "psi": 7.4,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.34,
+    "psi": 12.2,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.43,
+    "psi": 12.8,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.54,
+    "psi": 61.9,
+    "max_abs": 25.3,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.99,
+    "psi": 1115.1,
+    "max_abs": 500.0,
+    "n_out10": 31,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.58,
+    "psi": 760.3,
+    "max_abs": 509.4,
+    "n_out10": 22,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.14,
+    "psi": 675.1,
+    "max_abs": 530.1,
+    "n_out10": 17,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.11,
+    "psi": 7.0,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.32,
+    "psi": 11.5,
+    "max_abs": 4.7,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.46,
+    "psi": 12.3,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.53,
+    "psi": 61.4,
+    "max_abs": 25.2,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.1,
+    "psi": 1124.4,
+    "max_abs": 502.1,
+    "n_out10": 30,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.71,
+    "psi": 771.1,
+    "max_abs": 511.4,
+    "n_out10": 20,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.28,
+    "psi": 687.0,
+    "max_abs": 532.3,
+    "n_out10": 18,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.11,
+    "psi": 7.4,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.27,
+    "psi": 12.6,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.43,
+    "psi": 13.4,
+    "max_abs": 5.4,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.49,
+    "psi": 63.4,
+    "max_abs": 25.4,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.65,
+    "psi": 1127.6,
+    "max_abs": 495.1,
+    "n_out10": 33,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.44,
+    "psi": 768.8,
+    "max_abs": 504.6,
+    "n_out10": 28,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.11,
+    "psi": 695.5,
+    "max_abs": 525.6,
+    "n_out10": 21,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.12,
+    "psi": 7.0,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.35,
+    "psi": 11.9,
+    "max_abs": 4.8,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.46,
+    "psi": 12.1,
+    "max_abs": 4.9,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.46,
+    "psi": 58.7,
+    "max_abs": 24.1,
+    "n_out10": 0,
+    "top": 1445,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.98,
+    "psi": 1114.3,
+    "max_abs": 500.6,
+    "n_out10": 32,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.7,
+    "psi": 761.0,
+    "max_abs": 510.0,
+    "n_out10": 21,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.14,
+    "psi": 665.4,
+    "max_abs": 530.8,
+    "n_out10": 19,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.12,
+    "psi": 7.9,
+    "max_abs": 5.6,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.27,
+    "psi": 13.2,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 1198,
+    "top_in_pad": true
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.42,
+    "psi": 13.5,
+    "max_abs": 5.4,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.5,
+    "psi": 64.2,
+    "max_abs": 25.7,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.54,
+    "psi": 1131.3,
+    "max_abs": 494.7,
+    "n_out10": 35,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.36,
+    "psi": 764.7,
+    "max_abs": 504.1,
+    "n_out10": 29,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.04,
+    "psi": 692.5,
+    "max_abs": 525.3,
+    "n_out10": 18,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.12,
+    "psi": 7.2,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.3,
+    "psi": 12.0,
+    "max_abs": 4.9,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.43,
+    "psi": 12.7,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.57,
+    "psi": 62.7,
+    "max_abs": 25.3,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.22,
+    "psi": 1127.8,
+    "max_abs": 502.3,
+    "n_out10": 31,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.87,
+    "psi": 762.9,
+    "max_abs": 511.8,
+    "n_out10": 25,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.13,
+    "psi": 669.9,
+    "max_abs": 532.5,
+    "n_out10": 18,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.12,
+    "psi": 7.1,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.34,
+    "psi": 10.6,
+    "max_abs": 4.3,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.45,
+    "psi": 11.9,
+    "max_abs": 4.9,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.49,
+    "psi": 60.2,
+    "max_abs": 24.6,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.68,
+    "psi": 1102.2,
+    "max_abs": 490.5,
+    "n_out10": 35,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.23,
+    "psi": 756.8,
+    "max_abs": 500.1,
+    "n_out10": 23,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 14.9,
+    "psi": 676.1,
+    "max_abs": 521.6,
+    "n_out10": 21,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.11,
+    "psi": 7.2,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.37,
+    "psi": 11.7,
+    "max_abs": 4.8,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.43,
+    "psi": 12.5,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.58,
+    "psi": 62.1,
+    "max_abs": 25.4,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.2,
+    "psi": 1114.0,
+    "max_abs": 499.3,
+    "n_out10": 29,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.64,
+    "psi": 765.5,
+    "max_abs": 508.6,
+    "n_out10": 23,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.26,
+    "psi": 683.6,
+    "max_abs": 529.4,
+    "n_out10": 19,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.13,
+    "psi": 7.0,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.3,
+    "psi": 12.6,
+    "max_abs": 5.1,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.44,
+    "psi": 12.3,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.41,
+    "psi": 59.4,
+    "max_abs": 24.5,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 33.66,
+    "psi": 1105.3,
+    "max_abs": 499.1,
+    "n_out10": 28,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.59,
+    "psi": 763.1,
+    "max_abs": 508.6,
+    "n_out10": 23,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 14.99,
+    "psi": 666.4,
+    "max_abs": 529.3,
+    "n_out10": 18,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ],
+  [
+   {
+    "layer": 0,
+    "norm_ratio": 1.13,
+    "psi": 7.1,
+    "max_abs": 5.0,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 1,
+    "norm_ratio": 1.3,
+    "psi": 12.7,
+    "max_abs": 5.2,
+    "n_out10": 0,
+    "top": 0,
+    "top_in_pad": false
+   },
+   {
+    "layer": 2,
+    "norm_ratio": 1.44,
+    "psi": 13.0,
+    "max_abs": 5.3,
+    "n_out10": 0,
+    "top": 1499,
+    "top_in_pad": true
+   },
+   {
+    "layer": 3,
+    "norm_ratio": 3.53,
+    "psi": 61.7,
+    "max_abs": 25.2,
+    "n_out10": 0,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 4,
+    "norm_ratio": 34.03,
+    "psi": 1124.6,
+    "max_abs": 505.7,
+    "n_out10": 29,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 5,
+    "norm_ratio": 19.85,
+    "psi": 762.9,
+    "max_abs": 515.0,
+    "n_out10": 20,
+    "top": 1453,
+    "top_in_pad": true
+   },
+   {
+    "layer": 6,
+    "norm_ratio": 15.19,
+    "psi": 661.3,
+    "max_abs": 535.3,
+    "n_out10": 17,
+    "top": 1453,
+    "top_in_pad": true
+   }
+  ]
+ ],
+ "results": {
+  "pad30": {
+   "wer": 5.39,
+   "halluc_pct": 1.0,
+   "mean_encoder_frames": 1500.0
+  },
+  "nopad": {
+   "wer": 385.46,
+   "halluc_pct": 44.0,
+   "mean_encoder_frames": 234.4
+  },
+  "pad1": {
+   "wer": 31.2,
+   "halluc_pct": 4.0,
+   "mean_encoder_frames": 284.4
+  },
+  "pad2": {
+   "wer": 16.34,
+   "halluc_pct": 2.0,
+   "mean_encoder_frames": 334.4
+  },
+  "pad5": {
+   "wer": 5.94,
+   "halluc_pct": 1.0,
+   "mean_encoder_frames": 484.4
+  },
+  "pad10": {
+   "wer": 5.86,
+   "halluc_pct": 1.0,
+   "mean_encoder_frames": 734.4
+  },
+  "nopad+tail": {
+   "wer": 24.47,
+   "halluc_pct": 32.0,
+   "mean_encoder_frames": 234.4
+  },
+  "nopad+reg": {
+   "wer": 315.4,
+   "halluc_pct": 37.0,
+   "mean_encoder_frames": 238.4
+  },
+  "nopad+reg+tail": {
+   "wer": 25.02,
+   "halluc_pct": 33.0,
+   "mean_encoder_frames": 238.4
+  },
+  "pad30-mask": {
+   "wer": 5.39,
+   "halluc_pct": 1.0,
+   "mean_encoder_frames": 1500.0
+  }
+ },
+ "examples": [
+  {
+   "ref": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "pad30": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "nopad": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "pad1": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "pad2": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "pad5": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "pad10": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "nopad+tail": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "nopad+reg": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "nopad+reg+tail": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed",
+   "pad30-mask": "the eyes of the whole party followed the unexpected movement and read their success in the air of triumph that the youth assumed"
+  },
+  {
+   "ref": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself",
+   "pad30": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself",
+   "nopad": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself attention to itself",
+   "pad1": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself",
+   "pad2": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself",
+   "pad5": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself",
+   "pad10": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself",
+   "nopad+tail": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself",
+   "nopad+reg": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself attention to itself",
+   "nopad+reg+tail": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself",
+   "pad30-mask": "this would be an easy way of doing it but it would not be the best way for the reason that it is too easy to call attention to itself"
+  },
+  {
+   "ref": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "pad30": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "nopad": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "pad1": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "pad2": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "pad5": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "pad10": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "nopad+tail": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "nopad+reg": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "nopad+reg+tail": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally",
+   "pad30-mask": "the only thing necessary was to fix seth reynolds and this hopkins arranged personally"
+  },
+  {
+   "ref": "the problem was solved",
+   "pad30": "the problem was solved",
+   "nopad": "the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved",
+   "pad1": "the problem was solved",
+   "pad2": "the problem was solved",
+   "pad5": "the problem was solved",
+   "pad10": "the problem was solved",
+   "nopad+tail": "the problem was solved",
+   "nopad+reg": "the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved the problem was solved",
+   "nopad+reg+tail": "the problem was solved",
+   "pad30-mask": "the problem was solved"
+  },
+  {
+   "ref": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath",
+   "pad30": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath",
+   "nopad": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture",
+   "pad1": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath",
+   "pad2": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath",
+   "pad5": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath",
+   "pad10": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath",
+   "nopad+tail": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath",
+   "nopad+reg": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath she rose quickly to her feet with an impetuous gesture",
+   "nopad+reg+tail": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath",
+   "pad30-mask": "she rose quickly to her feet with an impetuous gesture that made her visitor catch her breath"
+  },
+  {
+   "ref": "ojo had never eaten such a fine meal in all his life",
+   "pad30": "ojo had never eaten such a fine meal in all his life",
+   "nopad": "ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such",
+   "pad1": "ojo had never eaten such a fine meal in all his life",
+   "pad2": "ojo had never eaten such a fine meal in all his life",
+   "pad5": "ojo had never eaten such a fine meal in all his life",
+   "pad10": "ojo had never eaten such a fine meal in all his life",
+   "nopad+tail": "ojo had never eaten such a fine meal in all his life somewhere back in the beginning",
+   "nopad+reg": "ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such a fine meal in all his life ojo had never eaten such",
+   "nopad+reg+tail": "ojo had never eaten such a fine meal in all his life somewhere back in the beginning",
+   "pad30-mask": "ojo had never eaten such a fine meal in all his life"
+  },
+  {
+   "ref": "most of all robin thought of his father what would he counsel",
+   "pad30": "most of all robin thought of his father what would he counsel",
+   "nopad": "most of all robin thought of his father what would he counsel what would he counsel most of all robin thought of his father what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he counsel what would he",
+   "pad1": "most of all robin thought of his father what would he counsel",
+   "pad2": "most of all robin thought of his father what would he counsel",
+   "pad5": "most of all robin thought of his father what would he counsel",
+   "pad10": "most of all robin thought of his father what would he counsel",
+   "nopad+tail": "most of all robin thought of his father what would he counsel",
+   "nopad+reg": "most of all robin thought of his father what would he counsel",
+   "nopad+reg+tail": "most of all robin thought of his father what would he counsel",
+   "pad30-mask": "most of all robin thought of his father what would he counsel"
+  },
+  {
+   "ref": "comb the wool for the whittaws indeed",
+   "pad30": "comb the wool for the widows indeed",
+   "nopad": "come the wool for the widows indeed",
+   "pad1": "comb the wool for the widows indeed",
+   "pad2": "comb the wool for the widows indeed",
+   "pad5": "comb the wool for the widows indeed",
+   "pad10": "comb the wool for the widows indeed",
+   "nopad+tail": "comb the wool for the widows indeed",
+   "nopad+reg": "come the wool for the widows indeed",
+   "nopad+reg+tail": "comb the wool for the widows indeed",
+   "pad30-mask": "comb the wool for the widows indeed"
+  },
+  {
+   "ref": "some girl has been here twice to interview my men and i have refused to admit her",
+   "pad30": "some girl has been in here twice to interview my men and i have refused to admit her",
+   "nopad": "some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her",
+   "pad1": "some girl has been in here twice to interview my men and i have refused to admit her",
+   "pad2": "some girl has been in here twice to interview my men and i have refused to admit her",
+   "pad5": "some girl has been in here twice to interview my men and i have refused to admit her",
+   "pad10": "some girl has been in here twice to interview my men and i have refused to admit her",
+   "nopad+tail": "some girl has been in here twice to interview my men and i have refused to admit her",
+   "nopad+reg": "some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to interview my men and i have refused to admit her some girl has been in here twice to",
+   "nopad+reg+tail": "some girl has been in here twice to interview my men and i have refused to admit her",
+   "pad30-mask": "some girl has been in here twice to interview my men and i have refused to admit her"
+  },
+  {
+   "ref": "if for a whim you beggar yourself i cannot stay you",
+   "pad30": "if for a whim you beg her yourself i cannot stay you",
+   "nopad": "if for when you beg or yourself i cannot stay you",
+   "pad1": "if for when you beg or yourself i cannot stay you",
+   "pad2": "if for when you beg or yourself i cannot stay you",
+   "pad5": "if for when you beg or yourself i cannot stay you",
+   "pad10": "if for a whim you beg her yourself i cannot stay you",
+   "nopad+tail": "if for when you beg or yourself i cannot stay you somewhere back in the beginning",
+   "nopad+reg": "if for when you beg or yourself i cannot stay you",
+   "nopad+reg+tail": "if for when you beg or yourself i cannot stay you somewhere back in the beginning",
+   "pad30-mask": "if for a whim you beg her yourself i cannot stay you"
+  },
+  {
+   "ref": "we will not talk about her any more if you would rather not we indeed",
+   "pad30": "we will not talk about her anymore if you would rather not we indeed",
+   "nopad": "we will not talk about her anymore if you would rather not we indeed we indeed will not talk about her anymore if you would rather not we indeed we indeed will not talk about her anymore if you would rather not we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed we indeed",
+   "pad1": "we will not talk about her anymore if you would rather not we indeed",
+   "pad2": "we will not talk about her anymore if you would rather not we indeed",
+   "pad5": "we will not talk about her anymore if you would rather not we indeed",
+   "pad10": "we will not talk about her anymore if you would rather not we indeed",
+   "nopad+tail": "we will not talk about her anymore if you would rather not we indeed",
+   "nopad+reg": "we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore if you would rather not we indeed indeed we will not talk about her anymore",
+   "nopad+reg+tail": "we will not talk about her anymore if you would rather not we indeed",
+   "pad30-mask": "we will not talk about her anymore if you would rather not we indeed"
+  },
+  {
+   "ref": "a word should now be said about the origin of luther is commentary on galatians",
+   "pad30": "a word should now be said about the origin of luther is commentary on galatians",
+   "nopad": "a word should now be said about the origin of luther is commentary on galatians",
+   "pad1": "a word should now be said about the origin of luther is commentary on galatians",
+   "pad2": "a word should now be said about the origin of luther is commentary on galatians",
+   "pad5": "a word should now be said about the origin of luther is commentary on galatians",
+   "pad10": "a word should now be said about the origin of luther is commentary on galatians",
+   "nopad+tail": "a word should now be said about the origin of luther is commentary on galatians",
+   "nopad+reg": "a word should now be said about the origin of luther is commentary on galatians",
+   "nopad+reg+tail": "a word should now be said about the origin of luther is commentary on galatians",
+   "pad30-mask": "a word should now be said about the origin of luther is commentary on galatians"
+  },
+  {
+   "ref": "he is the one with the worst record",
+   "pad30": "he is the one with the worst record",
+   "nopad": "he is the one with the worst record",
+   "pad1": "he is the one with the worst record",
+   "pad2": "he is the one with the worst record",
+   "pad5": "he is the one with the worst record",
+   "pad10": "he is the one with the worst record",
+   "nopad+tail": "he is the one with the worst record",
+   "nopad+reg": "he is the one with the worst record",
+   "nopad+reg+tail": "he is the one with the worst record",
+   "pad30-mask": "he is the one with the worst record"
+  },
+  {
+   "ref": "by this time the 2 gentlemen had reached the palings and had got down from their horses it was plain they meant to come in",
+   "pad30": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "nopad": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "pad1": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "pad2": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "pad5": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "pad10": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "nopad+tail": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "nopad+reg": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "nopad+reg+tail": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in",
+   "pad30-mask": "by this time the 2 gentlemen had reached the paling and had got down from their horses it was plain they meant to come in"
+  },
+  {
+   "ref": "were not you happy then at all",
+   "pad30": "were not you happy then at all",
+   "nopad": "were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all",
+   "pad1": "were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all",
+   "pad2": "were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all were not you happy then at all",
+   "pad5": "were not you happy then at all",
+   "pad10": "were not you happy then at all",
+   "nopad+tail": "were not you happy then at all",
+   "nopad+reg": "were not you happy then at all",
+   "nopad+reg+tail": "were not you happy then at all",
+   "pad30-mask": "were not you happy then at all"
+  }
+ ]
+}

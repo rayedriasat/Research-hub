@@ -1,0 +1,7 @@
+% ============================================================
+% 06. CONCLUSION
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+Whisper fails without its 30\,s padding, and we asked what the silence is used for. Pilot interventions on three Whisper sizes show that the high-norm register tokens the encoder forms on padding are dispensable, while silence serves two roles that are not: end-of-speech evidence for the decoder and a few position-anchored attention sinks for the encoder, whose importance grows with model size. Caching these silence states once gives \method{}, a training-free way to encode only the speech, which matched or improved padded WER at about one sixth of the encoder FLOPs in the pilot. These conclusions rest on 100 utterances per model; the specified full-scale evaluation will determine how far they generalise across sizes, languages, conditions and audio language models.

@@ -1,0 +1,74 @@
+% ============================================================
+% 03. METHOD
+% ============================================================
+\section{Method}
+\label{sec:method}
+
+\subsection{Overview}
+
+Our study has two parts. The \emph{measurement and intervention protocol} records, for any frozen speech encoder, per-layer norms, activation magnitudes and received attention, labels each position as speech, in-utterance silence, padding or a fixed absolute position, and applies causal edits: masking attention to selected positions, removing positions from the decoder's view, and replacing computed keys, values and outputs with cached ones. The \emph{method}, \method{}, uses one of these edits as an inference procedure: it encodes a 30\,s silence input once, caches its per-layer keys and values and its final outputs, and then encodes each utterance without padding while letting speech queries attend to the cached silence and letting the decoder read a cached silence tail. The protocol is new in that it targets silence; \method{} is new in that it removes padding without training. Attention, normalisation and decoding are inherited unchanged from Whisper~\cite{radford2023whisper}.
+
+\paragraph{Cached keys and values.} Let $\mathbf{K}^{(\ell)}_{\varnothing},\mathbf{V}^{(\ell)}_{\varnothing}\in\R^{N\times d}$ be the keys and values of layer $\ell$ and $\mathbf{S}=[\mathbf{s}_1,\dots,\mathbf{s}_N]$ the encoder outputs when the input is pure digital silence. For an utterance covering $T$ positions and a set $\mathcal{C}\subseteq\{T{+}1,\dots,N\}$ of cached positions, each speech query $\mathbf{q}_i$ ($i\le T$) attends over
+\begin{align}
+    \mathbf{K}_i^{(\ell)} &= \big[\mathbf{K}^{(\ell)}_{1:T};\ \mathbf{K}^{(\ell)}_{\varnothing,\mathcal{C}}\big], \\
+    \mathbf{V}_i^{(\ell)} &= \big[\mathbf{V}^{(\ell)}_{1:T};\ \mathbf{V}^{(\ell)}_{\varnothing,\mathcal{C}}\big],
+    \label{eq:update}
+\end{align}
+and the decoder cross-attends to $[\mathbf{H}_{1:T};\mathbf{S}_{\mathcal{D}}]$ for a set $\mathcal{D}$ of tail positions. With $\mathcal{C}=\mathcal{D}=\{T{+}1,\dots,N\}$ the only approximation relative to padded encoding is that the cached silence states were computed without the utterance in context (padding positions do not attend to speech). Restricting $\mathcal{C}$ to the $k$ silence positions with the largest received attention $\bar a_j$ in the silence-only run gives $\method{}$-top-$k$; drawing $\mathcal{C}$ uniformly at random gives the matched control.
+
+\subsection{Framework Overview}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{silencecache_overview.pdf}
+    \caption{\method{} removes Whisper's padding without training. Offline (top), a 30\,s silence input is encoded once and its per-layer keys/values for positions $[T,1500)$ and its encoder outputs (the ``tail'') are cached. Online (bottom), only the $T$ speech positions are encoded; speech queries attend to their own keys plus the cached silence keys (all, or the top-$k$ attention sinks), and the unchanged decoder cross-attends to the speech states followed by the cached tail. Nothing is trained; the cost scales with $T$ rather than 1500 positions.}
+    \label{fig:overview}
+\end{figure*}
+
+Figure~\ref{fig:overview} shows the inference path. The diagnostic variants used in Sec.~\ref{sec:evaluation} switch individual arrows off: \emph{tail only} ($\mathcal{C}=\emptyset$), \emph{KV only} ($\mathcal{D}=\emptyset$), top-$k$ versus random-$k$ caches, and a decoder that sees only the top-$k$ tail positions. Together they separate the encoder-side and decoder-side roles of silence.
+
+\subsection{Core Components}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{norm_ratio_silence.pdf}
+    \caption{Whisper's encoder forms high-norm register frames on silence. Max/median token norm per block output for a 30\,s silence input. The ratio jumps abruptly at one block (base: block 4 of 6; small: 7 of 12; large-v3-turbo: 20 of 32) and stays high, the single-layer emergence pattern reported for language models~\cite{shi2026melayer}.}
+    \label{fig:single}
+\end{figure}
+
+\paragraph{Faithful forward pass.} We re-implement the Whisper encoder forward pass explicitly (convolutional stem, sinusoidal positions sliced to the input length, pre-LN blocks, final LayerNorm), so that inputs of any length and extra cached keys/values can be used. On a padded LibriSpeech utterance its output differs from the Hugging Face implementation by at most $6.9\times10^{-4}$ (output scale 23.6), and greedy decoding produces identical transcripts. Hidden states are recorded \emph{before} the final LayerNorm, because library conventions for returned hidden states differ across models and versions.
+
+\paragraph{Observables.} Per layer we record the norm ratio, $\Psi^{(\ell)}$ and the absolute maximum activation, received attention per position, and, in the planned census, matrix entropy and anisotropy of $\mathbf{X}^{(\ell)}$~\cite{queipo2026valleys}. Positions are labelled with an energy voice-activity threshold ($-40$\,dBFS), with the padding boundary, and with absolute index.
+
+\paragraph{Interventions.} (a) \emph{Encoder masking}: set the logits of selected key positions to $-\infty$ from a chosen block onwards. (b) \emph{Decoder removal}: delete selected positions from the encoder output before cross-attention. (c) \emph{Caching}: replace computed silence with cached keys, values and outputs as in Eq.~\eqref{eq:update}. Selections are either by norm (top-$k$ register frames at the emergence block) or by attention (top-$k$ sink frames in the silence-only run), with random-$k$ controls.
+
+\subsection{Algorithm}
+
+\begin{center}
+\begin{minipage}{0.96\columnwidth}
+\hrule\vspace{0.4em}
+\textbf{Algorithm 1: \method{} inference}\vspace{0.25em}
+\begin{algorithmic}[1]
+\Require Whisper encoder/decoder; utterance $x$; cache size $k$ (or ``all'')
+\State \textbf{Offline, once:} encode 30\,s of silence; store $\mathbf{K}^{(\ell)}_{\varnothing},\mathbf{V}^{(\ell)}_{\varnothing}$ for all layers, outputs $\mathbf{S}$, and received attention $\bar a_j$
+\State Compute log-mel of $x$ without padding; $T\gets$ number of encoder positions
+\State $\mathcal{C}\gets$ top-$k$ of $\{\bar a_j\}_{j>T}$ (or all $j>T$)
+\For{$\ell=1,\ldots,L$}
+    \State compute $\mathbf{Q},\mathbf{K},\mathbf{V}$ for the $T$ speech positions
+    \State attend with keys/values $[\mathbf{K};\mathbf{K}^{(\ell)}_{\varnothing,\mathcal{C}}]$, $[\mathbf{V};\mathbf{V}^{(\ell)}_{\varnothing,\mathcal{C}}]$; MLP on $T$ positions
+\EndFor
+\State $\mathbf{H}\gets$ final LayerNorm output for the $T$ positions
+\State \Return decode$\big([\mathbf{H};\mathbf{S}_{T+1:N}]\big)$
+\end{algorithmic}
+\vspace{0.3em}\hrule
+\end{minipage}
+\end{center}
+
+\subsection{Complexity or Theoretical Analysis}
+
+Counting multiply--accumulates as two FLOPs, one encoder layer with width $d$, MLP width $f=4d$, $T_q$ query positions and $T_k$ key positions costs
+\begin{equation}
+    C(T_q,T_k)=2T_q\,(4d^2+2df)+4\,T_q T_k d .
+    \label{eq:cost}
+\end{equation}
+Padded inference costs $C(N,N)$ per layer. \method{} with a full cache costs $C(T,N)$ and with a top-$k$ cache $C(T,T{+}k)$. For Whisper-base ($d=512$) and a 4.7\,s utterance ($T\approx234$), $C(T,N)/C(N,N)\approx0.16$ and $C(T,T{+}16)/C(N,N)\approx0.11$, essentially the cost of no padding. Memory for the cache is $2Lkd$ values ($k=16$, large-v3: 1.3\,M values). Wall-clock speed-ups depend on kernels and batch size and are measured separately (Sec.~\ref{sec:setup}); the derivation of Eq.~\eqref{eq:cost} is in \appref{app:derivations}.

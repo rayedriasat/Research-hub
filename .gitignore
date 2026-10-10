@@ -1,0 +1,49 @@
+# ---- large / regenerable artefacts --------------------------------------
+# Paper sources & PDFs are re-downloadable with scripts/download_arxiv_papers.py
+# (the list of IDs is tracked in papers/manifest.txt).
+Papers_pdf/
+Papers_Tex_Source/
+data/
+archive/
+backup/
+*.m4a
+*.mp3
+*.wav
+*.flac
+*.zip
+*.tar.gz
+*.bundle
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.npy
+*.npz
+wandb/
+runs/
+hf_cache/
+
+# ---- environments / tools -----------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.claude/
+.agents/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- LaTeX build products (paper/main.pdf is kept on purpose) -----------
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*Notes.bib

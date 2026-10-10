@@ -1,0 +1,188 @@
+{
+ "model": "openai/whisper-base",
+ "n": 200,
+ "results": {
+  "pad30": {
+   "halluc_rate": 1.0,
+   "mean_words": 0.8
+  },
+  "nopad": {
+   "halluc_rate": 8.5,
+   "mean_words": 1.37
+  },
+  "nopad+tail": {
+   "halluc_rate": 5.0,
+   "mean_words": 0.06
+  },
+  "tile30": {
+   "halluc_rate": 3.0,
+   "mean_words": 1.05
+  },
+  "tile25+sil5": {
+   "halluc_rate": 4.5,
+   "mean_words": 1.6
+  }
+ },
+ "examples": [
+  {
+   "category": "sea_waves",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "crickets",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "you",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "rain",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "chainsaw",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "coughing",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "glass_breaking",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "car_horn",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "crying_baby",
+   "pad30": "",
+   "nopad": "crow ca",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "engine",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "laughing",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "helicopter",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "mouse_click",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "washing_machine",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "chirping_birds",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "toilet_flush",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "door_wood_knock",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "thunderstorm",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "snoring",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "engine",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "church_bells",
+   "pad30": "",
+   "nopad": "",
+   "nopad+tail": "",
+   "tile30": "",
+   "tile25+sil5": ""
+  }
+ ]
+}

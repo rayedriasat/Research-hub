@@ -1,0 +1,188 @@
+{
+ "model": "openai/whisper-large-v3-turbo",
+ "n": 200,
+ "results": {
+  "pad30": {
+   "halluc_rate": 78.5,
+   "mean_words": 1.1
+  },
+  "nopad": {
+   "halluc_rate": 98.0,
+   "mean_words": 16.27
+  },
+  "nopad+tail": {
+   "halluc_rate": 100.0,
+   "mean_words": 1.32
+  },
+  "tile30": {
+   "halluc_rate": 94.0,
+   "mean_words": 2.81
+  },
+  "tile25+sil5": {
+   "halluc_rate": 87.5,
+   "mean_words": 6.3
+  }
+ },
+ "examples": [
+  {
+   "category": "sea_waves",
+   "pad30": "rain",
+   "nopad": "throws",
+   "nopad+tail": "you",
+   "tile30": "so",
+   "tile25+sil5": "so"
+  },
+  {
+   "category": "crickets",
+   "pad30": "",
+   "nopad": "okay",
+   "nopad+tail": "thank you",
+   "tile30": "thank you",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "rain",
+   "pad30": "",
+   "nopad": "music music music music music music music music music music",
+   "nopad+tail": "you",
+   "tile30": "so",
+   "tile25+sil5": "so"
+  },
+  {
+   "category": "chainsaw",
+   "pad30": "rain",
+   "nopad": "bang",
+   "nopad+tail": "you",
+   "tile30": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "tile25+sil5": "so"
+  },
+  {
+   "category": "coughing",
+   "pad30": "cough",
+   "nopad": "cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough cough",
+   "nopad+tail": "thank you",
+   "tile30": "cough",
+   "tile25+sil5": "cough"
+  },
+  {
+   "category": "glass_breaking",
+   "pad30": "you",
+   "nopad": "you",
+   "nopad+tail": "you",
+   "tile30": "throwing",
+   "tile25+sil5": "you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you you"
+  },
+  {
+   "category": "car_horn",
+   "pad30": "phone rings",
+   "nopad": "bell rings",
+   "nopad+tail": "you",
+   "tile30": "so",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "crying_baby",
+   "pad30": "crying",
+   "nopad": "screams",
+   "nopad+tail": "you",
+   "tile30": "0",
+   "tile25+sil5": "crickets"
+  },
+  {
+   "category": "engine",
+   "pad30": "sad music",
+   "nopad": "burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr burr",
+   "nopad+tail": "you",
+   "tile30": "so",
+   "tile25+sil5": "so"
+  },
+  {
+   "category": "laughing",
+   "pad30": "laughter",
+   "nopad": "laughter",
+   "nopad+tail": "thank you",
+   "tile30": "laughter",
+   "tile25+sil5": "you"
+  },
+  {
+   "category": "helicopter",
+   "pad30": "you",
+   "nopad": "you",
+   "nopad+tail": "you",
+   "tile30": "",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "mouse_click",
+   "pad30": "thank you",
+   "nopad": " .",
+   "nopad+tail": "thank you",
+   "tile30": "thank you",
+   "tile25+sil5": "thank you"
+  },
+  {
+   "category": "washing_machine",
+   "pad30": "so",
+   "nopad": "tip",
+   "nopad+tail": "you",
+   "tile30": "so",
+   "tile25+sil5": "so"
+  },
+  {
+   "category": "chirping_birds",
+   "pad30": "0",
+   "nopad": "i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going to i am not going",
+   "nopad+tail": "you",
+   "tile30": "0",
+   "tile25+sil5": "0"
+  },
+  {
+   "category": "toilet_flush",
+   "pad30": "thank you",
+   "nopad": "painful music",
+   "nopad+tail": "thank you",
+   "tile30": "pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain pain",
+   "tile25+sil5": "painful music"
+  },
+  {
+   "category": "door_wood_knock",
+   "pad30": "knock knock",
+   "nopad": "tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap tap",
+   "nopad+tail": "you",
+   "tile30": "so",
+   "tile25+sil5": "tonk"
+  },
+  {
+   "category": "thunderstorm",
+   "pad30": "rain",
+   "nopad": "burr",
+   "nopad+tail": "you",
+   "tile30": "so",
+   "tile25+sil5": "i"
+  },
+  {
+   "category": "snoring",
+   "pad30": "",
+   "nopad": "bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits bruits",
+   "nopad+tail": "you",
+   "tile30": "so",
+   "tile25+sil5": ""
+  },
+  {
+   "category": "engine",
+   "pad30": "",
+   "nopad": "piano music",
+   "nopad+tail": "you",
+   "tile30": "thank you",
+   "tile25+sil5": "."
+  },
+  {
+   "category": "church_bells",
+   "pad30": "",
+   "nopad": "i",
+   "nopad+tail": "you",
+   "tile30": "amen",
+   "tile25+sil5": "."
+  }
+ ]
+}

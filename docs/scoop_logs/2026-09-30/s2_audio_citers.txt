@@ -1,0 +1,137 @@
+136
+*T 2025-10-26 ax:2510.22603 [massive_act,sink_emerges,sink_gated_attn,streamingllm] Mitigating Attention Sinks and Massive Activations in Audio-Visual Speech Recognition with LLMS | IEEE International Conference on Acoustics, Speech, and Signal Processing
+*T 2026-03-12 ax:2603.11647 [darcet,streamingllm] OmniForcing: Unleashing Real-time Joint Audio-Visual Generation | arXiv.org
+*T 2026-05-11 ax:2605.10815 [darcet,massive_act] Probing Cross-modal Information Hubs in Audio-Visual LLMs | arXiv.org
+*T 2026-07-30 ax:2607.28699 [massive_act,streamingllm] WitCert: Sound Runtime Risk Observability and Gating for KV-Cache Quantization | arXiv.org
+*T None ax:None [massive_act,streamingllm] PrefixQuant: Static Quantization Beats Dynamic through Prefixed Outliers in LLMs | arXiv.org
+*T 2024-02-28 ax:2402.17954 [streamingllm] Twists, Humps, and Pebbles: Multilingual Speech Recognition Models Exhibit Gender Performance Gaps | Conference on Empirical Methods in Natural Language Processing
+*T 2024-07-05 ax:2407.04439 [streamingllm] XLSR-Transducer: Streaming ASR for Self-Supervised Pretrained Models | IEEE International Conference on Acoustics, Speech, and Signal Processing
+*T 2025-05-02 ax:2505.01237 [darcet] CAV-MAE Sync: Improving Contrastive Audio-Visual Mask Autoencoders via Fine-Grained Alignment | Computer Vision and Pattern Recognition
+*T 2025-07-17 ax:2507.12996 [darcet] Multi-Class-Token Transformer for Multitask Self-supervised Music Information Retrieval | IEEE Workshop on Applications of Signal Processing to Audio and Acoustics
+*T 2025-09-25 ax:2509.20986 [darcet] SiNGER: A Clearer Voice Distills Vision Transformers Further | arXiv.org
+*T 2026-02-27 ax:2602.23702 [darcet] Online Register for Dual-Mode Self-Supervised Speech Models: Mitigating The Lack of Future Context | IEEE International Conference on Acoustics, Speech, and Signal Processing
+*T 2026-06-10 ax:2606.11922 [streamingllm] Lung-SRAD: Spectral-Aware Regularized Audio DASS with Dual-Axis Patch-Mix Contrastive Learning for Respiratory Sound Classification | arXiv.org
+*T 2026-06-19 ax:2606.21268 [online_reg] Online Predictive Coding for Dual-Mode Self-Supervised Speech Model | arXiv.org
+*T 2026-08-07 ax:2609.20849 [darcet] Enhancing Audio Reasoning via Semantic Summary Prediction | 
+*T 2026-08-24 ax:2608.22704 [streamingllm] WnW: Waxing-and-Waning KV Cache for Long-Form Speech LLMs | 
+*T 2026-08-28 ax:2608.28444 [streamingllm] Sliding-window beats linear attention | 
+*T 2026-09-25 ax:2609.31399 [sink_gated_attn] Differential Attention Unlocks Complementary EEG and Speech Fusion for Emotion Recognition | 
+*  2026-03-15 ax:2603.14337 [darcet,jiang_ttr,massive_act,sink_emerges,sink_gated_attn,streamingllm] On the Nature of Attention Sink that Shapes Decoding Strategy in Omni-LLMs | 
+ T 2026-06-08 ax:2606.10147 [massive_act,sink_emerges,streamingllm] From Senses to Decisions: The Information Flow of Auditory and Visual Perception in Multimodal LLMs | arXiv.org
+   2025-07-27 ax:2507.20198 [sink_gated_attn,streamingllm] A Survey of Token Compression for Efficient Multimodal Large Language Models | Trans. Mach. Learn. Res.
+ T 2026-02-18 ax:2602.16305 [sink_gated_attn,streamingllm] BAT: Better Audio Transformer Guided by Convex Gated Probing | arXiv.org
+   2026-04-13 ax:2604.12035 [darcet,streamingllm] When Does Visual Token Pruning Improve Calibration? The Role of Evidence Coverage in MLLMs | 
+   2026-08-08 ax:2608.07852 [sink_emerges,streamingllm] "Many Are My Names": The Anatomy of the Assistant and Its Personas via Sparse Autoencoders | 
+   2026-09-01 ax:2609.01832 [massive_act,streamingllm] Interpretable Symptom Vectors for Depression in a Large Language Model | 
+   2026-09-12 ax:2609.13846 [massive_act,streamingllm] Affinity-Aware Sharding for Delayed Tensor Parallelism | 
+ T 2022-06-07 ax:2206.03393 [silence_sweeter] Towards Understanding and Mitigating Audio Adversarial Examples for Speaker Recognition | IEEE Transactions on Dependable and Secure Computing
+ T 2022-10-16 ax:2210.08634 [silence_sweeter] Superb @ SLT 2022: Challenge on Generalization and Efficiency of Self-Supervised Speech Representation Learning | Spoken Language Technology Workshop
+ T 2022-11-08 ax:2211.03929 [silence_sweeter] Comparative Layer-Wise Analysis of Self-Supervised Speech Models | IEEE International Conference on Acoustics, Speech, and Signal Processing
+   2023-06-10 ax:2306.06524 [silence_sweeter] What Can an Accent Identifier Learn? Probing Phonetic and Prosodic Information in a Wav2vec2-based Accent Identification Model | Interspeech
+ T 2023-06-30 ax:2307.00162 [silence_sweeter] What Do Self-Supervised Speech Models Know About Words? | Transactions of the Association for Computational Linguistics
+ T 2023-10-28 ax:2310.18709 [streamingllm] Audio-Visual Instance Segmentation | Computer Vision and Pattern Recognition
+   2023-12-04 ax:2312.01629 [streamingllm] CLAMP: Contrastive LAnguage Model Prompt-tuning | arXiv.org
+   2024-02-02 ax:2402.01172 [streamingllm] Streaming Sequence Transduction through Dynamic Compression | International Workshop on Spoken Language Translation
+ T 2024-04-14 ax:2406.16099 [silence_sweeter] Speech Representation Analysis Based on Inter- and Intra-Model Similarities | 2024 IEEE International Conference on Acoustics, Speech, and Signal Processing Workshops (ICASSPW)
+   2024-05-26 ax:2405.16700 [massive_act] Implicit Multimodal Alignment: On the Generalization of Frozen LLMs to Multimodal Inputs | Neural Information Processing Systems
+   2024-05-30 ax:2405.20324 [darcet] Don't Drop Your Samples! Coherence-Aware Training Benefits Conditional Diffusion | Computer Vision and Pattern Recognition
+*  2024-06-03 ax:2406.01361 [darcet] Learning to Play Atari in a World of Tokens | International Conference on Machine Learning
+ T 2024-06-09 ax:2406.05629 [darcet] Separating the “Chirp” from the “Chat”: Self-supervised Visual Grounding of Sound and Language | Computer Vision and Pattern Recognition
+   2024-07-11 ax:2407.08701 [streamingllm] Live2Diff: Live Stream Translation via Uni-directional Attention in Video Diffusion Models | arXiv.org
+   2024-07-22 ax:2407.15672 [streamingllm] Computer Audition: From Task-Specific Machine Learning to Foundation Models | Proceedings of the IEEE
+ T 2024-10-02 ax:2410.03752 [streamingllm] Efficient Streaming LLM for Speech Recognition | IEEE International Conference on Acoustics, Speech, and Signal Processing
+ T 2024-10-03 ax:2410.03007 [streamingllm] FastAdaSP: Multitask-Adapted Efficient Inference for Large Speech Language Model | Conference on Empirical Methods in Natural Language Processing
+ T 2024-10-05 ax:2410.04029 [darcet] SyllableLM: Learning Coarse Semantic Units for Speech Language Models | International Conference on Learning Representations
+ T 2024-10-06 ax:2410.04478 [darcet] Configurable Multilingual ASR with Speech Summary Representations | arXiv.org
+ T 2024-10-14 ax:2410.11086 [silence_sweeter] JOOCI: a Framework for Learning Comprehensive Speech Representations | arXiv.org
+   2024-10-28 ax:None [streamingllm] ListenFormer: Responsive Listening Head Generation with Non-autoregressive Transformers | ACM Multimedia
+ T 2024-11-03 ax:2411.01710 [streamingllm] SPES: Spectrogram Perturbation for Explainable Speech-to-Text Generation | Transactions of the Association for Computational Linguistics
+ T 2024-11-26 ax:2411.17846 [silence_sweeter] Disentangled-Transformer: An Explainable End-to-End Automatic Speech Recognition Model with Speech Content-Context Separation | International Conference on Image Processing, Applications and Systems
+   2024-12-10 ax:2412.07192 [massive_act] PrisonBreak: Jailbreaking Large Language Models with at Most Twenty-Five Targeted Bit-flips | 
+ T 2024-12-12 ax:2412.09501 [streamingllm] LYRA: An Efficient and Speech-Centric Framework for Omni-Cognition | IEEE International Conference on Computer Vision
+ T 2025-03-04 ax:2503.02969 [streamingllm] InfiniSST: Simultaneous Translation of Unbounded Speech with Large Language Model | Annual Meeting of the Association for Computational Linguistics
+ T 2025-04-09 ax:2504.06753 [darcet] Detect All-Type Deepfake Audio: Wavelet Prompt Tuning for Enhanced Auditory Perception | AAAI Conference on Artificial Intelligence
+   2025-05-18 ax:2505.20305 [massive_act] Making Sense of the Unsensible: Reflection, Survey, and Challenges for XAI in Large Language Models Toward Human-Centered AI | arXiv.org
+   2025-05-20 ax:2505.14638 [massive_act] Dual Precision Quantization for Efficient and Accurate Deep Neural Networks Inference | 2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)
+   2025-06-10 ax:None [darcet] Self-Supervised Cross-View Correspondence with Predictive Cycle Consistency | Computer Vision and Pattern Recognition
+ T 2025-06-27 ax:2506.21952 [dvt] Towards a physics-informed network paradigm with data generation and background noise removal for different distributed acoustic sensing applications | Light: Science & Applications
+   2025-08-20 ax:None [streamingllm] A Systematic Literature Review on Multimodal Text Summarization | ACM Computing Surveys
+ T 2025-09-19 ax:2509.16023 [silence_sweeter] Interpreting the Role of Visemes in Audio-Visual Speech Recognition | Automatic Speech Recognition & Understanding
+ T 2025-09-22 ax:2509.18010 [streamingllm] Cross-Attention is Half Explanation in Speech-to-Text Models | arXiv.org
+ T 2025-09-26 ax:2509.22363 [streamingllm] Investigating Faithfulness in Large Audio Language Models | arXiv.org
+   2025-09-28 ax:2509.23694 [streamingllm] SafeSearch: Automated Red-Teaming of LLM-Based Search Agents | 
+ T 2025-10-02 ax:2510.05150 [streamingllm] Chronological Thinking in Full-Duplex Spoken Dialogue Language Models | SIGDIAL Conferences
+ T 2025-10-08 ax:2510.07293 [streamingllm] AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs | arXiv.org
+   2025-10-22 ax:2510.19670 [streamingllm] CoSense-LLM: Semantics at the Edge with Cost- and Uncertainty-Aware Cloud-Edge Cooperation | arXiv.org
+*  2025-10-29 ax:2510.25745 [streamingllm] Efficient Vocal Source Separation Through Windowed Sink Attention | arXiv.org
+   2025-11-24 ax:2601.03237 [darcet] PET-TURTLE: Deep Unsupervised Support Vector Machines for Imbalanced Data Clusters | IEEE Signal Processing Letters
+ T 2025-12-02 ax:2512.02650 [darcet] Hear What Matters! Text-conditioned Selective Video-to-Audio Generation | arXiv.org
+ T 2025-12-06 ax:None [silence_sweeter] JOOCI: a Novel Method for Learning Comprehensive Speech Representations | Automatic Speech Recognition & Understanding
+   2025-12-08 ax:2512.07355 [darcet] A Geometric Unification of Concept Learning with Concept Cones | arXiv.org
+   2025-12-12 ax:2512.11221 [streamingllm] Adaptive Soft Rolling KV Freeze with Entropy-Guided Recovery: Sublinear Memory Growth for Efficient LLM Inference | arXiv.org
+ T 2025-12-12 ax:2512.11423 [streamingllm] JoyStreamer-Flash: Real-time and Infinite Audio-Driven Avatar Generation with Autoregressive Diffusion | 
+ T 2025-12-17 ax:2512.15707 [sink_gated_attn] GateFusion: Hierarchical Gated Cross-Modal Fusion for Active Speaker Detection | IEEE Workshop/Winter Conference on Applications of Computer Vision
+   2025-12-28 ax:2512.22741 [sink_gated_attn] Text-Routed Sparse Mixture-of-Experts Model with Explanation and Temporal Alignment for Multi-Modal Sentiment Analysis | arXiv.org
+*  2025-12-29 ax:2512.23576 [streamingllm] LiveTalk: Real-Time Multimodal Interactive Video Diffusion via Improved On-Policy Distillation | arXiv.org
+ T 2026-01-06 ax:2601.03233 [darcet] LTX-2: Efficient Joint Audio-Visual Foundation Model | arXiv.org
+ T 2026-01-08 ax:2601.04876 [streamingllm] ChronosAudio: A Comprehensive Long-Audio Benchmark for Evaluating Audio-Large Language Models | arXiv.org
+ T 2026-02-05 ax:2602.05373 [streamingllm] Speech-XL: Towards Long-Form Speech Understanding in Large Speech Language Models | arXiv.org
+   2026-02-06 ax:2602.07106 [sink_gated_attn] Ex-Omni: Enabling 3D Facial Animation Generation for Omni-modal Large Language Models | arXiv.org
+*  2026-02-11 ax:2602.11298 [streamingllm] Voxtral Realtime | arXiv.org
+   2026-02-15 ax:2602.14143 [massive_act] Watch the Model Think: On-Policy Extraction of Activation Steering Vectors | 
+ T 2026-03-12 ax:2603.12046 [avsr_sinks] Dr. SHAP-AV: Decoding Relative Modality Contributions via Shapley Attribution in Audio-Visual Speech Recognition | arXiv.org
+ T 2026-03-13 ax:2603.12642 [silence_sweeter] Self-Supervised Speech Models Encode Phonetic Context via Position-dependent Orthogonal Subspaces | arXiv.org
+ T 2026-03-17 ax:2604.08558 [streamingllm] WAND: Windowed Attention and Knowledge Distillation for Efficient Autoregressive Text-to-Speech Models | arXiv.org
+ T 2026-03-23 ax:2603.21986 [sink_gated_attn] Speed by Simplicity: A Single-Stream Architecture for Fast Audio-Video Generative Foundation Model | arXiv.org
+   2026-03-24 ax:2603.22915 [avsr_sinks] When AVSR Meets Video Conferencing: Dataset, Degradation, and the Hidden Mechanism Behind Performance Collapse | arXiv.org
+   2026-03-26 ax:None [darcet] Responsible AI for Multimodal Biometric Authentication in Educational Systems: Ethical, Civic, and Cultural Perspectives | International Journal for Sciences and Technology
+   2026-04-09 ax:2604.07823 [streamingllm] LPM 1.0: Video-based Character Performance Model | arXiv.org
+ T 2026-04-09 ax:2605.27376 [streamingllm] Unlocking Fine-Grained and Within-Utterance Speaking Style Control in Prompt-Based Text-to-Speech Models | arXiv.org
+ T 2026-04-22 ax:2604.21045 [streamingllm] Hierarchical Policy Optimization for Simultaneous Translation of Unbounded Speech | Annual Meeting of the Association for Computational Linguistics
+ T 2026-04-26 ax:2604.23717 [streamingllm] HeadRouter: Dynamic Head-Weight Routing for Task-Adaptive Audio Token Pruning in Large Audio Language Models | arXiv.org
+   2026-04-27 ax:None [streamingllm] Dealing with the Elephant in the KV Cache: Video Frame Sampling for Multimodal LLM Inference | EuroMLSys@EuroSys
+*  2026-04-27 ax:2604.24162 [streamingllm] Defusing the Trigger: Tail-Risk-Informed Attention Rebalancing for LLM Backdoor Mitigation | 
+   2026-05-02 ax:2605.12535 [streamingllm] Ghost in the Context: Policy-Carriage Integrity in LLM Agents | 
+   2026-05-04 ax:2605.02323 [streamingllm] When Attention Collapses: Residual Evidence Modeling for Compositional Inference | arXiv.org
+ T 2026-05-06 ax:2605.04700 [streamingllm] Sparse Tokens Suffice: Jailbreaking Audio Language Models via Token-Aware Gradient Optimization | arXiv.org
+   2026-05-08 ax:2605.07325 [streamingllm] CSR: Infinite-Horizon Real-Time Policies With Massive Cached State Representations | IEEE Robotics and Automation Letters
+ T 2026-05-18 ax:2605.17991 [darcet] Stable Audio 3 | arXiv.org
+*  2026-05-20 ax:2605.21226 [streamingllm] OCTOPUS: Optimized KV Cache for Transformers via Octahedral Parametrization Under optimal Squared error quantization | arXiv.org
+   2026-05-30 ax:2606.00523 [streamingllm] ProactiveLLM: Learning Active Interaction for Streaming Large Language Models | arXiv.org
+   2026-05-30 ax:2606.00825 [streamingllm] SuperMemory-VQA: An Egocentric Visual Question-Answering Benchmark for Long-Horizon Memory | arXiv.org
+ T 2026-05-31 ax:2606.01483 [streamingllm] MURMUR: An Efficient Inference System for Long-Form ASR | arXiv.org
+   2026-06-01 ax:None [streamingllm] Tracking the dynamic breakdown of contextual coherence in schizophrenia using language models | Frontiers in Psychiatry
+ T 2026-06-02 ax:2606.03803 [streamingllm] LiveBand: Live Accompaniment Generation in the Audio Domain | arXiv.org
+ T 2026-06-04 ax:2606.05763 [avsr_sinks] M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition | arXiv.org
+   2026-06-15 ax:2606.16494 [streamingllm] Lost at the End: Primacy Bias in Multimodal Retrieval-Augmented Question Answering | arXiv.org
+   2026-06-19 ax:2606.21372 [darcet] NAC: Neural Action Codec for Vision-Language-Action Models | arXiv.org
+ T 2026-06-22 ax:2607.24786 [darcet] Unlocking Spatial Grounding in Large Audio-Visual Retrieval models | arXiv.org
+   2026-06-23 ax:2606.24320 [sink_gated_attn] ZONOS2 Technical Report | arXiv.org
+ T 2026-06-25 ax:2606.26556 [sink_gated_attn] WQ-Fusion: Dynamic Gated Attention for Cross-Domain Audio Representation | arXiv.org
+ T 2026-06-28 ax:2606.29632 [avsr_sinks] VIB-AVSR: Variational Information Bottleneck for Noise-Robust LLM-Based Audio-Visual Speech Recognition | arXiv.org
+ T 2026-06-29 ax:None [darcet] Cross-Domain Robust Pruning for Polyp Segmentation: Multi-Encoder Feature Fusion Beats Single-Encoder Baselines | Bioengineering
+ T 2026-07-01 ax:None [dvt] Noise-Adversarial Denoising of Motor Acoustic Signals Across Noise Domains | Italian National Conference on Sensors
+ T 2026-07-01 ax:None [sink_gated_attn] Fusion-regularized alignment modality-adaptive audio-visual network for audio-visual zero-shot learning | Neurocomputing
+*  2026-07-02 ax:2607.02640 [streamingllm] Metronome: Bound the Cache, Keep the Beat for Real-Time Interaction Model Serving | arXiv.org
+   2026-07-03 ax:2607.03118 [streamingllm] Vidu S1: A Real-Time Interactive Video Generation Model | arXiv.org
+ T 2026-07-07 ax:2607.06827 [streamingllm] Compress the Cache, Not the Speech Embedding: KV Compression for Efficient Speech LLMs | arXiv.org
+   2026-07-11 ax:2607.11942 [streamingllm] How Query Visibility Changes KV-Cache Compression Rankings: A Matched-Budget Audit | arXiv.org
+ T 2026-07-12 ax:2609.04225 [streamingllm] The Trade-off Was in the Labels: Causal Supervision for Turn-Aware Streaming ASR | 
+   2026-07-16 ax:2607.15498 [streamingllm] VarRate: Training-Free Variable-Rate KV Cache Compression for Long-Context LLMs | arXiv.org
+*  2026-07-27 ax:2608.00058 [darcet] Automated ECG Interval Measurement and Wave Delineation Using Fast Fourier Convolution ResNet | 
+ T 2026-07-27 ax:2607.24667 [streamingllm] Eviction as Estimation: A Fixed-Lag Smoothing View of Test-Time Memory, and When Measuring Beats Accumulating | arXiv.org
+ T 2026-07-27 ax:2607.24359 [streamingllm] TaoMate: Anchor-Guided Memory Bridging Evolving and Reference States for Real-Time Audio-Video Digital Human Generation | arXiv.org
+ T 2026-08-01 ax:None [streamingllm] Latency Optimization of Cascaded Voice Dialogue Systems with a Pipeline-Parallel Streaming Architecture | 2026 3rd International Conference on Intelligent Systems and Robotics (CISR)
+ T 2026-08-09 ax:2608.08569 [streamingllm] VoxZip: Semantic-Anchored Temporal KV Cache Compression for Long-Context Audio Inference | 
+ T 2026-08-11 ax:2608.10659 [darcet] DINO-A: Adapting Self-Distillation Vision Transformers to General Audio Representation Learning | 
+ T 2026-08-12 ax:2608.11752 [streamingllm] UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos | 
+ T 2026-08-22 ax:2608.22101 [streamingllm] Beyond Fresh Starts: Stateful Inference for Streaming ASR in Conversational Voice Agents | 
+ T 2026-08-31 ax:2608.31106 [sink_gated_attn] DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution | 
+   2026-09-14 ax:2609.16215 [streamingllm] Where Should the KV Cache Live? Placement Policies Across GPU, CPU, and SSD for Long-Lived Sessions | 
+   2026-09-19 ax:2609.22913 [sink_gated_attn] AVTR-1: Open Stack for Real-Time Interactive Avatars | 
+ T 2026-09-25 ax:2609.31224 [streamingllm] Acoustic-to-Text KV Compression for Full-Duplex Speech Models | 
+   2026-09-26 ax:2609.32395 [streamingllm] Memory as a cache: Exact context reuse and deletion by construction | 
+   2026-09-27 ax:2609.33095 [sink_gated_attn] REALM: A Coarse-to-Fine Generative Framework for Embodied Reactive Listening | 
+   None ax:None [streamingllm] When Efficiency Meets Safety: A Benchmark Security Analysis of KV Cache Compression in Large Language Models | Annual Meeting of the Association for Computational Linguistics
+ T None ax:None [streamingllm] JoyAvatar: Real-time and Infinite Audio-Driven Avatar Generation with Autoregressive Diffusion | arXiv.org
+ T None ax:None [streamingllm] AURA: AUdio-dRiven streaming Avatar | 

@@ -1,0 +1,309 @@
+## iclr-2026 :: speech
+id	title	citations
+2510.23763	RoboOmni: Proactive Robot Manipulation in Omni-modal Context	10
+2509.06926	Continuous Audio Language Models	14
+2509.23610	Efficient Audio-Visual Speech Separation with Discrete Lip Semantics and\n  Multi-Scale Global-Local Attention	5
+2510.00499	MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance	11
+2504.07053	TASTE: Text-Aligned Speech Tokenization and Embedding for Spoken Language Modeling	26
+2510.00981	FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates	29
+2509.21144	UniSS: Unified Expressive Speech-to-Speech Translation with Your Voice	7
+2509.22220	StableToken: A Noise-Robust Semantic Speech Tokenizer for Resilient\n  SpeechLLMs	6
+2507.19634	MCIF: Multimodal Crosslingual Instruction-Following Benchmark from   Scientific Talks	20
+2601.02391	WearVox: An Egocentric Multichannel Voice Assistant Benchmark for Wearables	12
+2508.03542	Speech-to-LaTeX: New Models and Datasets for Converting Spoken Equations   and Sentences	2
+2507.15375	STITCH: Simultaneous Thinking and Talking with Chunked Reasoning for   Spoken Language Models	38
+2505.22581	Tell me Habibi, is it Real or Fake?	11
+2506.04779	MMSU: A Massive Multi-task Spoken Language Understanding and Reasoning Benchmark	145
+2604.00292	MambaVoiceCloning: Efficient and Expressive Text-to-Speech via State-Space Modeling and Diffusion Control	0
+2603.29162	From Natural Alignment to Conditional Controllability in Multimodal Dialogue	2
+2509.26469	DiVeQ: Differentiable Vector Quantization Using the Reparameterization Trick	6
+2603.01096	Unified Vision-Language Modeling via Concept Space Alignment	0
+2602.24080	Human or Machine? A Preliminary Turing Test for Speech-to-Speech Interaction	1
+2602.21646	Scalable Multilingual Multimodal Machine Translation with Speech-Text Fusion	0
+2602.19316	Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition	1
+2602.11145	SCRAPL: Scattering Transform with Random Paths for Machine Learning	0
+2602.09534	AUHead: Realistic Emotional Talking Head Generation via Action Units Control	2
+2602.09389	TVTSyn: Content-Synchronous Time-Varying Timbre for Streaming Voice Conversion and Anonymization	6
+2602.06602	Scaling Speech Tokenizers with Diffusion Autoencoders	5
+2602.06270	VowelPrompt: Hearing Speech Emotions from Text via Vowel-level Prosodic Augmentation	4
+2602.04581	Trust The Typical	3
+2602.03355	PACE: Pretrained Audio Continual Learning	0
+2601.20913	Noisy but Valid: Robust Statistical Evaluation of LLMs with Imperfect Judges	25
+2601.19956	VoxPrivacy: A Benchmark for Evaluating Interactional Privacy of Speech Language Models	8
+2601.15668	EmotionThinker: Prosody-Aware Reinforcement Learning for Explainable Speech Emotion Reasoning	22
+2601.04656	FlexiVoice: Enabling Flexible Style Control in Zero-Shot TTS with Natural Language Instructions	21
+2512.12772	JointAVBench: A Benchmark for Joint Audio-Visual Reasoning Evaluation	19
+2512.05933	Speech World Model: Causal State–Action Planning with Explicit Reasoning for Speech	3
+2511.21740	A cross-species neural foundation model for end-to-end speech decoding	5
+2511.08723	ParaS2S: Benchmarking and Aligning Spoken Language Models for Paralinguistic-aware Speech-to-Speech Interaction	30
+2511.07931	SpeechJudge: Towards Human-Level Judgment for Speech Naturalness	33
+2510.22758	EchoMind: An Interrelated Multi-level Benchmark for Evaluating\n  Empathetic Speech Language Models	14
+2510.20860	Data-Centric Lessons To Improve Speech-Language Pretraining	3
+2510.16756	End-to-end Listen, Look, Speak and Act	4
+2510.13632	Closing the Gap Between Text and Speech Understanding in LLMs	18
+2510.07497	Can Speech LLMs Think while Listening?	24
+2510.06195	Latent Speech-Text Transformer	7
+2509.24198	Negative Pre-activations Differentiate Syntax	2
+2509.22291	Bridging Fairness and Explainability: Can Input-Based Explanations Promote Fairness in Hate Speech Detection?	3
+2509.20072	From Text to Talk: Audio-Language Model Needs Non-Autoregressive Joint Training	7
+2509.14298	SpeechOp: Inference-Time Task Composition for Generative Speech Processing	0
+2509.09212	MAPSS: Manifold-based Assessment of Perceptual Source Separation	1
+2507.09768	Knowing When to Quit: Probabilistic Early Exits for Speech Separation Networks	4
+2506.20666	Cognitive models can reveal interpretable value trade-offs in language models	3
+2506.19441	TTSDS2: Resources and Benchmark for Evaluating Human-Quality Text to Speech Systems	17
+2506.14493	LingoLoop Attack: Trapping MLLMs via Linguistic Context and State Entrapment into Endless Loops	12
+2506.09349	DrVoice: Parallel Speech-Text Voice Conversation Model via Dual-Resolution Speech Representations	9
+2505.24262	On Fairness of Task Arithmetic: The Role of Task Vectors	3
+2505.14886	Strategic Planning and Rationalizing on Trees Make LLMs Better Debaters	2
+2503.11627	Are Deep Speech Denoising Models Robust to Adversarial Noise?	0
+2502.01777	CTC-DRO: Robust Optimization for Reducing Language Disparities in Speech Recognition	2
+## iclr-2026 :: audio
+id	title	citations
+2510.09212	Stable Video Infinity: Infinite-Length Video Generation with Error\n  Recycling	70
+2510.15870	OmniVinci: Enhancing Architecture and Data for Omni-Modal Understanding\n  LLM	65
+2510.10395	AVoCaDO: An Audiovisual Video Captioner Driven by Temporal Orchestration	28
+2509.06926	Continuous Audio Language Models	14
+2503.10522	AudioX: Diffusion Transformer for Anything-to-Audio Generation	33
+2412.21037	TangoFlux: Super Fast and Faithful Text to Audio Generation with Flow Matching and Clap-Ranked Preference Optimization	103
+2602.19163	JavisDiT++: Unified Modeling and Optimization for Joint Audio-Video Generation	24
+2503.23377	JavisDiT: Joint Audio-Video Diffusion Transformer with Hierarchical Spatio-Temporal Prior Synchronization	91
+2507.22229	TRIBE: TRImodal Brain Encoder for whole-brain fMRI response prediction	28
+2505.16211	AudioTrust: Benchmarking the Multifaceted Trustworthiness of Audio Large Language Models	17
+2509.23610	Efficient Audio-Visual Speech Separation with Discrete Lip Semantics and\n  Multi-Scale Global-Local Attention	5
+2507.09862	SpeakerVid-5M: A Large-Scale High-Quality Dataset for Audio-Visual   Dyadic Interactive Human Generation	30
+2510.08492	Better Together: Leveraging Unpaired Multimodal Data for Stronger\n  Unimodal Models	0
+2510.10689	OmniVideoBench: Towards Audio-Visual Understanding Evaluation for Omni MLLMs	55
+2505.19892	Unifying Multimodal Large Language Model Capabilities and Modalities via Model Merging	2
+2510.00981	FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates	29
+2510.23451	Omni-Reward: Towards Generalist Omni-Modal Reward Modeling with\n  Free-Form Preferences	11
+2509.21144	UniSS: Unified Expressive Speech-to-Speech Translation with Your Voice	7
+2510.24693	STAR-Bench: Probing Deep Spatio-Temporal Reasoning as Audio 4D\n  Intelligence	12
+2509.22220	StableToken: A Noise-Robust Semantic Speech Tokenizer for Resilient\n  SpeechLLMs	6
+2510.12581	LayerSync: Self-aligning Intermediate Layers	8
+2506.05349	VideoMathQA: Benchmarking Mathematical Reasoning via Multimodal Understanding in Videos	25
+2603.11589	Toward Complex-Valued Neural Networks for Waveform Generation	0
+2603.01169	TripleSumm: Adaptive Triple-Modality Fusion for Video Summarization	2
+2601.02391	WearVox: An Egocentric Multichannel Voice Assistant Benchmark for Wearables	12
+2506.01482	Automatic Stage Lighting Control: Is it a Rule-Driven Process or Generative Task?	7
+2510.15148	XModBench: Benchmarking Cross-Modal Capabilities and Consistency in\n  Omni-Language Models	6
+2508.03542	Speech-to-LaTeX: New Models and Datasets for Converting Spoken Equations   and Sentences	2
+2507.15375	STITCH: Simultaneous Thinking and Talking with Chunked Reasoning for   Spoken Language Models	38
+2505.22581	Tell me Habibi, is it Real or Fake?	11
+2506.04779	MMSU: A Massive Multi-task Spoken Language Understanding and Reasoning Benchmark	145
+2603.29162	From Natural Alignment to Conditional Controllability in Multimodal Dialogue	2
+2603.15597	AC-Foley: Reference-Audio-Guided Video-to-Audio Synthesis with Acoustic Transfer	5
+2505.17568	JALMBench: Benchmarking Jailbreak Vulnerabilities in Audio Language Models	20
+2602.21596	A Hidden Semantic Bottleneck in Conditional Embeddings of Diffusion Transformers	2
+2602.19316	Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition	1
+2602.15909	Resp-Agent: An Agent-Based System for Multimodal Respiratory Sound Generation and Disease Diagnosis	0
+2602.11909	Echo: Towards Advanced Audio Comprehension via Audio-Interleaved Reasoning	6
+2602.11145	SCRAPL: Scattering Transform with Random Paths for Machine Learning	0
+2602.09534	AUHead: Realistic Emotional Talking Head Generation via Action Units Control	2
+2602.06602	Scaling Speech Tokenizers with Diffusion Autoencoders	5
+2602.07054	AVERE: Improving Audiovisual Emotion Reasoning with Preference Optimization	4
+2602.03355	PACE: Pretrained Audio Continual Learning	0
+2601.19821	Query-Guided Spatial–Temporal–Frequency Interaction for Music Audio–Visual Question Answering	1
+2601.04656	FlexiVoice: Enabling Flexible Style Control in Zero-Shot TTS with Natural Language Instructions	21
+2512.23278	Flow2GAN: Hybrid Flow Matching and GAN with Multi-Resolution Network for Few-step High-Fidelity Audio Generation	6
+2512.15420	FlowBind: Efficient Any-to-Any Generation with Bidirectional Flows	3
+2512.19734	The Deleuzian Representation Hypothesis	0
+2512.12772	JointAVBench: A Benchmark for Joint Audio-Visual Reasoning Evaluation	19
+2512.01559	LLM2Fx-Tools: Tool Calling For Music Post-Production	11
+2511.18833	PrismAudio: Decomposed Chain-of-Thoughts and Multi-dimensional Rewards for Video-to-Audio Generation	12
+2511.21740	A cross-species neural foundation model for end-to-end speech decoding	5
+2511.10289	Music Flamingo: Scaling Music Understanding in Audio Language Models	37
+2511.08723	ParaS2S: Benchmarking and Aligning Spoken Language Models for Paralinguistic-aware Speech-to-Speech Interaction	30
+2511.07931	SpeechJudge: Towards Human-Level Judgment for Speech Naturalness	33
+2510.20867	Incentivizing Consistent, Effective and Scalable Reasoning Capability in Audio LLMs via Reasoning Process Rewards	15
+2510.20860	Data-Centric Lessons To Improve Speech-Language Pretraining	3
+2510.14952	From Language to Locomotion: Retargeting-free Humanoid Control via Motion Latent Guidance	30
+2510.13721	NExT-OMNI: Towards Any-to-Any Omnimodal Foundation Models with Discrete Flow Matching	26
+2510.12720	Omni-Captioner: Data Pipeline, Models, and Benchmark for Omni Detailed\n  Perception	39
+2510.12000	UALM: Unified Audio Language Model for Understanding, Generation and Reasoning	18
+2510.10509	MARS-Sep: Multimodal-Aligned Reinforced Sound Separation	3
+2510.05717	DiffSDA: Unsupervised Diffusion Sequential Disentanglement Across Modalities	2
+2510.04899	Human Behavior Atlas: Benchmarking Unified Psychological and Social Behavior Understanding	9
+2509.26140	OWL : Geometry-Aware Spatial Reasoning for Audio Large Language Models	12
+2509.24901	Unmute the Patch Tokens: Rethinking Probing in Multi-Label Audio Classification	7
+2509.23744	Compose and Fuse: Revisiting the Foundational Bottlenecks in Multimodal\n  Reasoning	5
+2509.21893	Syncphony: Synchronized Audio-to-Video Generation with Diffusion Transformers	6
+2509.21990	WAVE: Learning Unified & Versatile Audio-Visual Embeddings with\n  Multimodal LLM	11
+2510.05109	TINY BUT MIGHTY: A SOFTWARE-HARDWARE CO-DESIGN APPROACH FOR EFFICIENT MULTIMODAL INFERENCE ON BATTERY-POWERED SMALL DEVICES	1
+2509.21033	SupCLAP: Controlling Optimization Trajectory Drift in Audio-Text Contrastive Learning with Support Vector Regularization	3
+2509.21060	Measuring Audio's Impact on Correctness: Audio-Contribution-Aware\n  Post-Training of Large Audio Language Models	18
+2509.20072	From Text to Talk: Audio-Language Model Needs Non-Autoregressive Joint Training	7
+2510.08580	LadderSym: A Multimodal Interleaved Transformer for Music Practice Error Detection	2
+2508.19209	OmniHuman-1.5: Instilling an Active Mind in Avatars via Cognitive   Simulation	33
+2508.12907	SNAP-UQ: Self-supervised Next-Activation Prediction for Single-Pass Uncertainty in TinyML	4
+2508.11845	What Matters for Bioacoustic Encoding	6
+2507.09768	Knowing When to Quit: Probabilistic Early Exits for Speech Separation Networks	4
+2507.08333	Token-based Audio Inpainting via Discrete Diffusion	3
+2506.18899	FilMaster: Bridging Cinematic Principles and Generative AI for Automated   Film Generation	32
+2506.09349	DrVoice: Parallel Speech-Text Voice Conversation Model via Dual-Resolution Speech Representations	9
+2506.09984	InterActHuman: Multi-Concept Human Animation with Layout-Aligned Audio Conditions	19
+2503.19356	Can Vision-Language Models Answer Face to Face Questions in the Real-World?	7
+2503.11627	Are Deep Speech Denoising Models Robust to Adversarial Noise?	0
+2502.04326	WorldSense: Evaluating Real-world Omnimodal Understanding for Multimodal LLMs	165
+## iclr-2026 :: whisper
+id	title	citations
+2509.14298	SpeechOp: Inference-Time Task Composition for Generative Speech Processing	0
+## iclr-2026 :: spoken
+id	title	citations
+2510.23763	RoboOmni: Proactive Robot Manipulation in Omni-modal Context	10
+2510.00499	MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance	11
+2504.07053	TASTE: Text-Aligned Speech Tokenization and Embedding for Spoken Language Modeling	26
+2509.21144	UniSS: Unified Expressive Speech-to-Speech Translation with Your Voice	7
+2506.05349	VideoMathQA: Benchmarking Mathematical Reasoning via Multimodal Understanding in Videos	25
+2508.03542	Speech-to-LaTeX: New Models and Datasets for Converting Spoken Equations   and Sentences	2
+2507.15375	STITCH: Simultaneous Thinking and Talking with Chunked Reasoning for   Spoken Language Models	38
+2506.04779	MMSU: A Massive Multi-task Spoken Language Understanding and Reasoning Benchmark	145
+2511.08723	ParaS2S: Benchmarking and Aligning Spoken Language Models for Paralinguistic-aware Speech-to-Speech Interaction	30
+2510.22758	EchoMind: An Interrelated Multi-level Benchmark for Evaluating\n  Empathetic Speech Language Models	14
+2510.20860	Data-Centric Lessons To Improve Speech-Language Pretraining	3
+2510.13632	Closing the Gap Between Text and Speech Understanding in LLMs	18
+2510.07497	Can Speech LLMs Think while Listening?	24
+## icml-2026 :: speech
+id	title	citations
+2512.18099	SAM Audio: Segment Anything in Audio	45
+2602.10934	MOSS-Audio-Tokenizer: Scaling Audio Tokenizers for Future Audio Foundation Models	14
+2512.25066	From Inpainting to Editing: A Self-Bootstrapping Framework for Context-Rich Visual Dubbing	0
+2601.13836	FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs	8
+2412.08635	Multimodal Latent Language Modeling with Next-Token Diffusion	60
+2604.12928	MoshiRAG: Asynchronous Knowledge Retrieval for Full-Duplex Speech Language Models	16
+2603.06577	Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion	11
+2604.08540	AVGen-Bench: A Task-Driven Benchmark for Multi-Granular Evaluation of Text-to-Audio-Video Generation	18
+2602.02494	MEG-XL: Data-Efficient Brain-to-Text via Long-Context Pre-Training	8
+2605.23235	Convex Low-resource Accent-Robust Language Detection in Speech Recognition	0
+2606.12940	Self-Guidance: Enhancing Neural Codecs via Decoder Manifold Alignment	0
+2606.09962	Optimality of FSQ Tokens for Continuous Diffusion for Categorical Data with Application to Text-to-Speech	0
+2606.05101	FoeGlass: Simple In-Context Learning Is Enough for Red Teaming Audio Deepfake Detectors	1
+2606.01479	Sparse Autoencoders for Interpretable Emotion Control in Text-to-Speech	3
+2606.00523	ProactiveLLM: Learning Active Interaction for Streaming Large Language Models	0
+2605.27772	Do Audio LLMs Listen or Read? Analyzing and Mitigating Paralinguistic Failures with VoxParadox	10
+2605.24920	Quaternion Self-Attention with Shared Scores	1
+2605.17583	AgentSteerTTS: A Multi-Agent Closed-Loop Framework for Composite-Instruction Text-to-Speech	1
+2605.01809	TMD-Bench: A Multi-Level Evaluation Paradigm for Music–Dance Co-Generation	2
+2605.00969	MedMosaic: A Challenging Large Scale Benchmark of Diverse Medical Audio	2
+2605.00251	Alethia: a Foundational Encoder for Voice Deepfakes	1
+2605.27383	Bridging the Stability-Expressivity Gap: Synthetic Data Scaling and Preference Alignment for Low-Resource Spoken Language Models	4
+2603.17837	The Silent Thought: Modeling Internal Cognition in Full-Duplex Spoken Dialogue Models via Latent Reasoning	12
+2603.01006	AG-REPA: Causal Layer Selection for Representation Alignment in Audio Flow Matching	1
+2602.22266	WaveSSM: Multiscale State-Space Models for Non-stationary Signal Attention	1
+2602.15405	Joint Enhancement and Classification using Coupled Diffusion Models of Signals and Logits	0
+2602.12714	ADEPT: RL-Aligned Agentic Decoding of Emotion via Evidence Probing Tools — From Consensus Learning to Ambiguity-Driven Emotion Reasoning	1
+2602.11072	Simultaneous Speech-to-Speech Translation Without Aligned Data	9
+2602.03420	CoCoEmo: Composable and Controllable Human-Like Emotional TTS via Activation Steering	10
+2602.04081	Abstraction Induces the Brain Alignment of Language and Speech Models	4
+2602.00568	Dual-View Predictive Diffusion: Lightweight Speech Enhancement via Spectrogram-Image Synergy	0
+2601.22661	Evaluating and Rewarding LALMs for Expressive Role-Play TTS via Mean Continuation Log-Probability	2
+2601.10272	MoST: Mixing Speech and Text with Modality-Aware Mixture of Experts	2
+2512.13247	STARCaster: Spatio-Temporal AutoRegressive Video Diffusion for Identity- and View-Aware Talking Portraits	0
+2512.10120	VocSim A Training-free Benchmark for Zero-shot Content Identity in Single-source Audio	0
+2512.01537	Two-dimensional quantization for geometry-aware audio coding	0
+2511.10222	Speech-Audio Compositional Attacks on Multimodal LLMs and Their Mitigation with SALMONN-Guard	14
+2510.25955	SPEAR: A Unified SSL Framework for Learning Speech and Audio\n  Representations	20
+2510.17633	SARSteer: Safeguarding Large Audio Language Models via Safe-Ablated Refusal Steering	8
+2510.02044	Stream RAG: Instant and Accurate Spoken Dialogue Systems with Streaming\n  Tool Usage	25
+2509.21003	Query-Based Asymmetric Modeling with Decoupled Input–Output Rates for Speech Restoration	1
+2508.10016	Training-Free Multimodal Large Language Model Orchestration	3
+## icml-2026 :: audio
+id	title	citations
+2512.18099	SAM Audio: Segment Anything in Audio	45
+2602.10934	MOSS-Audio-Tokenizer: Scaling Audio Tokenizers for Future Audio Foundation Models	14
+2512.25066	From Inpainting to Editing: A Self-Bootstrapping Framework for Context-Rich Visual Dubbing	0
+2603.06507	Self-Supervised Flow Matching for Scalable Multi-Modal Synthesis	30
+2603.00610	CMI-RewardBench: Evaluating Music Reward Models with Compositional Multimodal Instruction	9
+2601.13836	FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs	8
+2604.11804	OmniShow: Unifying Multimodal Conditions for Human-Object Interaction Video Generation	7
+2606.19341	Native Active Perception as Reasoning for Omni-Modal Understanding	6
+2605.30940	Towards Streaming Synchronized Spatial Audio Generation via Autoregressive Diffusion Transformer	3
+2605.14231	AudioMosaic: Contrastive Masked Audio Representation Learning	2
+2602.08711	TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions	9
+2512.21094	T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation	19
+2602.18527	JAEGER: Joint 3D Audio-Visual Grounding and Reasoning in Simulated Physical Environments	5
+2412.08635	Multimodal Latent Language Modeling with Next-Token Diffusion	60
+2602.12160	DreamID-Omni: Unified Framework for Controllable Human-Centric Audio-Video Generation	19
+2601.22599	A Semantically Consistent Dataset for Data-Efficient Query-Based Universal Sound Separation	3
+2508.03448	SonicMaster: Towards Controllable All-in-One Music Restoration and   Mastering	12
+2507.23511	MECAT: A Multi-Experts Constructed Benchmark for Fine-Grained Audio\n  Understanding Tasks	15
+2604.08540	AVGen-Bench: A Task-Driven Benchmark for Multi-Granular Evaluation of Text-to-Audio-Video Generation	18
+2505.18853	Smoothie: Smoothing Diffusion on Token Embeddings for Text Generation	9
+2602.11509	Multimodal Fact-Level Attribution for Verifiable Reasoning	3
+2602.03098	TextME: Bridging Unseen Modalities Through Text Descriptions	3
+2512.23222	Bridging Your Imagination with Audio-Video Generation via a Unified Director	4
+2606.07271	Where Rectified Flows Leak: Characterising Membership Signals Along the Interpolation Path	0
+2606.23064	STAR-VAE: Structured Topology-Aware Regularization for Audio Reconstruction and Generation	0
+2606.12940	Self-Guidance: Enhancing Neural Codecs via Decoder Manifold Alignment	0
+2606.10504	Cross-Modal Knowledge Distillation without Paired Data: Theoretical Foundation and Algorithm	0
+2606.04921	SURF: Separation via Unsupervised Remixing Flow	0
+2606.05101	FoeGlass: Simple In-Context Learning Is Enough for Red Teaming Audio Deepfake Detectors	1
+2606.03540	Attend to Anything: Foundation Model for Unified Human Attention Modeling	1
+2606.07643	AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs	2
+2606.02724	AVTrack: Audio-Visual Tracking in Human-centric Complex Scenes	1
+2606.00959	Towards Understanding Modality Interaction in Multimodal Language Models via Partial Information Decomposition	20
+2606.00508	V-LynX: Token Interface Alignment for Video+X LLMs	0
+2605.27944	From Talking to Singing: A New Challenge for Audio-Visual Deepfake Detection	0
+2605.28491	DiscoForcing: A Unified Framework for Real-Time Audio-Driven Character Control with Diffusion Forcing	0
+2605.27772	Do Audio LLMs Listen or Read? Analyzing and Mitigating Paralinguistic Failures with VoxParadox	10
+2605.25967	Hidden in Plain Tokens: Simply Robust, Gradient-Free Watermark for Synthetic Audio	4
+2605.19325	An Exterior Method for Nonnegative Matrix Factorization	1
+2605.18168	Acoustic Interference: A New Paradigm Weaponizing Acoustic Latent Semantic for Universal Jailbreak against Large Audio Language Models	2
+2605.13651	NAACA: Training-Free NeuroAuditory Attentive Cognitive Architecture with Oscillatory Working Memory for Salience-Driven Attention Gating	0
+2605.10815	Probing Cross-modal Information Hubs in Audio-Visual LLMs	5
+2605.08805	LightAVSeg: Lightweight Audio-Visual Segmentation	0
+2605.04700	Sparse Tokens Suffice: Jailbreaking Audio Language Models via Token-Aware Gradient Optimization	1
+2605.03929	PHALAR: Phasors for Learned Musical Audio Representations	1
+2605.01809	TMD-Bench: A Multi-Level Evaluation Paradigm for Music–Dance Co-Generation	2
+2605.00969	MedMosaic: A Challenging Large Scale Benchmark of Diverse Medical Audio	2
+2605.00251	Alethia: a Foundational Encoder for Voice Deepfakes	1
+2605.27383	Bridging the Stability-Expressivity Gap: Synthetic Data Scaling and Preference Alignment for Low-Resource Spoken Language Models	4
+2604.03314	CoLA: Cross-Modal Low-rank Adaptation for Multimodal Downstream Tasks	0
+2603.13686	$\\tau$-Voice: Benchmarking Full-Duplex Voice Agents on Real-World Domains	36
+2603.01006	AG-REPA: Causal Layer Selection for Representation Alignment in Audio Flow Matching	1
+2602.22266	WaveSSM: Multiscale State-Space Models for Non-stationary Signal Attention	1
+2602.17097	AudioChat: Unified Audio Storytelling, Editing, and Understanding with Transfusion Forcing	9
+2602.16979	Characterizing the Predictive Impact of Modalities with Supervised Latent-Variable Modeling	0
+2602.16305	BAT: Better Audio Transformer Guided by Convex Gated Probing	0
+2602.14761	Universal Algorithm-Implicit Learning	1
+2602.13685	AuTAgent: A Reinforcement Learning Framework for Tool-Augmented Audio Reasoning	7
+2602.11206	UltraLIF: Fully Differentiable Spiking Neural Networks via Ultradiscretization and Max-Plus Algebra	0
+2602.08355	E-VAds: An E-commerce Short Videos Understanding Benchmark for MLLMs	4
+2602.05670	HyperPotter: Spell the Charm of High-Order Interactions in Audio Deepfake Detection	1
+2602.05847	OmniVideo-R1: Reinforcing Audio-visual Reasoning with Query Intention and Modality Attention	16
+2602.04796	LALM-as-a-Judge: Benchmarking Large Audio-Language Models for Safety Evaluation in Multi-Turn Spoken Dialogues	6
+2602.04804	OmniSIFT: Modality-Asymmetric Token Compression for Efficient Omni-modal Large Language Models	25
+2602.04081	Abstraction Induces the Brain Alignment of Language and Speech Models	4
+2602.00568	Dual-View Predictive Diffusion: Lightweight Speech Enhancement via Spectrogram-Image Synergy	0
+2601.22661	Evaluating and Rewarding LALMs for Expressive Role-Play TTS via Mean Continuation Log-Probability	2
+2601.22575	PhoStream: Benchmarking Real-World Streaming for Omnimodal Assistants in Mobile Scenarios	12
+2601.21124	PhaseCoder: Microphone Geometry-Agnostic Spatial Audio Understanding for Multimodal LLMs	9
+2601.10272	MoST: Mixing Speech and Text with Modality-Aware Mixture of Experts	2
+2512.13247	STARCaster: Spatio-Temporal AutoRegressive Video Diffusion for Identity- and View-Aware Talking Portraits	0
+2512.11229	REST: Diffusion-based Real-time End-to-end Streaming Talking Head Generation via ID-Context Caching and Asynchronous Streaming Distillation	5
+2512.10324	EchoingPixels: Cross-Modal Adaptive Token Reduction for Efficient Audio-Visual LLMs	6
+2512.10120	VocSim A Training-free Benchmark for Zero-shot Content Identity in Single-source Audio	0
+2512.01537	Two-dimensional quantization for geometry-aware audio coding	0
+2511.21325	SONAR: Spectral‑Contrastive Audio Residuals for Generalizable Deepfake Detection	1
+2511.10222	Speech-Audio Compositional Attacks on Multimodal LLMs and Their Mitigation with SALMONN-Guard	14
+2511.05705	Long Grounded Thoughts: Distilling Compositional Visual Reasoning Chains at Scale	2
+2510.25955	SPEAR: A Unified SSL Framework for Learning Speech and Audio\n  Representations	20
+2510.17633	SARSteer: Safeguarding Large Audio Language Models via Safe-Ablated Refusal Steering	8
+2510.11129	video-SALMONN S: Memory-Enhanced Streaming Audio-Visual LLM	3
+2510.02916	SALSA-V: Shortcut-Augmented Long-form Synchronized Audio from Videos	0
+2510.02044	Stream RAG: Instant and Accurate Spoken Dialogue Systems with Streaming\n  Tool Usage	25
+2507.10419	Multiple Choice Learning of Low Rank Adapters for Language Modeling	2
+2505.18726	Bioacoustic Geolocation: Species Sounds as Geographic Signals	5
+2503.11367	Efficient Distributed MLLM Training with Cornstarch	6
+2410.15475	Multimodal Fusion via Self-Consistent Task-Gradient Fields	0
+## icml-2026 :: whisper
+id	title	citations
+2512.10120	VocSim A Training-free Benchmark for Zero-shot Content Identity in Single-source Audio	0
+## icml-2026 :: spoken
+id	title	citations
+2605.23235	Convex Low-resource Accent-Robust Language Detection in Speech Recognition	0
+2605.27383	Bridging the Stability-Expressivity Gap: Synthetic Data Scaling and Preference Alignment for Low-Resource Spoken Language Models	4
+2603.17837	The Silent Thought: Modeling Internal Cognition in Full-Duplex Spoken Dialogue Models via Latent Reasoning	12
+2602.04796	LALM-as-a-Judge: Benchmarking Large Audio-Language Models for Safety Evaluation in Multi-Turn Spoken Dialogues	6
+2601.10272	MoST: Mixing Speech and Text with Modality-Aware Mixture of Experts	2
+2511.10222	Speech-Audio Compositional Attacks on Multimodal LLMs and Their Mitigation with SALMONN-Guard	14
+2510.02044	Stream RAG: Instant and Accurate Spoken Dialogue Systems with Streaming\n  Tool Usage	25

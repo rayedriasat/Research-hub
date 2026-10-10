@@ -1,0 +1,111 @@
+% ============================================================
+% 04. EVALUATION
+% ============================================================
+\section{Evaluation}
+\label{sec:evaluation}
+
+We organise the evaluation around four research questions: \textbf{RQ1} where registers, massive activations and sinks form in speech encoders; \textbf{RQ2} which account of sink formation predicts their location; \textbf{RQ3} which of these structures Whisper needs, in the encoder and in the decoder; \textbf{RQ4} whether \method{} removes padding without loss. This draft reports the \emph{pilot} that motivated the study (three Whisper sizes, 100 utterances each) and specifies the full evaluation. Pilot numbers are marked as such and should be read as indicative.
+
+\subsection{Experimental Setup}
+\label{sec:setup}
+
+The pilot uses the 100 LibriSpeech test-clean utterances with duration 2--8\,s selected by a fixed random seed (mean 4.7\,s), greedy decoding with the prompt \texttt{<|startoftranscript|><|en|><|transcribe|><|notimestamps|>}, a 160-token limit, and frozen public checkpoints. The full evaluation (planned) extends this to six Whisper sizes plus distil-large-v3, LibriSpeech test-clean/other in full, TED-LIUM~3, FLEURS in seven languages including Bengali, a short-command set, and noisy and long-form conditions; it adds wall-clock timing on T4 and RTX-3050 GPUs at batch sizes 1 and 16. The census for RQ1 covers about 18 checkpoints: Whisper, Moonshine (trained without padding~\cite{jeffries2024moonshine}), post-LN and pre-LN self-supervised encoders, AST with its CLS and distillation tokens~\cite{gong2021ast}, and the audio towers of audio language models that mask padding or use windows. Implementation details are listed in \appref{app:implementation}.
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{8pt}
+\caption{Pilot configuration. Every value is fixed a priori; nothing is tuned on the test utterances.}
+\label{tab:setup}
+\begin{tabular}{l l}
+\toprule
+\textbf{Parameter} & \textbf{Setting} \\
+\midrule
+Dataset & LibriSpeech test-clean, 100 utts, 2--8\,s \\
+Models & Whisper base, small, large-v3-turbo \\
+Training & none (frozen checkpoints) \\
+Decoding & greedy, English, no timestamps \\
+Cache source & one 30\,s digital-silence input \\
+Random seeds & 0 (utterances, random-$k$) \\
+Hardware & RTX 3050 Laptop 4\,GB (fp32; turbo fp16) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Evaluation Metrics}
+\label{sec:metrics}
+
+WER follows Eq.~\eqref{eq:objective} after Whisper's English normaliser. Because looping transcripts inflate WER without bound, we also report the hallucination rate
+\begin{equation}
+    \mathrm{Hal}
+    = \frac{1}{n}\sum_{i=1}^{n}
+      \mathbf{1}\!\left[\,|\widehat{y}_i|>|y_i|+3\ \ \lor\ \ \mathrm{rep}(\widehat{y}_i)\right],
+    \label{eq:accuracy}
+\end{equation}
+where $|\cdot|$ counts words and $\mathrm{rep}$ detects a three-word phrase repeated at least twice. Cost is reported as encoder FLOPs relative to padded inference (Eq.~\eqref{eq:cost}); the full evaluation adds measured latency, real-time factor and peak memory, and 95\% bootstrap confidence intervals with paired tests against padded inference.
+
+\subsection{Main Results}
+\label{sec:results}
+
+Table~\ref{tab:results} compares padded inference, removal of padding, real partial padding and the \method{} variants on the same utterances. Three results stand out. First, removing padding is catastrophic for all sizes (WER 214--428\%), and real 5\,s padding is not a safe substitute: it is adequate for base and small but gives 35.1\% for large-v3-turbo. Second, the two roles of silence are separable and complementary. The cached tail alone fixes most loops for base and small but not for turbo (22.7\%), while cached keys and values alone do not prevent loops; together they match or improve padded WER in every model (5.12/2.64/1.71\% vs.\ 5.28/2.56/2.02\%) at 0.157$\times$ the encoder FLOPs. Third, removing high-norm register frames from the decoder's view, or masking encoder attention to them from the emergence block onwards, leaves WER essentially unchanged.
+
+\begin{table*}[!t]
+\centering
+\caption{\textbf{Pilot: what Whisper needs from its padding} (LibriSpeech test-clean, 100 utterances of 2--8\,s, greedy decoding). WER and hallucination rate (Hal, Eq.~\ref{eq:accuracy}) in \%, encoder FLOPs relative to 30\,s padding. ``tail'': the decoder also sees cached silence outputs; ``KV'': speech queries attend to cached silence keys/values; top-/random-16: only 16 cached positions (largest received attention in the silence run vs.\ random). Shaded rows are \method{}. Register frames are the highest-norm positions at the emergence block. All numbers are pilot results; confidence intervals are part of the planned full evaluation.}
+\label{tab:results}
+
+\scriptsize
+\setlength{\tabcolsep}{9pt}
+\renewcommand{\arraystretch}{0.95}
+\setlength{\aboverulesep}{1pt}
+\setlength{\belowrulesep}{1pt}
+\setlength{\heavyrulewidth}{0.1pt}
+\setlength{\lightrulewidth}{0.1pt}
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l|ccc|ccc|ccc@{}}
+\toprule
+& \multicolumn{3}{c|}{\textbf{Whisper-base}} & \multicolumn{3}{c|}{\textbf{Whisper-small}} & \multicolumn{3}{c}{\textbf{Whisper-large-v3-turbo}} \\
+\cmidrule{2-4}\cmidrule{5-7}\cmidrule{8-10}
+\textbf{Condition} & WER & Hal & FLOPs & WER & Hal & FLOPs & WER & Hal & FLOPs \\
+\midrule
+30\,s padding (standard) & 5.28 & 1.0 & 1.000 & 2.56 & 1.0 & 1.000 & 2.02 & 1.0 & 1.000 \\
+no padding & 372.77 & 43.0 & 0.115 & 214.35 & 27.0 & 0.125 & 427.77 & 60.0 & 0.136 \\
+5\,s real padding & 5.82 & 1.0 & 0.253 & 2.79 & 1.0 & 0.271 & 35.07 & 13.0 & 0.288 \\
+\midrule
+cached tail only & 5.66 & 1.0 & 0.115 & 3.96 & 1.0 & 0.125 & 22.73 & 0.0 & 0.136 \\
+cached KV only & 61.60 & 10.0 & 0.157 & 426.84 & 48.0 & 0.157 & 316.52 & 72.0 & 0.157 \\
+\proposedcell{\textbf{\method{}} (KV + tail)} & \proposedbest{5.12} & \proposedcell{1.0} & \proposedcell{0.157} & \proposedcell{2.64} & \proposedcell{1.0} & \proposedcell{0.157} & \proposedbest{1.71} & \proposedcell{1.0} & \proposedcell{0.157} \\
+\proposedcell{\textbf{\method{}}-top-16 (KV + tail)} & \proposedcell{5.43} & \proposedcell{1.0} & \proposedcell{0.115} & \proposedcell{3.80} & \proposedcell{1.0} & \proposedcell{0.126} & \proposedcell{2.64} & \proposedcell{1.0} & \proposedcell{0.136} \\
+random-16 KV + tail (control) & 5.74 & 1.0 & 0.115 & 3.96 & 1.0 & 0.126 & 17.53 & 0.0 & 0.136 \\
+KV + top-16 tail positions only & 14.27 & 2.0 & 0.157 & 12.34 & 2.0 & 0.157 & 1.94 & 1.0 & 0.157 \\
+\midrule
+padded; 16 register frames removed from decoder & 5.51 & 1.0 & 1.000 & 2.56 & 1.0 & 1.000 & 2.02 & 1.0 & 1.000 \\
+padded; encoder attention to 16 register frames masked & -- & -- & -- & 2.40 & 1.0 & 1.000 & 1.86 & 1.0 & 1.000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{topk_vs_random.pdf}
+    \caption{The encoder's use of silence is concentrated in a few attention-sink positions, and increasingly so with model size. WER when speech queries attend to $k$ cached silence positions chosen by received attention in the silence-only run (blue) or at random (red); the decoder sees the full cached tail in both cases. For large-v3-turbo, 4--16 sink positions recover most of the gap to padded inference, while random positions do not. Pilot, 100 utterances.}
+    \label{fig:topk}
+\end{figure*}
+
+The top-$k$ results locate the encoder-side effect (Fig.~\ref{fig:topk}). For base and small, the choice of cached positions barely matters, consistent with their weak dependence on encoder-side silence. For large-v3-turbo the gap is large: 16 high-attention positions give 2.64\% WER versus 17.53\% for 16 random ones, and the curves meet only at $k=256$. The highest-attention silence positions are at fixed absolute indices: for large-v3-turbo they are positions 0, 1496, 1499, 1487, 1455, 1495, 1456 and 1494. This suggests why 5\,s of real padding fails for turbo: it never fills the end-of-window positions. We treat this as a hypothesis for the full evaluation (H3d in the project plan).
+
+\subsection{Ablation Study}
+\label{sec:ablation}
+
+Two ablations isolate what \method{} relies on. \emph{Registers versus sinks.} Masking or removing the highest-norm frames, the registers in the sense of~\cite{darcet2024registers}, does not change WER (Table~\ref{tab:results}, last rows), whereas restricting the cache to random rather than high-attention positions does. Functional reliance therefore follows received attention, not norm. This agrees with evidence that sinks can exist without massive activations~\cite{sun2026anatomy}. One caveat: in base, the high-attention silence positions include the top-norm frames (positions 1445, 1446, 1453 and 1454), so the overlap between the two sets must be measured per layer before the dissociation is claimed in general (planned experiment E4). \emph{Decoder tail size.} With the full key/value cache, base and small still need many tail positions (14.27\% and 12.34\% WER with only the top-16), while turbo needs very few (1.94\%). How much silence the decoder must see, and whether nearest-first or highest-attention tail positions matter, is the subject of a planned tail-length sweep.
+
+\subsection{Additional Analysis}
+\label{sec:additional-analysis}
+
+\paragraph{Partial padding helps gradually, but only in small models.} With real zero padding on Whisper-base, WER falls from 31.2\% with 1\,s to 16.3\% with 2\,s and 5.9\% with 5\,s or 10\,s (\appref{app:supp-results}), whereas large-v3-turbo still has 35.1\% with 5\,s (Table~\ref{tab:results}). Transplanting the keys/values of four register frames from a padded run into an unpadded one does not help (315\% WER), while appending a padding tail from a \emph{speech} reference gives 24.5\%, far worse than the content-free silence tail (5.66\%). The tail must therefore be silence-conditioned, not merely ``padding-shaped''.
+
+\paragraph{Non-speech audio.} On 200 ESC-50 clips~\cite{piczak2015esc} the silence tail shortens runaway outputs but does not prevent short hallucinations. For large-v3-turbo the share of clips with any output is 78.5\% with padding, 98.0\% without, and 100\% with the tail; mean output length is 1.10, 16.27 and 1.32 words respectively. Non-speech hallucination is therefore treated as exploratory (\appref{app:supp-results}).
+
+\paragraph{Planned analyses.} (a) The RQ1 census with entropy and anisotropy per layer. (b) A factorial over the energy, redundancy, position and duration of inserted non-speech blocks, which pits the redundancy~\cite{darcet2024registers}, least-shared~\cite{ngnawe2026spike} and self-sinking~\cite{sun2026anatomy,li2026structural} accounts against each other. (c) Mask-to-self interventions~\cite{li2026structural}. (d) Decoder cross-attention anatomy at end-of-transcript steps. (e) Audio-LLM encoders whose padding is masked or absent. (f) A benchmark against a re-trained hush word~\cite{wang2024whisperflow}, fine-tuned short-context checkpoints, stride-$k$~\cite{cho2026stridek} and combinations.

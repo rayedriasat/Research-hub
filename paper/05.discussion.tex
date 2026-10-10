@@ -1,0 +1,19 @@
+% ============================================================
+% 05. DISCUSSION
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+The pilot changes the question from ``do speech transformers need registers?'' to ``what does silence do for them?''. Its answer is that Whisper uses silence as a source of attention sinks and end-of-speech evidence, and that the high-norm register tokens, though present, are not what it relies on. The causal language here is limited to interventions on three models and 100 utterances; the full evaluation is designed to test each statement at scale.
+
+\subsection{Interpretation}
+
+Two mechanisms are consistent with the results. On the decoder side, silent encoder states give cross-attention somewhere to go once the transcript is complete. Without them the decoder re-reads the speech and loops, which matches the observation that unpadded failures are dominated by continuations beyond the reference~\cite{lee2026npusper}, and the view that softmax attention needs a sink to realise a default state~\cite{ranmilo2026necessary}. On the encoder side, speech queries of larger models attend to a few silence positions at fixed indices near the window edges. Proposition~\ref{prop:placeholder} explains why such sinks can be cached: what matters to other tokens is the sink's key and value. Their anchoring to absolute positions resembles the first-token sink of causal language models~\cite{sun2026anatomy,li2026structural}, but here it appears at both ends of a bidirectional window. Why it appears there, and why it strengthens with scale, is open. The planned factorial and mask-to-self experiments address it. We label as speculative the idea that end-of-window sinks arise because padding always occupies those positions during training.
+
+\subsection{Limitations}
+
+The pilot uses read English speech, short utterances, greedy decoding and three checkpoints. Long-form decoding with timestamps, beam search, noisy and multilingual speech are untested, and the large-v3 encoder was not yet run. FLOPs are analytic; attention to cached keys may not yield proportional wall-clock gains with all kernels. The cache is computed from digital silence; recordings whose ``silence'' is noise may need a cache matched to the noise floor. The dissociation between sinks and registers depends on how the two sets are selected; this is unresolved where they overlap (e.g.\ base). Finally, \method{} assumes access to model internals, unlike API-only deployments.
+
+\subsection{Broader Implications and Future Work}
+
+If the account holds, three things follow. Any transformer trained with fixed-length padding may learn to depend on it, so removing padding should preserve its sinks rather than simply truncate. Analyses of speech representations should report silence handling, because massive activations and sinks on silent frames dominate norms and attention statistics. And audio language models built on Whisper encoders inherit, mask or lose these sinks depending on their padding regime, which may matter for audio-token pruning and hallucination. Future work includes the audio-LLM natural experiment, streaming with cached sinks, and training-time interventions (explicit silence registers or gated attention~\cite{qiu2025gated}) that would make speech models robust to variable-length input by design.

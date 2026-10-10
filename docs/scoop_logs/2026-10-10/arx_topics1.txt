@@ -1,0 +1,67 @@
+
+### abs:whisper AND (abs:padding OR abs:"30-second" OR abs:"30 s" OR abs:"zero-padding") -> 13
+  2026-08-11 2608.11329v1 Qwen-MusicAVQA-7B: A Multimodal Model for Music Audio-Visual QA
+  2026-07-01 2607.01108v1 NPUsper: Eliminating Redundant Computation for Real-Time Whisper on Mobile NPUs
+  2026-06-02 2606.02998v1 CoughSense: Five-Class Respiratory Disease Classification via Whisper Encoder Fine-Tuning and Dual-Encoder Cross-Attention Fusion with Balanced Contrastive Learning
+  2026-03-11 2603.10324v1 NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction
+  2026-01-21 2601.15118v2 WavLink: Compact Audio-Text Embeddings with a Global Whisper Token
+  2025-11-05 2511.03675v1 Whisper Leak: a side-channel attack on Large Language Models
+  2025-09-23 2509.19270v2 SloPal: A 60-Million-Word Slovak Parliamentary Corpus with Aligned Speech and Fine-Tuned ASR Models
+  2025-06-28 2506.22858v1 Mind the Gap: Entity-Preserved Context-Aware ASR Structured Transcriptions
+  2025-03-07 2503.05931v2 Training and Inference Efficiency of Encoder-Decoder Speech Models
+  2024-12-15 2412.11272v2 WhisperFlow: speech foundation models in real time
+  2024-11-19 2411.12587v1 Whisper Finetuning on Nepali Language
+  2024-10-21 2410.15608v2 Moonshine: Speech Recognition for Live Transcription and Voice Commands
+  2024-09-25 2409.17054v2 Using LLM for Real-Time Transcription and Summarization of Doctor-Patient Interactions into ePuskesmas in Indonesia: A Proof-of-Concept Study
+
+### abs:whisper AND (abs:quantization OR abs:outlier OR abs:outliers) -> 32
+  2026-09-24 2609.29371v1 BanglaTurn: A Benchmark and Whisper-Based Model for End-of-Turn Detection in Bangla Speech
+  2026-09-23 2609.28739v1 Temporal Taxation Compounds Under Post-Training Compression of Whisper Models
+  2026-08-21 2609.04245v1 Grounded Decoding for Autoregressive Speech Enhancement via Adaptive Code-Space Grounding and Local LLM Refinement
+  2026-07-27 2607.27245v2 Enhancing Law-Enforcement Audio Transcription: A LoRA-Based Adaptation of Whisper for BWC Footage
+  2026-04-16 2604.14493v2 Pushing the Limits of On-Device Streaming ASR: A Compact, High-Accuracy English Model for Low-Latency Inference
+  2026-01-05 2601.02455v3 Diagnostic-Driven Layer-Wise Compensation for Post-Training Quantization of Encoder-Decoder ASR Models
+  2025-12-25 2512.21653v2 Decoder-Side Semantic Conditioning for Low-Bitrate Neural Speech Compression
+  2025-11-11 2511.08093v2 Quantizing Whisper-small: How design choices affect ASR performance
+  2025-10-29 2510.25150v1 Explainable Disentanglement on Discrete Speech Representations for Noise-Robust ASR
+  2025-08-18 2508.13042v1 Macroscopic coherence and vorticity in room-temperature polariton condensate confined in a self-assembled perovskite microcavity
+  2025-07-20 2507.14898v1 Parameter-Efficient Fine-Tuning of Foundation Models for CLP Speech Classification
+  2025-07-10 2507.07877v2 Edge-ASR: Towards Low-Bit Quantization of Automatic Speech Recognition Models
+  2025-03-12 2503.09905v1 Quantization for OpenAI's Whisper Models: A Comparative Analysis
+  2024-10-19 2410.14971v3 BrainECHO: Semantic Brain Signal Decoding through Vector-Quantized Spectrogram Reconstruction for Whisper-Enhanced Text Generation
+  2024-06-16 2406.11022v1 Outlier Reduction with Gated Attention for Improved Post-training Quantization in Large Sequence-to-sequence Speech Foundation Models
+  2024-05-02 2405.00966v1 Efficient Compression of Multitask Multilingual Speech Models
+  2023-10-10 2310.06927v2 Sparse Fine-tuning for Inference Acceleration of Large Language Models
+  2023-05-18 2305.10788v2 DQ-Whisper: Joint Distillation and Quantization for Efficient Multilingual Speech Recognition
+  2023-03-02 2303.01037v3 Google USM: Scaling Automatic Speech Recognition Beyond 100 Languages
+  2023-01-04 2301.01418v2 Magnetic light amplification by stimulated emission of radiation in subwavelength systems of a dielectric cavity and magnetic quantum emitters
+  2022-12-04 2212.01775v2 Generative Models for Improved Naturalness, Intelligibility, and Voicing of Whispered Speech
+  2022-02-20 2202.09731v2 Fractional optical angular momentum and multi-defect-mediated mode re-normalization and orientation control in photonic crystal microring resonators
+  2019-07-16 1907.06900v2 Resonance--Assisted Tunneling in Deformed Optical Microdisks with a Mixed Phase Space
+  2018-07-04 1807.01553v1 Multiwall nanotubes of molybdenum disulfide as optical resonators
+  2017-11-20 1711.07136v1 On-chip radially and azimuthally polarized vortex beam generation utilizing shallow-etched gratings
+  2015-12-15 1512.04827v2 Non-Hermitian Hamiltonian and Lamb shift in circular dielectric microcavity
+  2013-05-30 1305.7107v1 Twofold Transition in PT-Symmetric Coupled Oscillators
+  2012-03-06 1203.1121v1 Rotational optomechanical coupling of a spinning dielectric sphere
+  2010-11-01 1011.0252v1 Quantum electrodynamics in a whispering-gallery microcavity coated with a polymer nanolayer
+  2008-03-06 0803.0942v1 Asymptotic solution of the Schrodinger equation for the elliptic wire in the magnetic field
+  2001-05-24 0105472v2 Excitation spectra for Andreev billiards of Box and Disk geometries
+  1998-06-17 9806020v1 Dynamical tunneling in optical cavities
+
+### (abs:"audio language model" OR abs:"audio LLM" OR abs:"speech LLM" OR abs:LALM OR abs:LALMs) AND (abs:"token pruning" OR abs:"token compression" OR abs:"token reduction" OR abs:"token merging") -> 7
+  2026-09-30 2609.38878v1 Audio Token Attention Is Predictable Before the Language Model Runs
+  2026-05-24 2605.25179v1 Locality Matters for Training-Free Audio Token Compression in Audio-Language Models
+  2026-04-26 2604.23717v1 HeadRouter: Dynamic Head-Weight Routing for Task-Adaptive Audio Token Pruning in Large Audio Language Models
+  2025-11-18 2511.14293v1 Segmentwise Pruning in Audio-Language Models
+  2025-11-14 2511.11039v2 Listening Between the Frames: Bridging Temporal Gaps in Large Audio-Language Models
+  2025-10-08 2510.07293v1 AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs
+  2024-12-16 2412.12009v2 SpeechPrune: Context-aware Token Pruning for Speech Information Retrieval
+
+### (abs:"audio language model" OR abs:"audio LLM" OR abs:"speech LLM" OR abs:LALMs OR abs:"omni") AND (abs:sink OR abs:sinks OR abs:"massive activation" OR abs:"high-norm" OR abs:"attention hub" OR abs:hubs) -> 7
+  2026-08-24 2608.22704v2 WnW: Waxing-and-Waning KV Cache for Long-Form Speech LLMs
+  2026-07-02 2607.02640v1 Metronome: Bound the Cache, Keep the Beat for Real-Time Interaction Model Serving
+  2026-03-15 2603.14337v2 On the Nature of Attention Sink that Shapes Decoding Strategy in Omni-LLMs
+  2025-12-29 2512.23576v1 LiveTalk: Real-Time Multimodal Interactive Video Diffusion via Improved On-Policy Distillation
+  2024-09-20 2409.13518v1 On graphs isomorphic with their conduction graph
+  2019-12-30 1912.12788v2 Design of Small Multi-band Full-screen Smartwatch Antenna for IoT applications
+  2018-08-20 1808.06355v1 Deep learning, deep change? Mapping the development of the Artificial Intelligence General Purpose Technology

@@ -1,0 +1,145 @@
+% ============================================================
+% APPENDICES
+% The main text cites these with the section-sign style, e.g., \appref{app:notation} (rendered as \S A).
+% ============================================================
+\clearpage
+\onecolumngrid
+\appendix
+
+\section{Notation and Symbols}
+\label{app:notation}
+
+This section collects the notation used in the paper. The WER is defined in \eqnref{eq:objective}, attention in \eqnref{eq:loss}, the cached keys/values of \method{} in \eqnref{eq:update}, the hallucination rate in \eqnref{eq:accuracy} and the per-layer cost in \eqnref{eq:cost}.
+
+\begin{small}
+\begin{description}
+    \item[$N=1500$] Number of Whisper encoder positions in a 30\,s window (20\,ms each).
+    \item[$T$] Encoder positions covered by the utterance, $T=\lceil 50\tau\rceil$ for duration $\tau$ in seconds.
+    \item[$L$, $d$, $f$] Number of encoder layers, model width and MLP width ($f=4d$).
+    \item[$\mathbf{X}^{(\ell)}$, $\mathbf{x}^{(\ell)}_j$] Hidden states of layer $\ell$ (before the final LayerNorm) and the state at position $j$.
+    \item[$\mathbf{q}_i,\mathbf{k}_j,\mathbf{v}_j$, $a_{ij}$] Query, key, value and attention weight of a head.
+    \item[$\bar a_j$] Received attention of position $j$, averaged over heads and queries.
+    \item[$\Psi^{(\ell)}$] Ratio of the largest to the median absolute activation in layer $\ell$.
+    \item[$\mathbf{K}^{(\ell)}_{\varnothing},\mathbf{V}^{(\ell)}_{\varnothing}$] Keys and values of layer $\ell$ for a 30\,s silence input.
+    \item[$\mathbf{S}$] Encoder outputs for the silence input; $\mathbf{S}_{T+1:N}$ is the ``tail''.
+    \item[$\mathcal{C}$, $\mathcal{D}$] Cached silence positions used as extra keys (encoder) and as extra memory (decoder).
+    \item[$\mathbf{H}$] Encoder outputs given to the decoder.
+    \item[$C(T_q,T_k)$] FLOPs of one encoder layer with $T_q$ queries and $T_k$ keys.
+    \item[$\mathrm{WER}$, $\mathrm{Hal}$] Word error rate and hallucination rate (\%).
+\end{description}
+\end{small}
+
+\section{Additional Derivations}
+\label{app:derivations}
+
+\paragraph{Encoder cost.} A pre-LN block applies four $d\times d$ projections (query, key, value, output) and a two-layer MLP of width $f$ to each of the $T_q$ query positions, i.e.\ $T_q(4d^2+2df)$ multiply--accumulates. Attention scores and the weighted sum of values each need $T_qT_kd$ multiply--accumulates. Counting a multiply--accumulate as two FLOPs gives
+\begin{align}
+    C(T_q,T_k)
+    &= 2T_q(4d^2+2df) + 2\cdot 2\,T_qT_kd \\
+    &= 2T_q(4d^2+2df) + 4\,T_qT_kd ,
+\end{align}
+which is \eqnref{eq:cost}; the key/value projections for cached positions are computed once offline and are excluded. Layer norms, the convolutional stem (which processes only the $2T$ unpadded mel frames under \method{}) and the softmax are lower order. With a full cache every speech query sees exactly $N$ keys (its own $T$ plus the $N-T$ cached ones), so the relative cost of \method{} is
+\begin{equation}
+    \rho_{\mathrm{full}}=\frac{C(T,N)}{C(N,N)}=\frac{T\,[2(4d^2+2df)+4Nd]}{N\,[2(4d^2+2df)+4Nd]}=\frac{T}{N}.
+\end{equation}
+The pilot's mean $T$ is 234.4 positions, so $\rho_{\mathrm{full}}=0.156$, matching the reported 0.157 (averaged per utterance). With a top-$k$ cache the attention term shrinks to $4T(T{+}k)d$, and $C(T,T{+}k)/C(N,N)$ approaches the cost of unpadded encoding (0.11--0.14 in the pilot).
+
+\section{Implementation and Reproducibility Details}
+\label{app:implementation}
+
+All code is in the project repository (\texttt{experiments/pilot\_padding}). The encoder forward pass is written explicitly from the checkpoint weights and checked against the Hugging Face implementation (maximum absolute difference $6.9\times10^{-4}$ at output scale 23.6 on a padded utterance; identical greedy transcript). Log-mel features use the official feature extractor without padding, with the waveform zero-extended to a multiple of 320 samples so that the number of encoder positions is an integer. Sinusoidal position embeddings are sliced to the first $T$ positions. Cached keys and values are taken at positions $[T{+}1,N]$ of the silence run, so every speech query sees each absolute position at most once.
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{8pt}
+\caption{Software and settings of the pilot.}
+\label{tab:implementation}
+\begin{tabular}{l l}
+\toprule
+\textbf{Item} & \textbf{Setting} \\
+\midrule
+Software & Python 3.14, PyTorch 2.11 (CUDA 12.8), Transformers 5.19, jiwer \\
+Checkpoints & \texttt{openai/whisper-base}, \texttt{-small}, \texttt{-large-v3-turbo} \\
+Precision & fp32 (base, small); fp16 (turbo) \\
+Decoding & greedy; special tokens above end-of-text suppressed; 160 tokens max \\
+Text normalisation & Whisper English normaliser (\texttt{tokenizer.normalize}) \\
+Utterance selection & 2--8\,s test-clean utterances, shuffled with seed 0, first 100 \\
+Register frames & top-$k$ token norm at the block after the emergence block \\
+Sink frames & top-$k$ received attention (all layers, heads, queries) in the silence run \\
+Hardware & NVIDIA RTX 3050 Laptop GPU, 4\,GB \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The full evaluation will add bootstrap confidence intervals (1{,}000 resamples), paired tests, wall-clock measurements with CUDA events and peak-memory reports, and will fix all selection rules before running on the test sets.
+
+\FloatBarrier
+
+\section{Supplementary Results and Analyses}
+\label{app:supp-results}
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{8pt}
+\caption{Whisper-base with real partial zero padding and register transplants (pilot v1, same 100 utterances; WER \%).}
+\label{tab:supp-results}
+\begin{tabular}{l c}
+\toprule
+\textbf{Condition} & \textbf{WER} \\
+\midrule
+30\,s padding & 5.39 \\
+no padding & 385.46 \\
+1 / 2 / 5 / 10\,s padding & 31.20 / 16.34 / 5.94 / 5.86 \\
+no padding + tail from a \emph{speech} reference & 24.47 \\
+no padding + 4 transplanted register keys/values & 315.40 \\
+both & 25.02 \\
+padded; encoder attention to own 4 register frames masked & 5.39 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\caption{Top-$k$ versus random-$k$ cached silence positions (KV + full tail; WER \%; pilot).}
+\label{tab:topk-full}
+\begin{tabular}{l cccc cccc}
+\toprule
+ & \multicolumn{4}{c}{\textbf{top-$k$}} & \multicolumn{4}{c}{\textbf{random-$k$}} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+Model & 4 & 16 & 64 & 256 & 4 & 16 & 64 & 256 \\
+\midrule
+Whisper-base & 5.04 & 5.43 & 12.49$^\ast$ & 5.20 & 5.66 & 5.74 & 5.51 & 5.20 \\
+Whisper-small & 3.88 & 3.80 & 2.95 & 2.33 & 3.96 & 3.96 & 3.65 & 3.18 \\
+Whisper-large-v3-turbo & 6.83 & 2.64 & 2.40 & 1.94 & 21.41 & 17.53 & 10.16 & 2.09 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}{\footnotesize $^\ast$Single outlier cell, to be re-checked at scale.}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\caption{Non-speech audio (ESC-50, 200 clips; pilot v3). Share of clips with any output word (\%) and mean output words.}
+\label{tab:esc}
+\begin{tabular}{l cc cc}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Whisper-base}} & \multicolumn{2}{c}{\textbf{Whisper-large-v3-turbo}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Condition & any output & words & any output & words \\
+\midrule
+clip + 25\,s padding & 1.0 & 0.80 & 78.5 & 1.10 \\
+clip only & 8.5 & 1.37 & 98.0 & 16.27 \\
+clip only + silence tail & 5.0 & 0.06 & 100.0 & 1.32 \\
+clip tiled to 30\,s & 3.0 & 1.05 & 94.0 & 2.81 \\
+clip tiled to 25\,s + 5\,s padding & 4.5 & 1.60 & 87.5 & 6.30 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These tables extend the main pilot with the same protocol. Additional robustness results (noise, long-form, beam search, languages) will be added from the full evaluation described in Sec.~\ref{sec:evaluation}.

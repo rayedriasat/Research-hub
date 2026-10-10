@@ -1,0 +1,29 @@
+
+### co:"NeurIPS 2026" AND (abs:"attention sink" OR abs:"attention sinks" OR abs:"massive activations" OR abs:registers OR abs:"high-norm") -> 14
+  2026-10-07 2610.09647v1 When Rank Rises as LLMs Degrade
+  2026-10-06 2610.09193v1 Bookkeeping, Composition, or Unreachable Gold? Reading MemoryAgentBench's Conflict-Resolution Scores Against a Frozen Last-Write Resolver
+  2026-10-05 2610.06571v1 BrainTRACE: Tracing Longitudinal, Multimodal, and Volumetric Evidence in Brain MRI Clinical Reasoning
+  2026-10-04 2610.04915v1 Are We Measuring Scientific Intelligence? Rethinking the Evaluation of AI Scientists
+  2026-10-02 2610.03646v1 When May a Bandit Leave Its Anchor? E-Process-Authorized Thompson Sampling under Non-stationarity
+  2026-10-02 2610.02928v1 Discriminating Fixture Coverage in Agent-Infrastructure Verification Suites
+  2026-09-29 2609.37603v1 Independent Verification Paths Are Not Independent: A Case Study of Common-Mode Failure in a Satellite Catalogue Pipeline
+  2026-08-31 2609.00445v2 Capability-Gated Language Models: Security Composes, Utility Does Not
+  2026-08-27 2608.27309v3 Difference-in-Differences on a Censored Rating Scale Can Manufacture an Effect: Evidence from a Pre-Registered LLM-Judge Audit
+  2026-08-17 2608.15980v1 Whose Gold? Annotator-Pool Disagreement Is Large at the Item Level, and Hidden by Small Leaderboards
+  2026-05-18 2605.17887v2 Attention Sinks and Outliers in Attention Residuals
+  2026-05-06 2605.04895v1 Regime-Conditioned Evaluation in Multi-Context Bayesian Optimization
+  2026-04-17 2604.15702v2 The Metacognitive Monitoring Battery: A Cross-Domain Benchmark for LLM Self-Monitoring
+  2026-03-13 2603.12717v3 Altered Thoughts, Altered Actions: Reasoning Chain as Control Surface for a Vision-Language-Action Policy
+
+### co:"NeurIPS 2026" AND (abs:speech OR abs:audio) AND (abs:interpretability OR abs:mechanistic OR abs:attention OR abs:representation) -> 9
+  2026-10-03 2610.04651v1 GS-Codec: A Gaussian-Splatting Bottleneck for Neural Audio Coding
+  2026-09-29 2609.38444v1 Audible World Models: Spatially Aware Sound Generation for 3D Worlds
+  2026-09-29 2609.37243v2 Codebook-Guided Cross-Modal Knowledge Distillation for Structurally Heterogeneous Features
+  2026-09-29 2609.36737v1 Reconstructing the Vocal Tract with Differentiable Acoustic Simulation
+  2026-09-27 2609.33800v1 Binding Multiple Modalities via Multimodal Wasserstein Barycenter
+  2026-09-23 2609.27489v1 Passing: An Endless Journey through Reconstructed Spacetime with AI-Generated Sound
+  2026-07-06 2607.05171v1 RABBiT: Rapidly adaptive BOLD foundation model via brain-tuning for accurate zero-shot and few-shot prediction of speech-elicited responses in the brain
+  2026-06-26 2606.27862v1 ScaLe-INR: Scale and Learn Implicit Neural Representations
+  2026-04-28 2604.25359v1 The Structured Output Benchmark: A Multi-Source Benchmark for Evaluating Structured Output Quality in Large Language Models
+
+### co:"NeurIPS" AND co:2026 AND (abs:whisper OR abs:"speech encoder" OR abs:"audio encoder") -> 0

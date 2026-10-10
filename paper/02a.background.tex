@@ -1,0 +1,49 @@
+% ============================================================
+% 02A. BACKGROUND
+% ============================================================
+\section{Background}
+\label{sec:background}
+
+\subsection{Problem Setting}
+
+\paragraph{Whisper's input window.} An utterance $x$ of duration $\tau\le 30$\,s is converted to an 80- or 128-channel log-mel spectrogram with a 10\,ms hop and zero-padded to 3000 frames; a two-layer convolutional stem (second layer stride 2) yields $N=1500$ encoder positions, to which fixed sinusoidal position embeddings $\mathbf{p}_1,\dots,\mathbf{p}_N$ are added~\cite{radford2023whisper}. The encoder is a stack of $L$ pre-normalisation (pre-LN) transformer blocks followed by a final LayerNorm; every Whisper size uses 64-dimensional attention heads (tiny: 4 layers, width 384; large: 32 layers, width 1280). Let $T=\lceil 50\tau\rceil$ be the number of positions covered by speech. With padding, positions $T{+}1,\dots,N$ hold the encoding of digital silence; the decoder cross-attends to all $N$ encoder outputs $\mathbf{H}=[\mathbf{h}_1,\dots,\mathbf{h}_N]$.
+
+\paragraph{Goal.} We ask which computations the padded positions perform, and whether those computations can be supplied when the encoder processes only the $T$ speech positions. The task performance measure is the word error rate of the decoded transcript,
+\begin{equation}
+    \mathrm{WER}
+    = \frac{S+D+I}{N_{\mathrm{ref}}},
+    \label{eq:objective}
+\end{equation}
+with substitutions $S$, deletions $D$ and insertions $I$ against $N_{\mathrm{ref}}$ reference words after Whisper's text normaliser. Because insertions are unbounded, WER exceeds 100\% when the decoder loops; we therefore also report a hallucination rate (Sec.~\ref{sec:metrics}). All interventions are applied at inference time to frozen public checkpoints; no parameter is trained.
+
+\subsection{Notation and Preliminaries}
+
+For a layer $\ell$ with hidden states $\mathbf{X}^{(\ell)}\in\R^{N\times d}$, a head with queries $\mathbf{q}_i$, keys $\mathbf{k}_j$ and values $\mathbf{v}_j$ computes
+\begin{equation}
+    \mathbf{o}_i = \sum_{j} a_{ij}\mathbf{v}_j,\qquad
+    a_{ij}=\frac{\exp(\mathbf{q}_i^\top\mathbf{k}_j)}{\sum_{m}\exp(\mathbf{q}_i^\top\mathbf{k}_m)}.
+    \label{eq:loss}
+\end{equation}
+We use three observables that recent work shows can dissociate~\cite{sun2026anatomy,ngnawe2026spike}.
+
+\begin{definition}[Register frame, massive activation, attention sink]
+A \emph{register (high-norm) frame} at layer $\ell$ is a position whose hidden-state norm exceeds ten times the median token norm, $\norm{\mathbf{x}^{(\ell)}_j}_2>10\,\mathrm{med}_m\norm{\mathbf{x}^{(\ell)}_m}_2$. A \emph{massive activation} is a single entry with $|x^{(\ell)}_{jc}|>100$ that is at least about $1000\times$ the median entry magnitude of the layer~\cite{sun2024massive}; we report the ratio $\Psi^{(\ell)}=\max_{j,c}|x_{jc}|/\mathrm{med}_{j,c}|x_{jc}|$. An \emph{attention-sink frame} is a position whose received attention, averaged over heads and queries, $\bar a_j=\frac{1}{HN}\sum_{h,i}a^{h}_{ij}$, is among the largest in the layer; following Gu et~al.~\cite{gu2025sinkemerges}, a sink holds at least 30\% of the attention mass in some layer.
+\end{definition}
+
+The following elementary fact explains why a sink can implement a ``no-op'' and why sink keys and values can be cached.
+
+\begin{proposition}
+\label{prop:placeholder}
+Fix a head and a query $\mathbf{q}_i$. Suppose one key $\mathbf{k}_s$ satisfies $\mathbf{q}_i^\top\mathbf{k}_s-\max_{j\neq s}\mathbf{q}_i^\top\mathbf{k}_j\ge\Delta$ and all values are bounded, $\norm{\mathbf{v}_j}_2\le V$. Then
+\begin{equation}
+    \norm{\mathbf{o}_i-\mathbf{v}_s}_2 \le 2V\,(n-1)\,e^{-\Delta},
+    \label{eq:placeholder-bound}
+\end{equation}
+where $n$ is the number of keys. Hence, as the logit gap grows, the head output tends to the constant $\mathbf{v}_s$, independent of the content of the other tokens.
+\end{proposition}
+
+\begin{proof}
+$1-a_{is}=\sum_{j\ne s}a_{ij}\le(n-1)e^{-\Delta}$ and $\mathbf{o}_i-\mathbf{v}_s=\sum_{j\ne s}a_{ij}(\mathbf{v}_j-\mathbf{v}_s)$, whose norm is at most $2V(1-a_{is})$.
+\end{proof}
+
+Proposition~\ref{prop:placeholder} is the reason a sink acts as an attention bias~\cite{sun2024massive,jiang2025testtime}: what matters for the other tokens is the sink's key and value, not where they were computed. If the keys and values of the silent positions do not depend on the utterance, they can be computed once and reused. Sec.~\ref{sec:method} tests how far this holds for Whisper.
